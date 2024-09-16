@@ -136,11 +136,11 @@
             </td>
             <td class="table-group-divider"> <!-- Sectors -->
                 <ul class="m-0 p-0">
-                    {% for sector in incident.affected_sectors.all %}
+                    {% for sector in incident.affected_sectors.all  %}
                     {% if sector.parent is None %}
-                    {{ sector.name }}
+                    {{ sector.get_safe_translation }}
                     {% else %}
-                    {{ sector.parent }}
+                    {{ sector.parent.get_safe_translation }}
                     {% endif %}
                     <br />
                     {% endfor %}
@@ -148,9 +148,9 @@
             </td>
             <td class="table-group-divider"> <!-- Subsectors -->
                 <ul class="m-0 p-0">
-                    {% for sector in incident.affected_sectors.all %}
+                    {% for sector in incident.affected_sectors.all  %}
                     {% if sector.parent is not None %}
-                    {{ sector.name }}
+                    {{ sector.get_safe_translation }}
                     {% endif %}
                     <br />
                     {% endfor %}
