@@ -1,0 +1,85 @@
+{% load django_bootstrap5 %}
+{% load static %}
+{% load i18n %}
+{% block bootstrap5_extra_script %}
+  <link rel="stylesheet"
+        href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
+  <script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
+  <script src='{% static "js/export_incidents.js" %}'></script>
+{% endblock %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white px-4 small">
+      <h5 class="modal-title" id="export_incidents_label">
+        {% translate "Export incidents" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label='{% translate "Close" %}'>
+      </button>
+    </div>
+    <form id="exportIncidentsForm"
+          method="post"
+          action="{% url 'export_incidents' %}">
+      <div class="modal-body py-4 px-5">
+        {% csrf_token %}
+        {% bootstrap_form_errors form %}
+        {% bootstrap_field form.regulation %}
+        <div class="mb-3 required-field">
+          <label for="id_sectorregulation" class="form-label">
+            {{ form.sectorregulation.label }}
+          </label>
+          <select name="sectorregulation"
+                  id="id_sectorregulation"
+                  class="form-select"
+                  required>
+            <option value selected>
+              ---------
+            </option>
+            {% for sr in form.fields.sectorregulation.queryset %}
+              <option value="{{ sr.id }}" data-regulation="{{ sr.regulation.id }}">
+                {{ sr }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-3 required-field">
+          <label for="id_workflow" class="form-label">
+            {{ form.workflow.label }}
+          </label>
+          <select name="workflow" id="id_workflow" class="form-select" required>
+            <option value selected>
+              ---------
+            </option>
+            {% for wf in form.fields.workflow.queryset %}
+              <option value="{{ wf.id }}"
+                      data-sectorregulation="{{ wf.sectorregulation_id }}">
+                {{ wf }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            {% bootstrap_field form.from_date %}
+          </div>
+          <div class="col-6">
+            {% bootstrap_field form.to_date %}
+          </div>
+        </div>
+        {% bootstrap_field form.file_format %}
+      </div>
+      <div class="modal-footer">
+        <button type="button"
+                class="btn btn-sm btn-secondary"
+                data-bs-dismiss="modal">
+          {% translate "Cancel" %}
+        </button>
+        <button type="submit" class="btn btn-sm btn-primary">
+          {% translate "Export" %}
+        </button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

@@ -1,29 +1,34 @@
-{% extends 'home/base.html' %}
+{% extends "home/base.html" %}
 {% load i18n %}
 {% load static %}
-
 {% block subheader %}
-<div class="container-fluid d-flex bg-light py-4 align-items-center mb-4">
+  <div class="container-fluid d-flex bg-light py-4 align-items-center mb-4">
     <div class="d-inline-flex me-auto gap-2">
-        <img src="{% static 'images/icons/ico-incidents.svg' %}" alt="incident notification icon" style="width:30px">
-        <h2 class="fw-bolder mb-0">
-            {% translate "Incident notification"|upper %}
-        </h2>
+      <img src="{% static 'images/icons/ico-incidents.svg' %}"
+           alt="incident notification icon"
+           class="w-7">
+      <h2 class="fw-bolder mb-0">
+        {% translate "Incident notification"|upper %}
+      </h2>
     </div>
     <div class="d-flex align-items-center gap-4 pe-2">
-        <a class="fw-bold" href="{% url 'incidents' %}" onclick="load_spinner()">
-            {% translate "Overview" %}
+      <a class="fw-bold" href="{% url 'incidents' %}" onclick="load_spinner()">{% translate "Overview" %}</a>
+      {% if is_regulator %}
+        <a class="fw-bold"
+           href="{% url 'regulator_incidents' %}"
+           onclick="load_spinner()">{% translate "My reported incidents" %}</a>
+      {% endif %}
+      {% if not is_regulator and not is_observer or is_regulator_incidents %}
+        <a class="btn btn-primary" href="{% url 'declaration' %}">{% translate "Notify an incident" %}</a>
+      {% endif %}
+      {% if can_export_incidents %}
+        <a class="fw-bold export_incidents"
+           href="{% url 'export_incidents' %}"
+           data-bs-toggle="modal"
+           data-bs-target="#export_incidents">
+          {% translate "Export" %}
         </a>
-        {% if is_regulator %}
-        <a class="fw-bold" href="{% url 'regulator_incidents' %}" onclick="load_spinner()">
-            {% translate "My reported incidents" %}
-        </a>
-        {% endif %}
-        {% if not is_regulator and not is_observer or is_regulator_incidents %}
-        <a class="btn btn-primary" href="{% url 'declaration' %}">
-            {% translate "Notify an incident" %}
-        </a>
-        {% endif %}
+      {% endif %}
     </div>
-</div>
+  </div>
 {% endblock %}

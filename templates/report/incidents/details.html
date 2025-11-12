@@ -1,80 +1,84 @@
 {% load i18n %}
 <h2 id="incident_details" class="fw-bold text-primary">
-    {% translate "Incident details" %}
+  {% translate "Incident details" %}
 </h2>
-<div class="hr-separator"></div>
-
+<div class="hr-separator">
+</div>
 <table class="table table-borderless">
-    <tbody>
-        <tr>
-            <th class="thead-light">
-                {% translate "Reference" %}
-            </th>
-            <td>{{ incident.incident_id }}</td>
-        </tr>
-        <tr>
-            <th class="thead-light">
-                {% translate "Report status" %}
-            </th>
-            <td>
-                {{ incident.get_incident_status_display }}               
-            </td>
-        </tr>
-        <tr>
-            <th class="thead-light">
-                {% translate "Legal basis" %}
-            </th>
-            <td>{{ incident.sector_regulation.regulation }}</td>
-        </tr>
-        <tr>
-            <th class="thead-light">
-                {% translate "Regulator" %}
-            </th>
-            <td>{{ incident.sector_regulation.regulator }}</td>
-        </tr>
-
-        <tr>
-            <th class="thead-light">
-                {% translate "Impacted sectors" %}
-            </th>
-            <td>
-                {% for sector_name, subsectors in sectors.items %}
-                    <div>
-                        <strong>{{ sector_name }}</strong>
-                        <ul>
-                            {% for subsector_label in subsectors %}
-                                <li>{{ subsector_label }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                {% endfor %}
-            </td>
-        </tr>
-        <tr>
-            <th class="thead-light d-inline-flex">
-                <img class="pe-1 w-10"
-                src="images/icons/ico-impact.svg" alt="Impact icon">
-                {% translate "Significant impact" %}
-            </th>
-            <td>
-                {% if incident.is_significative_impact %}
-                {% translate "Yes" %}
-                {% else %}
-                {% translate "No" %}
-                {% endif %}
-            </td>
-        </tr>
-        {% if incident.complaint_reference %}
-        <tr>
-            <th class="thead-light">
-                {% translate "Criminal complaint file number" %}
-            </th>
-            <td>
-                {{ incident.complaint_reference }}               
-            </td>
-        </tr>
+  <tbody>
+    <tr>
+      <th class="thead-light">
+        {% translate "Reference" %}
+      </th>
+      <td>
+        {{ incident.incident_id }}
+      </td>
+    </tr>
+    <tr>
+      <th class="thead-light">
+        {% translate "Report status" %}
+      </th>
+      <td>
+        {{ incident.get_incident_status_display }}
+      </td>
+    </tr>
+    <tr>
+      <th class="thead-light">
+        {% translate "Legal basis" %}
+      </th>
+      <td>
+        {{ incident.sector_regulation.regulation }}
+      </td>
+    </tr>
+    <tr>
+      <th class="thead-light">
+        {% translate "Regulator" %}
+      </th>
+      <td>
+        {{ incident.sector_regulation.regulator }}
+      </td>
+    </tr>
+    <tr>
+      <th class="thead-light">
+        {% translate "Impacted sectors" %}
+      </th>
+      <td>
+        {% for sector_name, subsectors in sectors.items %}
+          <div>
+            <strong>{{ sector_name }}</strong>
+            <ul>
+              {% for subsector_label in subsectors %}
+                <li>
+                  {{ subsector_label }}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <th class="thead-light d-inline-flex">
+        <img class="pe-1 w-10" src="images/icons/ico-impact.svg" alt="Impact icon">
+        {% translate "Significant impact" %}
+      </th>
+      <td>
+        {% if incident.is_significative_impact %}
+          {% translate "Yes" %}
+        {% else %}
+          {% translate "No" %}
         {% endif %}
-    </tbody>
+      </td>
+    </tr>
+    {% if incident.complaint_reference %}
+      <tr>
+        <th class="thead-light">
+          {% translate "Criminal complaint file number" %}
+        </th>
+        <td>
+          {{ incident.complaint_reference }}
+        </td>
+      </tr>
+    {% endif %}
+  </tbody>
 </table>
-
-

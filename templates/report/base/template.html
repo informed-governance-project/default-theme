@@ -1,32 +1,34 @@
 {% load i18n %}
-
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE|default:'en_us' }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {% block report_head_title %}{% endblock %}
-    </head>
-    <body class="bg-transparent">
-        <div id="page">
-            {% block report_pages %}{% endblock %}
-        </div>
-    </body>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toc = document.querySelector('.toc');
-            const headings = document.querySelectorAll('h2, h3, h4');
-            let tocHTML = '';
-        
-            headings.forEach((heading, index) => {
-                const level = parseInt(heading.tagName.substring(1));
-                const number = `${'0'.repeat(level - 2)}${index + 1}`;
-                tocHTML += `<li class="border-bottom border-secondary pt-1">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block report_head_title %}
+      <title>{% translate "Report" %}</title>
+    {% endblock %}
+  </head>
+  <body class="bg-transparent">
+    <div id="page">
+      {% block report_pages %}
+      {% endblock %}
+    </div>
+  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toc = document.querySelector('.toc');
+      const headings = document.querySelectorAll('h2, h3, h4');
+      let tocHTML = '';
+
+      headings.forEach((heading, index) => {
+        const level = parseInt(heading.tagName.substring(1));
+        const number = `${'0'.repeat(level - 2)}${index + 1}`;
+        tocHTML += `<li class="border-bottom border-secondary pt-1">
                     <a class="text-decoration-none text-reset" href="#${heading.id}">${number}. ${heading.textContent}</a>
                 </li>`;
-            });
-        
-            toc.innerHTML = tocHTML;
-        });
-    </script>
+      });
+
+      toc.innerHTML = tocHTML;
+    });
+  </script>
 </html>

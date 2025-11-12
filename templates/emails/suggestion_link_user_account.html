@@ -1,60 +1,58 @@
 {% load i18n %}
-
 {% spaceless %}
-<p>
-  {% if operator_admin_name %}
-  {% blocktranslate trimmed with operator_admin_name=operator_admin_name %}
-  Dear {{ operator_admin_name }},
-  {% endblocktranslate %}
-  {% else %}
-  {% translate "Dear Madam or Sir," %}
-  {% endif %}
-</p>
-<p>
-  {% blocktranslate trimmed with new_user_name=new_user_name new_user_email=new_user_email %}
-  We have noticed that the user account {{ new_user_name }} ({{ new_user_email }})
-  has been created on SERIMA and it may be part of your organization.
-  {% endblocktranslate %}
-</p>
-<p>
-  {% blocktranslate trimmed with new_user_name=new_user_name %}
-  However, {{ new_user_name }} is not yet linked to any organization on SERIMA.
-  {% endblocktranslate %}
-</p>
-<p>
-  {% blocktranslate trimmed with regulator=regulator new_user_name=new_user_name %}
-  As part of our efforts to improve data quality and streamline account management,
-  we ({{ regulator }}) suggest linking {{ new_user_name }} with your organization.
-  {% endblocktranslate %}
-</p>
-<p>
-  {% blocktranslate trimmed %}
-  Please only accept this proposal after having verified the name and the e-mail address.
-  {% endblocktranslate %}
-</p>
-<p>
-  {% blocktranslate trimmed %}
-  In case of any doubt, please reject this proposal.
-  {% endblocktranslate %}
-</p>
-<p>
-  {% blocktranslate trimmed %}
-  Please note: this is purely a suggestion and not an action
-  you need to take unless you confirm it.
-  {% endblocktranslate %}
-</p>
-<p>
-  {% blocktranslate trimmed %}
-  Otherwise, feel free to disregard this message.
-  {% endblocktranslate %}
-</p>
-<p>
-  {% translate "Thank you." %}
-</p>
-<p>
-  {% translate "Best regards," %}
-</p>
-<p>
-  {{ regulator }}
-</p>
+  <p>
+    {% if operator_admin_name %}
+      {% blocktranslate trimmed with operator_admin_name=operator_admin_name %}
+        Dear {{ operator_admin_name }},
+      {% endblocktranslate %}
+    {% else %}
+      {% translate "Dear Madam or Sir," %}
+    {% endif %}
+  </p>
+  <p>
+    {% blocktranslate trimmed with new_user_name=new_user_name new_user_email=new_user_email %}
+      We have noticed that the user account {{ new_user_name }} ({{ new_user_email }})
+      has been created on SERIMA and it may be part of your organization.
+    {% endblocktranslate %}
+  </p>
+  <p>
+    {% blocktranslate trimmed with new_user_name=new_user_name %}
+      However, {{ new_user_name }} is not yet linked to any organization on SERIMA.
+    {% endblocktranslate %}
+  </p>
+  <p>
+    {% blocktranslate trimmed with regulator=regulator new_user_name=new_user_name %}
+      As part of our efforts to improve data quality and streamline account management,
+      we ({{ regulator }}) suggest linking {{ new_user_name }} with your organization.
+    {% endblocktranslate %}
+  </p>
+  <p>
+    {% blocktranslate trimmed %}
+      Please only accept this proposal after having verified the name and the e-mail address.
+    {% endblocktranslate %}
+  </p>
+  <p>
+    {% blocktranslate trimmed %}
+      In case of any doubt, please reject this proposal by selecting delete.
+    {% endblocktranslate %}
+  </p>
+  <p>
+    {% blocktranslate trimmed %}
+      Please note: This is a suggestion only.
+    {% endblocktranslate %}
+  </p>
+  <p>
+    {% blocktranslate trimmed %}
+      Otherwise, feel free to disregard this message.
+    {% endblocktranslate %}
+  </p>
+  <p>
+    {% translate "Thank you." %}
+  </p>
+  <p>
+    {% translate "Best regards," %}
+  </p>
+  <p>
+    {{ regulator }}
+  </p>
 {% endspaceless %}

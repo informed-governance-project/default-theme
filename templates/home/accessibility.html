@@ -1,93 +1,161 @@
-{% extends 'home/base.html' %}
-
+{% extends "home/base.html" %}
 {% block content %}
-<div class="container-flex pb-5" lang="fr">
-  <h3 class="fw-bolder">
-    {% block title %}Accessibilité{% endblock %}
-  </h3>
-  <div class="hr-separator"></div>
-  <p>Cette page présente nos engagements en matière d’accessibilité numérique puis définit le
-    niveau de conformité de ce présent site à la réglementation et aux référentiels en vigueur.</p>
-  <h4>Qu’est-ce que l’accessibilité numérique ?</h4>
-  <p>L’accessibilité numérique est un ensemble de règles et de bonnes pratiques qui couvrent
-    notamment les aspects fonctionnels, graphiques, techniques et éditoriaux.</p>
-  <p>Le suivi de ces règles et bonnes pratiques permet de s’assurer que les supports numériques
-    (sites web, applications mobiles, documents PDF, etc.) sont <b>accessibles aux personnes
-      handicapées.</b>
+  <div class="container-flex pb-5" lang="fr">
+    <h3 class="fw-bolder">
+      {% block title %}
+        Accessibilité
+      {% endblock %}
+    </h3>
+    <div class="hr-separator">
+    </div>
+    <p>
+      Cette page présente nos engagements en matière d’accessibilité numérique puis définit le
+      niveau de conformité de ce présent site à la réglementation et aux référentiels en vigueur.
+    </p>
+    <h4>
+      Qu’est-ce que l’accessibilité numérique ?
+    </h4>
+    <p>
+      L’accessibilité numérique est un ensemble de règles et de bonnes pratiques qui couvrent
+      notamment les aspects fonctionnels, graphiques, techniques et éditoriaux.
+    </p>
+    <p>
+      Le suivi de ces règles et bonnes pratiques permet de s’assurer que les supports numériques
+      (sites web, applications mobiles, documents PDF, etc.) sont <b>accessibles aux personnes
+    handicapées.</b>
   </p>
-  <p>Un site accessible permet par exemple de :</p>
+  <p>
+    Un site accessible permet par exemple de :
+  </p>
   <ul>
-    <li>Personnaliser son affichage via le système d’exploitation et/ou le navigateur
+    <li>
+      Personnaliser son affichage via le système d’exploitation et/ou le navigateur
       (agrandissement ou rétrécissement des caractères, changement de la typographie,
       modification des couleurs, arrêt des animations, etc.).
     </li>
-    <li>Naviguer à l’aide de technologies d’assistance comme une synthèse vocale ou une
-      plage braille.</li>
-    <li>Naviguer sans utiliser la souris, avec le clavier uniquement, des contacteurs ou via un
+    <li>
+      Naviguer à l’aide de technologies d’assistance comme une synthèse vocale ou une
+      plage braille.
+    </li>
+    <li>
+      Naviguer sans utiliser la souris, avec le clavier uniquement, des contacteurs ou via un
       écran tactile.
     </li>
-    <li>Consulter les vidéos et les contenus audio à l’aide de sous-titres et/ou de
-      transcriptions.</li>
-    <li>Etc.</li>
-  </ul>
-  <h4>Engagements d’accessibilité numérique</h4>
-  <p>L’Institut Luxembourgeois de Régulation (ILR) s'engage à rendre son site internet accessible,
-    conformément à la <a href="https://legilux.public.lu/eli/etat/leg/loi/2019/05/28/a373/jo" target="_blank"
-      rel="noopener noreferrer">loi du 28 mai 2019</a> relative à l’accessibilité des sites internet et des
-    applications mobiles des organismes du secteur public.
-  </p>
-  <h4>Déclaration d’accessibilité</h4>
-  <p>Cette déclaration temporaire s’applique au site « SERIMA ».</p>
-  <h4>État de conformité</h4>
-  <p>Ce présent site est non conforme à la norme européenne <a
-      href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/02.01.02_60/en_301549v020102p.pdf" target="_blank"
-      rel="noopener noreferrer">EN 301 549</a> ainsi qu’au Référentiel
-    <a href="https://accessibilite.public.lu/fr/raweb1/" target="_blank" rel="noopener noreferrer">d'Évaluation de
-      l'Accessibilité Web (RAWeb) v1</a> qui l’implémente en raison de l’absence d’un
-    audit permettant d’évaluer sa conformité.
-  </p>
-  <p>Un audit de conformité est planifié avec la société <a href="https://ideance.net/" target="_blank"
-      rel="noopener noreferrer">Ideance</a> pour avril 2025.
-  </p>
-  <p>Cette présente déclaration sera donc mise à jour dès réception des résultats de l’audit.
-  </p>
-  <h4>Préparation de la présente déclaration sur
-    l'accessibilité</h4>
-  <p>La présente déclaration a été préparée le 08/01/2025.
-  </p>
-  <h4>Retour d'information et coordonnées de contact
-  </h4>
-  <p>Si vous n’arrivez pas à accéder à un contenu ou à un service de ce site, vous pouvez nous
-    contacter via un des moyens ci-après en décrivant votre problème :</p>
-  <ul>
-    <li>Écrivez-nous à l’adresse email : <a href="mailto:serima@ilr.lu">serima@ilr.lu</a></li>
-    <li>Appelez-nous au <span class="text-primary">+352 28228 380.</span></li>
     <li>
-      <p>Écrivez-nous par voie postale à l’adresse suivante :</p>
-      <div class="text-primary">
-        <p>Institut Luxembourgeois de Régulation</p>
-        <p class="mb-0">L-2922 Luxembourg</p>
-        <p class="mb-0">Luxembourg</p>
-      </div>
+      Consulter les vidéos et les contenus audio à l’aide de sous-titres et/ou de
+      transcriptions.
+    </li>
+    <li>
+      Etc.
     </li>
   </ul>
-  <p>Nous nous engageons à vous répondre par mail dans un délai de 1 mois au plus tard.</p>
-  <p>Pour remédier au problème de manière durable et dans la mesure du raisonnable, la
-    correction en ligne du défaut d’accessibilité sera privilégiée.</p>
-  <p>Si cela ne peut être fait, l’information souhaitée vous sera transmise dans un format
-    accessible selon vos souhaits :</p>
-  <ul>
-    <li>Par écrit dans un document ou un email.</li>
-    <li>À l’oral lors d'un entretien ou par téléphone.</li>
-  </ul>
-  <h4>Procédure permettant d'assurer le respect des dispositions</h4>
-  <p>En cas de réponse non satisfaisante, vous avez également la possibilité d’en informer le
-    <a href="https://sip.gouvernement.lu/" target="_blank" rel="noopener noreferrer">Service information
-      et presse</a>, organisme responsable du contrôle de l’accessibilité, via son
-    <a href="https://sip.gouvernement.lu/fr/support/reclamation-accessibilite.html" target="_blank"
-      rel="noopener noreferrer">formulaire de réclamation en ligne</a>, ou l’<a href="https://www.ombudsman.lu/"
-      target="_blank" rel="noopener noreferrer">Ombudsman</a>, médiateur du Grand-Duché de
-    Luxembourg.
+  <h4>
+    Engagements d’accessibilité numérique
+  </h4>
+  <p>
+    L’Institut Luxembourgeois de Régulation (ILR) s'engage à rendre son site internet accessible,
+    conformément à la <a href="https://legilux.public.lu/eli/etat/leg/loi/2019/05/28/a373/jo"
+    target="_blank"
+    rel="noopener noreferrer">loi du 28 mai 2019</a> relative à l’accessibilité des sites internet et des
+    applications mobiles des organismes du secteur public.
   </p>
-</div>
-{% endblock %}
+  <h4>
+    Déclaration d’accessibilité
+  </h4>
+  <p>
+    Cette déclaration temporaire s’applique au site « SERIMA ».
+  </p>
+  <h4>
+    État de conformité
+  </h4>
+  <p>
+    Ce présent site est non conforme à la norme européenne <a href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/02.01.02_60/en_301549v020102p.pdf"
+    target="_blank"
+    rel="noopener noreferrer">EN 301 549</a> ainsi qu’au Référentiel
+    <a href="https://accessibilite.public.lu/fr/raweb1/"
+       target="_blank"
+       rel="noopener noreferrer">d'Évaluation de
+      l'Accessibilité Web (RAWeb) v1</a> qui l’implémente en raison de l’absence d’un
+      audit permettant d’évaluer sa conformité.
+    </p>
+    <p>
+      Un audit de conformité est planifié avec la société <a href="https://ideance.net/" target="_blank" rel="noopener noreferrer">Ideance</a> pour avril 2025.
+    </p>
+    <p>
+      Cette présente déclaration sera donc mise à jour dès réception des résultats de l’audit.
+    </p>
+    <h4>
+      Préparation de la présente déclaration sur
+      l'accessibilité
+    </h4>
+    <p>
+      La présente déclaration a été préparée le 08/01/2025.
+    </p>
+    <h4>
+      Retour d'information et coordonnées de contact
+    </h4>
+    <p>
+      Si vous n’arrivez pas à accéder à un contenu ou à un service de ce site, vous pouvez nous
+      contacter via un des moyens ci-après en décrivant votre problème :
+    </p>
+    <ul>
+      <li>
+        Écrivez-nous à l’adresse email : <a href="mailto:serima@ilr.lu">serima@ilr.lu</a>
+      </li>
+      <li>
+        Appelez-nous au <span class="text-primary">+352 28228 380.</span>
+      </li>
+      <li>
+        <p>
+          Écrivez-nous par voie postale à l’adresse suivante :
+        </p>
+        <div class="text-primary">
+          <p>
+            Institut Luxembourgeois de Régulation
+          </p>
+          <p class="mb-0">
+            L-2922 Luxembourg
+          </p>
+          <p class="mb-0">
+            Luxembourg
+          </p>
+        </div>
+      </li>
+    </ul>
+    <p>
+      Nous nous engageons à vous répondre par mail dans un délai de 1 mois au plus tard.
+    </p>
+    <p>
+      Pour remédier au problème de manière durable et dans la mesure du raisonnable, la
+      correction en ligne du défaut d’accessibilité sera privilégiée.
+    </p>
+    <p>
+      Si cela ne peut être fait, l’information souhaitée vous sera transmise dans un format
+      accessible selon vos souhaits :
+    </p>
+    <ul>
+      <li>
+        Par écrit dans un document ou un email.
+      </li>
+      <li>
+        À l’oral lors d'un entretien ou par téléphone.
+      </li>
+    </ul>
+    <h4>
+      Procédure permettant d'assurer le respect des dispositions
+    </h4>
+    <p>
+      En cas de réponse non satisfaisante, vous avez également la possibilité d’en informer le
+      <a href="https://sip.gouvernement.lu/"
+         target="_blank"
+         rel="noopener noreferrer">Service information
+        et presse</a>, organisme responsable du contrôle de l’accessibilité, via son
+        <a href="https://sip.gouvernement.lu/fr/support/reclamation-accessibilite.html"
+           target="_blank"
+           rel="noopener noreferrer">formulaire de réclamation en ligne</a>, ou l’<a href="https://www.ombudsman.lu/"
+   target="_blank"
+   rel="noopener noreferrer">Ombudsman</a>, médiateur du Grand-Duché de
+        Luxembourg.
+      </p>
+    </div>
+  {% endblock %}

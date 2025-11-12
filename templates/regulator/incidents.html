@@ -1,42 +1,45 @@
-{% extends 'incidents/incidents_base.html' %}
+{% extends "incidents/incidents_base.html" %}
 {% load static %}
 {% load i18n %}
-
 {% block bootstrap5_extra_script %}
-{{ block.super }}
-<script src='{% static "js/incidents_regulator.js" %}'></script>
+  {{ block.super }}
+  <script src='{% static "js/incidents_regulator.js" %}'></script>
 {% endblock %}
-
 {% block content_table_actions %}
-{{ block.super }}
-<button class="btn p-0 border-0 contacts_incident"
-    data-contacts='{
-        "contact_name": "{{ incident.contact_firstname }} {{ incident.contact_lastname }}",
-        "contact_jobtitle": "{{ incident.contact_title }}",
-        "contact_email": "{{ incident.contact_email }}",
-        "contact_telephone": "{{ incident.contact_telephone }}",
-        "technical_name": "{{ incident.technical_firstname }} {{ incident.technical_lastname }}",
-        "technical_jobtitle": "{{ incident.technical_title }}",
-        "technical_email": "{{ incident.technical_email }}",
-        "technical_telephone": "{{ incident.technical_telephone }}"
-    }'
-    data-bs-toggle="modal"
-    data-bs-target="#contacts_incident">
-    <i class="custom-icon-user h3"        
-        data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'Contacts' %}">
+  {{ block.super }}
+  <button class="btn p-0 border-0 contacts_incident"
+          data-contacts='{ "contact_name": "{{ incident.contact_firstname }} {{ incident.contact_lastname }}", "contact_jobtitle": "{{ incident.contact_title }}", "contact_email": "{{ incident.contact_email }}", "contact_telephone": "{{ incident.contact_telephone }}", "technical_name": "{{ incident.technical_firstname }} {{ incident.technical_lastname }}", "technical_jobtitle": "{{ incident.technical_title }}", "technical_email": "{{ incident.technical_email }}", "technical_telephone": "{{ incident.technical_telephone }}" }'
+          data-bs-toggle="modal"
+          data-bs-target="#contacts_incident">
+    <i class="custom-icon-user h3"
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title='{% translate "Contacts" %}'>
     </i>
-    <span class="visually-hidden">{% translate 'Contacts' %}</span>
-</button>
+    <span class="visually-hidden">{% translate "Contacts" %}</span>
+  </button>
 {% endblock %}
-
 {% block content_modals %}
-{{ block.super }}
-<div class="modal fade" id="contacts_incident" data-bs-backdrop="static"
-     data-bs-keyboard="false" tabindex="-1" aria-labelledby="contacts_incident_label"
-     aria-hidden="true">
+  {{ block.super }}
+  <div class="modal fade"
+       id="contacts_incident"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="contacts_incident_label"
+       aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-sm modal-dialog-scrollable">
-        {% include "modals/contacts_incident.html" %}
+      {% include "modals/contacts_incident.html" %}
     </div>
-</div>
+  </div>
+  <div class="modal fade"
+       id="export_incidents"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="export_incidents_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
 {% endblock %}

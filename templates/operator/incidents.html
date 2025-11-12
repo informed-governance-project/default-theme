@@ -1,164 +1,177 @@
-{% extends 'incidents/incidents_base.html' %}
+{% extends "incidents/incidents_base.html" %}
 {% load i18n %}
 {% load static %}
 {% load custom_filters %}
-
 {% block bootstrap5_extra_script %}
-{{ block.super }}
-<script src='{% static "js/incidents_operator.js" %}'></script>
+  {{ block.super }}
+  <script src='{% static "js/incidents_operator.js" %}'></script>
 {% endblock %}
-
-
 {% block content_table_incident_status %}
-    {% if incident.incident_status == 'GOING' %}
-    <i class="custom-icon-ongoing logo-status" 
-        data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'The incident is still ongoing' %}"
-        aria-hidden="true">
-    </i> 
-    <span class="visually-hidden">{% translate 'The incident is still ongoing' %}</span>
-    {% elif incident.incident_status == 'CLOSE' %}
+  {% if incident.incident_status == 'GOING' %}
+    <i class="custom-icon-ongoing logo-status"
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title='{% translate "The incident is still ongoing" %}'
+       aria-hidden="true">
+    </i>
+    <span class="visually-hidden">{% translate "The incident is still ongoing" %}</span>
+  {% elif incident.incident_status == 'CLOSE' %}
     <i class="custom-icon-closed logo-status"
-        data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'The incident is over' %}"
-        aria-hidden="true">
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title='{% translate "The incident is over" %}'
+       aria-hidden="true">
     </i>
-    <span class="visually-hidden">{% translate 'The incident is over' %}</span>
-    {% endif %}
+    <span class="visually-hidden">{% translate "The incident is over" %}</span>
+  {% endif %}
 {% endblock %}
-
 {% block content_table_significative_impact %}
-    {% if incident.is_significative_impact %}
+  {% if incident.is_significative_impact %}
     <i class="custom-icon-impact logo-status"
-        data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'Incident with significant impact' %}"
-        aria-hidden="true">
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title='{% translate "Incident with significant impact" %}'
+       aria-hidden="true">
     </i>
-    <span class="visually-hidden">{% translate 'Incident with significant impact' %}</span>
-    {% else %}
+    <span class="visually-hidden">{% translate "Incident with significant impact" %}</span>
+  {% else %}
     <i class="custom-icon-impact-disabled logo-status"
-        data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'No significant impact' %}"
-        aria-hidden="true">
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title='{% translate "No significant impact" %}'
+       aria-hidden="true">
     </i>
-    <span class="visually-hidden">{% translate 'No significant impact' %}</span>
-    {% endif %}
+    <span class="visually-hidden">{% translate "No significant impact" %}</span>
+  {% endif %}
 {% endblock %}
-
 {% block content_table_incident_id %}
-    {{ incident.incident_id }}
+  {{ incident.incident_id }}
 {% endblock %}
-
 {% block content_table_entity %}
-{{ incident.sector_regulation.regulator }}
+  {{ incident.sector_regulation.regulator }}
 {% endblock %}
-
 {% block content_table_report %}
-    {% with completed_workflows=incident.get_workflows_completed %}
+  {% with completed_workflows=incident.get_workflows_completed %}
     <ul class="list-unstyled mb-0">
-    {% for report in incident.all_reports %}
-    {% with latest_incident_workflow=report.latest_incident_workflow %}
-        <li class="mb-1 d-flex align-items-center">
-            <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip"
-                title="{{ report.tooltip }}">
-                {% if not report.is_disabled and not latest_incident_workflow %}
+      {% for report in incident.all_reports %}
+        {% with latest_incident_workflow=report.latest_incident_workflow %}
+          <li class="mb-1 d-flex align-items-center">
+            <div class="d-inline"
+                 data-bs-placement="top"
+                 data-bs-toggle="tooltip"
+                 title="{{ report.tooltip }}">
+              {% if not report.is_disabled and not latest_incident_workflow %}
                 <a class="btn btn-{{ report.css_class }} btn-sm btn-not-submitted"
-                    href="{% url 'create_workflow' %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
-                    <i class="custom-icon-{{ report.css_class }}-white align-middle" aria-hidden="true"></i>
-                    {{ report.name }}
-                    <br>
-                    {% translate "not submitted yet" %}
+                   href="{% url 'create_workflow' %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
+                  <i class="custom-icon-{{ report.css_class }}-white align-middle"
+                     aria-hidden="true"></i>
+                  {{ report.name }}
+                  <br>
+                  {% translate "not submitted yet" %}
                 </a>
-                {% elif not report.is_disabled and report.css_class == "failed" %}
+              {% elif not report.is_disabled and report.css_class == "failed" %}
                 <a class="btn btn-{{ report.css_class }} btn-sm btn-not-submitted"
-                    href="{% url 'edit_workflow' %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
-                    <i class="custom-icon-{{ report.css_class }}-white align-middle" aria-hidden="true"></i>
-                    {{ report.name }}
+                   href="{% url 'edit_workflow' %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
+                  <i class="custom-icon-{{ report.css_class }}-white align-middle"
+                     aria-hidden="true"></i>
+                  {{ report.name }}
                 </a>
-                {% else %}
-                <i class="custom-icon-{{ report.css_class }} align-middle" aria-hidden="true"></i>
-                <a class="text-{{ report.css_class }} {% if report.is_disabled %}text-decoration-none{% endif %}"
-                    {% if not report.is_disabled %}
-                    href="{% if latest_incident_workflow %}{% url 'edit_workflow' %}{% else %}
-                    {% url 'create_workflow' %}{% endif %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}"
-                    {% endif %}>
-                    {{ report.name }}
-                </a>
-                {% endif %}
-
+              {% else %}
+                <i class="custom-icon-{{ report.css_class }} align-middle"
+                   aria-hidden="true"></i>
+                {% with base_url=latest_incident_workflow|yesno:"edit_workflow,create_workflow" %}
+                  <a class="text-{{ report.css_class }}
+                            {% if report.is_disabled %}
+                              text-decoration-none
+                            {% endif %}"
+                     {% if not report.is_disabled %}
+                       href="{% url base_url %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}"
+                     {% endif %}>{{ report.name }}</a>
+                {% endwith %}
+              {% endif %}
             </div>
             <div class="d-inline-flex align-items-center ms-2 gap-1">
-                {% if latest_incident_workflow.comment %}
+              {% if latest_incident_workflow.comment %}
                 <button class="btn text-secondary workflow_comment p-0"
-                    data-workflow-comment="{{ latest_incident_workflow.comment|linebreaksbr }}" data-bs-toggle="modal"
-                    data-bs-target="#workflow_comment">
-                    <i class="custom-icon-comments h6" data-bs-placement="top" data-bs-toggle="tooltip"
-                        title="{% translate 'Review comment' %}" aria-hidden="true">
-                    </i>
-                    <span class="visually-hidden">
-                        {% translate 'Review comment' %}
-                    </span>
+                        data-workflow-comment="{{ latest_incident_workflow.comment|linebreaksbr }}"
+                        data-bs-toggle="modal"
+                        data-bs-target="#workflow_comment">
+                  <i class="custom-icon-comments h6"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title='{% translate "Review comment" %}'
+                     aria-hidden="true">
+                  </i>
+                  <span class="visually-hidden">{% translate "Review comment" %}</span>
                 </button>
-                {% endif %}
-                {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
+              {% endif %}
+              {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
                 {% if incident_workflows %}
-                <button class="btn text-dark p-0 ps-1 border-0 report_versions" data-workflows="{{ incident_workflows }}"
-                    data-report="{{ report.name }}" data-incident-ref="{{ incident.incident_id}}"
-                    data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                    data-download-url="{% url 'download_incident_report_pdf' 0 %}" data-bs-toggle="modal"
-                    data-bs-target="#report_versions">
-                    <i class="custom-icon-versioning h6 align-self-center" aria-hidden="true" data-bs-placement="top"
-                        data-bs-toggle="tooltip" title="{% translate 'Version control' %}">
+                  <button class="btn text-dark p-0 ps-1 border-0 report_versions"
+                          data-workflows="{{ incident_workflows }}"
+                          data-report="{{ report.name }}"
+                          data-incident-ref="{{ incident.incident_id }}"
+                          data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
+                          data-download-url="{% url 'download_incident_report_pdf' 0 %}"
+                          data-bs-toggle="modal"
+                          data-bs-target="#report_versions">
+                    <i class="custom-icon-versioning h6 align-self-center"
+                       aria-hidden="true"
+                       data-bs-placement="top"
+                       data-bs-toggle="tooltip"
+                       title='{% translate "Version control" %}'>
                     </i>
-                    <span class="visually-hidden">
-                        {% translate 'Version control' %}
-                    </span>
-                </button>
+                    <span class="visually-hidden">{% translate "Version control" %}</span>
+                  </button>
                 {% endif %}
-                {% endwith %}
-            </div>              
-        </li>
-    {% endwith %}
-    {% endfor %}
+              {% endwith %}
+            </div>
+          </li>
+        {% endwith %}
+      {% endfor %}
     </ul>
-    {% endwith %}
+  {% endwith %}
 {% endblock %}
-
 {% block content_table_actions %}
-{{ block.super }}
-{% if incident.workflows.count == 0 %}
-<button class="btn text-dark p-0 border-0 delete_incident"
-    data-incident-id="{{ incident.id }}"
-    data-delete-url="{% url 'delete_incident' 0 %}"
-    data-bs-toggle="modal"
-    data-bs-target="#delete_incident">
-    <i class="custom-icon-trash h4"                    
-        data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'Delete' %}"
-        aria-hidden="true">
-    </i>
-    <span class="visually-hidden">
-        {% translate 'Delete' %}
-    </span>
-</button>
-{% endif %}
+  {{ block.super }}
+  {% if incident.workflows.count == 0 %}
+    <button class="btn text-dark p-0 border-0 delete_incident"
+            data-incident-id="{{ incident.id }}"
+            data-delete-url="{% url 'delete_incident' 0 %}"
+            data-bs-toggle="modal"
+            data-bs-target="#delete_incident">
+      <i class="custom-icon-trash h4"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title='{% translate "Delete" %}'
+         aria-hidden="true">
+      </i>
+      <span class="visually-hidden">{% translate "Delete" %}</span>
+    </button>
+  {% endif %}
 {% endblock %}
-
 {% block content_modals %}
-{{ block.super }}
-<div class="modal fade" id="workflow_comment" data-bs-backdrop="static"
-     data-bs-keyboard="false" tabindex="-1" aria-labelledby="workflow_comment_label"
-     aria-hidden="true">
+  {{ block.super }}
+  <div class="modal fade"
+       id="workflow_comment"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="workflow_comment_label"
+       aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        {% include "modals/workflow_comment.html" %}
+      {% include "modals/workflow_comment.html" %}
     </div>
-</div>
-
-<div class="modal fade modal-sm" id="delete_incident" data-bs-backdrop="static"
-     data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete_incident_label"
-     aria-hidden="true">
+  </div>
+  <div class="modal fade modal-sm"
+       id="delete_incident"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="delete_incident_label"
+       aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        {% include "modals/delete_incident.html" %}
+      {% include "modals/delete_incident.html" %}
     </div>
-</div>
+  </div>
 {% endblock %}

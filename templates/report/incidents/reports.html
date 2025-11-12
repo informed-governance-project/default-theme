@@ -1,57 +1,61 @@
 {% load i18n %}
-
 <h2 id="incident_reports" class="fw-bold text-primary">
-    {% translate "Reports" %}
+  {% translate "Reports" %}
 </h2>
-<div class="hr-separator"></div>
-
+<div class="hr-separator">
+</div>
 {% for incident_workflow_label, category_questions_answers in incident_workflows_answer.items %}
-{% if not forloop.first %}
-<div class="my-4"></div>
-{% endif %}
-<h3 id="{{ forloop.counter }}" class="text-primary">
+  {% if not forloop.first %}
+    <div class="my-4">
+    </div>
+  {% endif %}
+  <h3 id="{{ forloop.counter }}" class="text-primary">
     {{ incident_workflow_label }}
-</h3>
-
-{% for category_label, questions_answers in category_questions_answers.items %}
-<h6 class="bg-light m-0 p-2 fw-bold">{{ category_label }}</h6>
-<table class="table mb-5">
-    <tbody>
+  </h3>
+  {% for category_label, questions_answers in category_questions_answers.items %}
+    <h6 class="bg-light m-0 p-2 fw-bold">
+      {{ category_label }}
+    </h6>
+    <table class="table mb-5">
+      <tbody>
         {% for question_label, answers in questions_answers.items %}
-        <tr>
-            <th class="col-5 fw-normal {% if forloop.last %}border-bottom-0{% endif %}">
-                {{ question_label }}
+          <tr>
+            <th class="col-5 fw-normal
+                       {% if forloop.last %}
+                         border-bottom-0
+                       {% endif %}">
+              {{ question_label }}
             </th>
             <td class="col-7 {% if forloop.last %}border-bottom-0{% endif %}">
-                {% for answer_label in answers %}
-                <p style="word-break:break-all">
-                    {{ answer_label|linebreaksbr }}
+              {% for answer_label in answers %}
+                <p class="word-break-all">
+                  {{ answer_label|linebreaksbr }}
                 </p>
-                {% endfor %}
+              {% endfor %}
             </td>
-        </tr>
+          </tr>
         {% endfor %}
-    </tbody>
-</table>
-{% endfor %}
-{% for label, impacts in incident_workflows_impact.items %}
-{% if impacts and incident_workflow_label == label %}
-<h6 class="bg-light m-0 p-2 fw-bold">
-    {% translate "Impacts" %}
-</h6>
-<table class="table mb-5">
-    <tbody>
-        {% for impact in impacts %}
-        <tr>
-            <td {% if forloop.last %}class="border-bottom-0"{% endif %}>
+      </tbody>
+    </table>
+  {% endfor %}
+  {% for label, impacts in incident_workflows_impact.items %}
+    {% if impacts and incident_workflow_label == label %}
+      <h6 class="bg-light m-0 p-2 fw-bold">
+        {% translate "Impacts" %}
+      </h6>
+      <table class="table mb-5">
+        <tbody>
+          {% for impact in impacts %}
+            <tr>
+              <td {% if forloop.last %}class="border-bottom-0"{% endif %}>
                 {{ impact|linebreaksbr }}
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% endif %}
-{% endfor %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  {% endfor %}
 {% empty %}
-{% translate "No incident reports have been submitted." %}
+  {% translate "No incident reports have been submitted." %}
 {% endfor %}

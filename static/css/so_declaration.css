@@ -1,5 +1,5 @@
 .card-body {
-    overflow: auto; 
+    overflow: auto;
 }
 
 .card-body::-webkit-scrollbar {
@@ -43,21 +43,21 @@
 /* For larger screens */
 @media (min-width: 1200px) {
     .card-body {
-        height: 80vh; 
+        height: 80vh;
     }
 }
 
 /* For larger screens */
 @media (min-width: 992px) and (max-width: 1200px)  {
     .card-body {
-        height: 70vh; 
+        height: 70vh;
     }
 }
 
 /* For medium screens */
 @media (max-width: 991px) {
     .card-body {
-        height: 60vh; 
+        height: 60vh;
     }
 }
 

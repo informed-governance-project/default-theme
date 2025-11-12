@@ -2,15 +2,15 @@
 {% load static %}
 {% load i18n %}
 {% block object-tools-items %}
-{{ block.super }}
-{% if reset_url %}
-<li>
-    <a href="{{ reset_url }}" >{% translate 'Reset accepted terms' %}</a>
-</li>
-{% endif %}
-{% if reset_url_cookies %}
-<li>
-    <a href="{{ reset_url_cookies }}" >{% translate 'Reset accepted cookies' %}</a>
-</li>
-{% endif %}
+  {{ block.super }}
+  {% if reset_url %}
+    <li>
+      <a href="{{ reset_url }}">{% translate "Reset accepted terms" %}</a>
+    </li>
+  {% endif %}
+  {% if reset_url_cookies %}
+    <li>
+      <a href="{{ reset_url_cookies }}">{% translate "Reset accepted cookies" %}</a>
+    </li>
+  {% endif %}
 {% endblock %}

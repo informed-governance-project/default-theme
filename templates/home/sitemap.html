@@ -1,32 +1,31 @@
-{% extends 'home/base.html' %}
+{% extends "home/base.html" %}
 {% load i18n %}
-
 {% block content %}
-<div class="container-flex">
-  <h3 class="fw-bolder">
-    {% block title %}
-    {% translate "Sitemap" %}
-    {% endblock %}
-  </h3>
-  <div class="hr-separator"></div>
-</div>
-<div class="row row-cols-1 row-cols-md-3 g-3 mt-3">
-  {% for module, pages in modules.items %}
-  <div class="col">
-    <h5 class="fw-bolder">
-      {{ module }}
-    </h5>
-    <div class="hr-separator"></div>
-    <ul class="list-unstyled">
-      {% for page in pages %}
-      <li class="ps-3">
-        <a href="{{ page.url }}">
-          {{ page.name }}
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
+  <div class="container-flex">
+    <h3 class="fw-bolder">
+      {% block title %}
+        {% translate "Sitemap" %}
+      {% endblock %}
+    </h3>
+    <div class="hr-separator">
+    </div>
   </div>
-  {% endfor %}
-</div>
+  <div class="row row-cols-1 row-cols-md-3 g-3 mt-3">
+    {% for module, pages in modules.items %}
+      <div class="col">
+        <h5 class="fw-bolder">
+          {{ module }}
+        </h5>
+        <div class="hr-separator">
+        </div>
+        <ul class="list-unstyled">
+          {% for page in pages %}
+            <li class="ps-3">
+              <a href="{{ page.url }}">{{ page.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}

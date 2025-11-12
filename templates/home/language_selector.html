@@ -1,40 +1,47 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 {% load static %}
-
 {% block bootstrap5_extra_script %}
-<script src='{% static "js/language-selector.js" %}'></script>
+  <script src='{% static "js/language-selector.js" %}'></script>
 {% endblock %}
-
 {% bootstrap_javascript %}
-
 {% get_current_language as current_language %}
 {% get_available_languages as available_languages %}
 {% get_language_info_list for available_languages as languages %}
-
 {% if languages|length > 1 %}
-<form id="set_language_form" action="{% url 'set_language' %}" method="post">
-	{% csrf_token %}
-	<input type="hidden" name="next" value="{{ request.get_full_path }}">
-	<input type="hidden" name="language" id="language_input">
-	<div class="dropdown">
-		<button id="language_selector"
-			class="nav-link dropdown-toggle" type="button"
-			data-bs-toggle="dropdown" aria-expanded="false"
-			aria-label="{{ current_language|upper }} ({% translate 'Change the site language - currently in ' %}{{ current_language|language_name_translated }} )">
-			{{ current_language|default:"en"|upper }}
-		</button>
-		<ul class="dropdown-menu fit-content" aria-labelledby="language_selector">
-			{% for language in languages %}
-			<li role="presentation">
-				<button class="dropdown-item {% if language.code == current_language %}active{% endif %}" type="button"
-					onclick="setLanguage('{{ language.code }}'); load_spinner()" lang="{{ language.code }}" 
-					aria-label="{{ language.code|upper }} ({% language language.code %}{% translate 'English version' %}{% endlanguage %})">
-					{{ language.code|upper }}
-				</button>
-			</li>
-			{% endfor %}
-		</ul>
-	</div>
-</form>
+  <form id="set_language_form"
+        action="{% url 'set_language' %}"
+        method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+    <input type="hidden" name="language" id="language_input">
+    <div class="dropdown">
+      <button id="language_selector"
+              class="nav-link dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              aria-label='{{ current_language|upper }} ({% translate "Change the site language - currently in " %}{{ current_language|language_name_translated }} )'>
+        {{ current_language|default:"en"|upper }}
+      </button>
+      <ul class="dropdown-menu fit-content" aria-labelledby="language_selector">
+        {% for language in languages %}
+          <li role="presentation">
+            <button class="dropdown-item
+                           {% if language.code == current_language %}
+                             active
+                           {% endif %}"
+                    type="button"
+                    onclick="setLanguage('{{ language.code }}'); load_spinner()"
+                    lang="{{ language.code }}"
+                    aria-label='{{ language.code|upper }} (
+                                {% language language.code %}
+                                  {% translate "English version" %}{% endlanguage %})'>
+              {{ language.code|upper }}
+            </button>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </form>
 {% endif %}

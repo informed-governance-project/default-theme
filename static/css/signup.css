@@ -1,0 +1,21 @@
+.captcha-refresh {
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+.captcha-refresh:hover>i {
+    color: var(--bs-primary) !important;
+}
+
+#captcha_field .form-control {
+    border-radius: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+#captcha_field img {
+    border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-radius: var(--bs-border-radius);
+}

@@ -19,6 +19,6 @@ $(document).ready(function () {
 })
 
 function displayPagination(table) {
-  let rowCount = table.data().length;  
+  let rowCount = table.data().length;
   if (rowCount <= 10) $('.table_controls').addClass("d-none");
 }

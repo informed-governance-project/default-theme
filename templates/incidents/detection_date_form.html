@@ -1,18 +1,18 @@
 {% load django_bootstrap5 %}
 {% load custom_filters %}
-
 <div class="d-flex align-items-center">
-    {% with step_name=steps|index:wizard.steps.current %}
-    <label class="fw-bold me-2">{{ step_name }}</label>
-    {% endwith %}
-    <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
+  {% with step_name=steps|index:wizard.steps.current %}
+    <label class="fw-bold me-2">
+      {{ step_name }}
+    </label>
+  {% endwith %}
+  <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
 </div>
 <div class="row row-cols-1 row-cols-lg-2 pt-4">
-    {% for field in wizard.form %}
-        <div class="col {% if field.field.required %}required-field{% endif %}">
-            {% bootstrap_label field.label label_class="fw-bold me-2" label_for=field.id_for_label %}
-            {% bootstrap_field field show_label=False %}
-        </div>
-    {% endfor %}
+  {% for field in wizard.form %}
+    <div class="col {% if field.field.required %}required-field{% endif %}">
+      {% bootstrap_label field.label label_class="fw-bold me-2" label_for=field.id_for_label %}
+      {% bootstrap_field field show_label=False %}
+    </div>
+  {% endfor %}
 </div>
-

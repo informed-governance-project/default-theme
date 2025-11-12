@@ -88,11 +88,37 @@ $(document).ready(function () {
   $('label.visually-hidden').remove();
 })
 
-window.load_spinner = function(){
+window.getCookie = function (name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      // Does this cookie string begin with the name we want?
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
+window.load_spinner = function () {
   $('#loading-spinner').removeClass('d-none').fadeIn();
 }
 
-window.stop_spinner = function() {
+window.stop_spinner = function () {
   $('#loading-spinner').fadeOut().addClass('d-none');
 }
+
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    stop_spinner();
+  }
+});
+
+window.addEventListener("load", function () {
+  stop_spinner();
+});
 

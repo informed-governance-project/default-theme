@@ -4,57 +4,64 @@
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE|default:'en_us' }}" class="h-100">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <!-- Page title -->
-        <title>
-            {% block bootstrap5_title %}
-                {% block title %}{% endblock %}
-            {% endblock %}
-            | {{ site_name }}
-        </title>
-
-        <!-- Favicons -->
-        <link rel="shortcut icon" href="/static/images/favicon.svg" type="image/x-icon" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon.svg" />
-
-        <!-- Bootstrap CSS -->
-        {% bootstrap_css %}
-        <link rel="stylesheet" href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}" />
-
-        <!-- Bootstrap JavaScript if it is in head -->
-        {% if 'javascript_in_head'|bootstrap_setting %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Page title -->
+    <title>
+      {% block bootstrap5_title %}
+        {% block title %}
+        {% endblock %}
+      {% endblock %}
+      | {{ site_name }}
+    </title>
+    <!-- Favicons -->
+    <link rel="shortcut icon"
+          href="{% static 'images/favicon.svg' %}"
+          type="image/x-icon" />
+    <link rel="apple-touch-icon"
+          sizes="180x180"
+          href="{% static 'images/favicon.svg' %}" />
+    <link rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="{% static 'images/favicon.svg' %}" />
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="{% static 'images/favicon.svg' %}" />
+    <!-- Bootstrap CSS -->
+    {% bootstrap_css %}
+    <link rel="stylesheet"
+          href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}" />
+    <!-- Bootstrap JavaScript if it is in head -->
+    {% if 'javascript_in_head'|bootstrap_setting %}
+      {% bootstrap_javascript %}
+    {% endif %}
+    {% block bootstrap5_extra_head %}
+    {% endblock %}
+  </head>
+  <body class="d-flex flex-column h-100 background">
+    <a class="visually-hidden-focusable bg-transparent d-inline text-center"
+       href="#main_content">{% translate "Skip to main content" %}</a>
+    {% block bootstrap5_before_content %}
+    {% endblock %}
+    {% block bootstrap5_content %}
+    {% endblock %}
+    {% block bootstrap5_after_content %}
+    {% endblock %}
+    <!-- Bootstrap JavaScript if it is in body -->
+    <!-- {% if not 'javascript_in_head'|bootstrap_setting %}
             {% bootstrap_javascript %}
-        {% endif %}
-
-        {% block bootstrap5_extra_head %}{% endblock %}
-
-    </head>
-
-    <body class="d-flex flex-column h-100 background">
-        <a class="visually-hidden-focusable bg-transparent d-inline text-center" href="#main_content">
-            {% translate "Skip to main content"%}
-        </a>
-        {% block bootstrap5_before_content %}{% endblock %}
-        {% block bootstrap5_content %}{% endblock %}
-        {% block bootstrap5_after_content %}{% endblock %}
-
-        <!-- Bootstrap JavaScript if it is in body -->
-        <!-- {% if not 'javascript_in_head'|bootstrap_setting %}
-            {% bootstrap_javascript %}
-        {% endif %} -->
-
-        {% block bootstrap5_extra_script %}{% endblock %}
-    </body>
+{% endif %} -->
+    {% block bootstrap5_extra_script %}
+    {% endblock %}
+  </body>
 </html>
 {{ cookiebanner_version|default:''|json_script:"cookiebanner_version" }}
-
 <script>
   window.cookiebanner_version = JSON.parse(document.getElementById('cookiebanner_version').textContent);
 </script>

@@ -1,55 +1,80 @@
 {% extends template_header|default:"home/base.html" %}
-
 {% load django_bootstrap5 %}
 {% load i18n %}
-
 {% block title %}
-{% translate "Terms of Service" %}
+  {% translate "Terms of Service" %}
 {% endblock %}
-
 {% block content %}
-<div class="modal" id="termsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+  <div class="modal"
+       id="termsModal"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white px-4 small">
-                {% if is_only_admin %} 
-                    <h1>{% translate "Terms of Service" %}</h1>
-                {% else %}
-                    <h5 class="modal-title">{% translate "Terms of Service" %}</h5>
-                {% endif %}
-                <button type="button" class="btn-close {% if is_only_admin %}hidden{% endif %} btn-close-white" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
-            </div>
-            <form action="" method="post">
-                <div class="modal-body py-4 px-5">
-                    {% csrf_token %}
-                    <div class="form-check">
-                        <input class="form-check-input {% if is_only_admin %}input{% endif %}" type="checkbox" id="{{ form.accept.id_for_label }}"
-                            name="{{ form.accept.name }}">
-                        <label class="form-check-label" for="{{ form.accept.id_for_label }}">
-                            {{ form.accept.label|safe }}
-                            <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
-                                rel="noopener noreferrer" target="{% if regulator.tos_url %} _blank {% endif %}">
-                                {% translate "Terms of Service" %}
-                            </a>
-                        </label>
-                    </div>
-                </div>
-                <div class="modal-footer {% if is_only_admin %}double-padding{% endif %}">
-                    <button type="submit" class="btn btn-primary {% if is_only_admin %}button{% endif %}">{% translate "Continue" %}</button>
-                </div>
-            </form>
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white px-4 small">
+          {% if is_only_admin %}
+            <h1>
+              {% translate "Terms of Service" %}
+            </h1>
+          {% else %}
+            <h5 class="modal-title">
+              {% translate "Terms of Service" %}
+            </h5>
+          {% endif %}
+          <button type="button"
+                  class="btn-close
+                         {% if is_only_admin %}
+                           hidden
+                         {% endif %}
+                         btn-close-white"
+                  data-bs-dismiss="modal"
+                  aria-label='{% translate "Close" %}'>
+          </button>
         </div>
+        <form action="" method="post">
+          <div class="modal-body py-4 px-5">
+            {% csrf_token %}
+            <div class="form-check">
+              <input class="form-check-input
+                            {% if is_only_admin %}
+                              input
+                            {% endif %}"
+                     type="checkbox"
+                     id="{{ form.accept.id_for_label }}"
+                     name="{{ form.accept.name }}">
+              <label class="form-check-label" for="{{ form.accept.id_for_label }}">
+                {{ form.accept.label|safe }}
+                <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
+                   rel="noopener noreferrer"
+                   target="{% if regulator.tos_url %}
+                             _blank
+                           {% endif %}">{% translate "Terms of Service" %}</a>
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer {% if is_only_admin %}double-padding{% endif %}">
+            <button type="submit"
+                    class="btn btn-primary
+                           {% if is_only_admin %}
+                             button
+                           {% endif %}">
+              {% translate "Continue" %}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        let termsModal = new bootstrap.Modal(document.getElementById('termsModal'));
-        let checkbox = document.getElementById('{{ form.accept.id_for_label }}');
-        termsModal.show();
-        if (checkbox) {
-            checkbox.focus();
-        }
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let termsModal = new bootstrap.Modal(document.getElementById('termsModal'));
+      let checkbox = document.getElementById('{{ form.accept.id_for_label }}');
+      termsModal.show();
+      if (checkbox) {
+        checkbox.focus();
+      }
     });
-</script>
+  </script>
 {% endblock %}

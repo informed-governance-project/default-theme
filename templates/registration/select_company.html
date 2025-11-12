@@ -1,44 +1,43 @@
-{% extends 'registration/base.html' %}
-
+{% extends "registration/base.html" %}
 {% load django_bootstrap5 %}
 {% load i18n %}
-
 {% block title %}
-    {% translate "Select company" %}
+  {% translate "Select company" %}
 {% endblock %}
-
 {% block login_card %}
-<div id="login_card" class="card bg-transparent border-0 p-3 mb-5 rounded-1 col-12 col-xl-5 m-auto">
+  <div id="login_card"
+       class="card bg-transparent border-0 p-3 mb-5 rounded-1 col-12 col-xl-5 m-auto">
     <div class="card-body p-3">
-        <h5>{% translate "Your account is linked to multiple companies. Select one to proceed." %}</h5>
-        <form method="POST">
-            {% csrf_token %}
-            {% bootstrap_field form.select_company show_label=False %}
-            <button id="submit-btn" type="submit" class="btn btn-primary" disabled>
-                {% translate "Select" %}
-            </button>
-        </form>
+      <h5>
+        {% translate "Your account is linked to multiple companies. Select one to proceed." %}
+      </h5>
+      <form method="post">
+        {% csrf_token %}
+        {% bootstrap_field form.select_company show_label=False %}
+        <button id="submit-btn" type="submit" class="btn btn-primary" disabled>
+          {% translate "Select" %}
+        </button>
+      </form>
     </div>
-</div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const select = document.getElementById("id_select_company");
+      const submitBtn = document.getElementById("submit-btn");
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const select = document.getElementById("id_select_company");
-    const submitBtn = document.getElementById("submit-btn");
-
-    function toggleButton() {
+      function toggleButton() {
         if (select.value) {
-            submitBtn.disabled = false;
+          submitBtn.disabled = false;
         } else {
-            submitBtn.disabled = true;
+          submitBtn.disabled = true;
         }
-    }
+      }
 
-    // initial check
-    toggleButton();
+      // initial check
+      toggleButton();
 
-    // update on change
-    select.addEventListener("change", toggleButton);
-});
-</script>
+      // update on change
+      select.addEventListener("change", toggleButton);
+    });
+  </script>
 {% endblock login_card %}

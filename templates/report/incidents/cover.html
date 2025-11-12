@@ -1,41 +1,31 @@
-{% extends 'report/base/cover.html' %}
+{% extends "report/base/cover.html" %}
 {% load i18n %}
-
 {% block report_cover_content %}
-    <h1 class="fw-bold text-primary text-uppercase">{% translate "Report" %}
+  <h1 class="fw-bold text-primary text-uppercase">
+    {% translate "Report" %}
     {% if report_name %}
-        <br>{{report_name}}
+      <br>
+      {{ report_name }}
     {% endif %}
-</h1>
-<div class="hr-separator"></div>
-<div>
+  </h1>
+  <div class="hr-separator">
+  </div>
+  <div>
     <p class="m-0">
-        <span class="fw-bold">
-            {% translate "Name of the Operator" %}:
-        </span>
-        {{ incident.company_name }}
+      <span class="fw-bold">{% translate "Name of the Operator" %}:</span>
+      {{ incident.company_name }}
     </p>
     <p class="m-0">
-        <span class="fw-bold">
-            {% translate "Reference" %}:
-        </span>
-        {{ incident.incident_id }}
+      <span class="fw-bold">{% translate "Reference" %}:</span>
+      {{ incident.incident_id }}
     </p>
     <p class="m-0">
-        <span class="fw-bold">
-            {% translate "Incident notification date" %}:
-        </span>
-        <span class="text-primary">
-            {{ incident.incident_notification_date|date:"d M Y, H:i" }}
-        </span>
-        
+      <span class="fw-bold">{% translate "Incident notification date" %}:</span>
+      <span class="text-primary">{{ incident.incident_notification_date|date:"d M Y, H:i" }}</span>
     </p>
     <p class="m-0">
-        <span class="fw-bold">
-            {% translate "Report status" %}:
-        </span>
-        {{ incident.get_incident_status_display }}   
+      <span class="fw-bold">{% translate "Report status" %}:</span>
+      {{ incident.get_incident_status_display }}
     </p>
-</div>
+  </div>
 {% endblock %}
-

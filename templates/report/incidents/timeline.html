@@ -1,49 +1,73 @@
 {% load i18n %}
 <h2 id="incident_timeline" class="fw-bold text-primary">
-    {% translate "Incident timeline" %}
+  {% translate "Incident timeline" %}
 </h2>
-<div class="hr-separator"></div>
-
+<div class="hr-separator">
+</div>
 <table class="table table-borderless">
-    <tbody>
-        <tr>
-            <th>{% translate "Time zone" %}</th>
-            <td>{{ incident.incident_timezone }}</td>
-        </tr>
-        <tr>
-            <th>{% translate "Incident notification creation date" %}</th>
-            <td>{{ incident.incident_notification_date|date:"d M Y, H:i" }}</td>
-        </tr>
-        <tr>
-            <th>{% translate "Incident detection date" %}</th>
-            <td>{{ incident.incident_detection_date|date:"d M Y, H:i" }}</td>
-        </tr>
-        <tr>
-            <th>{% translate "Incident start date" %}</th>
-            <td>{{ incident.incident_starting_date|date:"d M Y, H:i" }}</td>
-        </tr>
-        <tr>
-            <th>{% translate "Incident resolution date" %}</th>
-            <td>{{ incident.incident_resolution_date|date:"d M Y, H:i" }}</td>
-        </tr>
-    </tbody>
+  <tbody>
+    <tr>
+      <th>
+        {% translate "Time zone" %}
+      </th>
+      <td>
+        {{ incident.incident_timezone }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        {% translate "Incident notification creation date" %}
+      </th>
+      <td>
+        {{ incident.incident_notification_date|date:"d M Y, H:i" }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        {% translate "Incident detection date" %}
+      </th>
+      <td>
+        {{ incident.incident_detection_date|date:"d M Y, H:i" }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        {% translate "Incident start date" %}
+      </th>
+      <td>
+        {{ incident.incident_starting_date|date:"d M Y, H:i" }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        {% translate "Incident resolution date" %}
+      </th>
+      <td>
+        {{ incident.incident_resolution_date|date:"d M Y, H:i" }}
+      </td>
+    </tr>
+  </tbody>
 </table>
-
 {% if report_list %}
-<h2 id="report_timeline" class="fw-bold text-primary">
+  <h2 id="report_timeline" class="fw-bold text-primary">
     {% translate "Report Timeline" %}
-</h2>
-<div class="hr-separator"></div>
-
-<table class="table table-borderless">
+  </h2>
+  <div class="hr-separator">
+  </div>
+  <table class="table table-borderless">
     <tbody>
-        {% for report in report_list %}
+      {% for report in report_list %}
         <tr>
-            <th>{{ report.workflow.name }}</th>
-            <td>{{ report.timestamp|date:"d M Y, H:i" }}</td>
+          <th>
+            {{ report.workflow.name }}
+          </th>
+          <td>
+            {{ report.timestamp|date:"d M Y, H:i" }}
+          </td>
         </tr>
-        {% endfor %}
+      {% endfor %}
     </tbody>
-</table>
+  </table>
 {% endif %}
-<p class="page-break"></p>
+<p class="page-break">
+</p>

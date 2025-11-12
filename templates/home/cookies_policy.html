@@ -1,71 +1,73 @@
-{% extends 'home/base.html' %}
+{% extends "home/base.html" %}
 {% load i18n %}
 {% load django_bootstrap5 %}
-
-
 {% block bootstrap5_title %}
-{% translate "Cookies Policy" %}
+  {% translate "Cookies Policy" %}
 {% endblock %}
-
 {% block content %}
-<div class="container-flex" lang="fr">
-  <h3 class="fw-bolder">
-    {% translate "Gestion des cookies de la plateforme SERIMA" %} - {% translate "Version" %} 2.0
-  </h3>
-  <div class="hr-separator"></div>
-  <p>
-    {% blocktranslate trimmed %}
-    Un cookie client est un fichier texte envoyé au navigateur de l’Utilisateur <sup><a href="#fn1">1</a></sup>
-    et enregistré sur le disque dur de son terminal (par exemple : PC, ordinateur portable ou portable) lors de la
-    visite d’un site internet ou d’une plateforme en ligne.
-    {% endblocktranslate %}
-  </p>
-  <p>
-    {% blocktranslate trimmed %}
-    Des cookies clients peuvent par exemple être utilisés afin d’assurer le bon fonctionnement d’un site ou d’une
-    plateforme et d’optimiser son ergonomie et ses fonctionnalités.
-    {% endblocktranslate %}
-  </p>
-  <p>
-    {% blocktranslate trimmed %}
-    SERIMA <sup><a href="#fn2">2</a></sup> utilise des cookies clients nécessaires à son bon fonctionnement (par exemple
-    : un pour le thème : clair / sombre (conservé pour le temps de la session), un qui enregistre la session
-    (persistant), un qui enregistre le langage (conservé pour le temps de la session) et un pour le CSRF token
-    (persistant), etc.).
-    {% endblocktranslate %}
-  </p>
-  <p>
-    {% blocktranslate trimmed %}
-    Ils sont déposés par SERIMA dans un répertoire prévu à cet effet sur l'ordinateur ou sur le portable de
-    l'Utilisateur.
-    {% endblocktranslate %}
-  </p>
-  <p>
-    {% blocktranslate trimmed %}
-    Les cookies de session sont supprimés de l'ordinateur ou du portable de l'Utilisateur lorsque sa session est fermée.
-    {% endblocktranslate %}
-  </p>
-  <p>
-    {% blocktranslate trimmed %}
-    Toutefois les cookies persistants restent sur l'ordinateur ou le portable de l'Utilisateur après la fin de la
-    session.
-    {% endblocktranslate %}
-  </p>
-  <p>
-    {% blocktranslate trimmed %}
-    L'Utilisateur a, à tout moment, le choix de régler les options de son navigateur afin que les cookies ne soient pas
-    acceptés et mémorisés. Par ailleurs, il peut, à tout moment, effacer, via le navigateur, des cookies déjà mémorisés.
-    Cependant, l'utilisation de certaines fonctionnalités de SERIMA pourrait être limitée ou désactivée si l'Utilisateur
-    refuse les cookies de SERIMA. Il est dès lors recommandé à l'Utilisateur de régler le navigateur de manière que les
-    cookies de SERIMA soient acceptés.
-    {% endblocktranslate %}
-  </p>
-  <div class="mt-5">
-    <hr class="w-30">
-    <ol class="small text-muted">
-      <li id="fn1">{% translate "Terme défini à l’article 1 des conditions d’utilisation de SERIMA." %}</li>
-      <li id="fn2">{% translate "Terme défini à l’article 1 des conditions d’utilisation de SERIMA." %}</li>
-    </ol>
+  <div class="container-flex" lang="fr">
+    <h3 class="fw-bolder">
+      {% translate "Gestion des cookies de la plateforme SERIMA" %} - {% translate "Version" %} 2.0
+    </h3>
+    <div class="hr-separator">
+    </div>
+    <p>
+      {% blocktranslate trimmed %}
+        Un cookie client est un fichier texte envoyé au navigateur de l’Utilisateur <sup><a href="#fn1">1</a></sup>
+        et enregistré sur le disque dur de son terminal (par exemple : PC, ordinateur portable ou portable) lors de la
+        visite d’un site internet ou d’une plateforme en ligne.
+      {% endblocktranslate %}
+    </p>
+    <p>
+      {% blocktranslate trimmed %}
+        Des cookies clients peuvent par exemple être utilisés afin d’assurer le bon fonctionnement d’un site ou d’une
+        plateforme et d’optimiser son ergonomie et ses fonctionnalités.
+      {% endblocktranslate %}
+    </p>
+    <p>
+      {% blocktranslate trimmed %}
+        SERIMA <sup><a href="#fn2">2</a></sup> utilise des cookies clients nécessaires à son bon fonctionnement (par exemple
+        : un pour le thème : clair / sombre (conservé pour le temps de la session), un qui enregistre la session
+        (persistant), un qui enregistre le langage (conservé pour le temps de la session) et un pour le CSRF token
+        (persistant), etc.).
+      {% endblocktranslate %}
+    </p>
+    <p>
+      {% blocktranslate trimmed %}
+        Ils sont déposés par SERIMA dans un répertoire prévu à cet effet sur l'ordinateur ou sur le portable de
+        l'Utilisateur.
+      {% endblocktranslate %}
+    </p>
+    <p>
+      {% blocktranslate trimmed %}
+        Les cookies de session sont supprimés de l'ordinateur ou du portable de l'Utilisateur lorsque sa session est fermée.
+      {% endblocktranslate %}
+    </p>
+    <p>
+      {% blocktranslate trimmed %}
+        Toutefois les cookies persistants restent sur l'ordinateur ou le portable de l'Utilisateur après la fin de la
+        session.
+      {% endblocktranslate %}
+    </p>
+    <p>
+      {% blocktranslate trimmed %}
+        L'Utilisateur a, à tout moment, le choix de régler les options de son navigateur afin que les cookies ne soient pas
+        acceptés et mémorisés. Par ailleurs, il peut, à tout moment, effacer, via le navigateur, des cookies déjà mémorisés.
+        Cependant, l'utilisation de certaines fonctionnalités de SERIMA pourrait être limitée ou désactivée si l'Utilisateur
+        refuse les cookies de SERIMA. Il est dès lors recommandé à l'Utilisateur de régler le navigateur de manière que les
+        cookies de SERIMA soient acceptés.
+      {% endblocktranslate %}
+    </p>
+    <div class="mt-5">
+      <hr class="w-30">
+      <ol class="small text-muted">
+        <li id="fn1">
+          {% translate "Terme défini à l’article 1 des conditions d’utilisation de SERIMA." %}
+        </li>
+        <li id="fn2">
+          {% translate "Terme défini à l’article 1 des conditions d’utilisation de SERIMA." %}
+        </li>
+      </ol>
+    </div>
   </div>
-</div>
 {% endblock %}

@@ -1,42 +1,47 @@
 {% load i18n %}
 {% load custom_filters %}
-
 {% block content %}
-<div class="modal-content">
-  <div class="modal-header bg-primary text-white px-4 small">
-    <h5 class="modal-title">
-      {% translate "Choice of columns" %}
-    </h5>
-    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-      aria-label="{% translate 'Close' %}">
-    </button>
-  </div>
-  <div class="modal-body row row-cols-2 mx-4 my-3">
-    {% if is_regulator and not is_regulator_incidents or is_observer %}
-      {% with 'Status,Creation date,Operator Acronym,Operator Name,Regulation,Reference,Sectors,Report' as dashboard_columns %}
-      {% for d_col in dashboard_columns|split:"," %}
-      <div class="form-check">
-        <input class="form-check-input column-toggle" type="checkbox" data-column="{{ forloop.counter0 }}">
-        <label class="form-check-label">
-          {% translate d_col %}
-        </label>
-      </div>
-      {% endfor %}
-      {% endwith %}
-    {% else %}
-      {% with 'Status,Creation date,Regulator,hiddenCol,Regulation,Reference,Sectors,Report' as dashboard_columns %}
-      {% for d_col in dashboard_columns|split:"," %}
-      {%if d_col != 'hiddenCol' %}
-      <div class="form-check">
-        <input class="form-check-input column-toggle" type="checkbox" data-column="{{ forloop.counter0 }}">
-        <label class="form-check-label">
-          {% translate d_col %}
-        </label>
-      </div>
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white px-4 small">
+      <h5 class="modal-title">
+        {% translate "Choice of columns" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label='{% translate "Close" %}'>
+      </button>
+    </div>
+    <div class="modal-body row row-cols-2 mx-4 my-3">
+      {% if is_regulator and not is_regulator_incidents or is_observer %}
+        {% with "Status,Creation date,Operator Acronym,Operator Name,Regulation,Reference,Sectors,Report" as dashboard_columns %}
+          {% for d_col in dashboard_columns|split:"," %}
+            <div class="form-check">
+              <input class="form-check-input column-toggle"
+                     type="checkbox"
+                     data-column="{{ forloop.counter0 }}">
+              <label class="form-check-label">
+                {% translate d_col %}
+              </label>
+            </div>
+          {% endfor %}
+        {% endwith %}
+      {% else %}
+        {% with "Status,Creation date,Regulator,hiddenCol,Regulation,Reference,Sectors,Report" as dashboard_columns %}
+          {% for d_col in dashboard_columns|split:"," %}
+            {% if d_col != 'hiddenCol' %}
+              <div class="form-check">
+                <input class="form-check-input column-toggle"
+                       type="checkbox"
+                       data-column="{{ forloop.counter0 }}">
+                <label class="form-check-label">
+                  {% translate d_col %}
+                </label>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endwith %}
       {% endif %}
-      {% endfor %}
-      {% endwith %}
-    {% endif %}
+    </div>
   </div>
-</div>
 {% endblock %}

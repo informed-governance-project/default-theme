@@ -1,16 +1,17 @@
 {% load i18n %}
-
 <div id="header" class="doc-references">
-    <div class="d-flex justify-content-between">
-        <div class="d-inline-flex">
-            <div>
-                <img src="images/only_logo.svg" style="width: 16px;" alt="SERIMA Logo">
-            </div>
-            <span class="text-primary fw-bold ps-2">|</span>
-            {% block report_header_left %}{% endblock %}
-        </div>
-        <div>
-            {% block report_header_right %}{% endblock %}
-        </div>
+  <div class="d-flex justify-content-between">
+    <div class="d-inline-flex">
+      <div>
+        <img src="images/only_logo.svg" class="header-logo" alt="SERIMA Logo">
+      </div>
+      <span class="text-primary fw-bold ps-2">|</span>
+      {% block report_header_left %}
+      {% endblock %}
     </div>
+    <div>
+      {% block report_header_right %}
+      {% endblock %}
+    </div>
+  </div>
 </div>

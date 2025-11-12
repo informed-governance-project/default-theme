@@ -1,66 +1,100 @@
 {% load i18n %}
 {% load static %}
-
 {% block bootstrap5_extra_head %}
-    <script type="text/javascript" src="{% static 'npm_components/jquery/dist/jquery.min.js' %}"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/cookie_banner.css' %}" />
-    <script type="text/javascript" src="{% static 'js/cookie_banner.js' %}"></script>
-
+  <script type="text/javascript"
+          src="{% static 'npm_components/jquery/dist/jquery.min.js' %}"></script>
+  <link rel="stylesheet"
+        type="text/css"
+        href="{% static 'css/cookie_banner.css' %}" />
+  <script type="text/javascript" src="{% static 'js/cookie_banner.js' %}"></script>
 {% endblock %}
-<div class="modal fade" id="cookiebannerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="cookiebannerModalLabel" aria-hidden="true">
+<div class="modal fade"
+     id="cookiebannerModal"
+     data-bs-backdrop="static"
+     data-bs-keyboard="false"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="cookiebannerModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header bg-primary">
-        <h3 class="modal-title text-white fw-bold" id="cookiebannerModalLabel">{{ cb_settings.title }}</h3>
+        <h3 class="modal-title text-white fw-bold" id="cookiebannerModalLabel">
+          {{ cb_settings.title }}
+        </h3>
         {% if cb_settings.header_text %}
-          <p>{{ cb_settings.header_text|safe }}</p>
+          <p>
+            {{ cb_settings.header_text|safe }}
+          </p>
         {% endif %}
       </div>
       <div class="modal-body">
         <form id="cookiebannerForm">
           {% for cookiegroup in cb_settings.groups %}
-          <p class="text-justify">{{ cookiegroup.description }} 
-            <button class="btn btn-link my-0 py-0"
-              data-bs-toggle="collapse"
-              data-bs-target="#cookiesDescription" 
-              aria-controls="cookiesDescription"
-              type="button" aria-expanded="false" 
-              aria-controls="cookiesDescription">
-              {% translate 'Details' %}
-            </button>
-          </p>
-          <div class="collapse" id="cookiesDescription">
-            <table class="table table-sm">
-              <caption class="visually-hidden"> {% translate "Cookies description" %} </caption>  
-              <thead>
-                <tr>
-                  <th scope="col">{{ _('Name') }}</th>
-                  <th scope="col">{{ _('Description') }}</th>
-                  <th scope="col">{{ _('Content') }}</th>
-                  <th scope="col">{{ _('Maximum duration') }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for cookie in cookiegroup.cookies %}
-                <tr class="text-justify small">
-                  <td>{{ cookie.pattern }}</td>
-                  <td>{{ cookie.description }}</td>
-                  <td>{{ cookie.content }}</td>
-                  <td>{{ cookie.max_age }}</td>
+            <p class="text-justify">
+              {{ cookiegroup.description }}
+              <button class="btn btn-link my-0 py-0"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#cookiesDescription"
+                      aria-controls="cookiesDescription"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="cookiesDescription">
+                {% translate "Details" %}
+              </button>
+            </p>
+            <div class="collapse" id="cookiesDescription">
+              <table class="table table-sm">
+                <caption class="visually-hidden"> {% translate "Cookies description" %} </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      {{ _("Name") }}
+                    </th>
+                    <th scope="col">
+                      {{ _("Description") }}
+                    </th>
+                    <th scope="col">
+                      {{ _("Content") }}
+                    </th>
+                    <th scope="col">
+                      {{ _("Maximum duration") }}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for cookie in cookiegroup.cookies %}
+                    <tr class="text-justify small">
+                      <td>
+                        {{ cookie.pattern }}
+                      </td>
+                      <td>
+                        {{ cookie.description }}
+                      </td>
+                      <td>
+                        {{ cookie.content }}
+                      </td>
+                      <td>
+                        {{ cookie.max_age }}
+                      </td>
+                    </tr>
                   {% endfor %}
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                </tbody>
+              </table>
+            </div>
           {% endfor %}
         </form>
       </div>
       <div class="modal-footer">
         {% if cb_settings.footer_text %}
-          <p class="text-left">{{ cb_settings.footer_text|safe }}</p>
+          <p class="text-left">
+            {{ cb_settings.footer_text|safe }}
+          </p>
         {% endif %}
-        <input type="submit" name="enable_all" class="cookiebannerSubmit btn btn-primary mx-auto text-white fw-bold"
-               value="{{ _('Accept') }}">
+        <input type="submit"
+               name="enable_all"
+               class="cookiebannerSubmit btn btn-primary mx-auto text-white fw-bold"
+               value="{{ _("Accept") }}">
         <nav class="cookie-footer-links">
           {% for link in cb_settings.footer_links %}
             <span class="nav-item"><a class="nav-link" href="{{ link.href }}">{{ link.title }}</a></span>

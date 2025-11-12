@@ -36,3 +36,7 @@
 .double-padding {
     padding: 16px 0px;
 }
+
+.margin-right-10 {
+    margin-right: 10px !important;
+}

@@ -1,168 +1,202 @@
-{% extends 'incidents/base.html' %}
+{% extends "incidents/base.html" %}
 {% load django_bootstrap5 %}
 {% load custom_filters %}
 {% load static %}
 {% load i18n %}
-
 {% block bootstrap5_extra_script %}
-{{ block.super }}
-<link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
-<script src='{% static "js/declaration.js" %}'></script>
-
-<!-- Tempus Dominus v6 -->
-<link rel="stylesheet" href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
-<script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
-<script src='{% static "js/tempus_dominus.js" %}'></script>
-
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
+  <script src='{% static "js/declaration.js" %}'></script>
+  <!-- Tempus Dominus v6 -->
+  <link rel="stylesheet"
+        href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
+  <script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
+  <script src='{% static "js/tempus_dominus.js" %}'></script>
 {% endblock %}
-
 {% block content %}
-<h1 class="h3 fw-bolder">
-  {% block title %}
-  {% translate "Report an incident" %}
-  {% endblock %}
-</h1>
-<div class="hr-separator"></div>
-<p>
-  {% translate "Fields marked with an asterisk (*) are mandatory." %}
-</p>
-<div class="card shadow rounded-3 my-5">
-  <form method="post">
-    {% csrf_token %}
-    <nav role="navigation" 
-      class="d-inline-flex border rounded-pill mx-2 mx-lg-4 translate-middle-y bg-light" 
-      aria-label="{% translate 'Incident notification steps' %}">
-      <ul class="nav nav-pills m-2">
-        {% for step in wizard.steps.all %}
-        <li class="nav-item">
-          {% with step_name=steps|index:step %}
-          {% if step > wizard.steps.current %}
-          <div class="text-secondary">
-            <button type="submit" class="d-flex align-items-center btn btn-link text-decoration-none px-1 px-lg-3" 
-              name="wizard_goto_step" value="{{step}}" aria-current="step" {% if action == 'Create' %}disabled{% endif %}>
-              <div class="step-circle {% if action == 'Create' %}bg-transparent border border-secondary force_disabled{% else %}bg-secondary text-white{% endif %}">
-                {{ forloop.counter }}
-              </div>
-              <span class="ps-2 d-none d-lg-block {%  if not action == 'Create' %}text-secondary{% endif %}">{{ step_name }}</span>
-            </button>
-          </div>
-          {% elif step < wizard.steps.current %} 
-          <div>
-            <button type="submit" class="d-flex align-items-center btn btn-link text-decoration-none text-secondary px-1 px-lg-3"
-              name="wizard_goto_step" value="{{step}}" aria-current="step" formnovalidate>
-              <div class="step-circle bg-secondary text-white">
-                {{ forloop.counter }}
-              </div>
-              <span class="ps-2 d-none d-lg-block">{{ step_name }}</span>
-            </button>
-          </div>
-          {% else %}
-          <div>
-            <button type="submit" class="d-flex align-items-center btn btn-link text-decoration-none fw-bolder px-1 px-lg-3" 
-              name="wizard_goto_step" value="{{step}}" aria-current="step">
-              <div class="step-circle bg-primary text-white">
-                {{forloop.counter}}
-              </div>
-              <span class="ps-2 d-none d-lg-block">{{ step_name }}</span>
-            </button>
-          </div>
-          {% endif %}
-          {% endwith %}
-        </li>
-        {% endfor %}
-      </ul>
-    </nav>
-    <div class="card-body py-0 px-4">
-      {% for step in wizard.steps.all %}
-      {% with step_name=steps|index:step %}
-      {% if step == wizard.steps.current %}
-      <h4 class="fw-bolder text-center text-primary text-decoration-underline d-block d-lg-none pb-3">
-        {{step_name}}
-      </h4>
-      {% endif %}
-      {% endwith %}
-      {% endfor %}
-      {{ wizard.management_form }}
-      {% if wizard.form.forms %}
-      {{ wizard.form.management_form }}
-      {% for form in wizard.form.forms %}
-      {% bootstrap_form_errors wizard.form %}
-      {% bootstrap_form form %}
-      {% endfor %}
-      {% else %}
-      {% with form_class_name=wizard.form|get_class_name %}
-      {{ wizard.form.media }}
-      {% bootstrap_form_errors form %}
-      {% if form_class_name == 'ContactForm' %}
-      {% include "incidents/contact_form.html" %}
-      {% elif form_class_name == 'ImpactForm' %}
-      {% include "incidents/impact_form.html" %}
-      {% elif form_class_name == 'SectorForm' %}
-      {% include "incidents/sector_form.html" %}
-      {% elif form_class_name == 'DetectionDateForm' %}
-      {% include "incidents/detection_date_form.html" %}
-      {% else %}
-      {% for field in wizard.form %}
-      {% if "_freetext_answer" in field.id_for_label %}
-      <div>
-        {% bootstrap_label field.label label_class="form-check-label" label_for=field.id_for_label %}
-        {% bootstrap_field field  show_label=False%}
-      </div>
-      {% else %}
-      <div class="d-flex align-items-center {% if field.field.required %}required-field{% endif %}">
-        {% bootstrap_label field.label label_class="fw-bold me-2" label_for=field.id_for_label %}
-        <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
-      </div>
-      <div class="pt-4">
-        {% bootstrap_field field show_label=False %}
-      </div>
-      {% endif %}
-      {% endfor %}
-      {% endif %}
-      {% endwith %}
-      {% endif %}
-      <div class="mx-0 mx-sm-4 notification-buttons">
-        <div class="row row-cols-1 row-cols-sm-2">
-          <div class="order-1 order-sm-0 col d-flex justify-content-center justify-content-sm-start pt-2 pt-sm-0">
-            <a role="button" class="btn btn-secondary d-inline-flex"
-              href="{% if is_regulator_incident %}{% url 'regulator_incidents' %}{% else %}{% url 'incidents' %}{% endif %}"
-              onclick="load_spinner()">
-              {% if action == 'Create' %}
-              {% translate "Cancel" %}
-              {% else %}
-              {% translate "Close" %}
+  <h1 class="h3 fw-bolder">
+    {% block title %}
+      {% translate "Report an incident" %}
+    {% endblock %}
+  </h1>
+  <div class="hr-separator">
+  </div>
+  <p>
+    {% translate "Fields marked with an asterisk (*) are mandatory." %}
+  </p>
+  <div id="declaration-container">
+    <div class="card shadow rounded-3 my-5">
+      <form method="post">
+        {% csrf_token %}
+        <nav id="nav-steps"
+             role="navigation"
+             class="d-inline-flex border rounded-pill mx-2 mx-lg-4 translate-middle-y bg-light"
+             aria-label='{% translate "Incident notification steps" %}'>
+          <ul class="nav nav-pills m-2">
+            {% for step in wizard.steps.all %}
+              <li class="nav-item">
+                {% with step_name=steps|index:step %}
+                  {% if step > wizard.steps.current %}
+                    <div class="text-secondary">
+                      <button type="submit"
+                              class="d-flex align-items-center btn btn-link text-decoration-none px-1 px-lg-3"
+                              name="wizard_goto_step"
+                              value="{{ step }}"
+                              aria-current="step"
+                              {% if action == 'Create' %}
+                                disabled
+                              {% endif %}>
+                        <div class="step-circle
+                                    {% if action == 'Create' %}
+                                      bg-transparent border border-secondary force_disabled
+                                    {% else %}
+                                      bg-secondary text-white
+                                    {% endif %}">
+                          {{ forloop.counter }}
+                        </div>
+                        <span class="ps-2 d-none d-lg-block
+                                     {% if not action == 'Create' %}
+                                       text-secondary
+                                     {% endif %}">{{ step_name }}</span>
+                      </button>
+                    </div>
+                  {% elif step < wizard.steps.current %}
+                    <button type="submit"
+                            class="d-flex align-items-center btn btn-link text-decoration-none text-secondary px-1 px-lg-3"
+                            name="wizard_goto_step"
+                            value="{{ step }}"
+                            aria-current="step"
+                            formnovalidate>
+                      <div class="step-circle bg-secondary text-white">
+                        {{ forloop.counter }}
+                      </div>
+                      <span class="ps-2 d-none d-lg-block">{{ step_name }}</span>
+                    </button>
+                  {% else %}
+                    <div>
+                      <button type="submit"
+                              class="d-flex align-items-center btn btn-link text-decoration-none fw-bolder px-1 px-lg-3"
+                              name="wizard_goto_step"
+                              value="{{ step }}"
+                              aria-current="step">
+                        <div class="step-circle bg-primary text-white">
+                          {{ forloop.counter }}
+                        </div>
+                        <span class="ps-2 d-none d-lg-block">{{ step_name }}</span>
+                      </button>
+                    </div>
+                  {% endif %}
+                {% endwith %}
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+        <div class="card-body py-0 px-4">
+          {% for step in wizard.steps.all %}
+            {% with step_name=steps|index:step %}
+              {% if step == wizard.steps.current %}
+                <h4 class="fw-bolder text-center text-primary text-decoration-underline d-block d-lg-none pb-3">
+                  {{ step_name }}
+                </h4>
               {% endif %}
-              <i class="bi bi-x-lg" aria-hidden="true"></i>
-            </a>
-          </div>
-          <div class="order-0 order-sm-2 col d-flex justify-content-around justify-content-sm-end">
-            {% if wizard.steps.first != wizard.steps.current %}
-            <button class="btn btn-primary ms-0 ms-sm-3 d-inline-flex" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}"
-              formnovalidate>
-              <i class="bi bi-chevron-left" aria-hidden="true"></i>
-              {% translate "Previous" %}
-            </button>
-            {% endif %}
-            {% with last_step=wizard.steps.last current_step=wizard.steps.current class_name=view|get_class_name is_read_only=view.read_only %}
-            <button id="wizard-next-btn"
-              class="btn ms-0 ms-sm-3 d-inline-flex btn-primary
-              {% if last_step == current_step %}
-              {%if is_read_only %}d-none
-              {% elif class_name != 'FormWizardView' %}btn-secondary{% endif %}
-              {% endif %}"
-              name="wizard_goto_step" type="submit" value="{{ wizard.steps.next }}" data-last-step="{{ last_step }}"
-              data-current-step="{{ current_step }}">
-              {% if last_step == current_step and class_name != "FormWizardView" %}
-              {% translate "Submit" %}
-              {% else %}
-              {% translate "Next" %}
-              {% endif %}
-              <i class="bi bi-chevron-right" aria-hidden="true"></i>
-            </button>
             {% endwith %}
+          {% endfor %}
+          {{ wizard.management_form }}
+          {% if wizard.form.forms %}
+            {{ wizard.form.management_form }}
+            {% for form in wizard.form.forms %}
+              {% bootstrap_form_errors wizard.form %}
+              {% bootstrap_form form %}
+            {% endfor %}
+          {% else %}
+            {% with form_class_name=wizard.form|get_class_name %}
+              {{ wizard.form.media }}
+              {% bootstrap_form_errors form %}
+              {% if form_class_name == 'ContactForm' %}
+                {% include "incidents/contact_form.html" %}
+              {% elif form_class_name == 'ImpactForm' %}
+                {% include "incidents/impact_form.html" %}
+              {% elif form_class_name == 'SectorForm' %}
+                {% include "incidents/sector_form.html" %}
+              {% elif form_class_name == 'DetectionDateForm' %}
+                {% include "incidents/detection_date_form.html" %}
+              {% else %}
+                {% for field in wizard.form %}
+                  {% if "_freetext_answer" in field.id_for_label %}
+                    <div>
+                      {% bootstrap_label field.label label_class="form-check-label" label_for=field.id_for_label %}
+                      {% bootstrap_field field show_label=False %}
+                    </div>
+                  {% else %}
+                    <div class="d-flex align-items-center
+                                {% if field.field.required %}
+                                  required-field
+                                {% endif %}">
+                      {% bootstrap_label field.label label_class="fw-bold me-2" label_for=field.id_for_label %}
+                      <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
+                    </div>
+                    <div class="pt-4">
+                      {% bootstrap_field field show_label=False %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+          {% endif %}
+        </div>
+        <div class="mx-0 mx-sm-4 notification-buttons">
+          <div class="row row-cols-1 row-cols-sm-2">
+            <div class="order-1 order-sm-0 col d-flex justify-content-center justify-content-sm-start pt-2 pt-sm-0">
+              <a role="button"
+                 class="btn btn-secondary d-inline-flex"
+                 href="{% if is_regulator_incident %}{% url 'regulator_incidents' %}{% else %}{% url 'incidents' %}{% endif %}"
+                 onclick="load_spinner()">
+                {% if action == 'Create' %}
+                  {% translate "Cancel" %}
+                {% else %}
+                  {% translate "Close" %}
+                {% endif %}
+                <i class="bi bi-x-lg" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="order-0 order-sm-2 col d-flex justify-content-around justify-content-sm-end">
+              {% if wizard.steps.first != wizard.steps.current %}
+                <button class="btn btn-primary ms-0 ms-sm-3 d-inline-flex"
+                        name="wizard_goto_step"
+                        type="submit"
+                        value="{{ wizard.steps.prev }}"
+                        formnovalidate>
+                  <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                  {% translate "Previous" %}
+                </button>
+              {% endif %}
+              {% with last_step=wizard.steps.last current_step=wizard.steps.current class_name=view|get_class_name is_read_only=view.read_only %}
+                <button id="wizard-next-btn"
+                        class="btn ms-0 ms-sm-3 d-inline-flex btn-primary
+                               {% if last_step == current_step %}
+                                 {% if is_read_only %}
+                                   d-none
+                                 {% elif class_name != 'FormWizardView' %}
+                                   btn-secondary
+                                 {% endif %}
+                               {% endif %}"
+                        name="wizard_goto_step"
+                        type="submit"
+                        value="{{ wizard.steps.next }}"
+                        data-last-step="{{ last_step }}"
+                        data-current-step="{{ current_step }}">
+                  {% if last_step == current_step and class_name != "FormWizardView" %}
+                    {% translate "Submit" %}
+                  {% else %}
+                    {% translate "Next" %}
+                  {% endif %}
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </button>
+              {% endwith %}
+            </div>
           </div>
-      </div>
+        </div>
+      </form>
     </div>
-  </form>
-</div>
+  </div>
 {% endblock %}

@@ -1,18 +1,23 @@
 {% load i18n %}
-
-{% if messages %}
-<div class="messages" role="region" aria-live="polite">
-  {% for message in messages %}
-  <div class="alert alert-dismissible fade show alert-{{ message.tags }}"
-    role="{% if 'success' or 'info' in message.tags %}status{% else %}alert{% endif %}">
-    {{ message }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert"
-      aria-label="{% translate 'Close' %}">
-      <span class="visually-hidden">
-        {% translate 'Close' %}
-      </span>
-    </button>
-  </div>
-  {% endfor %}
+<div id="messages-container">
+  {% if messages %}
+    <div class="messages" role="region" aria-live="polite">
+      {% for message in messages %}
+        <div class="alert alert-dismissible fade show alert-{{ message.tags }}"
+             role="{% if 'success' or 'info' in message.tags %}
+                     status
+                   {% else %}
+                     alert
+                   {% endif %}">
+          {{ message }}
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label='{% translate "Close" %}'>
+            <span class="visually-hidden">{% translate "Close" %}</span>
+          </button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 </div>
-{% endif %}

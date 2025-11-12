@@ -1,19 +1,16 @@
-{% extends 'report/base/template.html' %}
+{% extends "report/base/template.html" %}
 {% load i18n %}
-
 {% block report_head_title %}
-    <meta name="title" content="{% translate 'Incident report' %}" />
-    <title>{% translate "Incident report" %}</title>
+  <meta name="title" content='{% translate "Incident report" %}' />
+  <title>{% translate "Incident report" %}</title>
 {% endblock %}
-
 {% block report_pages %}
-    {% include 'report/incidents/header.html' %}
-    {% include 'report/base/footer.html' %}
-    {% include 'report/incidents/cover.html' %}
-    {% include 'report/incidents/toc.html' %}
-    {% include 'report/incidents/details.html' %}
-    {% include 'report/incidents/timeline.html' %}
-    {% include 'report/incidents/contacts.html' %}
-    {% include 'report/incidents/reports.html' %}
+  {% include "report/incidents/header.html" %}
+  {% include "report/base/footer.html" %}
+  {% include "report/incidents/cover.html" %}
+  {% include "report/incidents/toc.html" %}
+  {% include "report/incidents/details.html" %}
+  {% include "report/incidents/timeline.html" %}
+  {% include "report/incidents/contacts.html" %}
+  {% include "report/incidents/reports.html" %}
 {% endblock %}
-

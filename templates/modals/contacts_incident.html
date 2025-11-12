@@ -1,55 +1,67 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
-
 {% block content %}
-<div class="modal-content">
+  <div class="modal-content">
     <div class="modal-header bg-primary text-white px-4 small">
-        <h5 class="modal-title" id="contacts_incident_label">
-            {% translate "Contacts" %}
-        </h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
+      <h5 class="modal-title" id="contacts_incident_label">
+        {% translate "Contacts" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label='{% translate "Close" %}'>
+      </button>
     </div>
     <div class="modal-body text-center">
-        <div class="card" id="contact-card">
-            <div class="card-body text-center">
-                <h5 class="card-title" id="contact-name"></h5>
-                <h6 class="card-subtitle text-muted" id="contact-jobtitle"></h6>
-                <h6 class="small card-subtitle text-muted fst-italic" id="card-subtitle-contact">{% translate "Incident notification manager" %}</h6>
-                <span id="translated-both-contact-text" class="d-none">
-                    {% translate "Incident notification manager and technical contact" %}
-                </span>
-            </div>
-            <ul class="list-group list-group-flush bg-white">
-                <li class="list-group-item">
-                    <i class="bi bi-envelope me-2" aria-hidden="true"></i>
-                    <span id="contact-email"></span>
-                </li>
-                <li class="list-group-item">
-                    <i class="bi bi-phone me-2" aria-hidden="true"></i>
-                    <span id="contact-telephone"></span>
-                </li>
-            </ul>
+      <div class="card" id="contact-card">
+        <div class="card-body text-center">
+          <h5 class="card-title" id="contact-name">
+          </h5>
+          <h6 class="card-subtitle text-muted" id="contact-jobtitle">
+          </h6>
+          <h6 class="small card-subtitle text-muted fst-italic"
+              id="card-subtitle-contact">
+            {% translate "Incident notification manager" %}
+          </h6>
+          <span id="translated-both-contact-text" class="d-none">
+            {% translate "Incident notification manager and technical contact" %}
+          </span>
         </div>
-        <div id="technical-card">
-            <hr />
-            <div class="card" >
-                <div class="card-body text-center">
-                    <h5 class="card-title" id="technical-name"></h5>
-                    <h6 class="card-subtitle text-muted" id="technical-jobtitle"></h6>                   
-                    <h6 class="small card-subtitle text-muted fst-italic">{% translate "Technical contact" %}</h6>
-                </div>
-                <ul class="list-group list-group-flush bg-white">
-                    <li class="list-group-item">
-                        <i class="bi bi-envelope me-2" aria-hidden="true"></i>
-                        <span id="technical-email"></span>
-                    </li>
-                    <li class="list-group-item">
-                        <i class="bi bi-phone me-2" aria-hidden="true"></i>
-                        <span id="technical-telephone"></span>
-                    </li>
-                </ul>
-            </div>
+        <ul class="list-group list-group-flush bg-white">
+          <li class="list-group-item">
+            <i class="bi bi-envelope me-2" aria-hidden="true"></i>
+            <span id="contact-email"></span>
+          </li>
+          <li class="list-group-item">
+            <i class="bi bi-phone me-2" aria-hidden="true"></i>
+            <span id="contact-telephone"></span>
+          </li>
+        </ul>
+      </div>
+      <div id="technical-card">
+        <hr />
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title" id="technical-name">
+            </h5>
+            <h6 class="card-subtitle text-muted" id="technical-jobtitle">
+            </h6>
+            <h6 class="small card-subtitle text-muted fst-italic">
+              {% translate "Technical contact" %}
+            </h6>
+          </div>
+          <ul class="list-group list-group-flush bg-white">
+            <li class="list-group-item">
+              <i class="bi bi-envelope me-2" aria-hidden="true"></i>
+              <span id="technical-email"></span>
+            </li>
+            <li class="list-group-item">
+              <i class="bi bi-phone me-2" aria-hidden="true"></i>
+              <span id="technical-telephone"></span>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 {% endblock %}

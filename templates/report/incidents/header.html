@@ -1,14 +1,14 @@
-{% extends 'report/base/header.html' %}
+{% extends "report/base/header.html" %}
 {% load i18n %}
-
 {% block report_header_left %}
-<div class="text-primary fw-bold text-uppercase ps-2">{% translate "Report" %}</div>
-<div class="text-primary ps-2">{% now "d M Y" %}</div>
+  <div class="text-primary fw-bold text-uppercase ps-2">
+    {% translate "Report" %}
+  </div>
+  <div class="text-primary ps-2">
+    {% now "d M Y" %}
+  </div>
 {% endblock %}
-
 {% block report_header_right %}
-<span class="fw-bold">
-    {% translate "Ref" %}:
-</span>
-{{ incident.incident_id }}
+  <span class="fw-bold">{% translate "Ref" %}:</span>
+  {{ incident.incident_id }}
 {% endblock %}

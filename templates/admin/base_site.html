@@ -1,36 +1,29 @@
 {% extends "admin/base_site.html" %}
 {% load static %}
 {% load i18n %}
-
 {% block extrahead %}
-{{ block.super }}
-<script src='{% static "js/admin_base.js" %}'></script>
+  {{ block.super }}
+  <script src='{% static "js/admin_base.js" %}'></script>
 {% endblock %}
-
+{% block extrastyle %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/admin.css' %}" />
+{% endblock %}
 {% block branding %}
-<a href="{% url 'admin:index' %}" style="margin-right: 10px">
+  <a href="{% url 'admin:index' %}" class="margin-right-10">
     <img src="{% static 'images/logo.svg' %}" alt="Logo">
-</a>
-<h1 id="site-name">{{ site_header|default:_('Django admin area') }}</h1>
+  </a>
+  <h1 id="site-name">
+    {{ site_header|default:_("Django admin area") }}
+  </h1>
 {% endblock %}
-
-
 {% block nav-global %}
-<div class="header-links">
-    <a href="{% url 'two_factor:profile' %}">
-        {% translate 'Account security' %}
-    </a>
-    <a href="{% url 'password_change' %}">
-        {% translate 'Password change' %}
-    </a>
+  <div class="header-links">
+    <a href="{% url 'two_factor:profile' %}">{% translate "Account security" %}</a>
+    <a href="{% url 'password_change' %}">{% translate "Password change" %}</a>
     {% if site_url and not is_only_admin %}
-    <a href="{{site_url}}" id="back-to-interface">
-        {% translate 'Return to user interface' %}
-    </a>
+      <a href="{{ site_url }}" id="back-to-interface">{% translate "Return to user interface" %}</a>
     {% endif %}
-    <a href="{% url 'logout' %}">
-        {% translate 'Log out' %}
-    </a>
+    <a href="{% url 'logout' %}">{% translate "Log out" %}</a>
     {% include "home/language_selector_admin.html" %}
-</div>
+  </div>
 {% endblock %}

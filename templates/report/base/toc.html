@@ -1,10 +1,12 @@
 {% load i18n %}
-
 <h2 class="toc-heading fw-bold text-primary">
-    {% translate "Table of contents" %}
+  {% translate "Table of contents" %}
 </h2>
-<div class="hr-separator"></div>
+<div class="hr-separator">
+</div>
 <ul class="toc list-unstyled pt-3">
-    {% block report_toc_list_content %}{% endblock %}
+  {% block report_toc_list_content %}
+  {% endblock %}
 </ul>
-<p class="page-break" ></p>
+<p class="page-break">
+</p>

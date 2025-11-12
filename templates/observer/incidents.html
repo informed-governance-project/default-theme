@@ -1,80 +1,81 @@
-{% extends 'incidents/incidents_base.html' %}
-
+{% extends "incidents/incidents_base.html" %}
 {% load i18n %}
 {% load custom_filters %}
 {% load django_bootstrap5 %}
-
 {% block content_table_incident_status %}
-    {% if incident.incident_status == 'GOING' %}
-    <i class="custom-icon-ongoing logo-status" 
-        data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'The incident is still ongoing' %}"
-        aria-hidden="true">
-    </i> 
-    {% elif incident.incident_status == 'CLOSE' %}
+  {% if incident.incident_status == 'GOING' %}
+    <i class="custom-icon-ongoing logo-status"
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title='{% translate "The incident is still ongoing" %}'
+       aria-hidden="true">
+    </i>
+  {% elif incident.incident_status == 'CLOSE' %}
     <i class="custom-icon-closed logo-status"
-        data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'The incident is over' %}"
-        aria-hidden="true">
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title='{% translate "The incident is over" %}'
+       aria-hidden="true">
     </i>
-    {% endif %}
+  {% endif %}
 {% endblock %}
-
 {% block content_table_significative_impact %}
-    {% if incident.is_significative_impact %}
+  {% if incident.is_significative_impact %}
     <i class="custom-icon-impact logo-status"
-        data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'Incident with significant impact' %}"
-        aria-hidden="true">
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title='{% translate "Incident with significant impact" %}'
+       aria-hidden="true">
     </i>
-    {% endif %}
+  {% endif %}
 {% endblock %}
-
 {% block content_table_incident_id %}
-    {{ incident.incident_id }}
+  {{ incident.incident_id }}
 {% endblock %}
-
 {% block content_table_regulation_or_regulator %}
-{{ incident.sector_regulation.regulator }}
+  {{ incident.sector_regulation.regulator }}
 {% endblock %}
-
 {% block content_table_report %}
-    {% with incident_view_action="review_workflow"  %}
-        {{ block.super }}
-    {% endwith %}
+  {% with incident_view_action="review_workflow" %}
+    {{ block.super }}
+  {% endwith %}
 {% endblock %}
-
 {% block content_table_actions %}
-{{ block.super }}
-<button class="btn p-0 border-0 contacts_incident"
-    data-contacts='{
-        "contact_name": "{{ incident.contact_firstname }} {{ incident.contact_lastname }}",
-        "contact_jobtitle": "{{ incident.contact_title }}",
-        "contact_email": "{{ incident.contact_email }}",
-        "contact_telephone": "{{ incident.contact_telephone }}",
-        "technical_name": "{{ incident.technical_firstname }} {{ incident.technical_lastname }}",
-        "technical_jobtitle": "{{ incident.technical_title }}",
-        "technical_email": "{{ incident.technical_email }}",
-        "technical_telephone": "{{ incident.technical_telephone }}"
-    }'
-    data-bs-toggle="modal"
-    data-bs-target="#contacts_incident">
-    <i class="custom-icon-user h3"        
-        data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'Contacts' %}"
-        aria-hidden="true">
+  {{ block.super }}
+  <button class="btn p-0 border-0 contacts_incident"
+          data-contacts='{ "contact_name": "{{ incident.contact_firstname }} {{ incident.contact_lastname }}", "contact_jobtitle": "{{ incident.contact_title }}", "contact_email": "{{ incident.contact_email }}", "contact_telephone": "{{ incident.contact_telephone }}", "technical_name": "{{ incident.technical_firstname }} {{ incident.technical_lastname }}", "technical_jobtitle": "{{ incident.technical_title }}", "technical_email": "{{ incident.technical_email }}", "technical_telephone": "{{ incident.technical_telephone }}" }'
+          data-bs-toggle="modal"
+          data-bs-target="#contacts_incident">
+    <i class="custom-icon-user h3"
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title='{% translate "Contacts" %}'
+       aria-hidden="true">
     </i>
-    <span class="visually-hidden">{% translate 'Contacts' %}</span>
-</button>
+    <span class="visually-hidden">{% translate "Contacts" %}</span>
+  </button>
 {% endblock %}
-
 {% block content_modals %}
-{{ block.super }}
-<div class="modal fade" id="contacts_incident" data-bs-backdrop="static"
-     data-bs-keyboard="false" tabindex="-1" aria-labelledby="contacts_incident_label"
-     aria-hidden="true">
+  {{ block.super }}
+  <div class="modal fade"
+       id="contacts_incident"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="contacts_incident_label"
+       aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-sm modal-dialog-scrollable">
-        {% include "modals/contacts_incident.html" %}
+      {% include "modals/contacts_incident.html" %}
     </div>
-</div>
+  </div>
+  <div class="modal fade"
+       id="export_incidents"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="export_incidents_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
 {% endblock %}

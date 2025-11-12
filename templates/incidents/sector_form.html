@@ -1,20 +1,33 @@
-<div class="d-flex align-items-center {% if wizard.form.fields.sectors.required %}required-field{% endif %}">
-    <label class="fw-bold me-2">{{ wizard.form.sectors.label }}</label>
-    <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
+<div class="d-flex align-items-center
+            {% if wizard.form.fields.sectors.required %}
+              required-field
+            {% endif %}">
+  <label class="fw-bold me-2">
+    {{ wizard.form.sectors.label }}
+  </label>
+  <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
 </div>
-
 <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 pt-4">
-    {% for sector, choices in wizard.form.fields.sectors.choices %}
-        <div class="col mb-4">
-                <h6 class="fw-bold">{{ sector }}</h6>
-                {% for choice in choices %}
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" 
-                        name="{{ wizard.steps.current }}-sectors" value="{{ choice.0 }}" id="sector_{{ choice.0 }}" 
-                        {% if choice.0|stringformat:"s" in wizard.form.initial.sectors %}checked{% endif %}>
-                        <label class="form-check-label" for="sector_{{ choice.0 }}">{{ choice.1 }}</label>
-                    </div>
-                {% endfor %}
-        </div> 
-    {% endfor %}
+  {% for sector, choices in wizard.form.fields.sectors.choices %}
+    <div class="col mb-4">
+      <h6 class="fw-bold">
+        {{ sector }}
+      </h6>
+      {% for choice in choices %}
+        <div class="form-check">
+          <input class="form-check-input"
+                 type="checkbox"
+                 name="{{ wizard.steps.current }}-sectors"
+                 value="{{ choice.0 }}"
+                 id="sector_{{ choice.0 }}"
+                 {% if choice.0|stringformat:"s" in wizard.form.initial.sectors %}
+                   checked
+                 {% endif %}>
+          <label class="form-check-label" for="sector_{{ choice.0 }}">
+            {{ choice.1 }}
+          </label>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
 </div>

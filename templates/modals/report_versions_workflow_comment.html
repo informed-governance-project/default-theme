@@ -1,11 +1,10 @@
-{% extends 'modals/workflow_comment.html' %}
+{% extends "modals/workflow_comment.html" %}
 {% load i18n %}
-
 {% block modal_close_button %}
-    <button type="button" class="btn-close btn-close-white" 
-    data-bs-target="#report_versions" data-bs-toggle="modal" 
-    aria-label="{% translate 'Close' %}">
-    </button>
+  <button type="button"
+          class="btn-close btn-close-white"
+          data-bs-target="#report_versions"
+          data-bs-toggle="modal"
+          aria-label='{% translate "Close" %}'>
+  </button>
 {% endblock modal_close_button %}
-
-

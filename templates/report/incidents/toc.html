@@ -1,35 +1,46 @@
-{% extends 'report/base/toc.html' %}
+{% extends "report/base/toc.html" %}
 {% load i18n %}
-
 {% block report_toc_list_content %}
-<li class="border-bottom">
+  <li class="border-bottom">
     <span class="fw-bold">1.</span>
     <a class="text-decoration-none text-reset" href="#incident_details"></a>
-</li>
-<li class="border-bottom">
+  </li>
+  <li class="border-bottom">
     <span class="fw-bold">2.</span>
     <a class="text-decoration-none text-reset" href="#incident_timeline"></a>
-</li>
-{% if report_list %}
-<li class="border-bottom">
-    <span class="fw-bold">3.</span>
-    <a class="text-decoration-none text-reset" href="#report_timeline"></a>
-</li>
-{% endif %}
-<li class="border-bottom">
-    <span class="fw-bold">{% if report_list %}4.{% else %}3.{% endif %}</span>
+  </li>
+  {% if report_list %}
+    <li class="border-bottom">
+      <span class="fw-bold">3.</span>
+      <a class="text-decoration-none text-reset" href="#report_timeline"></a>
+    </li>
+  {% endif %}
+  <li class="border-bottom">
+    <span class="fw-bold">
+      {% if report_list %}
+        4.
+      {% else %}
+        3.
+      {% endif %}
+    </span>
     <a class="text-decoration-none text-reset" href="#incident_contacts"></a>
-</li>
-<li class="border-bottom">
-    <span class="fw-bold">{% if report_list %}5.{% else %}4.{% endif %}</span>
+  </li>
+  <li class="border-bottom">
+    <span class="fw-bold">
+      {% if report_list %}
+        5.
+      {% else %}
+        4.
+      {% endif %}
+    </span>
     <a class="text-decoration-none text-reset" href="#incident_reports"></a>
-</li>
-<ul class="list-unstyled ps-4 small">
+  </li>
+  <ul class="list-unstyled ps-4 small">
     {% for report in report_list %}
-    <li class="border-bottom  pt-1">
+      <li class="border-bottom  pt-1">
         <span class="fw-bold">5.{{ forloop.counter }}</span>
         <a class="text-decoration-none text-reset" href="#{{ forloop.counter }}"></a>
-    </li>
+      </li>
     {% endfor %}
-</ul>
+  </ul>
 {% endblock %}

@@ -1,27 +1,32 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
-
 {% block content %}
-<div class="modal-content">
+  <div class="modal-content">
     <div class="modal-header bg-primary text-white px-4 small">
-        <h5 class="modal-title" id="delete_incident_label">
-            {% translate "Delete incident" %}
-        </h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                aria-label="{% translate 'Close' %}"></button>
+      <h5 class="modal-title" id="delete_incident_label">
+        {% translate "Delete incident" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label='{% translate "Close" %}'>
+      </button>
     </div>
     <div class="modal-body py-4 px-5">
-        <div>
-            {% translate "Are you sure that you want to delete the incident?" %}
-        </div>
+      <div>
+        {% translate "Are you sure that you want to delete the incident?" %}
+      </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">
-            {% translate "Cancel" %}
-        </button>
-        <a id="modal-delete-button" type="button" class="btn btn-sm btn-primary" href="#">
-            {% translate "Delete" %}
-        </a>
+      <button type="button"
+              class="btn btn-sm btn-secondary"
+              data-bs-dismiss="modal">
+        {% translate "Cancel" %}
+      </button>
+      <a id="modal-delete-button"
+         type="button"
+         class="btn btn-sm btn-primary"
+         href="#">{% translate "Delete" %}</a>
     </div>
-</div>
+  </div>
 {% endblock %}

@@ -1,54 +1,57 @@
 {% load django_bootstrap5 %}
 {% load static %}
 {% load i18n %}
-
 {% block bootstrap5_extra_head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}" />
 {% endblock %}
-
 <footer role="contentinfo" class="footer mt-auto pt-3">
   <div class="container-fluid px-2 px-xl-5">
     <div class="row d-flex justify-content-between pb-2 small">
       <div class="col-4 col-sm-2 col-xl-1">
-        <img src="{% static 'images/nc3_logo.svg' %}" alt="NC3 logo" class="img-fluid">
+        <img src="{% static 'images/nc3_logo.svg' %}"
+             alt="NC3 logo"
+             class="img-fluid">
       </div>
       <div class="col-6 col-xl-2 text-end align-self-center">
-          {% translate "Version" %} : {{ app_version_from_pyproject }}
+        {% translate "Version" %} : {{ app_version_from_pyproject }}
       </div>
     </div>
   </div>
   <div class="container-fluid bg-secondary px-2 px-xl-5">
     <div class="logo-container text-center">
-      <img src="{% static 'images/regulator_logo.svg' %}" alt="{{ regulator_name }}" class="translate-middle-y">
+      <img src="{% static 'images/regulator_logo.svg' %}"
+           alt="{{ regulator_name }}"
+           class="translate-middle-y">
     </div>
     <div class="row align-items-center text-white pb-2 small row-cols-1 row-cols-xl-3">
       <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-start my-2 my-lg-0 gap-2">
         <a href="{% if regulator.tos_url %}{{ regulator.tos_url }}{% else %}{% url 'terms' %}{% endif %}"
-          target="{% if regulator.tos_url %}_blank{% endif %}" rel="noopener noreferrer"
-          class="text-decoration-none px-2 text-white">
-          {% translate "Terms of service" %}
-        </a>
-        <div class="vr"></div>
-        <a class="text-decoration-none px-2 text-white" href="{% url 'privacy' %}">
-          {% translate "Privacy policy" %}
-        </a>
+           target="{% if regulator.tos_url %}
+                     _blank
+                   {% endif %}"
+           rel="noopener noreferrer"
+           class="text-decoration-none px-2 text-white">{% translate "Terms of service" %}</a>
+        <div class="vr">
+        </div>
+        <a class="text-decoration-none px-2 text-white"
+           href="{% url 'privacy' %}">{% translate "Privacy policy" %}</a>
       </div>
       <div class="col-12 col-lg-4 d-flex justify-content-center mb-2 mb-lg-0">
         <div class="text-center">
           <span>{% translate "Provided by" %}&nbsp;</span>
-          <a href="{{ regulator.website }}" target="_blank" rel="noopener noreferrer" class="footer-link">
-            {{ regulator.short_url }}
-          </a>
+          <a href="{{ regulator.website }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="footer-link">{{ regulator.short_url }}</a>
         </div>
       </div>
       <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end mb-2 mb-lg-0 gap-2">
-        <a class="text-decoration-none px-2 text-white" href="{% url 'cookies' %}">
-          {% translate "Cookies policy" %}          
-        </a>
-        <div class="vr"></div>
-        <a class="text-decoration-none px-2 text-white" href="{% url 'accessibility' %}">
-          {% translate "Accessibility statement" %}          
-        </a>
+        <a class="text-decoration-none px-2 text-white"
+           href="{% url 'cookies' %}">{% translate "Cookies policy" %}</a>
+        <div class="vr">
+        </div>
+        <a class="text-decoration-none px-2 text-white"
+           href="{% url 'accessibility' %}">{% translate "Accessibility statement" %}</a>
       </div>
     </div>
   </div>
