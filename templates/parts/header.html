@@ -17,19 +17,49 @@
            width="130px"
            class="d-inline-block align-text-top">
     </a>
-    <div class="vr">
-    </div>
-    <ul class="navbar-nav">
-      {% if user.is_authenticated %}
-        {% if is_regulator == True %}
-          {% include "regulator/menu.html" %}
-        {% endif %}
-        {% if is_regulator == False %}
-          {% include "operator/menu.html" %}
+    {% if user.is_authenticated %}
+      <ul class="navbar-nav">
+        {% if request.path != '/' %}
+          <div class="vr">
+          </div>
+          {% if user_modules|length > 1 %}
+            <div class="dropdown">
+              <button id="module_selector"
+                      class="nav-link dropdown-toggle fw-bold"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                {{ current_module }}
+              </button>
+              <ul class="dropdown-menu fit-content" aria-labelledby="module_selector">
+                {% for module in user_modules %}
+                  <li role="presentation">
+                    <a class="dropdown-item
+                              {% if module.name == current_module %}
+                                active
+                              {% endif %}"
+                       href="{% url module.type %}"
+                       type="button"
+                       onclick="load_spinner();">
+                      {{ module.name }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% else %}
+            <li class="nav-item">
+              {% for module in user_modules %}
+                <a class="nav-link fw-bold"
+                   href="{% url module.type %}"
+                   onclick="load_spinner()">{{ module.name }}</a>
+              {% endfor %}
+            </li>
+          {% endif %}
+          <div class="vr">
+          </div>
         {% endif %}
       </ul>
-      <div class="vr">
-      </div>
       <!-- Responsive Menu Button -->
       <button class="navbar-toggler"
               type="button"
