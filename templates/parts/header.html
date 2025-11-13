@@ -7,14 +7,14 @@
   <script src='{% static "js/header.js" %}'></script>
 {% endblock %}
 <nav role="navigation"
-     class="navbar navbar-expand-lg bg-white navbar-light pb-0"
+     class="navbar navbar-expand-lg bg-white navbar-light"
      aria-label='{% translate "Main menu" %}'>
   <div class="container-fluid">
     <!-- Logo -->
     <a class="navbar-brand" href="{% url 'index' %}">
       <img src="{% static 'images/logo.svg' %}"
            alt="{{ site_name }}"
-           width="130px"
+           width="200px"
            class="d-inline-block align-text-top">
     </a>
     {% if user.is_authenticated %}
