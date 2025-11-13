@@ -7,10 +7,13 @@
 <footer role="contentinfo" class="footer mt-auto pt-3">
   <div class="container-fluid px-2 px-xl-5">
     <div class="row d-flex justify-content-between pb-2 small">
-      <div class="col-4 col-sm-2 col-xl-1">
+      <div class="col-4 col-sm-3 col-xl-2 hstack gap-2">
+        <div class="col-10 col-sm-auto">
+          {% translate "A platform developed by" %}
+        </div>
         <img src="{% static 'images/nc3_logo.svg' %}"
              alt="NC3 logo"
-             class="img-fluid">
+             class="w-60 w-xl-50 h-100 h-sm-75">
       </div>
       <div class="col-6 col-xl-2 text-end align-self-center">
         {% translate "Version" %} : {{ app_version_from_pyproject }}
@@ -38,7 +41,7 @@
       </div>
       <div class="col-12 col-lg-4 d-flex justify-content-center mb-2 mb-lg-0">
         <div class="text-center">
-          <span>{% translate "Provided by" %}&nbsp;</span>
+          <span>{% translate "A platform offered by" %}&nbsp;</span>
           <a href="{{ regulator.website }}"
              target="_blank"
              rel="noopener noreferrer"
