@@ -55,22 +55,24 @@
       </i>
     {% endif %}
   </a>
-  <button class="btn border-0 p-0 text-dark review_comment_so_declaration
-                 {% if standard.review_comment and standard.status in ',PASSM,FAILM,' %}
-                   text-warning
-                 {% else %}
-                   text-dark disabled
-                 {% endif %}"
-          data-standard-answer-id="{{ standard.id }}"
-          data-bs-toggle="modal"
-          data-bs-target="#review_comment_so_declaration">
-    <i class="bi bi-envelope-fill h4"
-       data-bs-placement="top"
-       data-bs-toggle="tooltip"
-       title='{% translate "Review comment" %}'>
-    </i>
-  </button>
-  <button class="btn border-0 p-0 text-dark copy_so_declaration"
+  {% if standard.review_comment and standard.status in ',PASSM,FAILM,' %}
+    <button class="btn border-0 p-0 review_comment_so_declaration"
+            data-standard-answer-id="{{ standard.id }}"
+            data-bs-toggle="modal"
+            data-bs-target="#review_comment_so_declaration">
+      <i class="custom-icon-comments h4"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title='{% translate "Review comment" %}'>
+      </i>
+    </button>
+  {% else %}
+    <button class="btn border-0 p-0" disabled>
+      <i class="custom-icon-comments-disabled h4">
+      </i>
+    </button>
+  {% endif %}
+  <button class="btn border-0 p-0 copy_so_declaration"
           data-standard-answer-id="{{ standard.group.id }}"
           data-bs-toggle="modal"
           data-bs-target="#copy_so_declaration">
