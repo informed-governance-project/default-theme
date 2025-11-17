@@ -40,7 +40,16 @@
   {% endwith %}
 {% endblock %}
 {% block content_table_actions %}
-  <a class="btn border-0 p-0 text-dark
+  <button class="btn text-dark p-0 ps-1 border-0" disabled>
+    <i class="custom-icon-versioning-disabled h4 align-self-center"
+       aria-hidden="true"
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title='{% translate "Version control" %}'>
+    </i>
+    <span class="visually-hidden">{% translate "Version control" %}</span>
+  </button>
+  <a class="btn border-0 p-0
             {% if standard.status == 'UNDE' %}
               disabled
             {% endif %}"
