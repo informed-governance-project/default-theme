@@ -13634,6 +13634,10 @@ a.changelink {
   background-image: url("/static/images/icons/ico-pdf.svg");
 }
 
+.custom-icon-legend {
+  background-image: url("/static/images/icons/ico-legend.svg");
+}
+
 .custom-icon-pdf-small {
   background-image: url("/static/images/icons/ico-pdf-small.svg");
 }

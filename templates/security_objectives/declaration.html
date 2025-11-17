@@ -160,7 +160,7 @@
           </div>
         </div>
       </div>
-      <div class="row border-top border-3 border-secondary bg-light">
+      <div class="hstack d-flex border-top border-3 border-secondary bg-light">
         <div id="security_objective_selector"
              class="col-11 d-none d-xl-flex justify-content-between flex-wrap px-4 py-3">
           {% for security_objective, maturity_levels in security_objectives.items %}
@@ -199,8 +199,8 @@
         </div>
         <div class="p-0 bg-secondary vr">
         </div>
-        <div class="col m-auto">
-          <div class="row">
+        <div class="hstack gap-2 mx-auto">
+          <div class="hstack gap-1">
             <button class="col carousel-control-prev position-relative"
                     type="button"
                     data-bs-target="#security_objectives_carousel"
@@ -214,6 +214,44 @@
               <i class="carousel-control-next-icon bi bi-arrow-right text-secondary h2"></i>
             </button>
           </div>
+          <button type="button"
+                  class="btn btn-primary bg-body border-0 p-0"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseLegend"
+                  aria-expanded="false"
+                  aria-controls="collapseLegend"
+                  onclick="save_so_declaration_status_legend()">
+            <i class="custom-icon-legend h3 align-self-center"
+               alt="legend"
+               data-bs-placement="top"
+               data-bs-toggle="tooltip"
+               title='{% translate "Icon Guide" %}'>
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Legend -->
+    <div class="my-2">
+      <div id="collapseLegend" class="collapse">
+        <div class="legend">
+          <span class="legend-title">
+            {% translate "Legend" %}
+          </span>
+          <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+            {% for maturity_levels in security_objectives.values %}
+              {% if forloop.first %}
+                {% for maturity_level in maturity_levels %}
+                  <li class="legend-item d-flex align-items-center small">
+                    <h3 class="m-0 pe-3 fw-bolder">
+                      {{ maturity_level.level }}
+                    </h3>
+                    <span>{{ maturity_level }}</span>
+                  </li>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </ul>
         </div>
       </div>
     </div>
@@ -367,21 +405,6 @@
                   {% endfor %}
                 </tbody>
               </table>
-              <div class="legend">
-                <span class="legend-title">
-                  {% translate "Legend" %}
-                </span>
-                <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
-                  {% for maturity_level in maturity_levels %}
-                    <li class="legend-item d-flex align-items-center small">
-                      <h3 class="m-0 pe-3 fw-bolder">
-                        {{ maturity_level.level }}
-                      </h3>
-                      <span>{{ maturity_level }}</span>
-                    </li>
-                  {% endfor %}
-                </ul>
-              </div>
             </div>
           {% empty %}
             <h3>

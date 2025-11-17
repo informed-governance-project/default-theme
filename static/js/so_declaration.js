@@ -78,6 +78,15 @@ $(document).ready(function () {
     }
   }
 
+  function checkSODeclarationStatusLegend() {
+    const status = localStorage.getItem('so_declaration_status_legend');
+    if (status === "true") {
+      $('#collapseLegend').addClass("show");
+    } else {
+      $('#collapseLegend').removeClass("show");
+    }
+  }
+
   $('.form-check-input').on('change', function () {
     checkImplementation();
     checkRequiredFields()
@@ -126,6 +135,8 @@ $(document).ready(function () {
   checkRequiredFields();
   showActiveSOStatusForm();
   checkActions();
+  checkSODeclarationStatusLegend();
+
   $("#security_objective_selector").find(`[data-bs-slide-to="0"]`).addClass("slide-active-container");
 
   $(document).on("click", '.so_contacts', function () {
@@ -220,4 +231,10 @@ function update_so_declaration(form) {
         console.log(error);
       });
   }
+}
+
+function save_so_declaration_status_legend() {
+  const current = localStorage.getItem('so_declaration_status_legend') === "true";
+  const newValue = !current;
+  localStorage.setItem('so_declaration_status_legend', newValue);
 }
