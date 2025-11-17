@@ -68,10 +68,8 @@
         <span class="legend-title">
           {% translate "Legend" %}
         </span>
-        <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
-          {% block content_table_legend %}
-          {% endblock %}
-        </ul>
+        {% block content_table_legend %}
+        {% endblock %}
       </div>
     </div>
   </div>

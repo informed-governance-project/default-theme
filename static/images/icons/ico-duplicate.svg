@@ -1,15 +1,17 @@
-<svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.28641 9.6803V3.9395C5.28641 3.28842 5.82101 2.76221 6.48247 2.76221H13.5501" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M11.705 17.3862H6.48578C5.82432 17.3862 5.28972 16.86 5.28972 16.2089V9.6803" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M16.453 5.61621V12.7157" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M13.5533 2.75903V4.43281C13.5533 5.08389 14.0909 5.61308 14.7524 5.61308H16.4529L13.5533 2.75903Z" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M13.5533 2.75903L16.4529 5.61605" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7.52147 7.61401H13.7374" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7.52147 10.0724H11.5959" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M17.0052 7.61401H18.3522" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M21.2523 10.468V21.0637C21.2523 21.7148 20.7177 22.241 20.0562 22.241H11.2851C10.6237 22.241 10.0891 21.7148 10.0891 21.0637V17.3861" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M18.3526 7.61401V9.28779C18.3526 9.93887 18.8903 10.4681 19.5517 10.4681H21.2522L18.3526 7.61401Z" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M18.3526 7.61401L21.2522 10.4681" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M13.3118 14.2944L17.498 18.415" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M17.498 15.8491V18.4148H14.8884" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 17.2 20.7">
+  <!-- Generator: Adobe Illustrator 29.8.3, SVG Export Plug-In . SVG Version: 2.1.1 Build 3)  -->
+  <path d="M.6,7.5V1.8c0-.7.5-1.2,1.2-1.2h7.1" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M7,15.2H1.8c-.7,0-1.2-.5-1.2-1.2v-6.5" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M11.8,3.5v7.1" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M8.9.6v1.7c0,.7.5,1.2,1.2,1.2h1.7l-2.9-2.9Z" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M8.9.6l2.9,2.9" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M2.8,5.5h6.2" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M2.8,7.9h4.1" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M12.3,5.5h1.3" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M16.6,8.3v10.6c0,.7-.5,1.2-1.2,1.2H6.6c-.7,0-1.2-.5-1.2-1.2v-3.7" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M13.7,5.5v1.7c0,.7.5,1.2,1.2,1.2h1.7l-2.9-2.9Z" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M13.7,5.5l2.9,2.9" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M8.6,12.1l4.2,4.1" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M12.8,13.7v2.6h-2.6" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
 </svg>
