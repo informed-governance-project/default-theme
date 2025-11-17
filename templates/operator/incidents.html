@@ -104,6 +104,12 @@
                   </i>
                   <span class="visually-hidden">{% translate "Review comment" %}</span>
                 </button>
+              {% else %}
+                <button class="btn text-secondary p-0 border-0" disabled>
+                  <i class="custom-icon-comments-disabled h6"aria-hidden="true">
+                  </i>
+                  <span class="visually-hidden">{% translate "Review comment" %}</span>
+                </button>
               {% endif %}
               {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
                 {% if incident_workflows %}

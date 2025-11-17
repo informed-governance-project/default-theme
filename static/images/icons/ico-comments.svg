@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 19.3 19.3">
-  <!-- Generator: Adobe Illustrator 29.8.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 2)  -->
-  <defs>
-    <style>
-      .st0 {
-        fill: #080;
-        stroke: #080;
-      }
-
-      .st0, .st1 {
-        stroke-width: 1.4px;
-      }
-
-      .st0, .st1, .st2 {
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-
-      .st1 {
-        stroke: #fff;
-      }
-
-      .st1, .st2 {
-        fill: none;
-      }
-
-      .st2 {
-        stroke: #000;
-        stroke-width: 1.2px;
-      }
-    </style>
-  </defs>
-  <path class="st2" d="M18.6,11.9c0,1.7-1.4,3-3,3h-6.7l-3.6,3.7v-3.7h-1.7c-1.7,0-3-1.4-3-3V3.7C.6,2,2,.7,3.6.7h3.1"/>
-  <path class="st0" d="M12.9,12.2c3.2,0,5.8-2.6,5.8-5.8S16,.7,12.9.7s-5.8,2.6-5.8,5.8,2.6,5.8,5.8,5.8Z"/>
-  <path class="st1" d="M12.9,4.3v4.3"/>
-  <path class="st1" d="M10.7,6.4h4.3"/>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 19.2 19.2">
+  <!-- Generator: Adobe Illustrator 29.8.3, SVG Export Plug-In . SVG Version: 2.1.1 Build 3)  -->
+  <path d="M18.6,11.9c0,1.7-1.4,3-3,3h-6.7l-3.6,3.7v-3.7h-1.7c-1.7,0-3-1.4-3-3V3.6C.6,2,2,.6,3.6.6h3.1" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.2px;"/>
+  <path d="M12.9,12.1c3.2,0,5.8-2.6,5.8-5.8S16,.6,12.9.6s-5.8,2.6-5.8,5.8,2.6,5.8,5.8,5.8Z" style="fill: #2673e5;"/>
 </svg>

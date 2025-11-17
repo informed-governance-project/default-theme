@@ -130,6 +130,14 @@ $(document).ready(function () {
             </i>
           </button>
         `;
+      } else {
+        commentIcon = `
+          <button class="btn p-0 ps-1 border-0 d-inline-flex align-items-center"
+                  type="button" disabled>
+            <i class="custom-icon-comments-disabled h4 align-self-center">
+            </i>
+          </button>
+        `;
       }
 
       let row = `
