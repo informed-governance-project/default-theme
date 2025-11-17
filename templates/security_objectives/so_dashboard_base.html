@@ -81,7 +81,7 @@
       <caption class="visually-hidden">{% translate "Security objectives table" %}</caption>
       <thead>
         <tr>
-          <th class="col-1">
+          <th class="col-1 text-center">
             {% translate "Status" %}
           </th>
           <th class="col-1">
@@ -125,7 +125,7 @@
         {% for standard in standard_answers %}
           {% timezone time_zone %}
           <tr>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3 pe-4">
               <div class="d-none {% status_class standard.status %} icon-container m-auto rounded-circle justify-content-center align-items-center"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
