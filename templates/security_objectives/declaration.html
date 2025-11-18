@@ -14,8 +14,8 @@
   {% csrf_token %}
   <div class="card border border-0">
     <div class="small card-header py-0 border border-0 bg-transparent">
-      <div class="row py-3 gap-2">
-        <div class="col-3">
+      <div class="row py-3 gap-2 row-cols-3">
+        <div class="col-auto col-xl-3">
           <div class="row gap-1">
             <span class="col fw-bold">{% translate "Submission date" %}</span>
             <div class="col">
@@ -37,7 +37,7 @@
         </div>
         <div class="p-0 vr">
         </div>
-        <div class="col-4">
+        <div class="col-auto col-xl-4">
           <div class="row gap-2">
             <button class="col-1 btn p-0 border-0 so_contacts"
                     data-bs-toggle="modal"
@@ -89,9 +89,42 @@
             {% endfor %}
           </ul>
         </div>
-        <div class="col">
-          <div class="row gap-2 d-flex justify-content-end">
-            <div id="so_status_form" class="col-auto">
+        <div class="col-auto ms-auto">
+          <div class="row gap-3 d-flex justify-content-end">
+            {% if is_regulator %}
+              <button type="button"
+                      class="col-auto btn border-0 p-0 review_comment_so_declaration"
+                      data-standard-answer-id="{{ standard_answer.id }}"
+                      data-only-review-comment="true"
+                      data-bs-toggle="modal"
+                      data-bs-target="#review_comment_so_declaration">
+                <i class="{% if standard_answer.status in ',PASS,FAIL,DELIV' %}
+                            custom-icon-comments-add
+                          {% else %}
+                            custom-icon-comments
+                          {% endif %}
+                          h3"></i>
+              </button>
+            {% else %}
+              {% if standard_answer.review_comment and standard_answer.status in ',PASSM,FAILM,' %}
+                <button class="col-auto btn border-0 p-0 review_comment_so_declaration"
+                        data-standard-answer-id="{{ standard_answer.id }}"
+                        data-bs-toggle="modal"
+                        data-bs-target="#review_comment_so_declaration">
+                  <i class="custom-icon-comments h3"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title='{% translate "Review comment" %}'>
+                  </i>
+                </button>
+              {% else %}
+                <button class="col-auto btn border-0 p-0" disabled>
+                  <i class="custom-icon-comments-disabled h3">
+                  </i>
+                </button>
+              {% endif %}
+            {% endif %}
+            <div id="so_status_form" class="col-auto p-0">
               {% for security_objective, maturity_levels in security_objectives.items %}
                 <div id="form_status_slide_{{ security_objective.id }}"
                      class="d-none h-100">

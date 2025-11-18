@@ -13654,6 +13654,10 @@ a.changelink {
   background-image: url("/static/images/icons/ico-comments.svg");
 }
 
+.custom-icon-comments-add {
+  background-image: url("/static/images/icons/ico-comments-add.svg");
+}
+
 .custom-icon-comments-disabled {
   background-image: url("/static/images/icons/ico-comments-disabled.svg");
 }

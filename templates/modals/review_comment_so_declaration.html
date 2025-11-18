@@ -2,10 +2,6 @@
 {% load i18n %}
 {% load static %}
 {% block content %}
-  <script src='{% static "npm_components/jquery-ui/dist/jquery-ui.min.js" %}'></script>
-  <link rel="stylesheet"
-        type="text/css"
-        href="{% static 'npm_components/jquery-ui/themes/base/all.css' %}" />
   <div class="modal-content">
     <div class="modal-header bg-primary text-white px-4 small">
       <h5 class="modal-title" id="review_comment_so_declaration_label">
@@ -17,7 +13,9 @@
               aria-label='{% translate "Close" %}'>
       </button>
     </div>
-    <form action="{% url 'review_comment_so_declaration' standard_answer_id %}"
+    <form id="so-review-comment-form"
+          is_only_review_comment="{{ form.is_only_review_comment }}"
+          action="{% url 'review_comment_so_declaration' standard_answer_id %}"
           method="post">
       {% csrf_token %}
       <div class="modal-body">
@@ -31,15 +29,19 @@
           {% endif %}
         {% endif %}
       </div>
-      {% if not messages and is_regulator %}
+      {% if not messages and is_regulator and not form.is_read_only %}
         <div class="modal-footer">
           <button id="submit-btn"
                   type="submit"
                   class="btn btn-primary"
-                  {% if form.initial.status == "DELIV" %}
+                  {% if form.initial.status == "DELIV" and not form.is_only_review_comment %}
                     disabled
                   {% endif %}>
-            {% translate "Send" %}
+            {% if form.is_only_review_comment %}
+              {% translate "Save" %}
+            {% else %}
+              {% translate "Send" %}
+            {% endif %}
           </button>
         </div>
       {% endif %}
