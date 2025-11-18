@@ -197,7 +197,7 @@
             {% endif %}
           {% endfor %}
         </div>
-        <div class="p-0 bg-secondary vr">
+        <div class="p-0 bg-secondary vr d-none d-xl-block">
         </div>
         <div class="hstack gap-2 mx-auto">
           <div class="hstack gap-1">
@@ -326,9 +326,6 @@
                         {% translate "Review Comment" %}
                       </th>
                     {% endif %}
-                    <th class="col-2 text-center align-middle">
-                      {% translate "Planned Measures" %}
-                    </th>
                   </tr>
                 </thead>
                 <tbody class="small">
@@ -390,18 +387,24 @@
                             {% bootstrap_field measure.answer_form.review_comment show_label=False wrapper_class="m-0" %}
                           </td>
                         {% endif %}
-                        {% if forloop.parentloop.first %}
-                          <td rowspan="{{ security_objective.securitymeasure_set.all.count }}"
-                              class="col-2 table-group-divider">
-                            {% bootstrap_field security_objective.status_form.actions show_label=False wrapper_class="m-0" %}
-                          </td>
-                        {% endif %}
                       </tr>
                     {% empty %}
                       <h3>
                         {% translate "No security measures data available." %}
                       </h3>
                     {% endfor %}
+                    {% if forloop.last %}
+                      <tr>
+                        <td colspan="6" class="col-auto table-group-divider pb-0 fw-bolder">
+                          {% translate "Planned Measures" %}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="6" class="col-auto">
+                          {% bootstrap_field security_objective.status_form.actions show_label=False wrapper_class="m-0" %}
+                        </td>
+                      </tr>
+                    {% endif %}
                   {% endfor %}
                 </tbody>
               </table>
