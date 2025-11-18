@@ -49,6 +49,34 @@
     </i>
     <span class="visually-hidden">{% translate "Version control" %}</span>
   </button>
+  {% if standard.reviewed_percentage == 100 and standard.status in ",PASS,FAIL,DELIV," %}
+    <button class="btn border-0 p-0 review_comment_so_declaration"
+            data-standard-answer-id="{{ standard.id }}"
+            data-bs-toggle="modal"
+            data-bs-target="#review_comment_so_declaration">
+      <i class="custom-icon-comments-add h4"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title='{% translate "Review comment" %}'>
+      </i>
+    </button>
+  {% elif standard.status in ",PASSM,FAILM," %}
+    <button class="btn border-0 p-0 review_comment_so_declaration"
+            data-standard-answer-id="{{ standard.id }}"
+            data-bs-toggle="modal"
+            data-bs-target="#review_comment_so_declaration">
+      <i class="custom-icon-comments h4"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title='{% translate "Review comment" %}'>
+      </i>
+    </button>
+  {% else %}
+    <button class="btn border-0 p-0" disabled>
+      <i class="custom-icon-comments-disabled h4">
+      </i>
+    </button>
+  {% endif %}
   <a class="btn border-0 p-0
             {% if standard.status == 'UNDE' %}
               disabled
