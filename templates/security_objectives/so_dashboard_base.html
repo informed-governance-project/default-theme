@@ -214,6 +214,27 @@
 <!-- Modals -->
 {% block content_modals %}
   <div class="modal fade"
+       id="so_versions"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="so_versions_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      {% include "modals/so_versions.html" %}
+    </div>
+  </div>
+  <div class="modal fade"
+       id="so_versions_review_comment_so_declaration"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="so_versions_review_comment_so_declaration_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
        id="so_access_log"
        data-bs-backdrop="static"
        data-bs-keyboard="false"

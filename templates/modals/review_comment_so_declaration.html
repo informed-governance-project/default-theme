@@ -7,11 +7,13 @@
       <h5 class="modal-title" id="review_comment_so_declaration_label">
         {% translate "Review" %}
       </h5>
-      <button type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-              aria-label='{% translate "Close" %}'>
-      </button>
+      {% block modal_close_button %}
+        <button type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label='{% translate "Close" %}'>
+        </button>
+      {% endblock modal_close_button %}
     </div>
     <form id="so-review-comment-form"
           is_only_review_comment="{{ form.is_only_review_comment }}"

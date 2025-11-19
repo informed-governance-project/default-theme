@@ -1,0 +1,40 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white px-4 small">
+      <h5 class="modal-title" id="so_versions_label">
+        {% translate "Version control" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label='{% translate "Close" %}'>
+      </button>
+    </div>
+    <div class="modal-body py-4 px-5">
+      <table class="table table-sm align-middle">
+        <caption class="visually-hidden">{% translate "Version control" %}</caption>
+        <thead class="table small">
+          <tr>
+            <th class="col-2" scope="col">
+              {% translate "Date" %}
+            </th>
+            <th class="col-3" scope="col">
+            </th>
+            <th class="col-5" scope="col">
+              {% translate "Status" %}
+            </th>
+            <th class="col-2 text-center" scope="col">
+              {% translate "Action" %}
+            </th>
+          </tr>
+        </thead>
+        <tbody id="modal-versions-rows">
+          <!-- Table filled into -->
+          <!-- static/js/so_dashboard.js -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

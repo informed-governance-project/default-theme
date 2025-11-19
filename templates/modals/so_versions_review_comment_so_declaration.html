@@ -1,0 +1,10 @@
+{% extends "modals/review_comment_so_declaration.html" %}
+{% load i18n %}
+{% block modal_close_button %}
+  <button type="button"
+          class="btn-close btn-close-white"
+          data-bs-target="#so_versions"
+          data-bs-toggle="modal"
+          aria-label='{% translate "Close" %}'>
+  </button>
+{% endblock modal_close_button %}
