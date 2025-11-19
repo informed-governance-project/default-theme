@@ -1,5 +1,6 @@
 {% extends "security_objectives/so_dashboard_base.html" %}
 {% load django_bootstrap5 %}
+{% load SO_custom_filters %}
 {% load i18n %}
 {% block content_filter %}
   {% bootstrap_field filter.form.submitter_company label_class="fw-bold" wrapper_class="mb-3" %}
@@ -40,15 +41,34 @@
   {% endwith %}
 {% endblock %}
 {% block content_table_actions %}
-  <button class="btn text-dark p-0 ps-1 border-0" disabled>
-    <i class="custom-icon-versioning-disabled h4 align-self-center"
-       aria-hidden="true"
-       data-bs-placement="top"
-       data-bs-toggle="tooltip"
-       title='{% translate "Version control" %}'>
-    </i>
-    <span class="visually-hidden">{% translate "Version control" %}</span>
-  </button>
+  {% get_all_versions standard as versions %}
+  {% if versions %}
+    <button class="btn text-dark p-0 ps-1 border-0 so_versions"
+            data-so-versions="{{ versions }}"
+            data-review-url="{% url 'so_declaration' %}"
+            data-download-url="{% url 'download_so_declaration_pdf' 0 %}"
+            data-bs-toggle="modal"
+            data-bs-target="#so_versions">
+      <i class="custom-icon-versioning h4 align-self-center"
+         aria-hidden="true"
+         data-so-versions="{{ standard.get_all_versions }}"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title='{% translate "Version control" %}'>
+      </i>
+      <span class="visually-hidden">{% translate "Version control" %}</span>
+    </button>
+  {% else %}
+    <button class="btn text-dark p-0 ps-1 border-0" disabled>
+      <i class="custom-icon-versioning-disabled h4 align-self-center"
+         aria-hidden="true"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title='{% translate "Version control" %}'>
+      </i>
+      <span class="visually-hidden">{% translate "Version control" %}</span>
+    </button>
+  {% endif %}
   {% if standard.reviewed_percentage == 100 and standard.status in ",PASS,FAIL,DELIV," %}
     <button class="btn border-0 p-0 review_comment_so_declaration"
             data-standard-answer-id="{{ standard.id }}"
