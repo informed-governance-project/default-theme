@@ -209,7 +209,7 @@
                       data-bs-slide-to="{{ forloop.counter0 }}">
                 {{ forloop.counter }}
               </button>
-            {% else %}
+            {% elif standard_answer.status == "UNDE" %}
               <button id="op_{{ security_objective.pk }}"
                       type="button"
                       class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
@@ -219,6 +219,21 @@
                                btn-warning
                              {% else %}
                                btn-uninitiated
+                             {% endif %}"
+                      data-bs-target="#security_objectives_carousel"
+                      data-bs-slide-to="{{ forloop.counter0 }}">
+                {{ forloop.counter }}
+              </button>
+              {% elif standard_answer.status == "FAILM" or standard_answer.status == "PASSM"  %}
+              <button id="op_{{ security_objective.pk }}"
+                      type="button"
+                      class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
+                             {% if security_objective.status.status == 'PASS' %}
+                               btn-passed
+                             {% elif security_objective.status.status == 'FAIL' %}
+                               btn-failed
+                             {% else %}
+                               btn-warning
                              {% endif %}"
                       data-bs-target="#security_objectives_carousel"
                       data-bs-slide-to="{{ forloop.counter0 }}">
