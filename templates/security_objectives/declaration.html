@@ -98,12 +98,9 @@
                       data-only-review-comment="true"
                       data-bs-toggle="modal"
                       data-bs-target="#review_comment_so_declaration">
-                <i class="{% if standard_answer.status in ',PASS,FAIL,DELIV' %}
-                            custom-icon-comments-add
-                          {% else %}
-                            custom-icon-comments
-                          {% endif %}
-                          h3"></i>
+                {# djlint:off #}
+                <i class="{% if standard_answer.status in ',PASS,FAIL,DELIV' %}custom-icon-comments-add
+                          {% else %}custom-icon-comments{% endif %} h3"></i>
               </button>
             {% else %}
               {% if standard_answer.review_comment and standard_answer.status in ',PASSM,FAILM,' %}
