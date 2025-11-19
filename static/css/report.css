@@ -146,6 +146,15 @@ body {
     height: auto;
 }
 
+       .word-break-all {
+    word-break: break-all;
+}
+
+       .header-logo {
+    width: 16px;
+    height: auto;
+}
+
        .tlp-circle {
     width: 15px;
     height: 15px;
