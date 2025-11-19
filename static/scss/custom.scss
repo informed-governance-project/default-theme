@@ -28,6 +28,7 @@ $late-under-review: #5B1B8F;
 $unsubmitted: #2673e5;
 $overdue: #e40521;
 $dark-gray: #4c4c4c;
+$uninitiated:#4c4c4c;
 
 $custom-colors: (
     "no-impact": $no-impact,
@@ -41,6 +42,7 @@ $custom-colors: (
     "unsubmitted": $unsubmitted,
     "overdue": $overdue,
     "dark-gray": $dark-gray,
+    "uninitiated": $uninitiated,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
