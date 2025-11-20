@@ -67,23 +67,28 @@
       <span class="visually-hidden">{% translate "Version control" %}</span>
     </button>
   {% endif %}
-  <a class="btn border-0 p-0 text-dark"
-     href="{% url 'so_declaration' %}?id={{ standard.id }}"
-     onclick="load_spinner()">
-    {% if standard.status == 'UNDE' %}
+  {% if standard.status == 'UNDE' %}
+    <a class="btn border-0 p-0 text-dark"
+       href="{% url 'so_declaration' %}?id={{ standard.id }}"
+       onclick="load_spinner()">
       <i class="custom-icon-edit h4"
          data-bs-placement="top"
          data-bs-toggle="tooltip"
          title='{% translate "Edit" %}'>
       </i>
-    {% else %}
+    </a>
+  {% else %}
+    <button class="btn border-0 p-0 update_so_declaration"
+            data-declaration-url="{% url 'so_declaration' %}?id={{ standard.id }}"
+            data-bs-toggle="modal"
+            data-bs-target="#update_so_declaration">
       <i class="custom-icon-edit h4"
          data-bs-placement="top"
          data-bs-toggle="tooltip"
          title='{% translate "Review" %}'>
       </i>
-    {% endif %}
-  </a>
+    </button>
+  {% endif %}
   {% if standard.review_comment and standard.status in ',PASSM,FAILM,' %}
     <button class="btn border-0 p-0 review_comment_so_declaration"
             data-standard-answer-id="{{ standard.id }}"
@@ -220,6 +225,17 @@
        aria-labelledby="copy_so_declaration_label"
        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="update_so_declaration"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="update_so_declaration_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      {% include "modals/update_so_declaration.html" %}
     </div>
   </div>
 {% endblock %}

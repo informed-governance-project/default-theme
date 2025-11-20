@@ -1,0 +1,35 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white px-4 small">
+      <h5 class="modal-title" id="update_so_declaration_label">
+        {% translate "Update or review security objectives statement" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label='{% translate "Close" %}'>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        {% translate "What do you want to do ?" %}
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a id="modal-review-declaration-button"
+         type="button"
+         class="btn btn-secondary"
+         href="#">
+        {% translate "Review" %}
+      </a>
+      <a id="modal-update-declaration-button"
+         type="button"
+         class="btn btn-primary"
+         href="#">
+        {% translate "Update" %}
+      </a>
+    </div>
+  </div>
+{% endblock %}

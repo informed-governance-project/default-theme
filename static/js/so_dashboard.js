@@ -168,6 +168,16 @@ $(document).ready(function () {
     modalDeleteButton.attr('href', deleteUrl);
   });
 
+  $(document).on("click", ".update_so_declaration", function () {
+    let $this = $(this);
+    let modalUpdateButton = $("#modal-update-declaration-button");
+    let declarationUrl = $this.data('declaration-url');
+    let modalReviewButton = $("#modal-review-declaration-button");
+    let updateUrl = declarationUrl + "&update=true";
+    modalReviewButton.attr('href', declarationUrl);
+    modalUpdateButton.attr('href', updateUrl);
+  });
+
   $(document).on("click", ".copy_so_declaration", function () {
     let $this = $(this);
     let standardAnswerId = $this.data('standard-answer-id');
