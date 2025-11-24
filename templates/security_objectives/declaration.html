@@ -209,7 +209,7 @@
                       data-bs-slide-to="{{ forloop.counter0 }}">
                 {{ forloop.counter }}
               </button>
-            {% elif standard_answer.status == "UNDE" %}
+            {% elif standard_answer.status == "UNDE" or standard_answer.status == "DELIV" %}
               <button id="op_{{ security_objective.pk }}"
                       type="button"
                       class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
@@ -224,7 +224,7 @@
                       data-bs-slide-to="{{ forloop.counter0 }}">
                 {{ forloop.counter }}
               </button>
-              {% elif standard_answer.status in ",PASSM,FAILM,"  %}
+            {% elif standard_answer.status in ",PASSM,FAILM,"  %}
               <button id="op_{{ security_objective.pk }}"
                       type="button"
                       class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
