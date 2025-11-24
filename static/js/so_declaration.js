@@ -237,7 +237,7 @@ function update_so_declaration(form) {
             if (data.objective_state) {
               so_id = data.objective_state.id;
               $so_op_objective_button = $("#security_objective_selector").find(`#op_${so_id}`);
-              $so_op_objective_button.removeClass("btn-passed btn-warning btn-uninitiated");
+              $so_op_objective_button.removeClass("btn-passed btn-failed btn-warning btn-uninitiated");
               if (data.objective_state.is_completed) {
                 $so_op_objective_button.addClass("btn-passed");
               } else if (data.objective_state.is_partially) {
