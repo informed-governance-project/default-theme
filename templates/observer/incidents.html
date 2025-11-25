@@ -7,14 +7,14 @@
     <i class="custom-icon-ongoing logo-status"
        data-bs-placement="top"
        data-bs-toggle="tooltip"
-       title='{% translate "The incident is still ongoing" %}'
+       title="{% translate 'The incident is still ongoing' %}"
        aria-hidden="true">
     </i>
   {% elif incident.incident_status == 'CLOSE' %}
     <i class="custom-icon-closed logo-status"
        data-bs-placement="top"
        data-bs-toggle="tooltip"
-       title='{% translate "The incident is over" %}'
+       title="{% translate 'The incident is over' %}"
        aria-hidden="true">
     </i>
   {% endif %}
@@ -24,7 +24,7 @@
     <i class="custom-icon-impact logo-status"
        data-bs-placement="top"
        data-bs-toggle="tooltip"
-       title='{% translate "Incident with significant impact" %}'
+       title="{% translate 'Incident with significant impact' %}"
        aria-hidden="true">
     </i>
   {% endif %}
@@ -49,7 +49,7 @@
     <i class="custom-icon-user h3"
        data-bs-placement="top"
        data-bs-toggle="tooltip"
-       title='{% translate "Contacts" %}'
+       title="{% translate 'Contacts' %}"
        aria-hidden="true">
     </i>
     <span class="visually-hidden">{% translate "Contacts" %}</span>
