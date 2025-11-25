@@ -3,10 +3,13 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-24 15:12+0100\n"
-"PO-Revision-Date: 2025-11-12 09:07+0100\n"
+"PO-Revision-Date: 2025-11-25 13:01+0000\n"
+"Last-Translator: Weblate Admin <weblate@admin.lu>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14.3\n"
 "Generated-By: xls-to-po 1.0\n"
 
 #: theme/templates/account/edit.html:8
@@ -1229,7 +1232,7 @@ msgstr ""
 #: theme/templates/incidents/base.html:11
 #: theme/templates/incidents/incidents_base.html:8
 msgid "Incident notification"
-msgstr ""
+msgstr "Incidentmelding"
 
 #: theme/templates/incidents/base.html:15
 msgid "Overview"
@@ -1268,7 +1271,7 @@ msgstr "Functiebenaming"
 #: theme/templates/incidents/contact_form.html:57
 #: theme/templates/registration/signup.html:36
 msgid "Last name"
-msgstr "Naam"
+msgstr "Achternaam"
 
 #: theme/templates/incidents/contact_form.html:32
 #: theme/templates/incidents/contact_form.html:65
@@ -1794,7 +1797,7 @@ msgstr ""
 #: theme/templates/modals/so_dashboard_hide_columns.html:26
 #: theme/templates/security_objectives/so_dashboard_base.html:96
 msgid "Creator"
-msgstr ""
+msgstr "Maker"
 
 #: theme/templates/modals/so_versions.html:21
 #: theme/templates/report/security_objectives/cover.html:53
@@ -1911,7 +1914,7 @@ msgstr "Wachtwoord"
 
 #: theme/templates/parts/header.html:118
 msgid "Contact"
-msgstr "Contact"
+msgstr "Aanspreekpunt"
 
 #: theme/templates/parts/pagination.html:28
 msgid "entries per page"
@@ -1941,7 +1944,7 @@ msgstr "Inloggen"
 #: theme/templates/registration/base.html:45
 #: theme/templates/registration/login.html:61
 msgid "Login"
-msgstr ""
+msgstr "Inloggen"
 
 #: theme/templates/registration/base.html:50
 #: theme/templates/registration/login.html:96
@@ -2252,7 +2255,7 @@ msgstr ""
 #: theme/templates/reporting/dashboard.html:65
 #: theme/templates/reporting/report_configuration.html:28
 msgid "Sector"
-msgstr ""
+msgstr "Sector"
 
 #: theme/templates/report/reporting/observations.html:3
 msgid "Observations and recommendations"
@@ -2470,7 +2473,7 @@ msgstr ""
 #: theme/templates/report/reporting/risks.html:617
 #: theme/templates/report/reporting/risks.html:661
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: theme/templates/report/reporting/risks.html:623
 msgid "Main Vulnerabilities Mitigated"
@@ -2532,7 +2535,7 @@ msgstr ""
 #: theme/templates/report/reporting/security_mesures.html:194
 #: theme/templates/report/reporting/security_mesures.html:250
 msgid "Label"
-msgstr ""
+msgstr "Label"
 
 #: theme/templates/report/reporting/security_mesures.html:236
 msgid "Evolution of the Weakest Security Objectives"
