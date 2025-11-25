@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-24 15:12+0100\n"
-"PO-Revision-Date: 2025-11-25 11:07+0000\n"
+"PO-Revision-Date: 2025-11-25 13:01+0000\n"
 "Last-Translator: Weblate Admin <weblate@admin.lu>\n"
 "Language-Team: German <http://127.0.0.1:8010/projects/serima-reporting/"
 "frontend/de/>\n"
@@ -1288,7 +1288,7 @@ msgstr "Stellenbezeichnung"
 #: theme/templates/incidents/contact_form.html:57
 #: theme/templates/registration/signup.html:36
 msgid "Last name"
-msgstr "Name"
+msgstr "Nachname"
 
 #: theme/templates/incidents/contact_form.html:32
 #: theme/templates/incidents/contact_form.html:65
@@ -1965,7 +1965,7 @@ msgstr "Anmelden"
 #: theme/templates/registration/base.html:45
 #: theme/templates/registration/login.html:61
 msgid "Login"
-msgstr "Login"
+msgstr "Anmeldung"
 
 #: theme/templates/registration/base.html:50
 #: theme/templates/registration/login.html:96
