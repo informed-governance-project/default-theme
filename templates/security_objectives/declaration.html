@@ -383,7 +383,7 @@
                                text-center align-middle">
                       {% translate "Justification" %}
                     </th>
-                    {% if is_regulator or security_objective.declaration_status != "UNDE" %}
+                    {% if is_regulator or security_objective.review_comment or security_objective.declaration_status != "UNDE" %}
                       <th class="col-2 text-center align-middle">
                         {% translate "Review Comment" %}
                       </th>
@@ -426,7 +426,7 @@
                             {% endif %}
                           </div>
                         </td>
-                        <td class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}
+                        <td class="{% if is_regulator or security_objective.review_comment or security_objective.declaration_status != 'UNDE' %}
                                      col-2
                                    {% else %}
                                      col-4
@@ -441,7 +441,7 @@
                             {% bootstrap_field measure.answer_form.justification show_label=False wrapper_class="m-0" %}
                           {% endif %}
                         </td>
-                        {% if is_regulator or security_objective.declaration_status != "UNDE" %}
+                        {% if is_regulator or security_objective.review_comment or security_objective.declaration_status != "UNDE"  %}
                           <td class="col-2 lh-sm
                                      {% if forloop.first %}
                                        table-group-divider
