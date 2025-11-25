@@ -3,10 +3,13 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-12 08:42+0100\n"
-"PO-Revision-Date: 2025-11-11 16:53+0100\n"
+"PO-Revision-Date: 2025-11-25 09:50+0000\n"
+"Last-Translator: Weblate Admin <weblate@admin.lu>\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14.3\n"
 "Generated-By: xls-to-po 1.0\n"
 
 #: theme/templates/account/edit.html:8
@@ -1383,7 +1386,7 @@ msgstr "Noch nicht eingereicht"
 
 #: theme/templates/incidents/incidents_base.html:93
 msgid "Under review"
-msgstr "Wird geprüft"
+msgstr "In Prüfung"
 
 #: theme/templates/incidents/incidents_base.html:97
 msgid "Submission overdue"
