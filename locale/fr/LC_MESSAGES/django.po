@@ -3,10 +3,15 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-24 15:12+0100\n"
-"PO-Revision-Date: 2025-11-12 09:07+0100\n"
+"PO-Revision-Date: 2025-11-25 10:49+0000\n"
+"Last-Translator: Weblate Admin <weblate@admin.lu>\n"
+"Language-Team: French <http://127.0.0.1:8010/projects/serima-reporting/"
+"frontend/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.14.3\n"
 "Generated-By: xls-to-po 1.0\n"
 
 #: theme/templates/account/edit.html:8
@@ -1832,7 +1837,7 @@ msgstr "Non remis"
 #: theme/templates/operator/so_dashboard.html:163
 #: theme/templates/regulator/so_dashboard.html:162
 msgid "Under review"
-msgstr "En cours de revue"
+msgstr "Revue en cours"
 
 #: theme/templates/incidents/incidents_base.html:97
 msgid "Submission overdue"
