@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-24 15:12+0100\n"
-"PO-Revision-Date: 2025-11-25 11:03+0000\n"
+"PO-Revision-Date: 2025-11-25 11:07+0000\n"
 "Last-Translator: Weblate Admin <weblate@admin.lu>\n"
 "Language-Team: German <http://127.0.0.1:8010/projects/serima-reporting/"
 "frontend/de/>\n"
@@ -2635,7 +2635,7 @@ msgstr "Begründung"
 #: theme/templates/report/security_objectives/declaration.html:87
 #: theme/templates/security_objectives/declaration.html:388
 msgid "Review Comment"
-msgstr "Überprüfungskommentar"
+msgstr "Review Kommentar"
 
 #: theme/templates/report/security_objectives/declaration.html:91
 #: theme/templates/security_objectives/declaration.html:461
