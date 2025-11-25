@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-14 13:59+0200\n"
+"POT-Creation-Date: 2025-11-24 15:10+0100\n"
 "PO-Revision-Date: 2025-05-26 10:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -31,15 +31,15 @@ msgstr "_MENU_ resultaten weergeven"
 msgid ": Activate to sort"
 msgstr ": Activeren om te sorteren"
 
-#: theme/static/js/incidents.js:100
+#: theme/static/js/incidents.js:100 theme/static/js/so_dashboard.js:77
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
 
-#: theme/static/js/incidents.js:101
+#: theme/static/js/incidents.js:101 theme/static/js/so_dashboard.js:78
 msgid "Review"
 msgstr "Beoordeling"
 
-#: theme/static/js/incidents.js:102
+#: theme/static/js/incidents.js:102 theme/static/js/so_dashboard.js:79
 msgid "Comment"
 msgstr ""
 

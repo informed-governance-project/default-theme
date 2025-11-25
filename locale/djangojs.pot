@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 08:59+0100\n"
+"POT-Creation-Date: 2025-11-24 15:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,15 +29,15 @@ msgstr ""
 msgid ": Activate to sort"
 msgstr ""
 
-#: theme/static/js/incidents.js:100
+#: theme/static/js/incidents.js:100 theme/static/js/so_dashboard.js:77
 msgid "Download PDF report"
 msgstr ""
 
-#: theme/static/js/incidents.js:101
+#: theme/static/js/incidents.js:101 theme/static/js/so_dashboard.js:78
 msgid "Review"
 msgstr ""
 
-#: theme/static/js/incidents.js:102
+#: theme/static/js/incidents.js:102 theme/static/js/so_dashboard.js:79
 msgid "Comment"
 msgstr ""
 
