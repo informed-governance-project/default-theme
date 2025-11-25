@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-12 08:42+0100\n"
-"PO-Revision-Date: 2025-11-25 09:50+0000\n"
+"PO-Revision-Date: 2025-11-25 11:02+0000\n"
 "Last-Translator: Weblate Admin <weblate@admin.lu>\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1616,7 +1616,7 @@ msgstr "Auswahl der Kolonnen"
 #: theme/templates/operator/incidents.html:102
 #: theme/templates/operator/incidents.html:105
 msgid "Review comment"
-msgstr "Prüfkommentar"
+msgstr "Review Kommentar"
 
 #: theme/templates/operator/incidents.html:70
 msgid "not submitted yet"
