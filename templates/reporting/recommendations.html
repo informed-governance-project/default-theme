@@ -77,7 +77,7 @@
                     data-bs-toggle="modal"
                     data-bs-target="#delete_report_recommendation"
                     data-delete-url="{% url 'delete_report_recommendations' company.id sector.id year recommendation.instance.observation_recommendation.id %}"
-                    title='{% translate "Delete" %}'>
+                    title="{% translate 'Delete' %}">
               <i class="custom-icon-trash"></i>
             </button>
           </td>
