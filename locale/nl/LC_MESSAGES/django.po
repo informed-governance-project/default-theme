@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 08:42+0100\n"
-"PO-Revision-Date: 2025-11-11 16:53+0100\n"
+"POT-Creation-Date: 2025-11-25 12:51+0100\n"
+"PO-Revision-Date: 2025-11-12 09:07+0100\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,7 +39,8 @@ msgstr "Wijziging van wachtwoord"
 msgid "Return to user interface"
 msgstr "Terug naar de gebruikersinterface"
 
-#: theme/templates/admin/base_site.html:26 theme/templates/parts/header.html:81
+#: theme/templates/admin/base_site.html:26
+#: theme/templates/parts/header.html:111
 msgid "Log out"
 msgstr "Uitloggen"
 
@@ -89,22 +90,20 @@ msgstr ""
 #, python-format
 msgid ""
 "We would like to inform you that a new incident mass export related to the "
-"regulation %(regulation)s has been completed. If you or a member of your "
-"team did not initiate this action or if it appears suspicious, we recommend "
-"that you investigate the matter further."
+"regulation %(regulation)s has been completed."
 msgstr ""
 
-#: theme/templates/emails/incident_mass_export.html:15
+#: theme/templates/emails/incident_mass_export.html:13
 msgid ""
 "If you or a member of your team did not initiate this action or if it "
 "appears suspicious, we recommend that you investigate the matter further."
 msgstr ""
 
-#: theme/templates/emails/incident_mass_export.html:21
+#: theme/templates/emails/incident_mass_export.html:19
 msgid "Kind regards,"
 msgstr ""
 
-#: theme/templates/emails/incident_mass_export.html:24
+#: theme/templates/emails/incident_mass_export.html:22
 #, python-format
 msgid "%(site_name)s Incident Notification"
 msgstr ""
@@ -230,7 +229,7 @@ msgstr ""
 
 #: theme/templates/home/cookies_policy.html:10
 #: theme/templates/home/privacy_policy.html:15
-#: theme/templates/home/terms.html:21 theme/templates/parts/footer.html:16
+#: theme/templates/home/terms.html:21 theme/templates/parts/footer.html:19
 msgid "Version"
 msgstr ""
 
@@ -326,9 +325,9 @@ msgid "English version"
 msgstr "Nederlandse versie"
 
 #: theme/templates/home/privacy_policy.html:6
-#: theme/templates/parts/footer.html:37
+#: theme/templates/parts/footer.html:40
 msgid "Privacy policy"
-msgstr ""
+msgstr "Privacybeleid"
 
 #: theme/templates/home/privacy_policy.html:15
 msgid "Politique de confidentialité de la plateforme SERIMA"
@@ -1479,8 +1478,9 @@ msgstr "Datum van indiening van de incidentmelding"
 #: theme/templates/incidents/incidents_base.html:328
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
-#: theme/templates/operator/incidents.html:122
-#: theme/templates/operator/incidents.html:124
+#: theme/templates/operator/incidents.html:128
+#: theme/templates/operator/incidents.html:130
+#: theme/templates/operator/incidents.html:136
 msgid "Version control"
 msgstr "Versiebeheer"
 
@@ -1582,8 +1582,8 @@ msgid "Are you sure that you want to delete the incident?"
 msgstr "Weet u zeker dat u het incident wilt verwijderen?"
 
 #: theme/templates/modals/delete_incident.html:29
-#: theme/templates/operator/incidents.html:146
-#: theme/templates/operator/incidents.html:149
+#: theme/templates/operator/incidents.html:158
+#: theme/templates/operator/incidents.html:161
 msgid "Delete"
 msgstr "Verwijderen"
 
@@ -1598,6 +1598,7 @@ msgstr ""
 #: theme/templates/modals/workflow_comment.html:7
 #: theme/templates/operator/incidents.html:102
 #: theme/templates/operator/incidents.html:105
+#: theme/templates/operator/incidents.html:111
 msgid "Review comment"
 msgstr ""
 
@@ -1633,19 +1634,23 @@ msgstr ""
 msgid "Please try again later."
 msgstr "Probeer het later opnieuw."
 
-#: theme/templates/parts/footer.html:33
+#: theme/templates/parts/footer.html:12
+msgid "A platform developed by"
+msgstr ""
+
+#: theme/templates/parts/footer.html:36
 msgid "Terms of service"
 msgstr "Algemene gebruiksvoorwaarden"
 
-#: theme/templates/parts/footer.html:41
-msgid "Provided by"
+#: theme/templates/parts/footer.html:44
+msgid "A platform offered by"
 msgstr ""
 
-#: theme/templates/parts/footer.html:50
+#: theme/templates/parts/footer.html:53
 msgid "Cookies policy"
 msgstr ""
 
-#: theme/templates/parts/footer.html:54
+#: theme/templates/parts/footer.html:57
 msgid "Accessibility statement"
 msgstr "Toegankelijkheidsverklaring"
 
@@ -1654,23 +1659,23 @@ msgstr "Toegankelijkheidsverklaring"
 msgid "Main menu"
 msgstr "Hoofdmenu"
 
-#: theme/templates/parts/header.html:53
+#: theme/templates/parts/header.html:83
 msgid "Settings"
 msgstr "Instellingen"
 
-#: theme/templates/parts/header.html:69
+#: theme/templates/parts/header.html:99
 msgid "Account"
 msgstr "Account"
 
-#: theme/templates/parts/header.html:72
+#: theme/templates/parts/header.html:102
 msgid "Security"
 msgstr "Veiligheid"
 
-#: theme/templates/parts/header.html:75
+#: theme/templates/parts/header.html:105
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: theme/templates/parts/header.html:88
+#: theme/templates/parts/header.html:118
 msgid "Contact"
 msgstr "Contact"
 
