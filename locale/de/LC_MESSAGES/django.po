@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-24 15:12+0100\n"
-"PO-Revision-Date: 2025-11-25 13:01+0000\n"
+"PO-Revision-Date: 2025-11-25 15:00+0000\n"
 "Last-Translator: Weblate Admin <weblate@admin.lu>\n"
 "Language-Team: German <http://127.0.0.1:8010/projects/serima-reporting/"
 "frontend/de/>\n"
@@ -2260,7 +2260,7 @@ msgstr "Datum des Vorfallbeginns"
 
 #: theme/templates/report/incidents/timeline.html:43
 msgid "Incident resolution date"
-msgstr ""
+msgstr "Datum der Vorfallsbehebung"
 
 #: theme/templates/report/incidents/timeline.html:53
 msgid "Report Timeline"
