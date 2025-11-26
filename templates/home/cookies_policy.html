@@ -7,65 +7,72 @@
 {% block content %}
   <div class="container-flex" lang="fr">
     <h3 class="fw-bolder">
-      {% translate "Gestion des cookies de la plateforme SERIMA" %} - {% translate "Version" %} 2.0
+      {% translate "Cookie Policy on the SERIMA platform" %} - {% translate "Version" %} 3.0
     </h3>
     <div class="hr-separator">
     </div>
+    {% if not LANGUAGE_CODE == 'fr' %}
+      <blockquote class="blockquote">
+        <p>
+          <span class="fw-bold text-decoration-underline">Attention:</span>
+          The Cookie Policy has been translated from its original French version for information purposes only. Only the
+          French version is legally binding.
+        </p>
+      </blockquote>
+    {% endif %}
     <p>
       {% blocktranslate trimmed %}
-        Un cookie client est un fichier texte envoyé au navigateur de l’Utilisateur <sup><a href="#fn1">1</a></sup>
-        et enregistré sur le disque dur de son terminal (par exemple : PC, ordinateur portable ou portable) lors de la
-        visite d’un site internet ou d’une plateforme en ligne.
+        A client cookie is a text file sent to the User's <sup><a href="#fn1">1</a></sup>
+        browser and stored on the hard drive of their device (e.g. PC, laptop or mobile phone) when they visit a website or
+        online platform.
       {% endblocktranslate %}
     </p>
     <p>
       {% blocktranslate trimmed %}
-        Des cookies clients peuvent par exemple être utilisés afin d’assurer le bon fonctionnement d’un site ou d’une
-        plateforme et d’optimiser son ergonomie et ses fonctionnalités.
+        Client cookies can be used, for example, to ensure the proper functioning of a website or platform and to optimise
+        its usability and its functionalities.
       {% endblocktranslate %}
     </p>
     <p>
       {% blocktranslate trimmed %}
-        SERIMA <sup><a href="#fn2">2</a></sup> utilise des cookies clients nécessaires à son bon fonctionnement (par exemple
-        : un pour le thème : clair / sombre (conservé pour le temps de la session), un qui enregistre la session
-        (persistant), un qui enregistre le langage (conservé pour le temps de la session) et un pour le CSRF token
-        (persistant), etc.).
+        SERIMA <sup><a href="#fn2">2</a></sup> uses client cookies that are necessary for its proper functioning, namely a
+        cookie for managing the approval of cookies (persistent cookie named "cookiebanner"), a cookie that records the
+        session (persistent cookie named "sessionid"), a cookie that records the language (named "django_language" and
+        stored for the duration of the session) and a cookie for the CSRF token (persistent cookie named "csrftoken").
       {% endblocktranslate %}
     </p>
     <p>
       {% blocktranslate trimmed %}
-        Ils sont déposés par SERIMA dans un répertoire prévu à cet effet sur l'ordinateur ou sur le portable de
-        l'Utilisateur.
+        They are stored by SERIMA in a directory provided for this purpose on the User's computer or mobile device.
       {% endblocktranslate %}
     </p>
     <p>
       {% blocktranslate trimmed %}
-        Les cookies de session sont supprimés de l'ordinateur ou du portable de l'Utilisateur lorsque sa session est fermée.
+        Session cookies are deleted from the User's computer or mobile device when their session is closed.
       {% endblocktranslate %}
     </p>
     <p>
       {% blocktranslate trimmed %}
-        Toutefois les cookies persistants restent sur l'ordinateur ou le portable de l'Utilisateur après la fin de la
-        session.
+        However, unless the User takes action, persistent cookies remain on the User's computer or mobile device after the
+        end of the session for less than an hour.
       {% endblocktranslate %}
     </p>
     <p>
       {% blocktranslate trimmed %}
-        L'Utilisateur a, à tout moment, le choix de régler les options de son navigateur afin que les cookies ne soient pas
-        acceptés et mémorisés. Par ailleurs, il peut, à tout moment, effacer, via le navigateur, des cookies déjà mémorisés.
-        Cependant, l'utilisation de certaines fonctionnalités de SERIMA pourrait être limitée ou désactivée si l'Utilisateur
-        refuse les cookies de SERIMA. Il est dès lors recommandé à l'Utilisateur de régler le navigateur de manière que les
-        cookies de SERIMA soient acceptés.
+        The User may, at any time, choose to adjust their browser settings so that cookies are not accepted and stored.
+        Furthermore, they can delete cookies that have already been stored at any time via their browser. However, the use
+        of certain SERIMA functionalities may be limited or disabled if the User refuses SERIMA cookies. It is therefore
+        recommended that the User adjusts his browser settings so that SERIMA cookies are accepted.
       {% endblocktranslate %}
     </p>
     <div class="mt-5">
       <hr class="w-30">
       <ol class="small text-muted">
         <li id="fn1">
-          {% translate "Terme défini à l’article 1 des conditions d’utilisation de SERIMA." %}
+          {% translate "Term defined in Article 1 of SERIMA's Terms of Use." %}
         </li>
         <li id="fn2">
-          {% translate "Terme défini à l’article 1 des conditions d’utilisation de SERIMA." %}
+          {% translate "Term defined in Article 1 of SERIMA's Terms of Use." %}
         </li>
       </ol>
     </div>

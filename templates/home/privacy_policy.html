@@ -12,146 +12,191 @@
 {% block content %}
   <div id="terms" class="container-flex" lang="fr">
     <h3 class="fw-bolder">
-      {% translate "Politique de confidentialité de la plateforme SERIMA" %} - {% translate "Version" %} 2.0
+      {% translate "SERIMA Platform Privacy Policy" %} - {% translate "Version" %} 3.0
     </h3>
     <div class="hr-separator">
     </div>
+    {% if not LANGUAGE_CODE == 'fr' %}
+      <blockquote class="blockquote">
+        <p>
+          <span class="fw-bold text-decoration-underline">Attention:</span> The SERIMA Platform Privacy Policy has been translated from its original French version for information
+          purposes only. Only the French version is legally binding.
+        </p>
+      </blockquote>
+    {% endif %}
     <div class="ms-1 me-1 me-xl-5">
       <ol>
         <li class="terms-subtitle">
-          {% translate "Termes définis" %}
+          {% translate "Defined terms" %}
           <ol>
             <li>
               {% blocktranslate trimmed %}
-                Les termes commençant par une majuscule sont définis à l’article 1 des conditions d’utilisation de SERIMA.
+                Terms beginning with a capital letter are defined in Article 1 of the SERIMA terms of use.
               {% endblocktranslate %}
             </li>
           </ol>
         </li>
         <li class="terms-subtitle">
-          {% translate "Responsables du traitement" %}
+          {% translate "Controllers of personal data" %}
           <ol>
             <li>
               {% blocktranslate trimmed %}
-                Chaque Régulateur est le Responsable de traitement de données à caractère personnel des traitements
-                effectués
-                par lui.
+                Each Regulator is the Controller of personal data for the Processing of personal data carried out by them.
               {% endblocktranslate %}
             </li>
             <li>
               {% blocktranslate trimmed %}
-                Les coordonnées des Régulateurs sont les suivantes :
+                The contact details of the Regulators are as follows:
               {% endblocktranslate %}
             </li>
             <ol>
               <li>
                 {% blocktranslate trimmed %}
-                  ILR : 17, rue du Fossé, L-1536 Luxembourg ; Tél. : (+352) 28 228 228
+                  ILR: 17, rue du Fossé, L-1536 Luxembourg; Tel.: (+352) 28 228 228
                 {% endblocktranslate %}
               </li>
               <li>
                 {% blocktranslate trimmed %}
-                  CSSF : 283 Rte d'Arlon, 2991 Belair Luxembourg ; Tél. : (+352) 26 25 11
+                  CSSF: 283 Rte d'Arlon, 2991 Belair Luxembourg; Tel.: (+352) 26 25 11
                 {% endblocktranslate %}
               </li>
               <li>
                 {% blocktranslate trimmed %}
-                  HCPN : 46 Rue du Chateau, 6961 Senningen Niederanven ; Tél. : (+352) 24 78 89 00
+                  HCPN: 46 Rue du Chateau, 6961 Senningen Niederanven; Tel.: (+352) 24 78 89 00
                 {% endblocktranslate %}
               </li>
               <li>
                 {% blocktranslate trimmed %}
-                  CNPD : 15, Boulevard du Jazz, L-4370 Belvaux ; Tél. : (+352) 26 10 60 -1
+                  CNPD: 15, Boulevard du Jazz, L-4370 Belvaux; Tel.: (+352) 26 10 60 -1
                 {% endblocktranslate %}
               </li>
             </ol>
           </ol>
         </li>
         <li class="terms-subtitle">
-          {% translate "Traitement de données à caractère personnel" %}
+          {% translate "Processing of personal data and categories of processed data" %}
           <ol>
             <li>
               {% blocktranslate trimmed %}
-                Dans le cadre de l’utilisation de SERIMA, il est procédé au Traitement de données à caractère personnel.
+                When using SERIMA, Personal data is processed.
               {% endblocktranslate %}
             </li>
             <li>
               {% blocktranslate trimmed %}
-                Il s’agit concrètement des données suivantes : informations de contact de l’Utilisateur (par exemple :
-                identifiant, nom, prénom), informations de contact relatifs à certains rôles au sein d’un Opérateur (par
-                exemple : informations relatives à l’identité des membres de l’organe de direction, du CISO, du responsable
-                de la sûreté informatique), données liées aux fichiers de journalisation comme décrit dans l’article 5.
-                ci-dessous.
+                Specifically, this concerns the following categories of data: User identification and contact details
+                (surname, first name, email address associated with the account), information relating to the roles
+                performed within an Operator and professional contact details (e.g. information relating to the identity of
+                the members of the management body, the CISO, the IT security manager), data related to log files as
+                described in Article 5 below.
               {% endblocktranslate %}
             </li>
           </ol>
         </li>
         <li class="terms-subtitle">
-          {% translate "Finalités et bases juridiques du traitement" %}
+          {% translate "Purposes and legal bases for processing" %}
           <ol>
             <li>
               {% blocktranslate trimmed %}
-                Les données à caractère personnel sont traitées en conformité avec le
+                Personal data is processed in accordance with the
                 <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679"
                    target="_blank"
-                   rel="noopener noreferrer">RGPD</a>.
-                Les données de l’Utilisateur ne sont enregistrées et traitées par le Régulateur concerné qu'aux seules fins
-                de
-                gestion des procédures concernées: le traitement de données se situe dans le cadre de la mise à disposition
-                par les Régulateurs de SERIMA permettant aux Opérateurs de remplir leurs obligations légales de notification
-                aux Régulateurs, d’effectuer et de transmettre aux Régulateurs des notifications d’incident, des analyses de
-                risques et des déclarations relatives à leurs mesures de sécurité mises en place.
+                   rel="noopener noreferrer">GDPR</a>.
+                The User’s data is recorded and processed by the relevant Regulator solely for the purposes of managing the
+                procedures for which it is responsible. Data processing is carried out in the context of making SERIMA
+                available to Operators to enable them to fulfil their legal notification obligations and to carry out and
+                transmit incident notifications, risk analyses and declarations relating to their security measures to the
+                Regulators.
               {% endblocktranslate %}
             </li>
             <li>
               {% blocktranslate trimmed %}
-                La mise à disposition de SERIMA contribue à l’accomplissement des missions légales conférées aux Régulateurs
-                et aux Observateurs selon les Règles de droit.
+                The provision of SERIMA contributes to the fulfilment of the legal tasks conferred on Regulators and
+                Observers in accordance with the Rules of Law. The Processing of personal data by these Regulators and
+                Observers is therefore based on Article 6(1)(e) of the GDPR (processing necessary for the performance of a
+                task carried out in the public interest).
               {% endblocktranslate %}
             </li>
           </ol>
         </li>
         <li class="terms-subtitle">
-          {% translate "Fichiers de journalisation" %}
+          {% translate "Log files" %}
           <ol>
             <li>
               {% blocktranslate trimmed %}
-                L’Utilisateur consent à ce que des données relatives à son activité sur SERIMA (fichiers de journalisation)
-                (par exemple : identifiant, nom, prénom, fonctionnalité utilisée, date et heure, paramètres) soient auditées
-                dans le seul but de permettre la mise à disposition de ces données au Responsable des traitements de données
-                à caractère personnel respectif ou aux autorités judiciaires dans les cas limitatifs suivants :
+                Data relating to the User's activity on SERIMA (log files recording downloads, features used, date and time
+                of connections and notifications) is collected for the sole purpose of making this data available to the
+                relevant Controller of personal data or to the judicial authorities in the following limited cases:
               {% endblocktranslate %}
             </li>
             <ol>
               <li>
                 {% blocktranslate trimmed %}
-                  de résolution d’incident de sécurité lié à SERIMA et ceci dans l’intérêt légitime de garantir la sécurité
-                  de SERIMA ;
+                  resolution of security incidents related to SERIMA in order to guarantee the security of SERIMA;
                 {% endblocktranslate %}
               </li>
               <li>
                 {% blocktranslate trimmed %}
-                  de la constatation, de l'exercice ou de la défense d'un droit en justice, dans le cadre d'une procédure
-                  judiciaire, administrative ou extrajudiciaire.
+                  the establishment, exercise or defence of a legal right, in the context of judicial, administrative or
+                  extrajudicial proceedings.
                 {% endblocktranslate %}
               </li>
             </ol>
           </ol>
         </li>
         <li class="terms-subtitle">
-          {% translate "Déclarations et garanties de l’Opérateur" %}
+          {% translate "Recipients of the processed data " %}
           <ol>
             <li>
               {% blocktranslate trimmed %}
-                En fournissant des données à caractère personnel sous sa seule responsabilité, l’Opérateur déclare et
-                garantit qu'il a obtenu et obtiendra tous les consentements et autorisations légalement requis de toutes les
-                personnes concernées par l'utilisation, le traitement et le transfert des données à caractère personnel.
+                Personal data communicated in a notification sent to a Regulator on the basis of the applicable legal
+                provisions via the SERIMA platform is accessible to persons designated to access it as "Regulator Users" or
+                "Regulator Administrators" within the meaning of the Terms of Use, as well as to the Operator who made the
+                notification.
+              {% endblocktranslate %}
+            </li>
+            <li>
+              {% blocktranslate trimmed %}
+                Depending on the applicable Rules of Law, notifications sent to a Regulator may be transferred by the latter
+                to other Regulators or Observers.
+              {% endblocktranslate %}
+            </li>
+            <li>
+              {% blocktranslate trimmed %}
+                The list of SERIMA platform Users, as well as the information relating to Users as described in point 3
+                above, is accessible to all Regulators, in accordance with the Terms of Use.
+              {% endblocktranslate %}
+            </li>
+            <li>
+              {% blocktranslate trimmed %}
+                In the context of processing related to the SERIMA platform, the National Cybersecurity Competence Centre
+                (NC3 - 122 rue Adolphe Fischer, L-1521 Luxembourg), which is part of the Luxembourg House of Cybersecurity
+                (LHC), acts as a Processor on behalf of the Regulators.
+              {% endblocktranslate %}
+            </li>
+            <li>
+              {% blocktranslate trimmed %}
+                The categories of Personal data mentioned in point 3 above are accessible to designated agents within the
+                NC3 responsible for the proper functioning and maintenance of the SERIMA platform, in particular in the
+                context of technical support to Users and to the extent that such access is necessary to provide this
+                support.
               {% endblocktranslate %}
             </li>
           </ol>
         </li>
         <li class="terms-subtitle">
-          {% translate "Mesures techniques et organisationnelles" %}
+          {% translate "Operator's representations and warranties" %}
+          <ol>
+            <li>
+              {% blocktranslate trimmed %}
+                By providing Personal data under its sole responsibility, the Operator declares and warrants that it has
+                obtained and will obtain all legally required consents and authorisations from all persons concerned by the
+                use, processing and transfer of Personal data.
+              {% endblocktranslate %}
+            </li>
+          </ol>
+        </li>
+        <li class="terms-subtitle">
+          {% translate "Technical and organisational measures" %}
           <ol>
             <li>
               {% blocktranslate trimmed %}
@@ -162,60 +207,83 @@
           </ol>
         </li>
         <li class="terms-subtitle">
-          {% translate "Durée de conservation" %}
+          {% translate "Retention period" %}
           <ol>
             <li>
               {% blocktranslate trimmed %}
-                Les données à caractère personnel nécessaires à la création d’un compte dans SERIMA sont conservées pendant
-                toute la durée de l’existence de ce compte. Elles sont définitivement supprimées lorsque le compte en
-                question est supprimé.
+                The Personal data required to create an account on SERIMA is retained for the entire duration of the
+                account's existence. It is permanently deleted when the account in question is deleted.
+              {% endblocktranslate %}
+            </li>
+            <li>
+              {% blocktranslate trimmed %}
+                Data related to log files as described in point 5 above may not be retained for more than two years.
+                However, this period may be extended when necessary for the purposes of establishing, exercising or
+                defending a legal claim.
+              {% endblocktranslate %}
+            </li>
+            <li>
+              {% blocktranslate trimmed %}
+                Notifications sent to Regulators via SERIMA are subject to an administrative retention period of ten years.
+                At the end of this ten-year period, notifications may be retained beyond this period for archiving purposes
+                in the public interest, following the retention rules determined by the Regulators in accordance with the
+                Law of 17 August 2018 on archiving.
               {% endblocktranslate %}
             </li>
           </ol>
         </li>
         <li class="terms-subtitle">
-          {% translate "Droits des personnes concernées" %}
+          {% translate "Rights of data subjects" %}
           <ol>
             <li>
               {% blocktranslate trimmed %}
-                Les personnes concernées peuvent faire valoir leurs droits en contactant le délégué à la protection des
-                données du Régulateur compétent.
+                Data subjects may access data concerning them and obtain a copy thereof (Article 15 of the GDPR), obtain the
+                rectification of inaccurate or incomplete data (Article 16 of the GDPR), object to the Processing of their
+                data (Article 21 of the GDPR), obtain the deletion of such data under the conditions set out in Article 17
+                of the GDPR and the restriction of processing under the conditions set out in Article 18 of the same
+                regulation. Data subjects may exercise their rights by contacting the data protection officer of the
+                competent Regulator.
               {% endblocktranslate %}
             </li>
-            <ol>
-              <li>
-                {% blocktranslate trimmed %}
-                  En ce qui concerne l’ILR, les personnes concernées peuvent faire valoir leurs droits en contactant le
-                  délégué à la protection des données de l’ILR :
-                  <a href="https://www.ilr.lu/informations-legales/protection-des-donnees/"
-                     target="_blank"
-                     rel="noopener noreferrer">https://www.ilr.lu/informations-legales/protection-des-donnees/</a>.
-                {% endblocktranslate %}
-              </li>
-              <li>
-                {% blocktranslate trimmed %}
-                  En ce qui concerne la CSSF, les personnes concernées peuvent faire valoir leurs droits en contactant le
-                  délégué à la protection des données de la CSSF :
-                {% endblocktranslate %}
-              </li>
-              <li>
-                {% blocktranslate trimmed %}
-                  En ce qui concerne l’HCPN, les personnes concernées peuvent faire valoir leurs droits en contactant le
-                  délégué à la protection des données de l’HCPN :
-                {% endblocktranslate %}
-              </li>
-              <li>
-                {% blocktranslate trimmed %}
-                  En ce qui concerne la CNPD, les personnes concernées peuvent faire valoir leurs droits en contactant le
-                  délégué à la protection des données de la CNPD : <a href="mailto:dpo@cnpd.lu">dpo@cnpd.lu</a>.
-                {% endblocktranslate %}
-              </li>
-            </ol>
             <li>
               {% blocktranslate trimmed %}
-                Les personnes qui estiment que le traitement de données effectué via SERIMA constitue une violation du
-                RGPD ou que la réponse fournie à la demande d’information n’apporte pas satisfaction peuvent introduire une
-                réclamation auprès de la CNPD, via le formulaire disponible sur son site.
+                With regard to the ILR, data subjects may exercise their rights by contacting the ILR's data protection
+                officer:
+                <a href="https://www.ilr.lu/informations-legales/protection-des-donnees/"
+                   target="_blank"
+                   rel="noopener noreferrer">https://www.ilr.lu/informations-legales/protection-des-donnees/</a>.
+              {% endblocktranslate %}
+            </li>
+            <li>
+              {% blocktranslate trimmed %}
+                With regard to the CSSF, data subjects may exercise their rights by contacting the CSSF's data protection
+                officer: <a href="mailto:dpo@cssf.lu">dpo@cssf.lu</a>.
+              {% endblocktranslate %}
+            </li>
+            <li>
+              {% blocktranslate trimmed %}
+                With regard to the HCPN, data subjects may exercise their rights by contacting the HCPN's data protection
+                officer: <a href="mailto:info@cgpd.etat.lu">info@cgpd.etat.lu</a>.
+              {% endblocktranslate %}
+            </li>
+            <li>
+              {% blocktranslate trimmed %}
+                With regard to the CNPD, data subjects may exercise their rights by contacting the CNPD's data protection
+                officer: <a href="mailto:dpo@cnpd.lu">dpo@cnpd.lu</a>.
+              {% endblocktranslate %}
+            </li>
+          </ol>
+        </li>
+        <li class="terms-subtitle">
+          {% translate "Complaints" %}
+          <ol>
+            <li>
+              {% blocktranslate trimmed %}
+                Individuals who believe that the processing of data via SERIMA constitutes a violation of the GDPR may lodge
+                a complaint with the CNPD using the
+                <a href="https://cnpd.public.lu/fr/particuliers/faire-valoir/formulaire-plainte.html"
+                   target="_blank"
+                   rel="noopener noreferrer">form available on its website</a>.
               {% endblocktranslate %}
             </li>
           </ol>
