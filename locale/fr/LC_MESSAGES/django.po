@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-26 09:36+0100\n"
-"PO-Revision-Date: 2025-11-26 09:42+0000\n"
-"Last-Translator: Weblate Admin <weblate@admin.lu>\n"
+"PO-Revision-Date: 2025-12-01 09:13+0000\n"
+"Last-Translator: Juan Rocha <juan.rocha@nc3.lu>\n"
 "Language-Team: French <http://127.0.0.1:8010/projects/serima-reporting/"
 "frontend/fr/>\n"
 "Language: fr\n"
@@ -1778,7 +1778,7 @@ msgstr "Notifier un incident"
 #: theme/templates/incidents/base.html:29
 #: theme/templates/modals/export_incidents.html:80
 msgid "Export"
-msgstr ""
+msgstr "Exporter"
 
 #: theme/templates/incidents/contact_form.html:6
 #: theme/templates/report/incidents/cover.html:15
