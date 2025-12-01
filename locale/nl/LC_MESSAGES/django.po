@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-26 09:36+0100\n"
 "PO-Revision-Date: 2025-12-01 14:47+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,7 +53,7 @@ msgstr "Voorwaarden opnieuw instellen"
 
 #: theme/templates/admin/reset_accepted_terms.html:13
 msgid "Reset accepted cookies"
-msgstr ""
+msgstr "Aanvaarde cookies resetten"
 
 #: theme/templates/cookiebanner/bootstrap5.html:43
 msgid "Details"
