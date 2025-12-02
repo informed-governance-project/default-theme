@@ -57,6 +57,21 @@ msgstr "Réinitialiser les conditions d’utilisation acceptées"
 msgid "Reset accepted cookies"
 msgstr "Réinitialiser la liste des cookies acceptés"
 
+#: theme/templates/admin/settings_list.html:5
+msgid "Variables Django Settings"
+msgstr ""
+
+#: theme/templates/admin/settings_list.html:19
+#: theme/templates/cookiebanner/bootstrap5.html:52
+#: theme/templates/home/contact.html:33
+#: theme/templates/incidents/contact_form.html:8
+msgid "Name"
+msgstr "Nom"
+
+#: theme/templates/admin/settings_list.html:22
+msgid "Value"
+msgstr ""
+
 #: theme/templates/cookiebanner/bootstrap5.html:43
 msgid "Details"
 msgstr "Détails"
