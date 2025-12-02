@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-26 09:36+0100\n"
 "PO-Revision-Date: 2025-12-02 10:13+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1322,7 +1322,7 @@ msgstr ""
 #: theme/templates/incidents/base.html:29
 #: theme/templates/modals/export_incidents.html:80
 msgid "Export"
-msgstr ""
+msgstr "Exporteren"
 
 #: theme/templates/incidents/contact_form.html:6
 #: theme/templates/report/incidents/cover.html:15
