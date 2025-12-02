@@ -19,8 +19,9 @@
     {% translate "Kind regards," %}
   </p>
   <p>
+    {{ site_name }}
     {% blocktranslate trimmed with site_name=site_name %}
-      {{ site_name }} Incident Notification
+      Incident Notification
     {% endblocktranslate %}
   </p>
 {% endspaceless %}
