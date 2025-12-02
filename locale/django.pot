@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-26 09:36+0100\n"
+"POT-Creation-Date: 2025-12-02 14:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,6 +68,9 @@ msgstr ""
 #: theme/templates/cookiebanner/bootstrap5.html:52
 #: theme/templates/home/contact.html:33
 #: theme/templates/incidents/contact_form.html:8
+#: theme/templates/modals/so_contacts.html:18
+#: theme/templates/reporting/add_recommendations.html:108
+#: theme/templates/reporting/recommendations.html:52
 msgid "Name"
 msgstr ""
 
@@ -81,15 +84,6 @@ msgstr ""
 
 #: theme/templates/cookiebanner/bootstrap5.html:48
 msgid "Cookies description"
-msgstr ""
-
-#: theme/templates/cookiebanner/bootstrap5.html:52
-#: theme/templates/home/contact.html:33
-#: theme/templates/incidents/contact_form.html:8
-#: theme/templates/modals/so_contacts.html:18
-#: theme/templates/reporting/add_recommendations.html:108
-#: theme/templates/reporting/recommendations.html:52
-msgid "Name"
 msgstr ""
 
 #: theme/templates/cookiebanner/bootstrap5.html:55
@@ -133,9 +127,9 @@ msgstr ""
 msgid "Kind regards,"
 msgstr ""
 
-#: theme/templates/emails/incident_mass_export.html:22
-#, python-format
-msgid "%(site_name)s Incident Notification"
+#: theme/templates/emails/incident_mass_export.html:23
+#: theme/templates/registration/login.html:16
+msgid "Incident Notification"
 msgstr ""
 
 #: theme/templates/emails/suggestion_link_user_account.html:5
@@ -2038,10 +2032,6 @@ msgstr ""
 #: theme/templates/registration/signup.html:15
 #: theme/templates/registration/signup.html:70
 msgid "Create account"
-msgstr ""
-
-#: theme/templates/registration/login.html:16
-msgid "Incident Notification"
 msgstr ""
 
 #: theme/templates/registration/login.html:27

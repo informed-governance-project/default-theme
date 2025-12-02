@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-26 09:36+0100\n"
+"POT-Creation-Date: 2025-12-02 14:19+0100\n"
 "PO-Revision-Date: 2025-12-01 09:13+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@nc3.lu>\n"
 "Language-Team: French <http://127.0.0.1:8010/projects/serima-reporting/"
@@ -65,6 +65,9 @@ msgstr ""
 #: theme/templates/cookiebanner/bootstrap5.html:52
 #: theme/templates/home/contact.html:33
 #: theme/templates/incidents/contact_form.html:8
+#: theme/templates/modals/so_contacts.html:18
+#: theme/templates/reporting/add_recommendations.html:108
+#: theme/templates/reporting/recommendations.html:52
 msgid "Name"
 msgstr "Nom"
 
@@ -79,15 +82,6 @@ msgstr "Détails"
 #: theme/templates/cookiebanner/bootstrap5.html:48
 msgid "Cookies description"
 msgstr "Description des cookies"
-
-#: theme/templates/cookiebanner/bootstrap5.html:52
-#: theme/templates/home/contact.html:33
-#: theme/templates/incidents/contact_form.html:8
-#: theme/templates/modals/so_contacts.html:18
-#: theme/templates/reporting/add_recommendations.html:108
-#: theme/templates/reporting/recommendations.html:52
-msgid "Name"
-msgstr "Nom"
 
 #: theme/templates/cookiebanner/bootstrap5.html:55
 #: theme/templates/report/reporting/risks.html:620
@@ -130,10 +124,10 @@ msgstr ""
 msgid "Kind regards,"
 msgstr ""
 
-#: theme/templates/emails/incident_mass_export.html:22
-#, python-format
-msgid "%(site_name)s Incident Notification"
-msgstr ""
+#: theme/templates/emails/incident_mass_export.html:23
+#: theme/templates/registration/login.html:16
+msgid "Incident Notification"
+msgstr "Notification d’incidents"
 
 #: theme/templates/emails/suggestion_link_user_account.html:5
 #, python-format
@@ -313,9 +307,9 @@ msgstr ""
 "nécessaires à son bon fonctionnement, à savoir un cookie pour la gestion de "
 "l’approbation des cookies (cookie persistant nommé « cookiebanner »), un "
 "cookie qui enregistre la session (cookie persistant nommé « sessionid »), un "
-"cookie qui enregistre le langage "
-"(nommé « django_language » et conservé pour le temps de la session) et un "
-"cookie pour le CSRF token (cookie persistant nommé « csrftoken »)."
+"cookie qui enregistre le langage (nommé « django_language » et conservé pour "
+"le temps de la session) et un cookie pour le CSRF token (cookie persistant "
+"nommé « csrftoken »)."
 
 #: theme/templates/home/cookies_policy.html:45
 msgid ""
@@ -445,7 +439,8 @@ msgstr "ILR : 17, rue du Fossé, L-1536 Luxembourg ; Tél. : (+352) 28 228 228"
 
 #: theme/templates/home/privacy_policy.html:59
 msgid "CSSF: 283 Rte d'Arlon, 2991 Belair Luxembourg; Tel.: (+352) 26 25 11"
-msgstr "CSSF : 283 Rte d'Arlon, 2991 Belair Luxembourg ; Tél. : (+352) 26 25 11"
+msgstr ""
+"CSSF : 283 Rte d'Arlon, 2991 Belair Luxembourg ; Tél. : (+352) 26 25 11"
 
 #: theme/templates/home/privacy_policy.html:64
 msgid ""
@@ -480,13 +475,13 @@ msgid ""
 "the IT security manager), data related to log files as described in Article "
 "5 below."
 msgstr ""
-"Il s’agit concrètement des catégories de données suivantes : données d’"
-"identification et de contact de l’Utilisateur "
-"(nom, prénom, adresse e-mail associée au compte), informations relatives aux "
-"fonctions exercées au sein d’un Opérateur et coordonnées professionnelles ("
-"par exemple : informations relatives à l’identité des membres de l’organe de "
-"direction, du CISO, du responsable de la sûreté informatique), données liées "
-"aux fichiers de journalisation comme décrit dans l’article 5. ci-dessous."
+"Il s’agit concrètement des catégories de données suivantes : données "
+"d’identification et de contact de l’Utilisateur (nom, prénom, adresse e-mail "
+"associée au compte), informations relatives aux fonctions exercées au sein "
+"d’un Opérateur et coordonnées professionnelles (par exemple : informations "
+"relatives à l’identité des membres de l’organe de direction, du CISO, du "
+"responsable de la sûreté informatique), données liées aux fichiers de "
+"journalisation comme décrit dans l’article 5. ci-dessous."
 
 #: theme/templates/home/privacy_policy.html:96
 msgid "Purposes and legal bases for processing"
@@ -505,15 +500,16 @@ msgid ""
 "measures to the Regulators."
 msgstr ""
 "Les données à caractère personnel sont traitées en conformité avec le <a "
-"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\""
-" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</a>. Les données de l’"
-"Utilisateur ne sont enregistrées et traitées par le Régulateur concerné "
-"qu'aux seules fins de la gestion des procédures qui relèvent de ce dernier. "
-"Le traitement de données est effectué dans le cadre de la mise à disposition "
-"de SERIMA aux Opérateurs afin de leur permettre de remplir leurs obligations "
-"légales de notification aux Régulateurs, d’effectuer et de transmettre aux "
-"Régulateurs des notifications d’incident, des analyses de risques et des "
-"déclarations relatives à leurs mesures de sécurité mises en place."
+"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/?"
+"uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
+"a>. Les données de l’Utilisateur ne sont enregistrées et traitées par le "
+"Régulateur concerné qu'aux seules fins de la gestion des procédures qui "
+"relèvent de ce dernier. Le traitement de données est effectué dans le cadre "
+"de la mise à disposition de SERIMA aux Opérateurs afin de leur permettre de "
+"remplir leurs obligations légales de notification aux Régulateurs, "
+"d’effectuer et de transmettre aux Régulateurs des notifications d’incident, "
+"des analyses de risques et des déclarations relatives à leurs mesures de "
+"sécurité mises en place."
 
 #: theme/templates/home/privacy_policy.html:112
 msgid ""
@@ -527,8 +523,8 @@ msgstr ""
 "légales conférées aux Régulateurs et aux Observateurs selon les Règles de "
 "droit. Le traitement de données à caractère personnel effectué par ces "
 "Régulateurs et Observateurs est par conséquent basé sur l’article 6, "
-"paragraphe 1, point e) du RGPD "
-"(traitement nécessaire à l’exécution d’une mission d’intérêt public)."
+"paragraphe 1, point e) du RGPD (traitement nécessaire à l’exécution d’une "
+"mission d’intérêt public)."
 
 #: theme/templates/home/privacy_policy.html:122
 msgid "Log files"
@@ -546,8 +542,8 @@ msgstr ""
 "légales conférées aux Régulateurs et aux Observateurs selon les Règles de "
 "droit. Le traitement de données à caractère personnel effectué par ces "
 "Régulateurs et Observateurs est par conséquent basé sur l’article 6, "
-"paragraphe 1, point e) du RGPD "
-"(traitement nécessaire à l’exécution d’une mission d’intérêt public)."
+"paragraphe 1, point e) du RGPD (traitement nécessaire à l’exécution d’une "
+"mission d’intérêt public)."
 
 #: theme/templates/home/privacy_policy.html:133
 msgid ""
@@ -612,10 +608,10 @@ msgid ""
 "acts as a Processor on behalf of the Regulators."
 msgstr ""
 "Dans le cadre des traitements liés à la plateforme SERIMA, le Centre "
-"National de Compétence en matière de Cybersécurité "
-"(NC3 - 122 rue Adolphe Fischer, L-1521 Luxembourg), lequel fait partie de la "
-"Luxembourg House of Cybersecurity (LHC), agit en tant que sous-traitant pour "
-"le compte des Régulateurs."
+"National de Compétence en matière de Cybersécurité (NC3 - 122 rue Adolphe "
+"Fischer, L-1521 Luxembourg), lequel fait partie de la Luxembourg House of "
+"Cybersecurity (LHC), agit en tant que sous-traitant pour le compte des "
+"Régulateurs."
 
 #: theme/templates/home/privacy_policy.html:177
 msgid ""
@@ -749,8 +745,8 @@ msgid ""
 "lu\">dpo@cssf.lu</a>."
 msgstr ""
 "En ce qui concerne la CSSF, les personnes concernées peuvent faire valoir "
-"leurs droits en contactant le délégué à la protection des données de la CSSF "
-": <a href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
+"leurs droits en contactant le délégué à la protection des données de la "
+"CSSF : <a href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:264
 msgid ""
@@ -759,8 +755,8 @@ msgid ""
 "etat.lu\">info@cgpd.etat.lu</a>."
 msgstr ""
 "En ce qui concerne l’HCPN, les personnes concernées peuvent faire valoir "
-"leurs droits en contactant le délégué à la protection des données de l’HCPN :"
-" <a href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
+"leurs droits en contactant le délégué à la protection des données de "
+"l’HCPN : <a href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:270
 msgid ""
@@ -769,8 +765,8 @@ msgid ""
 "lu\">dpo@cnpd.lu</a>."
 msgstr ""
 "En ce qui concerne la CNPD, les personnes concernées peuvent faire valoir "
-"leurs droits en contactant le délégué à la protection des données de la CNPD "
-": <a href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
+"leurs droits en contactant le délégué à la protection des données de la "
+"CNPD : <a href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:278
 msgid "Complaints"
@@ -786,9 +782,9 @@ msgid ""
 msgstr ""
 "Les personnes qui estiment que le traitement de données effectué via SERIMA "
 "constitue une violation du RGPD peuvent introduire une réclamation auprès de "
-"la CNPD, via le <a href=\"https://cnpd.public.lu/fr/particuliers/"
-"faire-valoir/formulaire-plainte.html\" target=\"_blank\" rel="
-"\"noopener noreferrer\">formulaire disponible sur son site</a>."
+"la CNPD, via le <a href=\"https://cnpd.public.lu/fr/particuliers/faire-"
+"valoir/formulaire-plainte.html\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">formulaire disponible sur son site</a>."
 
 #: theme/templates/home/sitemap.html:7
 msgid "Sitemap"
@@ -822,8 +818,8 @@ msgid ""
 "incident notifications) and the needs of Regulators and Observers. This "
 "configurable platform is multi-regulator and multi-regulation."
 msgstr ""
-"« SERIMA » : SERIMA est une plateforme informatique ayant pour vocation d’"
-"intégrer différents Modules, avec l’objectif de former in fine une "
+"« SERIMA » : SERIMA est une plateforme informatique ayant pour vocation "
+"d’intégrer différents Modules, avec l’objectif de former in fine une "
 "plateforme de cybersécurité, couvrant tant les besoins des Opérateurs (afin "
 "de notamment effectuer et notifier leurs analyses de risques et leurs "
 "notifications d’incident) que les besoins des Régulateurs et des "
@@ -1161,8 +1157,8 @@ msgid ""
 "The Regulators reserve the right to modify the Terms of Use at any time. "
 "Users will be informed of any changes to the Terms of Use."
 msgstr ""
-"Les Régulateurs se réservent le droit de modifier les Conditions d’"
-"utilisation à tout moment. Les Utilisateurs seront informés de tout "
+"Les Régulateurs se réservent le droit de modifier les Conditions "
+"d’utilisation à tout moment. Les Utilisateurs seront informés de tout "
 "changement des Conditions d’utilisation."
 
 #: theme/templates/home/terms.html:274
@@ -2499,10 +2495,6 @@ msgstr "Connexion"
 #: theme/templates/registration/signup.html:70
 msgid "Create account"
 msgstr "Créer un compte"
-
-#: theme/templates/registration/login.html:16
-msgid "Incident Notification"
-msgstr "Notification d’incidents"
 
 #: theme/templates/registration/login.html:27
 msgid "Report an incident <strong>with</strong> account"

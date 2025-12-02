@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-26 09:36+0100\n"
+"POT-Creation-Date: 2025-12-02 14:18+0100\n"
 "PO-Revision-Date: 2025-12-02 13:16+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
@@ -63,6 +63,9 @@ msgstr ""
 #: theme/templates/cookiebanner/bootstrap5.html:52
 #: theme/templates/home/contact.html:33
 #: theme/templates/incidents/contact_form.html:8
+#: theme/templates/modals/so_contacts.html:18
+#: theme/templates/reporting/add_recommendations.html:108
+#: theme/templates/reporting/recommendations.html:52
 msgid "Name"
 msgstr "Naam"
 
@@ -77,15 +80,6 @@ msgstr "Details"
 #: theme/templates/cookiebanner/bootstrap5.html:48
 msgid "Cookies description"
 msgstr "Beschrijving van cookies"
-
-#: theme/templates/cookiebanner/bootstrap5.html:52
-#: theme/templates/home/contact.html:33
-#: theme/templates/incidents/contact_form.html:8
-#: theme/templates/modals/so_contacts.html:18
-#: theme/templates/reporting/add_recommendations.html:108
-#: theme/templates/reporting/recommendations.html:52
-msgid "Name"
-msgstr "Naam"
 
 #: theme/templates/cookiebanner/bootstrap5.html:55
 #: theme/templates/report/reporting/risks.html:620
@@ -128,9 +122,9 @@ msgstr ""
 msgid "Kind regards,"
 msgstr ""
 
-#: theme/templates/emails/incident_mass_export.html:22
-#, python-format
-msgid "%(site_name)s Incident Notification"
+#: theme/templates/emails/incident_mass_export.html:23
+#: theme/templates/registration/login.html:16
+msgid "Incident Notification"
 msgstr ""
 
 #: theme/templates/emails/suggestion_link_user_account.html:5
@@ -452,7 +446,6 @@ msgid ""
 msgstr ""
 
 #: theme/templates/home/privacy_policy.html:122
-#| msgid "Log in"
 msgid "Log files"
 msgstr ""
 
@@ -2039,10 +2032,6 @@ msgstr "Inloggen"
 #: theme/templates/registration/signup.html:70
 msgid "Create account"
 msgstr "Een account aanmaken"
-
-#: theme/templates/registration/login.html:16
-msgid "Incident Notification"
-msgstr ""
 
 #: theme/templates/registration/login.html:27
 msgid "Report an incident <strong>with</strong> account"
