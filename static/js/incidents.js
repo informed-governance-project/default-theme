@@ -173,10 +173,9 @@ $(document).ready(function () {
 
     // Show the comment
     $(document).on('click', '.comment-btn', function () {
-      const comment = decodeURIComponent($(this).data('comment') || '');
-      $('#report_version_workflow_comment')
-        .find('#modal-workflow-comment')
-        .html(comment);
+      let comment = decodeURIComponent($(this).data('comment') || '');
+      comment = comment.replace(/\n/g, '<br>');
+      $('#report_version_workflow_comment #modal-workflow-comment').html(comment);
     });
     $modalWorkflowRows.find('[data-bs-toggle="tooltip"]').tooltip();
   });
