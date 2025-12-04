@@ -363,7 +363,7 @@
                 </caption>
                 <thead>
                   <tr>
-                    <th class="col-auto text-center align-middle">
+                    <th class="col-1 text-center align-middle">
                       {% translate "Maturity Level" %}
                     </th>
                     <th class="col-2 text-center align-middle">
@@ -372,7 +372,7 @@
                     <th class="col-2 text-center align-middle">
                       {% translate "Evidence" %}
                     </th>
-                    <th class="col-auto text-center align-middle">
+                    <th class="col-1 text-center align-middle">
                       {% translate "Measure Implemented?" %}
                     </th>
                     <th class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}
@@ -396,7 +396,7 @@
                       <tr>
                         {% if forloop.first %}
                           <th rowspan="{{ measures|length }}"
-                              class="col-auto h3 fw-bolder table-group-divider text-center lh-sm">
+                              class="col-1 h3 fw-bolder table-group-divider text-center lh-sm">
                             {{ maturity_level.level }}
                           </th>
                         {% endif %}
@@ -412,7 +412,7 @@
                                    {% endif %}">
                           {{ measure.evidence|linebreaksbr }}
                         </td>
-                        <td class="col-auto align-middle
+                        <td class="col-1 align-middle
                                    {% if forloop.first %}
                                      table-group-divider
                                    {% endif %}">
@@ -442,7 +442,7 @@
                           {% endif %}
                         </td>
                         {% if is_regulator or security_objective.review_comment or security_objective.declaration_status != "UNDE"  %}
-                          <td class="col-2 lh-sm
+                          <td class="col-auto lh-sm
                                      {% if forloop.first %}
                                        table-group-divider
                                      {% endif %}">
