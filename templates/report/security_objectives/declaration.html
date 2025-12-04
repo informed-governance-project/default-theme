@@ -87,9 +87,6 @@
               {% translate "Review Comment" %}
             </th>
           {% endif %}
-          <th class="col-2 text-center align-middle">
-            {% translate "Planned Measures" %}
-          </th>
         </tr>
       </thead>
       <tbody>
@@ -142,18 +139,11 @@
                 {{ measure.justification|default:""|linebreaksbr }}
               </td>
               {% if is_regulator or security_objective.declaration_status != "UNDE" %}
-                <td class="col-2 lh-sm
+                <td class="col-auto lh-sm
                            {% if forloop.first %}
                              table-group-divider
                            {% endif %}">
                   {{ measure.review_comment|default:""|linebreaksbr }}
-                </td>
-              {% endif %}
-              {% if forloop.parentloop.first %}
-                {% translate "Please list your current and planned measures, including a schedule with the individual stages." as placeholder_translation %}
-                <td rowspan="{{ security_objective.securitymeasure_set.all.count }}"
-                    class="col-2 table-group-divider border border-1 border-dark border-end-0">
-                  {{ security_objective.status.actions|default:""|linebreaksbr }}
                 </td>
               {% endif %}
             </tr>
@@ -162,6 +152,18 @@
               {% translate "No security measures data available." %}
             </h3>
           {% endfor %}
+          {% if forloop.last %}
+            <tr>
+              <td colspan="6" class="col-auto table-group-divider pb-0 fw-bolder">
+                {% translate "Planned Measures" %}
+              </td>
+            </tr>
+            <tr>
+              <td colspan="6" class="col-auto">
+                {{ security_objective.status.actions|default:""|linebreaksbr }}
+              </td>
+            </tr>
+          {% endif %}
         {% endfor %}
       </tbody>
     </table>
