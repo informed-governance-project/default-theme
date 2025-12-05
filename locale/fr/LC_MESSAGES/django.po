@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-02 14:19+0100\n"
 "PO-Revision-Date: 2025-12-05 14:27+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: French <http://127.0.0.1:8010/projects/serima-reporting/"
 "frontend/fr/>\n"
 "Language: fr\n"
@@ -51,15 +51,15 @@ msgstr "Déconnexion"
 
 #: theme/templates/admin/reset_accepted_terms.html:8
 msgid "Reset accepted terms"
-msgstr "Réinitialiser les conditions d’utilisation acceptées"
+msgstr "Réinitialiser l'acceptation des conditions d’utilisation"
 
 #: theme/templates/admin/reset_accepted_terms.html:13
 msgid "Reset accepted cookies"
-msgstr "Réinitialiser la liste des cookies acceptés"
+msgstr "Réinitialiser l'acceptation des cookies"
 
 #: theme/templates/admin/settings_list.html:5
 msgid "Variables Django Settings"
-msgstr ""
+msgstr "Variables Paramètres Django"
 
 #: theme/templates/admin/settings_list.html:19
 #: theme/templates/cookiebanner/bootstrap5.html:52
