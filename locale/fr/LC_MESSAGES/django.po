@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-02 14:19+0100\n"
 "PO-Revision-Date: 2025-12-05 16:27+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: French <http://127.0.0.1:8010/projects/serima-reporting/"
 "frontend/fr/>\n"
 "Language: fr\n"
@@ -371,15 +371,15 @@ msgstr "Accueil"
 #: theme/templates/home/index.html:34
 #: theme/templates/registration/login.html:22
 msgid "Report cybersecurity incidents to the competent authority"
-msgstr "Reporter les incidents de cybersécurité à l'autorité compétente"
+msgstr "Signaler les incidents de cybersécurité à l'autorité compétente"
 
 #: theme/templates/home/index.html:36
 msgid ""
 "A self-assessment module to fulfill security objectives evaluation and "
 "provide evidences for security measures in place"
 msgstr ""
-"Un module d'auto-évaluation pour renseigner l'évaluation des objectifs de "
-"sécurité et fournir des évidences concernant les mesures en place"
+"Un module d'auto-évaluation pour évaluer les objectifs de sécurité et "
+"fournir les évidences concernant les mesures en place"
 
 #: theme/templates/home/index.html:38
 msgid ""
@@ -387,11 +387,11 @@ msgid ""
 "towards informed governance."
 msgstr ""
 "Générer les rapports annuels à partir des objectifs de sécurité et des "
-"analyses de risques dans l'optique d'une gouvernance éclairée "
+"analyses de risques dans l'optique d'une gouvernance éclairée."
 
 #: theme/templates/home/index.html:44
 msgid "Go to dashboard"
-msgstr "Aller vers le tableau de bord"
+msgstr "Aller au tableau de bord"
 
 #: theme/templates/home/language_selector.html:24
 msgid "Change the site language - currently in "
@@ -1951,7 +1951,7 @@ msgstr "Légende"
 
 #: theme/templates/incidents/incidents_base.html:73
 msgid "No Significant Impact"
-msgstr "Pas d'impact significatif"
+msgstr "Impact non significatif"
 
 #: theme/templates/incidents/incidents_base.html:77
 msgid "Significant Impact"
@@ -2070,13 +2070,13 @@ msgstr "Réglage des colonnes"
 #: theme/templates/operator/incidents.html:33
 #: theme/templates/operator/incidents.html:36
 msgid "Incident with significant impact"
-msgstr "Incident ayant un impact significatif"
+msgstr "Incident à impact significatif"
 
 #: theme/templates/incidents/incidents_base.html:188
 #: theme/templates/operator/incidents.html:41
 #: theme/templates/operator/incidents.html:44
 msgid "No significant impact"
-msgstr "Pas d'impact significatif"
+msgstr "Impact non significatif"
 
 #: theme/templates/incidents/incidents_base.html:206
 #: theme/templates/observer/incidents.html:10
@@ -2094,7 +2094,7 @@ msgstr "L'incident est clos"
 
 #: theme/templates/incidents/incidents_base.html:223
 msgid "Incident notification submission date"
-msgstr "Date de soumission de la notification de l'incident"
+msgstr "Date de soumission de la notification d'incident"
 
 #: theme/templates/incidents/incidents_base.html:326
 #: theme/templates/incidents/incidents_base.html:328
@@ -2704,7 +2704,7 @@ msgstr "Informations du contact"
 
 #: theme/templates/report/incidents/cover.html:23
 msgid "Incident notification date"
-msgstr "Date de la notification incident"
+msgstr "Date de la notification d'incident"
 
 #: theme/templates/report/incidents/cover.html:27
 #: theme/templates/report/incidents/details.html:19
