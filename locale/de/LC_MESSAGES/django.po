@@ -3,13 +3,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-08 09:54+0100\n"
-"PO-Revision-Date: 2025-12-08 07:27+0000\n"
-"Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
+"PO-Revision-Date: 2025-12-08 09:12+0000\n"
+"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14.3\n"
 
 #: theme/templates/account/edit.html:8
 msgid "Account management"
@@ -71,7 +72,7 @@ msgstr "Name"
 
 #: theme/templates/admin/settings_list.html:22
 msgid "Value"
-msgstr ""
+msgstr "Wert"
 
 #: theme/templates/cookiebanner/bootstrap5.html:43
 msgid "Details"
@@ -103,7 +104,7 @@ msgstr "Akzeptieren"
 
 #: theme/templates/emails/incident_mass_export.html:4
 msgid "Dear Sir or Madam,"
-msgstr ""
+msgstr "Sehr geehrte Damen und Herren,"
 
 #: theme/templates/emails/incident_mass_export.html:7
 #, python-format
