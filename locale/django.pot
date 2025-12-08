@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-02 14:19+0100\n"
+"POT-Creation-Date: 2025-12-08 09:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1633,15 +1633,15 @@ msgstr ""
 msgid "Incident notification submission date"
 msgstr ""
 
-#: theme/templates/incidents/incidents_base.html:326
-#: theme/templates/incidents/incidents_base.html:328
+#: theme/templates/incidents/incidents_base.html:325
+#: theme/templates/incidents/incidents_base.html:327
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
 #: theme/templates/modals/so_versions.html:7
 #: theme/templates/modals/so_versions.html:17
-#: theme/templates/operator/incidents.html:128
-#: theme/templates/operator/incidents.html:130
-#: theme/templates/operator/incidents.html:136
+#: theme/templates/operator/incidents.html:127
+#: theme/templates/operator/incidents.html:129
+#: theme/templates/operator/incidents.html:135
 #: theme/templates/operator/so_dashboard.html:55
 #: theme/templates/operator/so_dashboard.html:57
 #: theme/templates/operator/so_dashboard.html:65
@@ -1653,7 +1653,7 @@ msgstr ""
 msgid "Version control"
 msgstr ""
 
-#: theme/templates/incidents/incidents_base.html:336
+#: theme/templates/incidents/incidents_base.html:335
 #: theme/templates/incidents/incidents_base.html:365
 #: theme/templates/incidents/incidents_base.html:367
 msgid "Download PDF report"
@@ -1842,9 +1842,9 @@ msgstr ""
 
 #: theme/templates/modals/review_comment_report.html:10
 #: theme/templates/modals/workflow_comment.html:7
-#: theme/templates/operator/incidents.html:102
-#: theme/templates/operator/incidents.html:105
-#: theme/templates/operator/incidents.html:111
+#: theme/templates/operator/incidents.html:101
+#: theme/templates/operator/incidents.html:104
+#: theme/templates/operator/incidents.html:110
 #: theme/templates/operator/so_dashboard.html:100
 #: theme/templates/regulator/so_dashboard.html:80
 #: theme/templates/regulator/so_dashboard.html:91
@@ -2665,23 +2665,17 @@ msgstr ""
 msgid "Review Comment"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:91
-#: theme/templates/security_objectives/declaration.html:461
-msgid "Planned Measures"
-msgstr ""
-
-#: theme/templates/report/security_objectives/declaration.html:153
-msgid ""
-"Please list your current and planned measures, including a schedule with the "
-"individual stages."
-msgstr ""
-
-#: theme/templates/report/security_objectives/declaration.html:162
+#: theme/templates/report/security_objectives/declaration.html:152
 #: theme/templates/security_objectives/declaration.html:455
 msgid "No security measures data available."
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:174
+#: theme/templates/report/security_objectives/declaration.html:158
+#: theme/templates/security_objectives/declaration.html:461
+msgid "Planned Measures"
+msgstr ""
+
+#: theme/templates/report/security_objectives/declaration.html:176
 #: theme/templates/security_objectives/declaration.html:476
 msgid "No security objectives data available."
 msgstr ""

@@ -3,10 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-02 14:19+0100\n"
+"POT-Creation-Date: 2025-12-08 09:26+0100\n"
 "PO-Revision-Date: 2025-12-08 07:27+0000\n"
 "Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
-"Language-Team: German <http://127.0.0.1:8010/projects/serima-reporting/"
 "frontend/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +23,8 @@ msgstr "Kontoverwaltung"
 #: theme/templates/incidents/declaration.html:25
 #: theme/templates/registration/signup.html:22
 msgid "Fields marked with an asterisk (*) are mandatory."
-msgstr "Die mit einem Sternchen (*) gekennzeichneten Felder sind Pflichtfelder."
+msgstr ""
+"Die mit einem Sternchen (*) gekennzeichneten Felder sind Pflichtfelder."
 
 #: theme/templates/account/edit.html:21
 msgid "Save changes"
@@ -1648,15 +1648,15 @@ msgstr "Der Vorfall ist beendet"
 msgid "Incident notification submission date"
 msgstr "Datum der Meldung des Vorfalls"
 
-#: theme/templates/incidents/incidents_base.html:326
-#: theme/templates/incidents/incidents_base.html:328
+#: theme/templates/incidents/incidents_base.html:325
+#: theme/templates/incidents/incidents_base.html:327
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
 #: theme/templates/modals/so_versions.html:7
 #: theme/templates/modals/so_versions.html:17
-#: theme/templates/operator/incidents.html:128
-#: theme/templates/operator/incidents.html:130
-#: theme/templates/operator/incidents.html:136
+#: theme/templates/operator/incidents.html:127
+#: theme/templates/operator/incidents.html:129
+#: theme/templates/operator/incidents.html:135
 #: theme/templates/operator/so_dashboard.html:55
 #: theme/templates/operator/so_dashboard.html:57
 #: theme/templates/operator/so_dashboard.html:65
@@ -1668,7 +1668,7 @@ msgstr "Datum der Meldung des Vorfalls"
 msgid "Version control"
 msgstr "Versionsverwaltung"
 
-#: theme/templates/incidents/incidents_base.html:336
+#: theme/templates/incidents/incidents_base.html:335
 #: theme/templates/incidents/incidents_base.html:365
 #: theme/templates/incidents/incidents_base.html:367
 msgid "Download PDF report"
@@ -1859,9 +1859,9 @@ msgstr "Auswahl der Kolonnen"
 
 #: theme/templates/modals/review_comment_report.html:10
 #: theme/templates/modals/workflow_comment.html:7
-#: theme/templates/operator/incidents.html:102
-#: theme/templates/operator/incidents.html:105
-#: theme/templates/operator/incidents.html:111
+#: theme/templates/operator/incidents.html:101
+#: theme/templates/operator/incidents.html:104
+#: theme/templates/operator/incidents.html:110
 #: theme/templates/operator/so_dashboard.html:100
 #: theme/templates/regulator/so_dashboard.html:80
 #: theme/templates/regulator/so_dashboard.html:91
@@ -2712,25 +2712,17 @@ msgstr "Begründung"
 msgid "Review Comment"
 msgstr "Review Kommentar"
 
-#: theme/templates/report/security_objectives/declaration.html:91
-#: theme/templates/security_objectives/declaration.html:461
-msgid "Planned Measures"
-msgstr "Geplante Maßnahmen"
-
-#: theme/templates/report/security_objectives/declaration.html:153
-msgid ""
-"Please list your current and planned measures, including a schedule with the "
-"individual stages."
-msgstr ""
-"Bitte listen Sie Ihre laufenden und geplanten Maßnahmen inklusive eines "
-"Zeitplans mit den einzelnen Etappen auf."
-
-#: theme/templates/report/security_objectives/declaration.html:162
+#: theme/templates/report/security_objectives/declaration.html:152
 #: theme/templates/security_objectives/declaration.html:455
 msgid "No security measures data available."
 msgstr "Keine Daten zu Sicherheitsmaßnahmen verfügbar."
 
-#: theme/templates/report/security_objectives/declaration.html:174
+#: theme/templates/report/security_objectives/declaration.html:158
+#: theme/templates/security_objectives/declaration.html:461
+msgid "Planned Measures"
+msgstr "Geplante Maßnahmen"
+
+#: theme/templates/report/security_objectives/declaration.html:176
 #: theme/templates/security_objectives/declaration.html:476
 msgid "No security objectives data available."
 msgstr "Keine Daten zu Sicherheitszielen verfügbar."
