@@ -33,7 +33,7 @@
     </div>
     <div class="d-inline-flex gap-4">
       <form id="search_bar_form" method="get">
-        {% bootstrap_field filter.form.search label_class="fw-bold" addon_before="<i class='custom-icon-search h4'></i>" addon_before_class="input-group-text search_icon" addon_after="<button id='clearSearch' type='button' class='btn-close d-none'></button>" addon_after_class="input-group-text close_icon" show_label=false wrapper_class="mb-0" %}
+        {% bootstrap_field filter.form.search label_class="fw-bold" addon_before="<i class='custom-icon-search h4' aria-hidden='true'></i>" addon_before_class="input-group-text search_icon" addon_after="<button id='clearSearch' type='button' class='btn-close d-none'></button>" addon_after_class="input-group-text close_icon" show_label=false wrapper_class="mb-0" %}
       </form>
       <button id="openFilter"
               class="btn btn-filter-gray btn-sm px-3"
@@ -160,6 +160,7 @@
                       data-bs-toggle="modal"
                       data-bs-target="#IncidentshideColumns">
                 <i class="bi bi-gear h5 m-0"
+                   aria-hidden="true"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
                    title="{% translate 'Column settings' %}">
