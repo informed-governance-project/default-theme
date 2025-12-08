@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-26 10:49+0100\n"
+"POT-Creation-Date: 2025-12-08 09:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,9 +120,9 @@ msgstr ""
 msgid "Kind regards,"
 msgstr ""
 
-#: theme/templates/emails/incident_mass_export.html:22
-#, python-format
-msgid "%(site_name)s Incident Notification"
+#: theme/templates/emails/incident_mass_export.html:23
+#: theme/templates/registration/login.html:16
+msgid "Incident Notification"
 msgstr ""
 
 #: theme/templates/emails/suggestion_link_user_account.html:5
@@ -1558,17 +1558,17 @@ msgstr ""
 msgid "Incident notification submission date"
 msgstr ""
 
-#: theme/templates/incidents/incidents_base.html:326
-#: theme/templates/incidents/incidents_base.html:328
+#: theme/templates/incidents/incidents_base.html:325
+#: theme/templates/incidents/incidents_base.html:327
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
-#: theme/templates/operator/incidents.html:128
-#: theme/templates/operator/incidents.html:130
-#: theme/templates/operator/incidents.html:136
+#: theme/templates/operator/incidents.html:127
+#: theme/templates/operator/incidents.html:129
+#: theme/templates/operator/incidents.html:135
 msgid "Version control"
 msgstr ""
 
-#: theme/templates/incidents/incidents_base.html:336
+#: theme/templates/incidents/incidents_base.html:335
 #: theme/templates/incidents/incidents_base.html:365
 #: theme/templates/incidents/incidents_base.html:367
 msgid "Download PDF report"
@@ -1680,9 +1680,9 @@ msgid "Choice of columns"
 msgstr ""
 
 #: theme/templates/modals/workflow_comment.html:7
-#: theme/templates/operator/incidents.html:102
-#: theme/templates/operator/incidents.html:105
-#: theme/templates/operator/incidents.html:111
+#: theme/templates/operator/incidents.html:101
+#: theme/templates/operator/incidents.html:104
+#: theme/templates/operator/incidents.html:110
 msgid "Review comment"
 msgstr ""
 
@@ -1798,10 +1798,6 @@ msgstr ""
 #: theme/templates/registration/signup.html:15
 #: theme/templates/registration/signup.html:70
 msgid "Create account"
-msgstr ""
-
-#: theme/templates/registration/login.html:16
-msgid "Incident Notification"
 msgstr ""
 
 #: theme/templates/registration/login.html:27

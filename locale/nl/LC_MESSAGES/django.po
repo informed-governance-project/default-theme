@@ -2,11 +2,14 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-25 12:51+0100\n"
-"PO-Revision-Date: 2025-11-12 09:07+0100\n"
+"POT-Creation-Date: 2025-12-08 09:48+0100\n"
+"PO-Revision-Date: 2025-12-02 13:16+0000\n"
+"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14.3\n"
 "Generated-By: xls-to-po 1.0\n"
 
 #: theme/templates/account/edit.html:8
@@ -50,7 +53,7 @@ msgstr "Voorwaarden opnieuw instellen"
 
 #: theme/templates/admin/reset_accepted_terms.html:13
 msgid "Reset accepted cookies"
-msgstr ""
+msgstr "Aanvaarde cookies resetten"
 
 #: theme/templates/admin/settings_list.html:5
 msgid "Variables Django Settings"
@@ -112,9 +115,9 @@ msgstr ""
 msgid "Kind regards,"
 msgstr ""
 
-#: theme/templates/emails/incident_mass_export.html:22
-#, python-format
-msgid "%(site_name)s Incident Notification"
+#: theme/templates/emails/incident_mass_export.html:23
+#: theme/templates/registration/login.html:16
+msgid "Incident Notification"
 msgstr ""
 
 #: theme/templates/emails/suggestion_link_user_account.html:5
@@ -1313,7 +1316,7 @@ msgstr ""
 #: theme/templates/incidents/base.html:29
 #: theme/templates/modals/export_incidents.html:80
 msgid "Export"
-msgstr ""
+msgstr "Exporteren"
 
 #: theme/templates/incidents/contact_form.html:6
 #: theme/templates/report/incidents/cover.html:15
@@ -1554,17 +1557,17 @@ msgstr "Het incident is gesloten"
 msgid "Incident notification submission date"
 msgstr "Datum van indiening van de incidentmelding"
 
-#: theme/templates/incidents/incidents_base.html:326
-#: theme/templates/incidents/incidents_base.html:328
+#: theme/templates/incidents/incidents_base.html:325
+#: theme/templates/incidents/incidents_base.html:327
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
-#: theme/templates/operator/incidents.html:128
-#: theme/templates/operator/incidents.html:130
-#: theme/templates/operator/incidents.html:136
+#: theme/templates/operator/incidents.html:127
+#: theme/templates/operator/incidents.html:129
+#: theme/templates/operator/incidents.html:135
 msgid "Version control"
 msgstr "Versiebeheer"
 
-#: theme/templates/incidents/incidents_base.html:336
+#: theme/templates/incidents/incidents_base.html:335
 #: theme/templates/incidents/incidents_base.html:365
 #: theme/templates/incidents/incidents_base.html:367
 msgid "Download PDF report"
@@ -1676,9 +1679,9 @@ msgid "Choice of columns"
 msgstr ""
 
 #: theme/templates/modals/workflow_comment.html:7
-#: theme/templates/operator/incidents.html:102
-#: theme/templates/operator/incidents.html:105
-#: theme/templates/operator/incidents.html:111
+#: theme/templates/operator/incidents.html:101
+#: theme/templates/operator/incidents.html:104
+#: theme/templates/operator/incidents.html:110
 msgid "Review comment"
 msgstr ""
 
@@ -1795,10 +1798,6 @@ msgstr "Inloggen"
 #: theme/templates/registration/signup.html:70
 msgid "Create account"
 msgstr "Een account aanmaken"
-
-#: theme/templates/registration/login.html:16
-msgid "Incident Notification"
-msgstr ""
 
 #: theme/templates/registration/login.html:27
 msgid "Report an incident <strong>with</strong> account"

@@ -2,12 +2,13 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-26 10:46+0100\n"
-"PO-Revision-Date: 2025-11-26 09:42+0000\n"
-"Last-Translator: Weblate Admin <weblate@admin.lu>\n"
+"POT-Creation-Date: 2025-12-08 09:48+0100\n"
+"PO-Revision-Date: 2025-12-05 17:27+0000\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"frontend/fr/>\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.14.3\n"
 "Generated-By: xls-to-po 1.0\n"
@@ -49,15 +50,15 @@ msgstr "Déconnexion"
 
 #: theme/templates/admin/reset_accepted_terms.html:8
 msgid "Reset accepted terms"
-msgstr "Réinitialiser les conditions d’utilisation acceptées"
+msgstr "Réinitialiser l'acceptation des conditions d’utilisation"
 
 #: theme/templates/admin/reset_accepted_terms.html:13
 msgid "Reset accepted cookies"
-msgstr "Réinitialiser la liste des cookies acceptés"
+msgstr "Réinitialiser l'acceptation des cookies"
 
 #: theme/templates/admin/settings_list.html:5
 msgid "Variables Django Settings"
-msgstr ""
+msgstr "Variables Paramètres Django"
 
 #: theme/templates/admin/settings_list.html:19
 #: theme/templates/cookiebanner/bootstrap5.html:52
@@ -68,7 +69,7 @@ msgstr "Nom"
 
 #: theme/templates/admin/settings_list.html:22
 msgid "Value"
-msgstr ""
+msgstr "Valeur"
 
 #: theme/templates/cookiebanner/bootstrap5.html:43
 msgid "Details"
@@ -96,7 +97,7 @@ msgstr "Accepter"
 
 #: theme/templates/emails/incident_mass_export.html:4
 msgid "Dear Sir or Madam,"
-msgstr ""
+msgstr "Madame, Monsieur,"
 
 #: theme/templates/emails/incident_mass_export.html:7
 #, python-format
@@ -104,21 +105,26 @@ msgid ""
 "We would like to inform you that a new incident mass export related to the "
 "regulation %(regulation)s has been completed."
 msgstr ""
+"Nous tenons à vous informer qu'une nouvelle exportation massive d'incidents "
+"liés à la réglementation %(regulation)s a été effectuée."
 
 #: theme/templates/emails/incident_mass_export.html:13
 msgid ""
 "If you or a member of your team did not initiate this action or if it "
 "appears suspicious, we recommend that you investigate the matter further."
 msgstr ""
+"Si vous ou un membre de votre équipe n'avez pas initié cette action ou si "
+"celle-ci vous semble suspecte, nous vous recommandons de réaliser des "
+"vérifications."
 
 #: theme/templates/emails/incident_mass_export.html:19
 msgid "Kind regards,"
-msgstr ""
+msgstr "Cordialement,"
 
-#: theme/templates/emails/incident_mass_export.html:22
-#, python-format
-msgid "%(site_name)s Incident Notification"
-msgstr ""
+#: theme/templates/emails/incident_mass_export.html:23
+#: theme/templates/registration/login.html:16
+msgid "Incident Notification"
+msgstr "Notification d’incidents"
 
 #: theme/templates/emails/suggestion_link_user_account.html:5
 #, python-format
@@ -249,7 +255,7 @@ msgstr "Politique des cookies"
 
 #: theme/templates/home/cookies_policy.html:10
 msgid "Cookie Policy on the SERIMA platform"
-msgstr "Gestion des cookies de la  SERIMA"
+msgstr "Gestion des cookies de SERIMA"
 
 #: theme/templates/home/cookies_policy.html:10
 #: theme/templates/home/privacy_policy.html:15
@@ -350,15 +356,15 @@ msgstr "Accueil"
 #: theme/templates/home/index.html:34
 #: theme/templates/registration/login.html:22
 msgid "Report cybersecurity incidents to the competent authority"
-msgstr "Reporter les incidents de cybersécurité à l'autorité compétente"
+msgstr "Signaler les incidents de cybersécurité à l'autorité compétente"
 
 #: theme/templates/home/index.html:36
 msgid ""
 "A self-assessment module to fulfill security objectives evaluation and "
 "provide evidences for security measures in place"
 msgstr ""
-"Un module d'auto-évaluation pour renseigner l'évaluation des objectifs de "
-"sécurité et fournir des évidences concernant les mesures en place"
+"Un module d'auto-évaluation pour évaluer les objectifs de sécurité et "
+"fournir les évidences concernant les mesures en place"
 
 #: theme/templates/home/index.html:38
 msgid ""
@@ -366,11 +372,11 @@ msgid ""
 "towards informed governance."
 msgstr ""
 "Générer les rapports annuels à partir des objectifs de sécurité et des "
-"analyses de risques dans l'optique d'une gouvernance éclairée "
+"analyses de risques dans l'optique d'une gouvernance éclairée."
 
 #: theme/templates/home/index.html:44
 msgid "Go to dashboard"
-msgstr "Aller vers le tableau de bord"
+msgstr "Aller au tableau de bord"
 
 #: theme/templates/home/language_selector.html:24
 msgid "Change the site language - currently in "
@@ -1773,7 +1779,7 @@ msgstr "Notifier un incident"
 #: theme/templates/incidents/base.html:29
 #: theme/templates/modals/export_incidents.html:80
 msgid "Export"
-msgstr ""
+msgstr "Exporter"
 
 #: theme/templates/incidents/contact_form.html:6
 #: theme/templates/report/incidents/cover.html:15
@@ -1889,7 +1895,7 @@ msgstr "Légende"
 
 #: theme/templates/incidents/incidents_base.html:73
 msgid "No Significant Impact"
-msgstr "Pas d'impact significatif"
+msgstr "Impact non significatif"
 
 #: theme/templates/incidents/incidents_base.html:77
 msgid "Significant Impact"
@@ -1988,13 +1994,13 @@ msgstr "Réglage des colonnes"
 #: theme/templates/operator/incidents.html:33
 #: theme/templates/operator/incidents.html:36
 msgid "Incident with significant impact"
-msgstr "Incident ayant un impact significatif"
+msgstr "Incident à impact significatif"
 
 #: theme/templates/incidents/incidents_base.html:188
 #: theme/templates/operator/incidents.html:41
 #: theme/templates/operator/incidents.html:44
 msgid "No significant impact"
-msgstr "Pas d'impact significatif"
+msgstr "Impact non significatif"
 
 #: theme/templates/incidents/incidents_base.html:206
 #: theme/templates/observer/incidents.html:10
@@ -2012,19 +2018,19 @@ msgstr "L'incident est clos"
 
 #: theme/templates/incidents/incidents_base.html:223
 msgid "Incident notification submission date"
-msgstr "Date de soumission de la notification de l'incident"
+msgstr "Date de soumission de la notification d'incident"
 
-#: theme/templates/incidents/incidents_base.html:326
-#: theme/templates/incidents/incidents_base.html:328
+#: theme/templates/incidents/incidents_base.html:325
+#: theme/templates/incidents/incidents_base.html:327
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
-#: theme/templates/operator/incidents.html:128
-#: theme/templates/operator/incidents.html:130
-#: theme/templates/operator/incidents.html:136
+#: theme/templates/operator/incidents.html:127
+#: theme/templates/operator/incidents.html:129
+#: theme/templates/operator/incidents.html:135
 msgid "Version control"
 msgstr "Gestion de versions"
 
-#: theme/templates/incidents/incidents_base.html:336
+#: theme/templates/incidents/incidents_base.html:335
 #: theme/templates/incidents/incidents_base.html:365
 #: theme/templates/incidents/incidents_base.html:367
 msgid "Download PDF report"
@@ -2107,7 +2113,7 @@ msgstr "Contacts"
 #: theme/templates/modals/contacts_incident.html:24
 #: theme/templates/report/incidents/contacts.html:18
 msgid "Incident notification manager"
-msgstr "Responsable de la notification d’incident"
+msgstr "Responsable de la notification d’incidents"
 
 #: theme/templates/modals/contacts_incident.html:27
 msgid "Incident notification manager and technical contact"
@@ -2129,16 +2135,16 @@ msgstr "Supprimer"
 
 #: theme/templates/modals/export_incidents.html:14
 msgid "Export incidents"
-msgstr ""
+msgstr "Exporter les incidents"
 
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:7
 msgid "Choice of columns"
 msgstr "Choix des colonnes"
 
 #: theme/templates/modals/workflow_comment.html:7
-#: theme/templates/operator/incidents.html:102
-#: theme/templates/operator/incidents.html:105
-#: theme/templates/operator/incidents.html:111
+#: theme/templates/operator/incidents.html:101
+#: theme/templates/operator/incidents.html:104
+#: theme/templates/operator/incidents.html:110
 msgid "Review comment"
 msgstr "Commentaire de revue"
 
@@ -2178,7 +2184,7 @@ msgstr "Veuillez réessayer plus tard."
 
 #: theme/templates/parts/footer.html:12
 msgid "A platform developed by"
-msgstr ""
+msgstr "Une plateforme développée par"
 
 #: theme/templates/parts/footer.html:36
 msgid "Terms of service"
@@ -2186,7 +2192,7 @@ msgstr "Conditions générales d'utilisation"
 
 #: theme/templates/parts/footer.html:44
 msgid "A platform offered by"
-msgstr ""
+msgstr "Une plateforme proposée par"
 
 #: theme/templates/parts/footer.html:53
 msgid "Cookies policy"
@@ -2258,10 +2264,6 @@ msgstr "Connexion"
 msgid "Create account"
 msgstr "Créer un compte"
 
-#: theme/templates/registration/login.html:16
-msgid "Incident Notification"
-msgstr "Notification d’incidents"
-
 #: theme/templates/registration/login.html:27
 msgid "Report an incident <strong>with</strong> account"
 msgstr "Signaler un incident <strong>avec</strong> compte"
@@ -2299,7 +2301,7 @@ msgstr "Avez-vous oublié votre mot de passe ?"
 
 #: theme/templates/registration/login.html:91
 msgid "Create an account"
-msgstr "Créer un compte utilisateur"
+msgstr "Créer un compte"
 
 #: theme/templates/registration/password_change_done.html:7
 #: theme/templates/registration/password_change_form.html:9
@@ -2317,7 +2319,7 @@ msgstr "Tous les champs sont obligatoires."
 #: theme/templates/registration/password_change_form.html:18
 msgid "Please enter your old password. Then enter your new password twice."
 msgstr ""
-"Veuillez saisir votre ancien mot de passe. Saisissez ensuite deux fois votre "
+"Veuillez saisir votre ancien mot de passe. Puis saisissez deux fois votre "
 "nouveau mot de passe."
 
 #: theme/templates/registration/password_change_form.html:32
@@ -2371,8 +2373,8 @@ msgid ""
 msgstr ""
 "Nous avons reçu votre demande de réinitialisation de mot de passe. Veuillez "
 "consulter votre courrier électronique pour y trouver un lien qui vous "
-"permettra de réinitialiser votre mot de passe. Le courriel devrait arriver "
-"dans quelques minutes."
+"permettra de le réinitialiser. Le courriel devrait arriver dans quelques "
+"minutes."
 
 #: theme/templates/registration/password_reset_done.html:21
 msgid ""
@@ -2389,8 +2391,8 @@ msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
 msgstr ""
-"Vous recevez ce courriel parce que vous avez demandé une restauration de mot "
-"de passe sur %(site_name)s."
+"Vous recevez ce courriel parce que vous avez demandé un nouveau mot de passe "
+"sur %(site_name)s."
 
 #: theme/templates/registration/password_reset_email.html:6
 msgid "Please go to the following page and set up a new password:"
@@ -2427,12 +2429,12 @@ msgstr "Choisissez l’entreprise"
 #: theme/templates/registration/select_company.html:12
 msgid "Your account is linked to multiple companies. Select one to proceed."
 msgstr ""
-"Votre compte est lié à plusieurs entreprises. Sélectionnez-en une pour "
+"Votre compte est lié à plusieurs entreprises. Sélectionnez en une pour "
 "continuer."
 
 #: theme/templates/registration/select_company.html:18
 msgid "Select"
-msgstr ""
+msgstr "Sélectionner"
 
 #: theme/templates/registration/signup.html:37
 msgid "Email address"
@@ -2456,7 +2458,7 @@ msgstr "Informations du contact"
 
 #: theme/templates/report/incidents/cover.html:23
 msgid "Incident notification date"
-msgstr "Date de la notification incident"
+msgstr "Date de la notification d'incident"
 
 #: theme/templates/report/incidents/cover.html:27
 #: theme/templates/report/incidents/details.html:19
@@ -2489,7 +2491,7 @@ msgstr "Non"
 
 #: theme/templates/report/incidents/details.html:76
 msgid "Criminal complaint file number"
-msgstr "Numéro de dossier de la plainte"
+msgstr "Numéro de dossier de plainte"
 
 #: theme/templates/report/incidents/header.html:12
 msgid "Ref"

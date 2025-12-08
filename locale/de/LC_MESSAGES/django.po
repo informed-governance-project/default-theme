@@ -1,13 +1,16 @@
 # This file was generated from /home/cases/serima/theme/locale/frontend_translations.xlsx
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 08:42+0100\n"
-"PO-Revision-Date: 2025-11-25 11:02+0000\n"
-"Last-Translator: Weblate Admin <weblate@admin.lu>\n"
+"POT-Creation-Date: 2025-12-08 09:48+0100\n"
+"PO-Revision-Date: 2025-12-08 07:27+0000\n"
+"Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language: de\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"frontend/de/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.14.3\n"
 "Generated-By: xls-to-po 1.0\n"
@@ -58,7 +61,7 @@ msgstr "Akzeptierte Cookies zurücksetzen"
 
 #: theme/templates/admin/settings_list.html:5
 msgid "Variables Django Settings"
-msgstr ""
+msgstr "Django-Einstellungsvariablen"
 
 #: theme/templates/admin/settings_list.html:19
 #: theme/templates/cookiebanner/bootstrap5.html:52
@@ -116,10 +119,10 @@ msgstr ""
 msgid "Kind regards,"
 msgstr ""
 
-#: theme/templates/emails/incident_mass_export.html:22
-#, python-format
-msgid "%(site_name)s Incident Notification"
-msgstr ""
+#: theme/templates/emails/incident_mass_export.html:23
+#: theme/templates/registration/login.html:16
+msgid "Incident Notification"
+msgstr "Vorfallmeldung"
 
 #: theme/templates/emails/suggestion_link_user_account.html:5
 #, python-format
@@ -1570,17 +1573,17 @@ msgstr "Der Vorfall ist beendet"
 msgid "Incident notification submission date"
 msgstr "Datum der Meldung des Vorfalls"
 
-#: theme/templates/incidents/incidents_base.html:326
-#: theme/templates/incidents/incidents_base.html:328
+#: theme/templates/incidents/incidents_base.html:325
+#: theme/templates/incidents/incidents_base.html:327
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
-#: theme/templates/operator/incidents.html:128
-#: theme/templates/operator/incidents.html:130
-#: theme/templates/operator/incidents.html:136
+#: theme/templates/operator/incidents.html:127
+#: theme/templates/operator/incidents.html:129
+#: theme/templates/operator/incidents.html:135
 msgid "Version control"
 msgstr "Versionsverwaltung"
 
-#: theme/templates/incidents/incidents_base.html:336
+#: theme/templates/incidents/incidents_base.html:335
 #: theme/templates/incidents/incidents_base.html:365
 #: theme/templates/incidents/incidents_base.html:367
 msgid "Download PDF report"
@@ -1686,16 +1689,16 @@ msgstr "Löschen"
 
 #: theme/templates/modals/export_incidents.html:14
 msgid "Export incidents"
-msgstr ""
+msgstr "Vorfälle exportieren"
 
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:7
 msgid "Choice of columns"
 msgstr "Auswahl der Kolonnen"
 
 #: theme/templates/modals/workflow_comment.html:7
-#: theme/templates/operator/incidents.html:102
-#: theme/templates/operator/incidents.html:105
-#: theme/templates/operator/incidents.html:111
+#: theme/templates/operator/incidents.html:101
+#: theme/templates/operator/incidents.html:104
+#: theme/templates/operator/incidents.html:110
 msgid "Review comment"
 msgstr "Review Kommentar"
 
@@ -1814,10 +1817,6 @@ msgstr "Anmeldung"
 #: theme/templates/registration/signup.html:70
 msgid "Create account"
 msgstr "Benutzerkonto erstellen"
-
-#: theme/templates/registration/login.html:16
-msgid "Incident Notification"
-msgstr "Vorfallmeldung"
 
 #: theme/templates/registration/login.html:27
 msgid "Report an incident <strong>with</strong> account"
