@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-08 09:54+0100\n"
 "PO-Revision-Date: 2025-12-09 08:04+0000\n"
-"Last-Translator: Jacques Kellner <Jacques.Kellner+RegAdmin@ilr.lu>\n"
+"Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -481,7 +481,7 @@ msgstr ""
 
 #: theme/templates/home/privacy_policy.html:96
 msgid "Purposes and legal bases for processing"
-msgstr ""
+msgstr "Verarbeitungszwecke und Rechtsgrundlagen"
 
 #: theme/templates/home/privacy_policy.html:99
 msgid ""
@@ -507,7 +507,7 @@ msgstr ""
 
 #: theme/templates/home/privacy_policy.html:122
 msgid "Log files"
-msgstr ""
+msgstr "Logdateien"
 
 #: theme/templates/home/privacy_policy.html:125
 msgid ""
@@ -532,7 +532,7 @@ msgstr ""
 
 #: theme/templates/home/privacy_policy.html:147
 msgid "Recipients of the processed data "
-msgstr ""
+msgstr "Empfänger der verarbeiteten Daten "
 
 #: theme/templates/home/privacy_policy.html:150
 msgid ""
@@ -575,7 +575,7 @@ msgstr ""
 
 #: theme/templates/home/privacy_policy.html:187
 msgid "Operator's representations and warranties"
-msgstr ""
+msgstr "Zusicherungen und Gewährleistungen des Betreibers"
 
 #: theme/templates/home/privacy_policy.html:190
 msgid ""
@@ -671,7 +671,7 @@ msgstr ""
 
 #: theme/templates/home/privacy_policy.html:278
 msgid "Complaints"
-msgstr ""
+msgstr "Beschwerden"
 
 #: theme/templates/home/privacy_policy.html:281
 msgid ""
@@ -684,7 +684,7 @@ msgstr ""
 
 #: theme/templates/home/sitemap.html:7
 msgid "Sitemap"
-msgstr ""
+msgstr "Sitemap"
 
 #: theme/templates/home/terms.html:6
 msgid "Terms of use"
@@ -696,7 +696,7 @@ msgstr "Nutzungsbedingungen der SERIMA Plattform"
 
 #: theme/templates/home/terms.html:37
 msgid "Definitions"
-msgstr ""
+msgstr "Definitionen"
 
 #: theme/templates/home/terms.html:40
 msgid ""
@@ -939,7 +939,7 @@ msgstr ""
 
 #: theme/templates/home/terms.html:274
 msgid "Description of SERIMA"
-msgstr ""
+msgstr "Beschreibung von SERIMA"
 
 #: theme/templates/home/terms.html:277
 msgid ""
@@ -950,7 +950,7 @@ msgstr ""
 
 #: theme/templates/home/terms.html:284
 msgid "incident notification and follow-up of incident notifications ;"
-msgstr ""
+msgstr "Vorfallmeldung und Weiterverfolgung von Vorfallmeldungen ;"
 
 #: theme/templates/home/terms.html:289
 msgid "carrying out, submitting and reviewing risk analyses;"
@@ -1095,7 +1095,7 @@ msgstr ""
 
 #: theme/templates/home/terms.html:439
 msgid "Using SERIMA"
-msgstr ""
+msgstr "Verwendung von SERIMA"
 
 #: theme/templates/home/terms.html:442
 msgid ""
@@ -1110,6 +1110,9 @@ msgid ""
 "No information classified under Luxembourg law or any other law shall be "
 "entered or transmitted on SERIMA."
 msgstr ""
+"Es dürfen keine Informationen, die nach luxemburgischem Recht oder einem "
+"anderen Recht als geheim eingestuft sind, in SERIMA eingegeben oder via "
+"SERIMA übermittelt werden."
 
 #: theme/templates/home/terms.html:455
 msgid ""
@@ -1204,11 +1207,11 @@ msgstr ""
 
 #: theme/templates/home/terms.html:542
 msgid "maintenance operations ;"
-msgstr ""
+msgstr "Wartungsarbeiten;"
 
 #: theme/templates/home/terms.html:547
 msgid "updates ;"
-msgstr ""
+msgstr "Aktualisierungen;"
 
 #: theme/templates/home/terms.html:552
 msgid ""
@@ -1405,7 +1408,7 @@ msgstr "Verantwortlicher für die Vorfallmeldung"
 #: theme/templates/incidents/contact_form.html:16
 #: theme/templates/incidents/contact_form.html:49
 msgid "Job title"
-msgstr "Stellenbezeichnung"
+msgstr "Jobtitel"
 
 #: theme/templates/incidents/contact_form.html:24
 #: theme/templates/incidents/contact_form.html:57
@@ -1427,7 +1430,7 @@ msgstr "Technischer Ansprechpartner"
 #: theme/templates/incidents/contact_form.html:43
 msgid "Is the incident notification manager also the technical contact?"
 msgstr ""
-"Ist der Verantwortliche für die Vorfallmeldung auch der technische "
+"Ist der Verantwortliche für die Vorfallmeldung ebenfalls der technische "
 "Ansprechpartner?"
 
 #: theme/templates/incidents/contact_form.html:74
@@ -1444,7 +1447,7 @@ msgstr "Einen Vorfall melden"
 
 #: theme/templates/incidents/declaration.html:34
 msgid "Incident notification steps"
-msgstr "Schritte zur Meldung eines Vorfalls"
+msgstr "Schritte zur Vorfallmeldung"
 
 #: theme/templates/incidents/declaration.html:155
 #: theme/templates/modals/delete_incident.html:24
@@ -1512,7 +1515,7 @@ msgstr "Übersicht der gemeldeten Vorfälle"
 #: theme/templates/incidents/incidents_base.html:43
 #: theme/templates/security_objectives/so_dashboard_base.html:40
 msgid "Filter by status, sector, etc."
-msgstr "Nach Status, Sektor usw. filtern"
+msgstr "Filtern nach Status, Sektor usw."
 
 #: theme/templates/incidents/incidents_base.html:44
 #: theme/templates/incidents/incidents_base.html:438
@@ -1555,7 +1558,7 @@ msgstr "Erhebliche Auswirkungen"
 
 #: theme/templates/incidents/incidents_base.html:81
 msgid "Ongoing"
-msgstr "Andauernd"
+msgstr "Laufend"
 
 #: theme/templates/incidents/incidents_base.html:85
 #: theme/templates/report/reporting/risks.html:691
@@ -1571,7 +1574,7 @@ msgstr "Noch nicht eingereicht"
 #: theme/templates/operator/so_dashboard.html:163
 #: theme/templates/regulator/so_dashboard.html:162
 msgid "Under review"
-msgstr "In Prüfung"
+msgstr "Wird geprüft"
 
 #: theme/templates/incidents/incidents_base.html:97
 msgid "Submission overdue"
@@ -1659,7 +1662,7 @@ msgstr "Aktionen"
 
 #: theme/templates/incidents/incidents_base.html:165
 msgid "Column settings"
-msgstr "Spaltenanpassungen"
+msgstr "Spalten anpassen"
 
 #: theme/templates/incidents/incidents_base.html:186
 #: theme/templates/observer/incidents.html:27
@@ -1679,7 +1682,7 @@ msgstr "Keine erheblichen Auswirkungen"
 #: theme/templates/operator/incidents.html:14
 #: theme/templates/operator/incidents.html:17
 msgid "The incident is still ongoing"
-msgstr "Der Vorfall dauert noch an"
+msgstr "Der Vorfall ist noch nicht abgeschlossen"
 
 #: theme/templates/incidents/incidents_base.html:208
 #: theme/templates/observer/incidents.html:17
@@ -1690,7 +1693,7 @@ msgstr "Der Vorfall ist beendet"
 
 #: theme/templates/incidents/incidents_base.html:223
 msgid "Incident notification submission date"
-msgstr "Datum der Meldung des Vorfalls"
+msgstr "Einreichungsdatum der Vorfallmeldung"
 
 #: theme/templates/incidents/incidents_base.html:325
 #: theme/templates/incidents/incidents_base.html:327
@@ -1823,8 +1826,7 @@ msgstr "Verantwortlicher für die Vorfallmeldung"
 
 #: theme/templates/modals/contacts_incident.html:27
 msgid "Incident notification manager and technical contact"
-msgstr ""
-"Verantwortlicher für die Vorfallmeldung und technischer Ansprechpartner"
+msgstr "Verantwortlicher für die Vorfallmeldung und technischer Ansprechpartner"
 
 #: theme/templates/modals/copy_so_declaration.html:11
 msgid "Duplicate the selected security objectives statement to"
@@ -1899,7 +1901,7 @@ msgstr "Importieren"
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:7
 #: theme/templates/modals/so_dashboard_hide_columns.html:7
 msgid "Choice of columns"
-msgstr "Auswahl der Kolonnen"
+msgstr "Auswahl der Spalten"
 
 #: theme/templates/modals/review_comment_report.html:10
 #: theme/templates/modals/workflow_comment.html:7
@@ -2832,7 +2834,7 @@ msgstr "Berichtsgenerierungstabelle"
 
 #: theme/templates/reporting/dashboard.html:62
 msgid "Operator"
-msgstr "Betreiber"
+msgstr "Operator"
 
 #: theme/templates/reporting/dashboard.html:68
 #: theme/templates/security_objectives/base.html:17
