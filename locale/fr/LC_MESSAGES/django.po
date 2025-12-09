@@ -1,14 +1,17 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-08 09:54+0100\n"
-"PO-Revision-Date: 2025-12-09 08:04+0000\n"
+"POT-Creation-Date: 2025-12-09 10:57+0100\n"
+"PO-Revision-Date: 2025-12-09 10:56+0100\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
+"Language-Team: \n"
 "Language: fr\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.14.3\n"
+"X-Generator: Poedit 3.8\n"
 
 #: theme/templates/account/edit.html:8
 msgid "Account management"
@@ -406,11 +409,11 @@ msgstr "Politique de confidentialité"
 msgid "SERIMA Platform Privacy Policy"
 msgstr "Politique de confidentialité de la plateforme SERIMA"
 
-#: theme/templates/home/privacy_policy.html:30
+#: theme/templates/home/privacy_policy.html:31
 msgid "Defined terms"
 msgstr "Termes définis"
 
-#: theme/templates/home/privacy_policy.html:33
+#: theme/templates/home/privacy_policy.html:34
 msgid ""
 "Terms beginning with a capital letter are defined in Article 1 of the SERIMA "
 "terms of use."
@@ -418,11 +421,11 @@ msgstr ""
 "Les termes commençant par une majuscule sont définis à l’article 1 des "
 "conditions d’utilisation de SERIMA."
 
-#: theme/templates/home/privacy_policy.html:40
+#: theme/templates/home/privacy_policy.html:41
 msgid "Controllers of personal data"
 msgstr "Responsables du traitement"
 
-#: theme/templates/home/privacy_policy.html:43
+#: theme/templates/home/privacy_policy.html:44
 msgid ""
 "Each Regulator is the Controller of personal data for the Processing of "
 "personal data carried out by them."
@@ -430,43 +433,43 @@ msgstr ""
 "Chaque Régulateur est le Responsable de traitement de données à caractère "
 "personnel des traitements effectués par lui."
 
-#: theme/templates/home/privacy_policy.html:48
+#: theme/templates/home/privacy_policy.html:49
 msgid "The contact details of the Regulators are as follows:"
 msgstr "Les coordonnées des Régulateurs sont les suivantes :"
 
-#: theme/templates/home/privacy_policy.html:54
+#: theme/templates/home/privacy_policy.html:55
 msgid "ILR: 17, rue du Fossé, L-1536 Luxembourg; Tel.: (+352) 28 228 228"
 msgstr "ILR : 17, rue du Fossé, L-1536 Luxembourg ; Tél. : (+352) 28 228 228"
 
-#: theme/templates/home/privacy_policy.html:59
+#: theme/templates/home/privacy_policy.html:60
 msgid "CSSF: 283 Rte d'Arlon, 2991 Belair Luxembourg; Tel.: (+352) 26 25 11"
 msgstr ""
 "CSSF : 283 Rte d'Arlon, 2991 Belair Luxembourg ; Tél. : (+352) 26 25 11"
 
-#: theme/templates/home/privacy_policy.html:64
+#: theme/templates/home/privacy_policy.html:65
 msgid ""
 "HCPN: 46 Rue du Chateau, 6961 Senningen Niederanven; Tel.: (+352) 24 78 89 00"
 msgstr ""
 "HCPN : 46 Rue du Chateau, 6961 Senningen Niederanven ; Tél. : (+352) 24 78 "
 "89 00"
 
-#: theme/templates/home/privacy_policy.html:69
+#: theme/templates/home/privacy_policy.html:70
 msgid "CNPD: 15, Boulevard du Jazz, L-4370 Belvaux; Tel.: (+352) 26 10 60 -1"
 msgstr ""
 "CNPD : 15, Boulevard du Jazz, L-4370 Belvaux ; Tél. : (+352) 26 10 60 -1"
 
-#: theme/templates/home/privacy_policy.html:77
+#: theme/templates/home/privacy_policy.html:78
 msgid "Processing of personal data and categories of processed data"
 msgstr ""
 "Traitement de données à caractère personnel et catégories de donnes traitées"
 
-#: theme/templates/home/privacy_policy.html:80
+#: theme/templates/home/privacy_policy.html:81
 msgid "When using SERIMA, Personal data is processed."
 msgstr ""
 "Dans le cadre de l’utilisation de SERIMA, il est procédé au Traitement de "
 "données à caractère personnel."
 
-#: theme/templates/home/privacy_policy.html:85
+#: theme/templates/home/privacy_policy.html:86
 msgid ""
 "Specifically, this concerns the following categories of data: User "
 "identification and contact details (surname, first name, email address "
@@ -484,11 +487,11 @@ msgstr ""
 "responsable de la sûreté informatique), données liées aux fichiers de "
 "journalisation comme décrit dans l’article 5. ci-dessous."
 
-#: theme/templates/home/privacy_policy.html:96
+#: theme/templates/home/privacy_policy.html:97
 msgid "Purposes and legal bases for processing"
 msgstr "Finalités et bases juridiques du traitement"
 
-#: theme/templates/home/privacy_policy.html:99
+#: theme/templates/home/privacy_policy.html:100
 msgid ""
 "Personal data is processed in accordance with the <a href=\"https://eur-lex."
 "europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
@@ -512,7 +515,7 @@ msgstr ""
 "des analyses de risques et des déclarations relatives à leurs mesures de "
 "sécurité mises en place."
 
-#: theme/templates/home/privacy_policy.html:112
+#: theme/templates/home/privacy_policy.html:113
 msgid ""
 "The provision of SERIMA contributes to the fulfilment of the legal tasks "
 "conferred on Regulators and Observers in accordance with the Rules of Law. "
@@ -527,11 +530,11 @@ msgstr ""
 "paragraphe 1, point e) du RGPD (traitement nécessaire à l’exécution d’une "
 "mission d’intérêt public)."
 
-#: theme/templates/home/privacy_policy.html:122
+#: theme/templates/home/privacy_policy.html:123
 msgid "Log files"
 msgstr "Fichiers de journalisation"
 
-#: theme/templates/home/privacy_policy.html:125
+#: theme/templates/home/privacy_policy.html:126
 msgid ""
 "Data relating to the User's activity on SERIMA (log files recording "
 "downloads, features used, date and time of connections and notifications) is "
@@ -539,14 +542,14 @@ msgid ""
 "Controller of personal data or to the judicial authorities in the following "
 "limited cases:"
 msgstr ""
-"La mise à disposition de SERIMA contribue à l’accomplissement des missions "
-"légales conférées aux Régulateurs et aux Observateurs selon les Règles de "
-"droit. Le traitement de données à caractère personnel effectué par ces "
-"Régulateurs et Observateurs est par conséquent basé sur l’article 6, "
-"paragraphe 1, point e) du RGPD (traitement nécessaire à l’exécution d’une "
-"mission d’intérêt public)."
+"Les données relatives à l’activité de l’Utilisateur sur SERIMA (fichiers de "
+"journalisation renseignant les téléchargements effectués, les "
+"fonctionnalités utilisées, la date et l’heure des connexions et des "
+"notifications effectués) sont collectées dans le seul but de permettre la "
+"mise à disposition de ces données au Responsable du traitement concerné ou "
+"aux autorités judiciaires dans les cas limitatifs suivants :"
 
-#: theme/templates/home/privacy_policy.html:133
+#: theme/templates/home/privacy_policy.html:134
 msgid ""
 "resolution of security incidents related to SERIMA in order to guarantee the "
 "security of SERIMA;"
@@ -554,7 +557,7 @@ msgstr ""
 "de résolution d’incidents de sécurité liés à SERIMA afin de garantir la "
 "sécurité de SERIMA ;"
 
-#: theme/templates/home/privacy_policy.html:138
+#: theme/templates/home/privacy_policy.html:139
 msgid ""
 "the establishment, exercise or defence of a legal right, in the context of "
 "judicial, administrative or extrajudicial proceedings."
@@ -562,11 +565,11 @@ msgstr ""
 "de la constatation, de l'exercice ou de la défense d'un droit en justice, "
 "dans le cadre d'une procédure judiciaire, administrative ou extrajudiciaire."
 
-#: theme/templates/home/privacy_policy.html:147
+#: theme/templates/home/privacy_policy.html:148
 msgid "Recipients of the processed data "
 msgstr "Destinataires des données traitées "
 
-#: theme/templates/home/privacy_policy.html:150
+#: theme/templates/home/privacy_policy.html:151
 msgid ""
 "Personal data communicated in a notification sent to a Regulator on the "
 "basis of the applicable legal provisions via the SERIMA platform is "
@@ -581,7 +584,7 @@ msgstr ""
 "administrateur » au sens des Conditions d’utilisation ainsi qu’à l’Opérateur "
 "ayant effectué la notification."
 
-#: theme/templates/home/privacy_policy.html:158
+#: theme/templates/home/privacy_policy.html:159
 msgid ""
 "Depending on the applicable Rules of Law, notifications sent to a Regulator "
 "may be transferred by the latter to other Regulators or Observers."
@@ -590,7 +593,7 @@ msgstr ""
 "un Régulateur peuvent être transférées par celui-ci à d’autres Régulateurs "
 "ou Observateurs."
 
-#: theme/templates/home/privacy_policy.html:164
+#: theme/templates/home/privacy_policy.html:165
 msgid ""
 "The list of SERIMA platform Users, as well as the information relating to "
 "Users as described in point 3 above, is accessible to all Regulators, in "
@@ -601,7 +604,7 @@ msgstr ""
 "est accessible à tous les Régulateurs, conformément aux Conditions "
 "d’utilisation."
 
-#: theme/templates/home/privacy_policy.html:170
+#: theme/templates/home/privacy_policy.html:171
 msgid ""
 "In the context of processing related to the SERIMA platform, the National "
 "Cybersecurity Competence Centre (NC3 - 122 rue Adolphe Fischer, L-1521 "
@@ -614,7 +617,7 @@ msgstr ""
 "Cybersecurity (LHC), agit en tant que sous-traitant pour le compte des "
 "Régulateurs."
 
-#: theme/templates/home/privacy_policy.html:177
+#: theme/templates/home/privacy_policy.html:178
 msgid ""
 "The categories of Personal data mentioned in point 3 above are accessible to "
 "designated agents within the NC3 responsible for the proper functioning and "
@@ -628,11 +631,11 @@ msgstr ""
 "le cadre du support technique aux Utilisateurs et dans la mesure où un tel "
 "accès est nécessaire pour fournir ce support."
 
-#: theme/templates/home/privacy_policy.html:187
+#: theme/templates/home/privacy_policy.html:188
 msgid "Operator's representations and warranties"
 msgstr "Déclarations et garanties de l’Opérateur"
 
-#: theme/templates/home/privacy_policy.html:190
+#: theme/templates/home/privacy_policy.html:191
 msgid ""
 "By providing Personal data under its sole responsibility, the Operator "
 "declares and warrants that it has obtained and will obtain all legally "
@@ -645,25 +648,25 @@ msgstr ""
 "personnes concernées par l'utilisation, le traitement et le transfert des "
 "données à caractère personnel."
 
-#: theme/templates/home/privacy_policy.html:199
+#: theme/templates/home/privacy_policy.html:200
 msgid "Technical and organisational measures"
 msgstr "Mesures techniques et organisationnelles"
 
-#: theme/templates/home/privacy_policy.html:202
+#: theme/templates/home/privacy_policy.html:203
 msgid ""
-"Des mesures techniques et organisationnelles sont mises en place afin "
-"d’assurer un niveau élevé de sécurité des données sur SERIMA. Ces mesures de "
-"sécurité sont testées et mises à jour régulièrement."
+"Technical and organisational measures are in place to ensure a high level of "
+"data security on SERIMA. These security measures are tested and updated "
+"regularly."
 msgstr ""
 "Des mesures techniques et organisationnelles sont mises en place afin "
 "d’assurer un niveau élevé de sécurité des données sur SERIMA. Ces mesures de "
 "sécurité sont testées et mises à jour régulièrement."
 
-#: theme/templates/home/privacy_policy.html:210
+#: theme/templates/home/privacy_policy.html:211
 msgid "Retention period"
 msgstr "Durée de conservation"
 
-#: theme/templates/home/privacy_policy.html:213
+#: theme/templates/home/privacy_policy.html:214
 msgid ""
 "The Personal data required to create an account on SERIMA is retained for "
 "the entire duration of the account's existence. It is permanently deleted "
@@ -674,7 +677,7 @@ msgstr ""
 "Elles sont définitivement supprimées lorsque le compte en question est "
 "supprimé."
 
-#: theme/templates/home/privacy_policy.html:219
+#: theme/templates/home/privacy_policy.html:220
 msgid ""
 "Data related to log files as described in point 5 above may not be retained "
 "for more than two years. However, this period may be extended when necessary "
@@ -686,7 +689,7 @@ msgstr ""
 "aux fins de la constatation, de l'exercice ou de la défense d'un droit en "
 "justice."
 
-#: theme/templates/home/privacy_policy.html:226
+#: theme/templates/home/privacy_policy.html:227
 msgid ""
 "Notifications sent to Regulators via SERIMA are subject to an administrative "
 "retention period of ten years. At the end of this ten-year period, "
@@ -701,11 +704,11 @@ msgstr ""
 "déterminées par les Régulateurs conformément à la loi du 17 août 2018 "
 "relative à l’archivage."
 
-#: theme/templates/home/privacy_policy.html:236
+#: theme/templates/home/privacy_policy.html:237
 msgid "Rights of data subjects"
 msgstr "Droits des personnes concernées"
 
-#: theme/templates/home/privacy_policy.html:239
+#: theme/templates/home/privacy_policy.html:240
 msgid ""
 "Data subjects may access data concerning them and obtain a copy thereof "
 "(Article 15 of the GDPR), obtain the rectification of inaccurate or "
@@ -725,7 +728,7 @@ msgstr ""
 "règlement. Les personnes concernées peuvent faire valoir leurs droits en "
 "contactant le délégué à la protection des données du Régulateur compétent."
 
-#: theme/templates/home/privacy_policy.html:249
+#: theme/templates/home/privacy_policy.html:250
 msgid ""
 "With regard to the ILR, data subjects may exercise their rights by "
 "contacting the ILR's data protection officer: <a href=\"https://www.ilr.lu/"
@@ -739,7 +742,7 @@ msgstr ""
 "target=\"_blank\" rel=\"noopener noreferrer\">https://www.ilr.lu/"
 "informations-legales/protection-des-donnees/</a>."
 
-#: theme/templates/home/privacy_policy.html:258
+#: theme/templates/home/privacy_policy.html:259
 msgid ""
 "With regard to the CSSF, data subjects may exercise their rights by "
 "contacting the CSSF's data protection officer: <a href=\"mailto:dpo@cssf."
@@ -749,7 +752,7 @@ msgstr ""
 "leurs droits en contactant le délégué à la protection des données de la "
 "CSSF : <a href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
 
-#: theme/templates/home/privacy_policy.html:264
+#: theme/templates/home/privacy_policy.html:265
 msgid ""
 "With regard to the HCPN, data subjects may exercise their rights by "
 "contacting the HCPN's data protection officer: <a href=\"mailto:info@cgpd."
@@ -759,7 +762,7 @@ msgstr ""
 "leurs droits en contactant le délégué à la protection des données de "
 "l’HCPN : <a href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
 
-#: theme/templates/home/privacy_policy.html:270
+#: theme/templates/home/privacy_policy.html:271
 msgid ""
 "With regard to the CNPD, data subjects may exercise their rights by "
 "contacting the CNPD's data protection officer: <a href=\"mailto:dpo@cnpd."
@@ -769,11 +772,11 @@ msgstr ""
 "leurs droits en contactant le délégué à la protection des données de la "
 "CNPD : <a href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
 
-#: theme/templates/home/privacy_policy.html:278
+#: theme/templates/home/privacy_policy.html:279
 msgid "Complaints"
 msgstr "Réclamation"
 
-#: theme/templates/home/privacy_policy.html:281
+#: theme/templates/home/privacy_policy.html:282
 msgid ""
 "Individuals who believe that the processing of data via SERIMA constitutes a "
 "violation of the GDPR may lodge a complaint with the CNPD using the <a "
@@ -1177,7 +1180,7 @@ msgstr ""
 "accès aux Modules suivants :"
 
 #: theme/templates/home/terms.html:284
-msgid "incident notification and follow-up of incident notifications ;"
+msgid "incident notification and follow-up of incident notifications;"
 msgstr "la notification et le suivi des notifications d’incidents ;"
 
 #: theme/templates/home/terms.html:289
@@ -1530,24 +1533,24 @@ msgstr ""
 msgid ""
 "In particular, availability may be partially or totally affected in the "
 "event of force majeure or the occurrence of an event beyond ILR's control, "
-"or due to :"
+"or due to:"
 msgstr ""
 "La disponibilité peut notamment être partiellement ou totalement impactée en "
 "cas de force majeure ou de survenance d'un évènement hors du contrôle de "
 "l’ILR ou en raison d’interventions du fait :"
 
 #: theme/templates/home/terms.html:542
-msgid "maintenance operations ;"
+msgid "maintenance operations;"
 msgstr "d’opérations de maintenance ;"
 
 #: theme/templates/home/terms.html:547
-msgid "updates ;"
+msgid "updates;"
 msgstr "de mises à jour ;"
 
 #: theme/templates/home/terms.html:552
 msgid ""
 "technical improvements or changes to the content and/or presentation of "
-"SERIMA ;"
+"SERIMA;"
 msgstr ""
 "d’améliorations techniques ou pour faire évoluer le contenu et/ou la "
 "présentation de SERIMA ;"
@@ -1563,7 +1566,7 @@ msgstr "de tout autre motif que l’ILR juge nécessaire."
 #: theme/templates/home/terms.html:568
 msgid ""
 "In the event of SERIMA being unavailable or of any malfunction, the User may "
-"contact ILR via the dedicated e-mail addresses : <a href=\"mailto:"
+"contact ILR via the dedicated e-mail addresses: <a href=\"mailto:"
 "incident_notification@ilr.lu\">incident_notification@ilr.lu</a> for any item "
 "relating to the Incident Notification Module and <a href=\"mailto:serima@ilr."
 "lu\">serima@ilr.lu</a> for any other Module."
@@ -2362,7 +2365,7 @@ msgstr "Mettre à jour"
 
 #: theme/templates/operator/incidents.html:70
 msgid "not submitted yet"
-msgstr "Pas encore soumis"
+msgstr "pas encore soumis"
 
 #: theme/templates/operator/so_dashboard.html:77
 msgid "Edit"
@@ -3163,7 +3166,7 @@ msgstr "Commentaire de revue"
 #: theme/templates/report/security_objectives/declaration.html:152
 #: theme/templates/security_objectives/declaration.html:455
 msgid "No security measures data available."
-msgstr "Aucune mesure de sécurité disponible"
+msgstr "Aucune mesure de sécurité disponible."
 
 #: theme/templates/report/security_objectives/declaration.html:158
 #: theme/templates/security_objectives/declaration.html:461
