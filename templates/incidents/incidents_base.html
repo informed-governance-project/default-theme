@@ -40,7 +40,7 @@
               type="button"
               data-bs-placement="top"
               data-bs-toggle="tooltip"
-              title='{% translate "Filter by status, sector, etc." %}'>
+              title="{% translate 'Filter by status, sector, etc.' %}">
         {% translate "Filter" %}
         {% if is_filtered %}
           <span>({% translate "Active" %})</span>
@@ -58,7 +58,7 @@
              alt="legend"
              data-bs-placement="top"
              data-bs-toggle="tooltip"
-             title='{% translate "Icon Guide" %}'>
+             title="{% translate 'Icon Guide' %}">
       </button>
     </div>
   </div>
@@ -162,7 +162,7 @@
                 <i class="bi bi-gear h5 m-0"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
-                   title='{% translate "Column settings" %}'>
+                   title="{% translate 'Column settings' %}">
                 </i>
               </button>
             </div>
@@ -183,9 +183,9 @@
                            data-bs-placement="top"
                            data-bs-toggle="tooltip"
                            {% if field.initial == True %}
-                             title='{% translate "Incident with significant impact" %}'
+                             title="{% translate 'Incident with significant impact' %}"
                            {% else %}
-                             title='{% translate "No significant impact" %}'
+                             title="{% translate 'No significant impact' %}"
                            {% endif %}>
                         {% bootstrap_field field show_label=False wrapper_class="m-0" field_class="is_significative_impact_checkbox" %}
                       </div>
@@ -203,9 +203,9 @@
                              data-bs-placement="top"
                              data-bs-toggle="tooltip"
                              {% if field.initial == "GOING" %}
-                               checked title='{% translate "The incident is still ongoing" %}'
+                               checked title="{% translate 'The incident is still ongoing' %}"
                              {% else %}
-                               title='{% translate "The incident is over" %}'
+                               title="{% translate 'The incident is over' %}"
                              {% endif %}
                              data-bs-placement="top"
                              data-bs-toggle="tooltip">
@@ -220,7 +220,7 @@
               <div class="d-inline"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
-                   title='{% translate "Incident notification submission date" %}'>
+                   title="{% translate 'Incident notification submission date' %}">
                 {{ incident.incident_notification_date|date:"d/m/y" }}
                 <br />
                 <i class="bi bi-clock" aria-hidden="true"></i>
@@ -293,8 +293,8 @@
                   <ul class="list-unstyled mb-0">
                     {% for report in incident.all_reports %}
                       {% with latest_incident_workflow=report.latest_incident_workflow %}
-                        <li class="mb-1 d-flex align-items-center">
-                          <div class="d-inline"
+                        <li class="mb-1">
+                          <div class="hstack gap-2 d-inline"
                                data-bs-placement="top"
                                data-bs-toggle="tooltip"
                                title="{{ report.tooltip }}">
@@ -307,38 +307,38 @@
                                {% if latest_incident_workflow %}
                                  href="{% url incident_view_action %}?incident_workflow_id={{ latest_incident_workflow.id }}"
                                {% endif %}>{{ report.name }}</a>
-                          </div>
-                          {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
-                            <div class="d-inline-flex align-items-center ms-2">
-                              {% if incident_workflows %}
-                                <button class="btn text-dark p-0 ps-1 border-0 report_versions"
-                                        data-workflows="{{ incident_workflows }}"
-                                        data-report="{{ report.name }}"
-                                        data-incident-ref="{{ incident.incident_id }}"
-                                        data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                                        data-download-url="{% url 'download_incident_report_pdf' 0 %}"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#report_versions">
-                                  <i class="custom-icon-versioning h6 align-self-center"
-                                     aria-hidden="true"
+                            {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
+                              <div class="d-inline-flex align-items-center">
+                                {% if incident_workflows %}
+                                  <button class="btn text-dark p-0 ps-1 border-0 report_versions"
+                                          data-workflows="{{ incident_workflows }}"
+                                          data-report="{{ report.name }}"
+                                          data-incident-ref="{{ incident.incident_id }}"
+                                          data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
+                                          data-download-url="{% url 'download_incident_report_pdf' 0 %}"
+                                          data-bs-toggle="modal"
+                                          data-bs-target="#report_versions">
+                                    <i class="custom-icon-versioning h6 align-self-center"
+                                       aria-hidden="true"
+                                       data-bs-placement="top"
+                                       data-bs-toggle="tooltip"
+                                       title="{% translate 'Version control' %}">
+                                    </i>
+                                    <span class="visually-hidden">{% translate "Version control" %}</span>
+                                  </button>
+                                {% endif %}
+                                {% if latest_incident_workflow %}
+                                  <a class="btn p-0 ps-1 border-0"
+                                     href="{% url 'download_incident_report_pdf' latest_incident_workflow.id %}"
                                      data-bs-placement="top"
                                      data-bs-toggle="tooltip"
-                                     title='{% translate "Version control" %}'>
-                                  </i>
-                                  <span class="visually-hidden">{% translate "Version control" %}</span>
-                                </button>
-                              {% endif %}
-                              {% if latest_incident_workflow %}
-                                <a class="btn p-0 ps-1 border-0"
-                                   href="{% url 'download_incident_report_pdf' latest_incident_workflow.id %}"
-                                   data-bs-placement="top"
-                                   data-bs-toggle="tooltip"
-                                   title='{% translate "Download PDF report" %}'>
-                                  <i class="custom-icon-pdf-small h6 align-self-center" aria-hidden="true"></i>
-                                </a>
-                              {% endif %}
-                            </div>
-                          {% endwith %}
+                                     title="{% translate 'Download PDF report' %}">
+                                    <i class="custom-icon-pdf-small h6 align-self-center" aria-hidden="true"></i>
+                                  </a>
+                                {% endif %}
+                              </div>
+                            {% endwith %}
+                          </div>
                         </li>
                       {% endwith %}
                     {% endfor %}
@@ -354,7 +354,7 @@
                           data-incident-id="{{ incident.id }}"
                           data-bs-placement="top"
                           data-bs-toggle="tooltip"
-                          title='{% translate "Access Log" %}'>
+                          title="{% translate 'Access Log' %}">
                     <i class="custom-icon-log  h4" aria-hidden="true"></i>
                     <span class="visually-hidden">{% translate "Access Log" %}</span>
                   </button>
@@ -362,7 +362,7 @@
                      href="{% url 'download_incident_pdf' incident.id %}"
                      data-bs-placement="top"
                      data-bs-toggle="tooltip"
-                     title='{% translate "Download PDF report" %}'>
+                     title="{% translate 'Download PDF report' %}">
                     <i class="custom-icon-pdf h4" aria-hidden="true"></i>
                     <span class="visually-hidden">{% translate "Download PDF report" %}</span>
                   </a>
@@ -440,7 +440,7 @@
           <button type="button"
                   class="btn-close"
                   data-bs-dismiss="modal"
-                  aria-label='{% translate "Close" %}'>
+                  aria-label="{% translate 'Close' %}">
           </button>
         </div>
         <form method="get">

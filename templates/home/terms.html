@@ -18,14 +18,15 @@
                en
              {% endif %}">
     <h3 class="fw-bolder">
-      {% translate "Terms of use of the SERIMA platform" %} - {% translate "Version" %} 2.0
+      {% translate "Terms of use of the SERIMA platform" %} - {% translate "Version" %} 3.0
     </h3>
     <div class="hr-separator">
     </div>
     {% if not LANGUAGE_CODE == 'fr' %}
       <blockquote class="blockquote">
         <p>
-          Attention: The Terms of Use have been translated from their original French version for information purposes
+          <span class="fw-bold text-decoration-underline">Attention:</span>
+          The Terms of Use have been translated from their original French version for information purposes
           only. Only the French version is legally binding.
         </p>
       </blockquote>
@@ -43,9 +44,9 @@
             <li>
               {% blocktranslate trimmed %}
                 "SERIMA": SERIMA is an IT platform designed to integrate various modules with the goal of forming in fine a
-                cybersecurity platform covering both the needs of operators (in particular to carry out and report their
-                risk analyses and incident notifications) and the needs of regulators and observers. This configurable
-                platform is multi-regulator and multi-regulation.
+                cybersecurity platform covering the needs of Operators (in particular to carry out and report their risk
+                analyses and incident notifications) and the needs of Regulators and Observers. This configurable platform
+                is multi-regulator and multi-regulation.
               {% endblocktranslate %}
             </li>
             <li>
@@ -139,6 +140,12 @@
             </li>
             <li>
               {% blocktranslate trimmed %}
+                “Processor”: means a natural or legal person, public authority, agency or other body which processes
+                Personal data on behalf of the Controller.
+              {% endblocktranslate %}
+            </li>
+            <li>
+              {% blocktranslate trimmed %}
                 "Type of Operator": any characteristic enabling certain Operators to be grouped into categories. For
                 example:
                 Public Operator or Private Operator.
@@ -163,7 +170,7 @@
             </li>
             <li>
               {% blocktranslate trimmed %}
-                "ILR" : means the Institut Luxembourgeois de Régulation (Luxembourg Regulatory Institute).
+                "ILR": means the Institut Luxembourgeois de Régulation (Luxembourg Regulatory Institute).
               {% endblocktranslate %}
             </li>
             <li>
@@ -243,9 +250,8 @@
               {% blocktranslate trimmed %}
                 The ILR and the other Regulators provide Operators with a platform called SERIMA, which enables Operators to
                 submit various documents and information to the Regulators, such as incident notifications, risk analyses
-                and
-                declarations relating to the safety measures they have put in place. The Regulator concerned can review
-                these documents and contact the Operators under his supervision.
+                and declarations relating to the security measures they have put in place. The Regulator concerned can
+                review these documents and contact the Operators under his supervision.
               {% endblocktranslate %}
             </li>
             <li>
@@ -276,7 +282,7 @@
             <ol>
               <li>
                 {% blocktranslate trimmed %}
-                  incident notification and follow-up of incident notifications ;
+                  incident notification and follow-up of incident notifications;
                 {% endblocktranslate %}
               </li>
               <li>
@@ -286,7 +292,7 @@
               </li>
               <li>
                 {% blocktranslate trimmed %}
-                  carrying out, submitting and reviewing the self-assessment of safety objectives.
+                  carrying out, submitting and reviewing the self-assessment of security objectives.
                 {% endblocktranslate %}
               </li>
             </ol>
@@ -371,8 +377,8 @@
             <li>
               {% blocktranslate trimmed %}
                 The relevant Regulator may refuse access to SERIMA in the event of an incomplete application or failure to
-                comply
-                with requests for additional information, or for any other reason based on an assessment of safety risks.
+                comply with requests for additional information, or for any other reason based on an assessment of security
+                risks.
               {% endblocktranslate %}
             </li>
             <li>
@@ -479,7 +485,7 @@
                 SERIMA uses client cookies. A client cookie is a text file sent to the User's browser and stored on the hard
                 drive of their device (e.g. PC, laptop or mobile phone) when they visit a website or online platform. Client
                 cookies may be used, for example, to ensure the proper functioning of a website or platform and to optimise
-                its usability and functionality. Information about the client cookies used by SERIMA is detailed
+                its usability and its functionalities. Information about the client cookies used by SERIMA is detailed
               {% endblocktranslate %}
               <a href="{% url 'cookies' %}">{% translate "here" %}</a>.
             </li>
@@ -520,35 +526,36 @@
             <li>
               {% blocktranslate trimmed %}
                 The ILR shall use its best efforts to ensure maximum availability of SERIMA. However, the permanent
-                availability of SERIMA cannot be guaranteed and ILR shall not be held liable in the event of the temporary or total
+                availability of SERIMA cannot be guaranteed and ILR shall not be held liable in the event of the temporary
+                or total
                 unavailability of SERIMA.
               {% endblocktranslate %}
             </li>
             <li>
               {% blocktranslate trimmed %}
                 In particular, availability may be partially or totally affected in the event of force majeure or the
-                occurrence of an event beyond ILR's control, or due to :
+                occurrence of an event beyond ILR's control, or due to:
               {% endblocktranslate %}
             </li>
             <ol>
               <li>
                 {% blocktranslate trimmed %}
-                  maintenance operations ;
+                  maintenance operations;
                 {% endblocktranslate %}
               </li>
               <li>
                 {% blocktranslate trimmed %}
-                  updates ;
+                  updates;
                 {% endblocktranslate %}
               </li>
               <li>
                 {% blocktranslate trimmed %}
-                  technical improvements or changes to the content and/or presentation of SERIMA ;
+                  technical improvements or changes to the content and/or presentation of SERIMA;
                 {% endblocktranslate %}
               </li>
               <li>
                 {% blocktranslate trimmed %}
-                  interventions for safety reasons;
+                  interventions for security reasons;
                 {% endblocktranslate %}
               </li>
               <li>
@@ -560,7 +567,7 @@
             <li>
               {% blocktranslate trimmed %}
                 In the event of SERIMA being unavailable or of any malfunction, the User may contact ILR via the dedicated
-                e-mail addresses : <a href="mailto:incident_notification@ilr.lu">incident_notification@ilr.lu</a> for any
+                e-mail addresses: <a href="mailto:incident_notification@ilr.lu">incident_notification@ilr.lu</a> for any
                 item
                 relating to the Incident Notification Module and
                 <a href="mailto:serima@ilr.lu">serima@ilr.lu</a> for any other Module.
@@ -622,7 +629,8 @@
               {% endblocktranslate %}
               "<a href="https://www.gnu.org/licenses/agpl-3.0.html"
    target="_blank"
-   rel="noopener noreferrer">GNU Affero General Public version 3 License</a>".
+   rel="noopener noreferrer">GNU Affero
+              General Public version 3 License</a>".
             </li>
             <li>
               {% blocktranslate trimmed %}

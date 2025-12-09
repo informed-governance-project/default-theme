@@ -7,8 +7,6 @@
     {% blocktranslate trimmed with regulation=regulation %}
       We would like to inform you that a new incident mass export related to the regulation {{ regulation }} has been
       completed.
-      If you or a member of your team did not initiate this action or if it appears suspicious, we recommend that you
-      investigate the matter further.
     {% endblocktranslate %}
   </p>
   <p>
@@ -21,8 +19,9 @@
     {% translate "Kind regards," %}
   </p>
   <p>
+    {{ site_name }}
     {% blocktranslate trimmed with site_name=site_name %}
-      {{ site_name }} Incident Notification
+      Incident Notification
     {% endblocktranslate %}
   </p>
 {% endspaceless %}

@@ -130,6 +130,14 @@ $(document).ready(function () {
             </i>
           </button>
         `;
+      } else {
+        commentIcon = `
+          <button class="btn p-0 ps-1 border-0 d-inline-flex align-items-center"
+                  type="button" disabled>
+            <i class="custom-icon-comments-disabled h4 align-self-center">
+            </i>
+          </button>
+        `;
       }
 
       let row = `
@@ -165,10 +173,9 @@ $(document).ready(function () {
 
     // Show the comment
     $(document).on('click', '.comment-btn', function () {
-      const comment = decodeURIComponent($(this).data('comment') || '');
-      $('#report_version_workflow_comment')
-        .find('#modal-workflow-comment')
-        .html(comment);
+      let comment = decodeURIComponent($(this).data('comment') || '');
+      comment = comment.replace(/\n/g, '<br>');
+      $('#report_version_workflow_comment #modal-workflow-comment').html(comment);
     });
     $modalWorkflowRows.find('[data-bs-toggle="tooltip"]').tooltip();
   });
