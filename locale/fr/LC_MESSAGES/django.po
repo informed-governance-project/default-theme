@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-10 14:51+0100\n"
+"POT-Creation-Date: 2025-12-10 14:59+0100\n"
 "PO-Revision-Date: 2025-12-09 10:15+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
@@ -2323,12 +2323,10 @@ msgstr ""
 "nouveau mot de passe."
 
 #: theme/templates/registration/password_change_form.html:24
-#| msgid "Password"
 msgid "Old password"
 msgstr ""
 
 #: theme/templates/registration/password_change_form.html:25
-#| msgid "Reset password"
 msgid "New password"
 msgstr ""
 
