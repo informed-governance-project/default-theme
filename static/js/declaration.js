@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  $('.multiselectcheckbox').multiselect('setOptions', {
+    numberDisplayed: 5,
+  }).multiselect('rebuild');
+
   $("#id_0-incident_detection_date").on("change.td", function () {
     const startingDateInputId = "id_0-incident_starting_date";
     const resolutionDateInputId = "id_0-incident_resolution_date";
