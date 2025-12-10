@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-09 11:28+0100\n"
+"POT-Creation-Date: 2025-12-10 14:51+0100\n"
 "PO-Revision-Date: 2025-12-09 10:15+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
@@ -1720,7 +1720,7 @@ msgid "Overview"
 msgstr "Übersicht"
 
 #: theme/templates/incidents/base.html:19
-#: theme/templates/incidents/incidents_base.html:26
+#: theme/templates/incidents/incidents_base.html:25
 msgid "My reported incidents"
 msgstr "Meine gemeldeten Vorfälle"
 
@@ -1793,7 +1793,7 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #: theme/templates/incidents/declaration.html:157
-#: theme/templates/incidents/incidents_base.html:443
+#: theme/templates/incidents/incidents_base.html:447
 #: theme/templates/modals/accept_terms.html:33
 #: theme/templates/modals/access_log.html:19
 #: theme/templates/modals/contacts_incident.html:12
@@ -1820,120 +1820,120 @@ msgstr "Einreichen"
 msgid "Next"
 msgstr "Weiter"
 
-#: theme/templates/incidents/incidents_base.html:28
+#: theme/templates/incidents/incidents_base.html:27
 msgid "Overview of reported incidents"
 msgstr "Übersicht der gemeldeten Vorfälle"
 
-#: theme/templates/incidents/incidents_base.html:43
+#: theme/templates/incidents/incidents_base.html:42
 msgid "Filter by status, sector, etc."
 msgstr "Filtern nach Status, Sektor usw."
 
-#: theme/templates/incidents/incidents_base.html:44
-#: theme/templates/incidents/incidents_base.html:438
+#: theme/templates/incidents/incidents_base.html:43
+#: theme/templates/incidents/incidents_base.html:442
 msgid "Filter"
 msgstr "Filter"
 
-#: theme/templates/incidents/incidents_base.html:46
+#: theme/templates/incidents/incidents_base.html:45
 msgid "Active"
 msgstr "Aktiv"
 
-#: theme/templates/incidents/incidents_base.html:61
+#: theme/templates/incidents/incidents_base.html:60
 msgid "Icon Guide"
 msgstr "Icon Beschreibung"
 
-#: theme/templates/incidents/incidents_base.html:69
+#: theme/templates/incidents/incidents_base.html:68
 msgid "Legend"
 msgstr "Legende"
 
-#: theme/templates/incidents/incidents_base.html:73
+#: theme/templates/incidents/incidents_base.html:72
 msgid "No Significant Impact"
 msgstr "Keine erheblichen Auswirkungen"
 
-#: theme/templates/incidents/incidents_base.html:77
+#: theme/templates/incidents/incidents_base.html:76
 msgid "Significant Impact"
 msgstr "Erhebliche Auswirkungen"
 
-#: theme/templates/incidents/incidents_base.html:81
+#: theme/templates/incidents/incidents_base.html:80
 msgid "Ongoing"
 msgstr "Laufend"
 
-#: theme/templates/incidents/incidents_base.html:85
+#: theme/templates/incidents/incidents_base.html:84
 msgid "Closed"
 msgstr "Geschlossen"
 
-#: theme/templates/incidents/incidents_base.html:89
+#: theme/templates/incidents/incidents_base.html:88
 msgid "Unsubmitted"
 msgstr "Noch nicht eingereicht"
 
-#: theme/templates/incidents/incidents_base.html:93
+#: theme/templates/incidents/incidents_base.html:92
 msgid "Under review"
 msgstr "Wird geprüft"
 
-#: theme/templates/incidents/incidents_base.html:97
+#: theme/templates/incidents/incidents_base.html:96
 msgid "Submission overdue"
 msgstr "Bericht-Einreichung überfällig"
 
-#: theme/templates/incidents/incidents_base.html:101
+#: theme/templates/incidents/incidents_base.html:100
 msgid "Late submission"
 msgstr "Verspätete Einreichung"
 
-#: theme/templates/incidents/incidents_base.html:105
+#: theme/templates/incidents/incidents_base.html:104
 msgid "Revision required"
 msgstr "Überarbeitung erforderlich"
 
-#: theme/templates/incidents/incidents_base.html:109
+#: theme/templates/incidents/incidents_base.html:108
 msgid "Passed"
 msgstr "Bestanden"
 
-#: theme/templates/incidents/incidents_base.html:118
+#: theme/templates/incidents/incidents_base.html:117
 msgid "Incidents table"
 msgstr "Tabelle der Vorfälle"
 
-#: theme/templates/incidents/incidents_base.html:122
+#: theme/templates/incidents/incidents_base.html:121
 #: theme/templates/modals/report_versions.html:30
 msgid "Status"
 msgstr "Status"
 
-#: theme/templates/incidents/incidents_base.html:125
+#: theme/templates/incidents/incidents_base.html:124
 msgid "Creation date"
 msgstr "Erstelldatum"
 
-#: theme/templates/incidents/incidents_base.html:129
+#: theme/templates/incidents/incidents_base.html:128
 msgid "Operator Acronym"
 msgstr "Betreiber Akronym"
 
-#: theme/templates/incidents/incidents_base.html:131
-#: theme/templates/incidents/incidents_base.html:142
+#: theme/templates/incidents/incidents_base.html:130
+#: theme/templates/incidents/incidents_base.html:141
 #: theme/templates/report/incidents/details.html:35
 msgid "Regulator"
 msgstr "Regulierungsbehörde"
 
-#: theme/templates/incidents/incidents_base.html:138
+#: theme/templates/incidents/incidents_base.html:137
 msgid "Operator Name"
 msgstr "Betreibername"
 
-#: theme/templates/incidents/incidents_base.html:144
+#: theme/templates/incidents/incidents_base.html:143
 msgid "Regulation"
 msgstr "Verordnung"
 
-#: theme/templates/incidents/incidents_base.html:148
+#: theme/templates/incidents/incidents_base.html:147
 #: theme/templates/report/incidents/cover.html:19
 #: theme/templates/report/incidents/details.html:11
 msgid "Reference"
 msgstr "Referenz"
 
-#: theme/templates/incidents/incidents_base.html:151
+#: theme/templates/incidents/incidents_base.html:150
 msgid "Sectors"
 msgstr "Sektoren"
 
-#: theme/templates/incidents/incidents_base.html:154
+#: theme/templates/incidents/incidents_base.html:153
 #: theme/templates/report/base/template.html:8
 #: theme/templates/report/incidents/cover.html:5
 #: theme/templates/report/incidents/header.html:5
 msgid "Report"
 msgstr "Bericht"
 
-#: theme/templates/incidents/incidents_base.html:158
+#: theme/templates/incidents/incidents_base.html:157
 msgid "Actions"
 msgstr "Aktionen"
 
@@ -1972,37 +1972,37 @@ msgstr "Der Vorfall ist beendet"
 msgid "Incident notification submission date"
 msgstr "Einreichungsdatum der Vorfallmeldung"
 
-#: theme/templates/incidents/incidents_base.html:325
-#: theme/templates/incidents/incidents_base.html:327
+#: theme/templates/incidents/incidents_base.html:329
+#: theme/templates/incidents/incidents_base.html:331
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
 #: theme/templates/operator/incidents.html:127
 #: theme/templates/operator/incidents.html:129
-#: theme/templates/operator/incidents.html:135
+#: theme/templates/operator/incidents.html:136
 msgid "Version control"
 msgstr "Versionsverwaltung"
 
-#: theme/templates/incidents/incidents_base.html:335
-#: theme/templates/incidents/incidents_base.html:365
-#: theme/templates/incidents/incidents_base.html:367
+#: theme/templates/incidents/incidents_base.html:339
+#: theme/templates/incidents/incidents_base.html:369
+#: theme/templates/incidents/incidents_base.html:371
 msgid "Download PDF report"
 msgstr "PDF-Bericht herunterladen"
 
-#: theme/templates/incidents/incidents_base.html:357
-#: theme/templates/incidents/incidents_base.html:359
+#: theme/templates/incidents/incidents_base.html:361
+#: theme/templates/incidents/incidents_base.html:363
 #: theme/templates/modals/access_log.html:14
 msgid "Access Log"
 msgstr "Zugriffsprotokoll"
 
-#: theme/templates/incidents/incidents_base.html:382
+#: theme/templates/incidents/incidents_base.html:386
 msgid "No incident reports have been submitted yet."
 msgstr "Es wurden noch keine Vorfallberichte eingereicht."
 
-#: theme/templates/incidents/incidents_base.html:460
+#: theme/templates/incidents/incidents_base.html:464
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: theme/templates/incidents/incidents_base.html:463
+#: theme/templates/incidents/incidents_base.html:467
 msgid "Search"
 msgstr "Suchen"
 
@@ -2057,8 +2057,8 @@ msgstr "Keine Einträge"
 #: theme/templates/modals/contacts_incident.html:7
 #: theme/templates/observer/incidents.html:52
 #: theme/templates/observer/incidents.html:55
-#: theme/templates/regulator/incidents.html:17
-#: theme/templates/regulator/incidents.html:19
+#: theme/templates/regulator/incidents.html:18
+#: theme/templates/regulator/incidents.html:20
 msgid "Contacts"
 msgstr "Kontakte"
 
@@ -2081,8 +2081,8 @@ msgid "Are you sure that you want to delete the incident?"
 msgstr "Sind Sie sicher, dass Sie den Vorfall löschen möchten?"
 
 #: theme/templates/modals/delete_incident.html:29
-#: theme/templates/operator/incidents.html:158
-#: theme/templates/operator/incidents.html:161
+#: theme/templates/operator/incidents.html:159
+#: theme/templates/operator/incidents.html:162
 msgid "Delete"
 msgstr "Löschen"
 
@@ -2276,6 +2276,20 @@ msgid "Please enter your old password. Then enter your new password twice."
 msgstr ""
 "Bitte geben Sie Ihr altes Passwort ein. Geben Sie dann zweimal Ihr neues "
 "Passwort ein."
+
+#: theme/templates/registration/password_change_form.html:24
+#| msgid "Password"
+msgid "Old password"
+msgstr ""
+
+#: theme/templates/registration/password_change_form.html:25
+#| msgid "Reset password"
+msgid "New password"
+msgstr ""
+
+#: theme/templates/registration/password_change_form.html:31
+msgid "New password confirmation"
+msgstr ""
 
 #: theme/templates/registration/password_change_form.html:32
 #: theme/templates/registration/password_reset_confirm.html:27
