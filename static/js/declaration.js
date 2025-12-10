@@ -129,6 +129,11 @@ $(document).ready(function () {
   checkWrap();
 
   $('[name="wizard_goto_step"]').on('click', function () {
+    const lastStep = $(this).data('last-step')
+    const currentStep = $(this).data('current-step');
+    if (lastStep === currentStep) {
+      return;
+    }
     localStorage.setItem("step-changed", "1");
   });
 
