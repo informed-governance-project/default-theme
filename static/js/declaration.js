@@ -127,4 +127,19 @@ $(document).ready(function () {
 
   observer.observe($stepsBar[0]);
   checkWrap();
+
+  $('[name="wizard_goto_step"]').on('click', function () {
+    localStorage.setItem("step-changed", "1");
+  });
+
+  if (localStorage.getItem("step-changed") === "1") {
+    const title = $("#declaration-title-page");
+    if (title.length) {
+      title[0].scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+    localStorage.removeItem("step-changed");
+  }
 });
