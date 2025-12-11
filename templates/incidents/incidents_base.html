@@ -13,7 +13,6 @@
           src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
   <script type="text/javascript"
           src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
-  <script src="/static/npm_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
   <script src='{% static "js/incidents.js" %}'></script>
   <link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
 {% endblock %}
@@ -33,7 +32,7 @@
     </div>
     <div class="d-inline-flex gap-4">
       <form id="search_bar_form" method="get">
-        {% bootstrap_field filter.form.search label_class="fw-bold" addon_before="<i class='custom-icon-search h4'></i>" addon_before_class="input-group-text search_icon" addon_after="<button id='clearSearch' type='button' class='btn-close d-none'></button>" addon_after_class="input-group-text close_icon" show_label=false wrapper_class="mb-0" %}
+        {% bootstrap_field filter.form.search label_class="fw-bold" addon_before="<i class='custom-icon-search h4' aria-hidden='true'></i>" addon_before_class="input-group-text search_icon" addon_after="<button id='clearSearch' type='button' class='btn-close d-none'></button>" addon_after_class="input-group-text close_icon" show_label=false wrapper_class="mb-0" %}
       </form>
       <button id="openFilter"
               class="btn btn-filter-gray btn-sm px-3"
@@ -160,6 +159,7 @@
                       data-bs-toggle="modal"
                       data-bs-target="#IncidentshideColumns">
                 <i class="bi bi-gear h5 m-0"
+                   aria-hidden="true"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
                    title="{% translate 'Column settings' %}">
@@ -173,8 +173,8 @@
         {% for incident in incidents %}
           {% timezone time_zone %}
           <tr>
+            <!-- Incident status  -->
             <td class="table-group-divider py-3">
-              <!-- Incident status  -->
               <div class="col d-inline-flex align-items-center justify-content-center gap-1">
                 {% block content_table_significative_impact %}
                   {% for field in incident.formsStatus %}
@@ -214,9 +214,9 @@
                 {% endblock %}
               </div>
             </td>
+            <!-- NoIncident notification date -->
             <td class="table-group-divider py-3"
                 data-order="{{ incident.incident_notification_date.timestamp }}">
-              <!-- NoIncident notification date -->
               <div class="d-inline"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
@@ -227,8 +227,8 @@
                 {{ incident.incident_notification_date|date:"H:i" }}
               </div>
             </td>
+            <!-- Regulator / Operator Acronym -->
             <td class="table-group-divider py-3">
-              <!-- Regulator / Operator Acronym -->
               {% block content_table_entity %}
                 {% if incident.company %}
                   {{ incident.company.identifier }}
@@ -237,11 +237,11 @@
                 {% endif %}
               {% endblock %}
             </td>
+            <!-- Regulator / Operator Name -->
             <td class="table-group-divider py-3
                        {% if not is_regulator or is_regulator_incidents and not is_observer %}
                          d-none
                        {% endif %}">
-              <!-- Regulator / Operator Name -->
               {% if incident.company %}
                 {{ incident.company.name }}
               {% elif incident.regulator %}
@@ -250,14 +250,14 @@
                 {{ incident.company_name }}
               {% endif %}
             </td>
+            <!-- Regulation or Regulator(observer case) -->
             <td class="table-group-divider py-3">
-              <!-- Regulation or Regulator(observer case) -->
               {% block content_table_regulation_or_regulator %}
                 {{ incident.sector_regulation.regulation }}
               {% endblock %}
             </td>
+            <!-- Reference -->
             <td class="table-group-divider py-3">
-              <!-- Reference -->
               {% block content_table_incident_id %}
                 {% for field in incident.formsStatus %}
                   {% if field.name == "incident_id" %}
@@ -266,28 +266,32 @@
                 {% endfor %}
               {% endblock %}
             </td>
+            <!-- Sectors -->
             <td class="table-group-divider py-3 px-2 list-sectors">
-              <!-- Sectors -->
               {% for root_sector in incident.get_no_childrens_sectors %}
-                <ul class="list-unstyled">
-                  <span class="fw-bolder">{{ root_sector.get_safe_translation }}</span>
-                </ul>
+                <p class="fw-bolder">
+                  {{ root_sector.get_safe_translation }}
+                </p>
               {% endfor %}
               {% for root_sector in incident.get_incident_root_sector %}
-                <span class="fw-bolder">{{ root_sector.get_safe_translation }}</span>
-                <ul class="list-unstyled">
-                  {% for sector in root_sector.children.all %}
-                    {% if sector in incident.affected_sectors.all %}
-                      <li>
-                        {{ sector.get_safe_translation }}
-                      </li>
-                    {% endif %}
-                  {% endfor %}
-                </ul>
+                {% if root_sector %}
+                  <p class="fw-bolder mb-0">
+                    {{ root_sector.get_safe_translation }}
+                  </p>
+                  <ul class="list-unstyled">
+                    {% for sector in root_sector.children.all %}
+                      {% if sector in incident.affected_sectors.all %}
+                        <li>
+                          {{ sector.get_safe_translation }}
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
               {% endfor %}
             </td>
+            <!-- Report name and status -->
             <td class="table-group-divider py-3">
-              <!-- Report name and status -->
               {% with incident_view_action="edit_workflow" %}
                 {% block content_table_report %}
                   <ul class="list-unstyled mb-0">
@@ -346,8 +350,8 @@
                 {% endblock %}
               {% endwith %}
             </td>
+            <!-- Actions -->
             <td class="table-group-divider py-3">
-              <!-- Actions -->
               <div class="col d-flex align-items-center">
                 {% block content_table_actions %}
                   <button class="btn access_log p-0"

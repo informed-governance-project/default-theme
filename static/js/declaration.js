@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  $('.multiselectcheckbox').multiselect('setOptions', {
+    numberDisplayed: 5,
+  }).multiselect('rebuild');
+
   $("#id_0-incident_detection_date").on("change.td", function () {
     const startingDateInputId = "id_0-incident_starting_date";
     const resolutionDateInputId = "id_0-incident_resolution_date";
@@ -123,6 +127,26 @@ $(document).ready(function () {
 
   observer.observe($stepsBar[0]);
   checkWrap();
+
+  $('[name="wizard_goto_step"]').on('click', function () {
+    const lastStep = $(this).data('last-step')
+    const currentStep = $(this).data('current-step');
+    if (lastStep === currentStep) {
+      return;
+    }
+    localStorage.setItem("step-changed", "1");
+  });
+
+  if (localStorage.getItem("step-changed") === "1") {
+    const title = $("#declaration-title-page");
+    if (title.length) {
+      title[0].scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+    localStorage.removeItem("step-changed");
+  }
 });
 
 function reviewStatusChange(select) {
