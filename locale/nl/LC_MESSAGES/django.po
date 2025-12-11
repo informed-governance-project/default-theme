@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-09 10:45+0100\n"
 "PO-Revision-Date: 2025-12-11 13:29+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2102,7 +2102,7 @@ msgstr "Uw wachtwoord is opnieuw ingesteld"
 
 #: theme/templates/registration/password_reset_complete.html:15
 msgid "Your password has been set. You may log in now."
-msgstr "Uw wachtwoord is ingesteld.  U kunt nu inloggen."
+msgstr "Uw wachtwoord is ingesteld. U kunt nu inloggen."
 
 #: theme/templates/registration/password_reset_complete.html:18
 msgid "Log in"
@@ -2848,7 +2848,7 @@ msgstr "De tweefactorauthenticatie activeren"
 #: theme/templates/two_factor/core/setup_complete.html:10
 msgid ""
 "Congratulations, you have successfully activated two-factor authentication."
-msgstr "Gefeliciteerd, u hebt de tweefactorauthenticatie  geactiveerd."
+msgstr "Gefeliciteerd, u hebt de tweefactorauthenticatie geactiveerd."
 
 #: theme/templates/two_factor/core/setup_complete.html:17
 msgid "Two-Factor Authentication has been set. Please log in again."
