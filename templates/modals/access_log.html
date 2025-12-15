@@ -31,7 +31,7 @@
               <th scope="col" class="text-start">
                 {% translate "Date" %}
               </th>
-              {% if is_regulator %}
+              {% if is_regulator or is_observer %}
                 <th scope="col">
                   {% translate "Entity" %}
                 </th>
@@ -57,7 +57,7 @@
                 <td class="text-start">
                   {{ record.timestamp|date:"d M Y, H:i" }}
                 </td>
-                {% if is_regulator %}
+                {% if is_regulator or is_observer %}
                   <td>
                     {{ record.entity_name }}
                   </td>
