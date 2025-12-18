@@ -32,9 +32,15 @@
     </p>
     <p class="m-0">
       <span class="fw-bold">
-        {% translate "Report status" %}:
+        {% translate "Review status" %}:
       </span>
-      {{ incident.get_incident_status_display }}
+      {% if standard_answer.status == "PASSM" %}
+        {% translate "Passed" %}
+      {% elif standard_answer.status == "FAILM" %}
+        {% translate "Revision required" %}
+      {% else %}
+        {{ standard_answer.get_status_display }}
+      {% endif %}
     </p>
     <p class="m-0">
       <span class="fw-bold">
@@ -59,12 +65,6 @@
         {% translate "Progress" %}:
       </span>
       {{ standard_answer.answered_percentage|default:0|floatformat:'0' }}%
-    </p>
-    <p class="m-0">
-      <span class="fw-bold">
-        {% translate "Status" %}:
-      </span>
-      {{ standard_answer.get_status_display }}
     </p>
   </div>
 {% endblock %}
