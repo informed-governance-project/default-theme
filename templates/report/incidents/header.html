@@ -5,7 +5,7 @@
     {% translate "Report" %}
   </div>
   <div class="text-primary ps-2">
-    {% now "d M Y" %}
+    {{ incident.incident_notification_date|date:"d M Y, H:i" }}
   </div>
 {% endblock %}
 {% block report_header_right %}
