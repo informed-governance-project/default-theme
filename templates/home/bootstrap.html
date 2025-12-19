@@ -38,9 +38,6 @@
           href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}" />
     <!-- Bootstrap JavaScript if it is in head -->
-    {% if 'javascript_in_head'|bootstrap_setting %}
-      {% bootstrap_javascript %}
-    {% endif %}
     {% block bootstrap5_extra_head %}
     {% endblock %}
   </head>
@@ -53,10 +50,6 @@
     {% endblock %}
     {% block bootstrap5_after_content %}
     {% endblock %}
-    <!-- Bootstrap JavaScript if it is in body -->
-    <!-- {% if not 'javascript_in_head'|bootstrap_setting %}
-            {% bootstrap_javascript %}
-{% endif %} -->
     {% block bootstrap5_extra_script %}
     {% endblock %}
   </body>
