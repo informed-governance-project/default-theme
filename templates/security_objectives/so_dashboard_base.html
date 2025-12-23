@@ -89,6 +89,9 @@
             {% translate "Submission date" %}
           </th>
           <th class="col-1">
+            {% translate "Identifier" %}
+          </th>
+          <th class="col-1">
             {% translate "Evaluation Framework" %}
           </th>
           <th class="col-1">
@@ -149,6 +152,9 @@
                 <i class="bi bi-clock"></i>
                 {{ standard.submit_date|date:"H:i" }}
               {% endif %}
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              {{ standard.group.group_id }}
             </td>
             <td class="col-1 table-group-divider py-3">
               {{ standard.standard.label }}
