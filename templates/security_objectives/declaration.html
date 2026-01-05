@@ -418,9 +418,7 @@
                                    {% endif %}">
                           <div class="checkbox-is-measure d-flex justify-content-center">
                             {% if forloop.parentloop.first %}
-                              {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0 form-switch" field_class="not-required" %}
-                            {% elif forloop.parentloop.last %}
-                              {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0 form-switch" field_class="last_maturity_level_measure" %}
+                              {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0 form-switch" field_class="not-required first_maturity_level_measure" %}
                             {% else %}
                               {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0 form-switch" %}
                             {% endif %}

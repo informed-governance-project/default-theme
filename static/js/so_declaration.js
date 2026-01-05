@@ -37,13 +37,10 @@ $(document).ready(function () {
 
   function checkActions() {
     const $activeSlide = $('.carousel-item.active');
-    const $checkboxes = $activeSlide.find(".form-check-input").not(".readonly_field")
     const $actionstextarea = $activeSlide.find(".so_actions_form");
-    const $lastMaturityLevelMeasures = $activeSlide.find(".last_maturity_level_measure").length;
-    const $lastMaturityLevelMeasuresCheked = $activeSlide.find(".last_maturity_level_measure").filter(":checked").length
-    const allLastLevelMeasureschecked = $lastMaturityLevelMeasures > 0 && $lastMaturityLevelMeasuresCheked === $lastMaturityLevelMeasures;
+    const $firstMaturityLevelMeasure = $activeSlide.find(".first_maturity_level_measure");
     const placeholdertext = gettext("Please list your current and planned measures, including a schedule with the individual stages.");
-    if ($actionstextarea.val().trim() === "" && !allLastLevelMeasureschecked && $checkboxes.is(":checked")) {
+    if ($actionstextarea.val().trim() === "" && $firstMaturityLevelMeasure.is(":checked")) {
       $actionstextarea
         .attr('placeholder', placeholdertext)
         .addClass("border border-danger border-2")
