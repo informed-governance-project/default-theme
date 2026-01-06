@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-06 08:50+0100\n"
-"PO-Revision-Date: 2025-12-11 12:40+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"PO-Revision-Date: 2026-01-06 09:27+0000\n"
+"Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -2533,7 +2533,7 @@ msgstr "Utiliser le jeton de secours"
 #: theme/templates/registration/login.html:83
 #: theme/templates/registration/password_reset_form.html:10
 msgid "Have you forgotten your password?"
-msgstr "Avez-vous oublié votre mot de passe ?"
+msgstr "Mot de passe oublié ?"
 
 #: theme/templates/registration/login.html:91
 msgid "Create an account"
