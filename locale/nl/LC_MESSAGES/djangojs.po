@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-10 14:51+0100\n"
+"POT-Creation-Date: 2026-01-06 08:50+0100\n"
 "PO-Revision-Date: 2025-05-26 10:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -31,15 +31,15 @@ msgstr "_MENU_ resultaten weergeven"
 msgid ": Activate to sort"
 msgstr ": Activeren om te sorteren"
 
-#: theme/static/js/base.js:67
+#: theme/static/js/base.js:67 theme/static/js/create_so_declaration.js:7
 msgid "Nothing selected"
 msgstr "Niets geselecteerd"
 
-#: theme/static/js/base.js:68
+#: theme/static/js/base.js:68 theme/static/js/create_so_declaration.js:8
 msgid "items selected"
 msgstr "items geselecteerd"
 
-#: theme/static/js/incidents.js:100
+#: theme/static/js/incidents.js:100 theme/static/js/so_dashboard.js:77
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
 
@@ -71,7 +71,7 @@ msgstr "Geen aanzienlijke gevolgen"
 msgid "Justification required"
 msgstr ""
 
-#: theme/static/js/so_declaration.js:45
+#: theme/static/js/so_declaration.js:42
 msgid ""
 "Please list your current and planned measures, including a schedule with the "
 "individual stages."
