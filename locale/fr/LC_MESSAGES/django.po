@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-06 15:49+0100\n"
-"PO-Revision-Date: 2026-01-08 15:27+0000\n"
-"Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
+"PO-Revision-Date: 2026-01-09 15:27+0000\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -3162,7 +3162,7 @@ msgstr "Mesure de sécurité"
 #: theme/templates/report/security_objectives/declaration.html:72
 #: theme/templates/security_objectives/declaration.html:373
 msgid "Evidence"
-msgstr "Évidence"
+msgstr "Preuve"
 
 #: theme/templates/report/security_objectives/declaration.html:75
 #: theme/templates/security_objectives/declaration.html:376
