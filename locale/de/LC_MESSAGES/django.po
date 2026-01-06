@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-06 08:50+0100\n"
+"POT-Creation-Date: 2026-01-06 15:49+0100\n"
 "PO-Revision-Date: 2026-01-06 09:27+0000\n"
 "Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -2486,8 +2486,9 @@ msgstr "Wiederherstellungscode verwenden"
 
 #: theme/templates/registration/login.html:83
 #: theme/templates/registration/password_reset_form.html:10
-msgid "Have you forgotten your password?"
-msgstr "Passwort vergessen?"
+#| msgid "Password change"
+msgid "Password forgotten?"
+msgstr ""
 
 #: theme/templates/registration/login.html:91
 msgid "Create an account"
@@ -3067,7 +3068,6 @@ msgid "Evaluation Framework"
 msgstr "Bewertungsrahmen"
 
 #: theme/templates/report/security_objectives/cover.html:35
-#| msgid "Report status"
 msgid "Review status"
 msgstr ""
 
