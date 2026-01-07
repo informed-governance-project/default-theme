@@ -49,6 +49,11 @@ $(document).ready(function () {
       },
       {
         targets: 8,
+        orderable: true,
+        type: 'string-utf8',
+      },
+      {
+        targets: 9,
         orderable: false,
       },
     ]
