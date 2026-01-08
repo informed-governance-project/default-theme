@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-06 15:49+0100\n"
-"PO-Revision-Date: 2026-01-08 15:27+0000\n"
-"Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
+"PO-Revision-Date: 2026-01-09 15:27+0000\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -189,7 +189,7 @@ msgstr ""
 
 #: theme/templates/emails/suggestion_link_user_account.html:40
 msgid "Please note: This is a suggestion only."
-msgstr "Bitte beachten Sie: Dies ist lediglich ein Vorschlag."
+msgstr "Bitte beachten Sie: dies ist lediglich ein Vorschlag."
 
 #: theme/templates/emails/suggestion_link_user_account.html:45
 msgid "Otherwise, feel free to disregard this message."
