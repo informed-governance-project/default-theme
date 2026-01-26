@@ -19,10 +19,10 @@
     <i class="custom-icon-closed logo-status"
        data-bs-placement="top"
        data-bs-toggle="tooltip"
-       title="{% translate 'The incident is over' %}"
+       title="{% translate 'The incident has been closed' %}"
        aria-hidden="true">
     </i>
-    <span class="visually-hidden">{% translate "The incident is over" %}</span>
+    <span class="visually-hidden">{% translate "The incident has been closed" %}</span>
   {% endif %}
 {% endblock %}
 {% block content_table_significative_impact %}
@@ -92,7 +92,7 @@
               <div class="d-inline-flex align-items-center">
                 {% if latest_incident_workflow.comment %}
                   <button class="btn text-secondary workflow_comment p-0"
-                          data-workflow-comment="{{ latest_incident_workflow.comment|linebreaksbr }}"
+                          data-workflow-comment="{{ latest_incident_workflow.comment|urlencode }}"
                           data-bs-toggle="modal"
                           data-bs-target="#workflow_comment">
                     <i class="custom-icon-comments h6"
@@ -130,7 +130,8 @@
                     </button>
                   {% else %}
                     <button class="btn p-0 ps-1 border-0" disabled>
-                      <i class="custom-icon-versioning-disabled h6 align-self-center">
+                      <i class="custom-icon-versioning-disabled h6 align-self-center"
+                         aria-hidden="true">
                       </i>
                       <span class="visually-hidden">{% translate "Version control" %}</span>
                     </button>

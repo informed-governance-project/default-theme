@@ -105,3 +105,7 @@ input:checked + .slider:before {
 #cookiebannerForm table td {
   padding: 3px 4px;
 }
+
+#cookiebannerModal.in-front {
+  z-index: 1500 !important;
+}

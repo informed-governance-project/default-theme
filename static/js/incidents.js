@@ -5,7 +5,7 @@ $(document).ready(function () {
     paging: false,
     searching: false,
     info: false,
-    order: [],
+    order: [1, 'desc'],
     initComplete: function () {
       stop_spinner();
     },
@@ -74,8 +74,12 @@ $(document).ready(function () {
     var $popup = $("#access_log");
     var popup_url = 'access_log/' + $(this).data("incident-id");
 
-    $(".modal-dialog", $popup).load(popup_url, function () {
-      $popup.modal("show");
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr)  {
+      if (xhr.status === 403 || xhr.status === 404) {
+        window.location.reload();
+      } else {
+        $popup.modal("show");
+      }
     });
   });
 
@@ -174,8 +178,7 @@ $(document).ready(function () {
     // Show the comment
     $(document).on('click', '.comment-btn', function () {
       let comment = decodeURIComponent($(this).data('comment') || '');
-      comment = comment.replace(/\n/g, '<br>');
-      $('#report_version_workflow_comment #modal-workflow-comment').html(comment);
+      $('#report_version_workflow_comment #modal-workflow-comment').val(comment);
     });
     $modalWorkflowRows.find('[data-bs-toggle="tooltip"]').tooltip();
   });
@@ -212,8 +215,12 @@ $(document).ready(function () {
     let $popup = $("#export_incidents");
     let popup_url = `/incidents/export_incidents`;
 
-    $(".modal-dialog", $popup).load(popup_url, function () {
-      $popup.modal("show");
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr)  {
+      if (xhr.status === 403) {
+        window.location.reload();
+      } else {
+        $popup.modal("show");
+      }
     });
   });
 

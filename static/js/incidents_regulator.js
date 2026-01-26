@@ -30,7 +30,7 @@ function onChangeIncident(value, id) {
       let $impact_status_html = $(`#impact_status_${incident_id}`);
       let $incident_status_checkbox = $impact_status_html.find('input[name="is_significative_impact"]');
       let incident_status_tooltip = (newIncidentstatus === "CLOSE")
-        ? gettext("The incident is over")
+        ? gettext("The incident has been closed")
         : gettext("The incident is still ongoing");
 
       let impact_status_tooltip = newImpactstatus
