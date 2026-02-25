@@ -27,12 +27,12 @@
       <ul class="dropdown-menu fit-content" aria-labelledby="language_selector">
         {% for language in languages %}
           <li role="presentation">
-            <button class="dropdown-item
+            <button class="select-lang-button dropdown-item spinner-trigger
                            {% if language.code == current_language %}
                              active
                            {% endif %}"
                     type="button"
-                    onclick="setLanguage('{{ language.code }}'); load_spinner()"
+                    data-language="{{ language.code }}"
                     lang="{{ language.code }}"
                     aria-label='{{ language.code|upper }} (
                                 {% language language.code %}

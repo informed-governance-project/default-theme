@@ -2,24 +2,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 09:08+0100\n"
-"PO-Revision-Date: 2026-01-19 08:27+0000\n"
-"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
+"POT-Creation-Date: 2026-02-25 09:41+0100\n"
+"PO-Revision-Date: 2026-02-25 08:37+0000\n"
+"Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.14.3\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: theme/templates/account/edit.html:8
 msgid "Account management"
 msgstr "Gestion du compte"
 
-#: theme/templates/account/edit.html:15 theme/templates/home/contact.html:23
+#: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
 #: theme/templates/incidents/declaration.html:25
-#: theme/templates/registration/signup.html:22
+#: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr "Les champs marqués d'un astérisque (*) sont obligatoires."
 
@@ -44,7 +44,7 @@ msgid "Return to user interface"
 msgstr "Retour à l'interface utilisateur"
 
 #: theme/templates/admin/base_site.html:26
-#: theme/templates/parts/header.html:111
+#: theme/templates/parts/header.html:106
 msgid "Log out"
 msgstr "Déconnexion"
 
@@ -61,8 +61,8 @@ msgid "Variables Django Settings"
 msgstr "Variables Paramètres Django"
 
 #: theme/templates/admin/settings_list.html:19
-#: theme/templates/cookiebanner/bootstrap5.html:52
-#: theme/templates/home/contact.html:33
+#: theme/templates/cookiebanner/bootstrap5.html:53
+#: theme/templates/home/contact.html:32
 #: theme/templates/incidents/contact_form.html:8
 msgid "Name"
 msgstr "Nom"
@@ -71,27 +71,27 @@ msgstr "Nom"
 msgid "Value"
 msgstr "Valeur"
 
-#: theme/templates/cookiebanner/bootstrap5.html:43
+#: theme/templates/cookiebanner/bootstrap5.html:44
 msgid "Details"
 msgstr "Détails"
 
-#: theme/templates/cookiebanner/bootstrap5.html:48
+#: theme/templates/cookiebanner/bootstrap5.html:49
 msgid "Cookies description"
 msgstr "Description des cookies"
 
-#: theme/templates/cookiebanner/bootstrap5.html:55
+#: theme/templates/cookiebanner/bootstrap5.html:56
 msgid "Description"
 msgstr "Description"
 
-#: theme/templates/cookiebanner/bootstrap5.html:58
+#: theme/templates/cookiebanner/bootstrap5.html:59
 msgid "Content"
 msgstr "Contenu"
 
-#: theme/templates/cookiebanner/bootstrap5.html:61
+#: theme/templates/cookiebanner/bootstrap5.html:62
 msgid "Maximum duration"
 msgstr "Durée maximale"
 
-#: theme/templates/cookiebanner/bootstrap5.html:97
+#: theme/templates/cookiebanner/bootstrap5.html:98
 msgid "Accept"
 msgstr "Accepter"
 
@@ -194,58 +194,59 @@ msgstr "Merci."
 msgid "Best regards,"
 msgstr "Cordialement,"
 
-#: theme/templates/home/bootstrap.html:49
+#: theme/templates/home/bootstrap.html:51
 msgid "Skip to main content"
 msgstr "Passer au contenu principal"
 
-#: theme/templates/home/contact.html:16
+#: theme/templates/home/contact.html:15
 msgid "Contact form"
 msgstr "Formulaire de contact"
 
-#: theme/templates/home/contact.html:36
+#: theme/templates/home/contact.html:35
 #: theme/templates/incidents/contact_form.html:21
 #: theme/templates/incidents/contact_form.html:54
-#: theme/templates/registration/signup.html:35
+#: theme/templates/registration/signup.html:31
 msgid "First name"
 msgstr "Prénom"
 
-#: theme/templates/home/contact.html:41
+#: theme/templates/home/contact.html:40
 #: theme/templates/incidents/contact_form.html:29
 #: theme/templates/incidents/contact_form.html:62
+#: theme/templates/registration/password_reset_form.html:32
 msgid "Email"
 msgstr "Courriel"
 
-#: theme/templates/home/contact.html:44
+#: theme/templates/home/contact.html:43
 msgid "Phone"
 msgstr "Téléphone"
 
-#: theme/templates/home/contact.html:48
+#: theme/templates/home/contact.html:47
 msgid "Message"
 msgstr "Message"
 
-#: theme/templates/home/contact.html:51
+#: theme/templates/home/contact.html:50
 msgid "I agree that my personal data may be used for communication purposes."
 msgstr ""
 "J'accepte que mes données personnelles soient utilisées à des fins de "
 "communication."
 
-#: theme/templates/home/contact.html:58
+#: theme/templates/home/contact.html:57
 msgid "Send"
 msgstr "Envoyer"
 
-#: theme/templates/home/contact.html:67
+#: theme/templates/home/contact.html:66
 msgid "Address"
 msgstr "Adresse"
 
-#: theme/templates/home/contact.html:81
+#: theme/templates/home/contact.html:80
 msgid "Postal address"
 msgstr "Adresse postale"
 
-#: theme/templates/home/contact.html:88
+#: theme/templates/home/contact.html:87
 msgid "Tel.:"
 msgstr "Tél. :"
 
-#: theme/templates/home/contact.html:91
+#: theme/templates/home/contact.html:90
 msgid "Email:"
 msgstr "Courriel :"
 
@@ -374,7 +375,7 @@ msgstr ""
 "Générer les rapports annuels à partir des objectifs de sécurité et des "
 "analyses de risques dans l'optique d'une gouvernance éclairée."
 
-#: theme/templates/home/index.html:44
+#: theme/templates/home/index.html:43
 msgid "Go to dashboard"
 msgstr "Aller au tableau de bord"
 
@@ -1762,16 +1763,16 @@ msgstr ""
 msgid "Overview"
 msgstr "Aperçu"
 
-#: theme/templates/incidents/base.html:19
-#: theme/templates/incidents/incidents_base.html:25
+#: theme/templates/incidents/base.html:18
+#: theme/templates/incidents/incidents_base.html:23
 msgid "My reported incidents"
 msgstr "Mes incidents signalés"
 
-#: theme/templates/incidents/base.html:22
+#: theme/templates/incidents/base.html:21
 msgid "Notify an incident"
 msgstr "Notifier un incident"
 
-#: theme/templates/incidents/base.html:29
+#: theme/templates/incidents/base.html:28
 #: theme/templates/modals/export_incidents.html:80
 msgid "Export"
 msgstr "Exporter"
@@ -1792,7 +1793,7 @@ msgstr "Intitulé du poste"
 
 #: theme/templates/incidents/contact_form.html:24
 #: theme/templates/incidents/contact_form.html:57
-#: theme/templates/registration/signup.html:36
+#: theme/templates/registration/signup.html:32
 msgid "Last name"
 msgstr "Nom"
 
@@ -1829,16 +1830,16 @@ msgstr "Signaler un incident"
 msgid "Incident notification steps"
 msgstr "Étapes de notification d'un incident"
 
-#: theme/templates/incidents/declaration.html:155
-#: theme/templates/modals/delete_incident.html:24
+#: theme/templates/incidents/declaration.html:154
+#: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/export_incidents.html:77
 msgid "Cancel"
 msgstr "Annuler"
 
-#: theme/templates/incidents/declaration.html:157
-#: theme/templates/incidents/incidents_base.html:447
-#: theme/templates/modals/accept_terms.html:33
-#: theme/templates/modals/access_log.html:19
+#: theme/templates/incidents/declaration.html:156
+#: theme/templates/incidents/incidents_base.html:453
+#: theme/templates/modals/accept_terms.html:37
+#: theme/templates/modals/access_log.html:23
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/delete_incident.html:12
 #: theme/templates/modals/export_incidents.html:19
@@ -1851,15 +1852,15 @@ msgstr "Annuler"
 msgid "Close"
 msgstr "Fermer"
 
-#: theme/templates/incidents/declaration.html:170
+#: theme/templates/incidents/declaration.html:169
 msgid "Previous"
 msgstr "Précédent"
 
-#: theme/templates/incidents/declaration.html:189
+#: theme/templates/incidents/declaration.html:188
 msgid "Submit"
 msgstr "Soumettre"
 
-#: theme/templates/incidents/declaration.html:191
+#: theme/templates/incidents/declaration.html:190
 msgid "Next"
 msgstr "Suivant"
 
@@ -1867,243 +1868,253 @@ msgstr "Suivant"
 msgid "Incident notification"
 msgstr "Notification d'incident"
 
-#: theme/templates/incidents/incidents_base.html:27
+#: theme/templates/incidents/incidents_base.html:25
 msgid "Overview of reported incidents"
 msgstr "Vue d'ensemble des incidents signalés"
 
-#: theme/templates/incidents/incidents_base.html:42
+#: theme/templates/incidents/incidents_base.html:40
 msgid "Filter by status, sector, etc."
 msgstr "Filtrer par statut, secteur, etc."
 
-#: theme/templates/incidents/incidents_base.html:43
-#: theme/templates/incidents/incidents_base.html:442
+#: theme/templates/incidents/incidents_base.html:41
+#: theme/templates/incidents/incidents_base.html:448
 msgid "Filter"
 msgstr "Filtrer"
 
-#: theme/templates/incidents/incidents_base.html:45
+#: theme/templates/incidents/incidents_base.html:43
 msgid "Active"
 msgstr "Actif"
 
-#: theme/templates/incidents/incidents_base.html:60
+#: theme/templates/incidents/incidents_base.html:58
 msgid "Icon Guide"
 msgstr "Guide des icônes"
 
-#: theme/templates/incidents/incidents_base.html:68
+#: theme/templates/incidents/incidents_base.html:66
 msgid "Legend"
 msgstr "Légende"
 
-#: theme/templates/incidents/incidents_base.html:72
+#: theme/templates/incidents/incidents_base.html:70
 msgid "No Significant Impact"
 msgstr "Impact non significatif"
 
-#: theme/templates/incidents/incidents_base.html:76
+#: theme/templates/incidents/incidents_base.html:74
 msgid "Significant Impact"
 msgstr "Impact significatif"
 
-#: theme/templates/incidents/incidents_base.html:80
+#: theme/templates/incidents/incidents_base.html:78
 msgid "Ongoing"
 msgstr "En cours"
 
-#: theme/templates/incidents/incidents_base.html:84
+#: theme/templates/incidents/incidents_base.html:82
 msgid "Closed"
 msgstr "Clôturé"
 
-#: theme/templates/incidents/incidents_base.html:88
+#: theme/templates/incidents/incidents_base.html:86
 msgid "Unsubmitted"
 msgstr "Non remis"
 
-#: theme/templates/incidents/incidents_base.html:92
+#: theme/templates/incidents/incidents_base.html:90
 msgid "Under review"
 msgstr "Revue en cours"
 
-#: theme/templates/incidents/incidents_base.html:96
+#: theme/templates/incidents/incidents_base.html:94
 msgid "Submission overdue"
 msgstr "Délai de soumission dépassé"
 
-#: theme/templates/incidents/incidents_base.html:100
+#: theme/templates/incidents/incidents_base.html:98
 msgid "Late submission"
 msgstr "Soumission tardive"
 
-#: theme/templates/incidents/incidents_base.html:104
+#: theme/templates/incidents/incidents_base.html:102
 msgid "Revision required"
 msgstr "Améliorations requises"
 
-#: theme/templates/incidents/incidents_base.html:108
+#: theme/templates/incidents/incidents_base.html:106
 msgid "Passed"
 msgstr "Réussi"
 
-#: theme/templates/incidents/incidents_base.html:117
+#: theme/templates/incidents/incidents_base.html:115
 msgid "Incidents table"
 msgstr "Tableau des incidents"
 
-#: theme/templates/incidents/incidents_base.html:121
+#: theme/templates/incidents/incidents_base.html:119
 #: theme/templates/modals/report_versions.html:30
 msgid "Status"
 msgstr "Statut"
 
 #: theme/templates/incidents/incidents_base.html:124
+msgid "Last update"
+msgstr "Dernière mise à jour"
+
+#: theme/templates/incidents/incidents_base.html:129
 msgid "Creation date"
 msgstr "Date de création"
 
-#: theme/templates/incidents/incidents_base.html:128
+#: theme/templates/incidents/incidents_base.html:135
 msgid "Operator Acronym"
 msgstr "Acronyme de l'opérateur"
 
-#: theme/templates/incidents/incidents_base.html:130
-#: theme/templates/incidents/incidents_base.html:141
+#: theme/templates/incidents/incidents_base.html:140
+msgid "Operator Name"
+msgstr "Nom de l'opérateur"
+
+#: theme/templates/incidents/incidents_base.html:145
 #: theme/templates/report/incidents/details.html:35
 msgid "Regulator"
 msgstr "Régulateur"
 
-#: theme/templates/incidents/incidents_base.html:137
-msgid "Operator Name"
-msgstr "Nom de l'opérateur"
-
-#: theme/templates/incidents/incidents_base.html:143
+#: theme/templates/incidents/incidents_base.html:151
 msgid "Regulation"
 msgstr "Régulation"
 
-#: theme/templates/incidents/incidents_base.html:147
+#: theme/templates/incidents/incidents_base.html:154
 #: theme/templates/report/incidents/cover.html:19
 #: theme/templates/report/incidents/details.html:11
 msgid "Reference"
 msgstr "Référence"
 
-#: theme/templates/incidents/incidents_base.html:150
+#: theme/templates/incidents/incidents_base.html:157
 msgid "Sectors"
 msgstr "Secteurs"
 
-#: theme/templates/incidents/incidents_base.html:153
+#: theme/templates/incidents/incidents_base.html:160
 #: theme/templates/report/base/template.html:8
 #: theme/templates/report/incidents/cover.html:5
 #: theme/templates/report/incidents/header.html:5
 msgid "Report"
 msgstr "Rapport"
 
-#: theme/templates/incidents/incidents_base.html:157
+#: theme/templates/incidents/incidents_base.html:164
 msgid "Actions"
 msgstr "Actions"
 
-#: theme/templates/incidents/incidents_base.html:165
+#: theme/templates/incidents/incidents_base.html:172
 msgid "Column settings"
 msgstr "Réglage des colonnes"
 
-#: theme/templates/incidents/incidents_base.html:186
+#: theme/templates/incidents/incidents_base.html:193
 #: theme/templates/observer/incidents.html:27
+#: theme/templates/observer/incidents.html:30
 #: theme/templates/operator/incidents.html:33
 #: theme/templates/operator/incidents.html:36
 msgid "Incident with significant impact"
 msgstr "Incident à impact significatif"
 
-#: theme/templates/incidents/incidents_base.html:188
+#: theme/templates/incidents/incidents_base.html:195
+#: theme/templates/observer/incidents.html:35
+#: theme/templates/observer/incidents.html:38
 #: theme/templates/operator/incidents.html:41
 #: theme/templates/operator/incidents.html:44
 msgid "No significant impact"
 msgstr "Impact non significatif"
 
-#: theme/templates/incidents/incidents_base.html:206
+#: theme/templates/incidents/incidents_base.html:213
 #: theme/templates/observer/incidents.html:10
 #: theme/templates/operator/incidents.html:14
 #: theme/templates/operator/incidents.html:17
 msgid "The incident is still ongoing"
 msgstr "L'incident est en cours"
 
-#: theme/templates/incidents/incidents_base.html:208
+#: theme/templates/incidents/incidents_base.html:215
 #: theme/templates/observer/incidents.html:17
 #: theme/templates/operator/incidents.html:22
 #: theme/templates/operator/incidents.html:25
 msgid "The incident has been closed"
 msgstr "L'incident est clos"
 
-#: theme/templates/incidents/incidents_base.html:223
+#: theme/templates/incidents/incidents_base.html:229
+msgid "Last update date"
+msgstr "Date de la dernière mise à jour"
+
+#: theme/templates/incidents/incidents_base.html:241
 msgid "Incident notification submission date"
 msgstr "Date de soumission de la notification d'incident"
 
-#: theme/templates/incidents/incidents_base.html:329
-#: theme/templates/incidents/incidents_base.html:331
+#: theme/templates/incidents/incidents_base.html:338
+#: theme/templates/incidents/incidents_base.html:340
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
-#: theme/templates/operator/incidents.html:127
-#: theme/templates/operator/incidents.html:129
-#: theme/templates/operator/incidents.html:136
+#: theme/templates/operator/incidents.html:124
+#: theme/templates/operator/incidents.html:126
+#: theme/templates/operator/incidents.html:133
 msgid "Version control"
 msgstr "Gestion de versions"
 
-#: theme/templates/incidents/incidents_base.html:339
-#: theme/templates/incidents/incidents_base.html:369
-#: theme/templates/incidents/incidents_base.html:371
+#: theme/templates/incidents/incidents_base.html:348
+#: theme/templates/incidents/incidents_base.html:378
+#: theme/templates/incidents/incidents_base.html:380
 msgid "Download PDF report"
 msgstr "Télécharger le rapport PDF"
 
-#: theme/templates/incidents/incidents_base.html:361
-#: theme/templates/incidents/incidents_base.html:363
-#: theme/templates/modals/access_log.html:14
+#: theme/templates/incidents/incidents_base.html:370
+#: theme/templates/incidents/incidents_base.html:372
+#: theme/templates/modals/access_log.html:18
 msgid "Access Log"
 msgstr "Journal des accès"
 
-#: theme/templates/incidents/incidents_base.html:386
+#: theme/templates/incidents/incidents_base.html:395
 msgid "No incident reports have been submitted yet."
 msgstr "Aucun rapport d'incident n'a encore été soumis."
 
-#: theme/templates/incidents/incidents_base.html:464
+#: theme/templates/incidents/incidents_base.html:469
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: theme/templates/incidents/incidents_base.html:467
+#: theme/templates/incidents/incidents_base.html:472
 msgid "Search"
 msgstr "Rechercher"
 
-#: theme/templates/modals/accept_terms.html:5
-#: theme/templates/modals/accept_terms.html:19
+#: theme/templates/modals/accept_terms.html:9
 #: theme/templates/modals/accept_terms.html:23
-#: theme/templates/modals/accept_terms.html:53
-#: theme/templates/registration/signup.html:63
+#: theme/templates/modals/accept_terms.html:27
+#: theme/templates/modals/accept_terms.html:57
+#: theme/templates/registration/signup.html:59
 msgid "Terms of Service"
 msgstr "Conditions générales d'utilisation"
 
-#: theme/templates/modals/accept_terms.html:63
+#: theme/templates/modals/accept_terms.html:67
 msgid "Continue"
 msgstr "Continuer"
 
-#: theme/templates/modals/access_log.html:28
+#: theme/templates/modals/access_log.html:32
 msgid "Access log table"
 msgstr "Tableau des journaux d'accès"
 
-#: theme/templates/modals/access_log.html:32
+#: theme/templates/modals/access_log.html:36
 #: theme/templates/modals/report_versions.html:25
 msgid "Date"
 msgstr "Date"
 
-#: theme/templates/modals/access_log.html:36
+#: theme/templates/modals/access_log.html:40
 msgid "Entity"
 msgstr "Entité"
 
-#: theme/templates/modals/access_log.html:40
+#: theme/templates/modals/access_log.html:44
 msgid "User"
 msgstr "Utilisateur"
 
-#: theme/templates/modals/access_log.html:43
+#: theme/templates/modals/access_log.html:47
 #: theme/templates/report/incidents/contacts.html:17
 #: theme/templates/report/incidents/contacts.html:65
 msgid "Role"
 msgstr "Rôle"
 
-#: theme/templates/modals/access_log.html:46
+#: theme/templates/modals/access_log.html:50
 msgid "Document"
 msgstr "Document"
 
-#: theme/templates/modals/access_log.html:49
+#: theme/templates/modals/access_log.html:53
 #: theme/templates/modals/report_versions.html:33
 msgid "Action"
 msgstr "Action"
 
-#: theme/templates/modals/access_log.html:93
+#: theme/templates/modals/access_log.html:98
 msgid "No entries"
 msgstr "Aucun élément"
 
 #: theme/templates/modals/contacts_incident.html:7
-#: theme/templates/observer/incidents.html:52
-#: theme/templates/observer/incidents.html:55
+#: theme/templates/observer/incidents.html:58
+#: theme/templates/observer/incidents.html:61
 #: theme/templates/regulator/incidents.html:18
 #: theme/templates/regulator/incidents.html:20
 msgid "Contacts"
@@ -2122,13 +2133,13 @@ msgstr "Responsable de la notification de l’incident et contact technique"
 msgid "Delete incident"
 msgstr "Supprimer l'incident"
 
-#: theme/templates/modals/delete_incident.html:17
+#: theme/templates/modals/delete_incident.html:19
 msgid "Are you sure that you want to delete the incident?"
 msgstr "Êtes-vous sûr de vouloir supprimer l'incident ?"
 
 #: theme/templates/modals/delete_incident.html:29
+#: theme/templates/operator/incidents.html:156
 #: theme/templates/operator/incidents.html:159
-#: theme/templates/operator/incidents.html:162
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -2141,13 +2152,13 @@ msgid "Choice of columns"
 msgstr "Choix des colonnes"
 
 #: theme/templates/modals/workflow_comment.html:7
+#: theme/templates/operator/incidents.html:98
 #: theme/templates/operator/incidents.html:101
-#: theme/templates/operator/incidents.html:104
-#: theme/templates/operator/incidents.html:110
+#: theme/templates/operator/incidents.html:107
 msgid "Review comment"
 msgstr "Commentaire de revue"
 
-#: theme/templates/operator/incidents.html:70
+#: theme/templates/operator/incidents.html:67
 msgid "not submitted yet"
 msgstr "pas encore soumis"
 
@@ -2206,43 +2217,43 @@ msgstr "Déclaration d'accessibilité"
 msgid "Main menu"
 msgstr "Menu principal"
 
-#: theme/templates/parts/header.html:83
+#: theme/templates/parts/header.html:78
 msgid "Settings"
 msgstr "Paramètres"
 
-#: theme/templates/parts/header.html:99
+#: theme/templates/parts/header.html:94
 msgid "Account"
 msgstr "Compte"
 
-#: theme/templates/parts/header.html:102
+#: theme/templates/parts/header.html:97
 msgid "Security"
 msgstr "Sécurité"
 
-#: theme/templates/parts/header.html:105
+#: theme/templates/parts/header.html:100
 msgid "Password"
 msgstr "Mot de passe"
 
-#: theme/templates/parts/header.html:118
+#: theme/templates/parts/header.html:113
 msgid "Contact"
 msgstr "Contact"
 
-#: theme/templates/parts/pagination.html:28
+#: theme/templates/parts/pagination.html:27
 msgid "entries per page"
 msgstr "éléments par page"
 
-#: theme/templates/parts/pagination.html:36
+#: theme/templates/parts/pagination.html:35
 msgid "Showing"
 msgstr "Affichage de"
 
-#: theme/templates/parts/pagination.html:38
+#: theme/templates/parts/pagination.html:37
 msgid "to"
 msgstr "à"
 
-#: theme/templates/parts/pagination.html:39
+#: theme/templates/parts/pagination.html:38
 msgid "of"
 msgstr "sur"
 
-#: theme/templates/parts/pagination.html:41
+#: theme/templates/parts/pagination.html:40
 msgid "entries"
 msgstr "entrées"
 
@@ -2258,8 +2269,8 @@ msgstr "Connexion"
 
 #: theme/templates/registration/base.html:50
 #: theme/templates/registration/login.html:96
-#: theme/templates/registration/signup.html:15
-#: theme/templates/registration/signup.html:70
+#: theme/templates/registration/signup.html:11
+#: theme/templates/registration/signup.html:66
 msgid "Create account"
 msgstr "Créer un compte"
 
@@ -2312,6 +2323,7 @@ msgid "Your password has been changed."
 msgstr "Votre mot de passe a été changé."
 
 #: theme/templates/registration/password_change_form.html:15
+#: theme/templates/registration/password_reset_form.html:19
 msgid "All Fields are mandatory."
 msgstr "Tous les champs sont obligatoires."
 
@@ -2429,35 +2441,37 @@ msgstr ""
 "Vous avez oublié votre mot de passe ? Saisissez votre adresse électronique "
 "pour recevoir les instructions de réinitialisation."
 
-#: theme/templates/registration/password_reset_form.html:21
+#: theme/templates/registration/password_reset_form.html:36
+#: theme/templates/registration/signup.html:37
+msgid "Captcha"
+msgstr "Captcha"
+
+#: theme/templates/registration/password_reset_form.html:42
+#: theme/templates/registration/signup.html:43
+msgid "Refresh"
+msgstr "Actualiser"
+
+#: theme/templates/registration/password_reset_form.html:47
 msgid "Reset password"
 msgstr "Réinitialiser mon mot de passe"
 
-#: theme/templates/registration/select_company.html:5
+#: theme/templates/registration/select_company.html:9
 msgid "Select company"
 msgstr "Choisissez l’entreprise"
 
-#: theme/templates/registration/select_company.html:12
+#: theme/templates/registration/select_company.html:16
 msgid "Your account is linked to multiple companies. Select one to proceed."
 msgstr ""
 "Votre compte est lié à plusieurs entreprises. Sélectionnez en une pour "
 "continuer."
 
-#: theme/templates/registration/select_company.html:18
+#: theme/templates/registration/select_company.html:22
 msgid "Select"
 msgstr "Sélectionner"
 
-#: theme/templates/registration/signup.html:37
+#: theme/templates/registration/signup.html:33
 msgid "Email address"
 msgstr "Adresse de courrier électronique"
-
-#: theme/templates/registration/signup.html:41
-msgid "Captcha"
-msgstr "Captcha"
-
-#: theme/templates/registration/signup.html:47
-msgid "Refresh"
-msgstr "Actualiser"
 
 #: theme/templates/report/base/toc.html:3
 msgid "Table of contents"
@@ -2473,8 +2487,8 @@ msgstr "Date de la notification d'incident"
 
 #: theme/templates/report/incidents/cover.html:27
 #: theme/templates/report/incidents/details.html:19
-msgid "Report status"
-msgstr "Statut du rapport"
+msgid "Status of the incident"
+msgstr "Statut de l'incident"
 
 #: theme/templates/report/incidents/details.html:3
 msgid "Incident details"

@@ -4,6 +4,10 @@
 {% load custom_filters %}
 {% load static %}
 {% block bootstrap5_extra_script %}
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
   <script src='{% static "js/access_log.js" %}'></script>
 {% endblock %}
 {% block content %}
@@ -28,7 +32,7 @@
           <caption class="visually-hidden">{% translate "Access log table" %}</caption>
           <thead class="table">
             <tr>
-              <th scope="col" class="text-start">
+              <th scope="col">
                 {% translate "Date" %}
               </th>
               {% if is_regulator or is_observer %}
@@ -54,8 +58,8 @@
             {% for record in log %}
               {% timezone time_zone %}
               <tr>
-                <td class="text-start">
-                  {{ record.timestamp|date:"d M Y, H:i" }}
+                <td data-order="{{ record.timestamp.timestamp }}">
+                  {{ record.timestamp|date:"d/m/y, H:i" }}
                 </td>
                 {% if is_regulator or is_observer %}
                   <td>
@@ -70,7 +74,8 @@
                   {% endif %}
                 </td>
                 <td>
-                  {{ record.role }}
+                  {% display_role record as role %}
+                  {{ role }}
                 </td>
                 <td>
                   {% if record.incident_report %}

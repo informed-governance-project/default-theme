@@ -5,11 +5,11 @@ $(document).ready(function () {
     autoWidth: false,
     paging: true,
     searching: false,
-    order: [[0, 'desc']],
+    order: [0, 'desc'],
     columnDefs: [
       {
         targets: 0,
-        type: 'date',
+        type: 'string-utf8',
       },
     ]
   });

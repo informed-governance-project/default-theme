@@ -9,6 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token }}">
     <!-- Page title -->
     <title>
       {% block bootstrap5_title %}
@@ -45,6 +46,7 @@
     {% endblock %}
   </head>
   <body class="d-flex flex-column h-100 background">
+    {{ cookiebanner_version|default:''|json_script:"cookiebanner_version" }}
     <a class="visually-hidden-focusable bg-transparent d-inline text-center"
        href="#main_content">{% translate "Skip to main content" %}</a>
     {% block bootstrap5_before_content %}
@@ -61,7 +63,3 @@
     {% endblock %}
   </body>
 </html>
-{{ cookiebanner_version|default:''|json_script:"cookiebanner_version" }}
-<script>
-  window.cookiebanner_version = JSON.parse(document.getElementById('cookiebanner_version').textContent);
-</script>

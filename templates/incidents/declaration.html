@@ -148,9 +148,8 @@
           <div class="row row-cols-1 row-cols-sm-2">
             <div class="order-1 order-sm-0 col d-flex justify-content-center justify-content-sm-start pt-2 pt-sm-0">
               <a role="button"
-                 class="btn btn-secondary d-inline-flex"
-                 href="{% if is_regulator_incident %}{% url 'regulator_incidents' %}{% else %}{% url 'incidents' %}{% endif %}"
-                 onclick="load_spinner()">
+                 class="btn btn-secondary d-inline-flex spinner-trigger"
+                 href="{% if is_regulator_incident %}{% url 'regulator_incidents' %}{% else %}{% url 'incidents' %}{% endif %}">
                 {% if action == 'Create' %}
                   {% translate "Cancel" %}
                 {% else %}

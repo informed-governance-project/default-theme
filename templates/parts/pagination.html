@@ -14,12 +14,11 @@
           {% with "10 25 50 100" as items_per_page_choices %}
             {% for size in items_per_page_choices.split %}
               <li>
-                <a class="dropdown-item
+                <a class="dropdown-item spinner-trigger
                           {% if pagination_data.paginator.per_page|stringformat:'s' == size %}
                             active
                           {% endif %}"
-                   href="?{% for key, value in request.GET.items %}{% if key != 'per_page' %}{{ key }}={{ value|urlencode }}&{% endif %}{% endfor %}per_page={{ size }}"
-                   onclick="load_spinner()">{{ size }}</a>
+                   href="?{% for key, value in request.GET.items %}{% if key != 'per_page' %}{{ key }}={{ value|urlencode }}&{% endif %}{% endfor %}per_page={{ size }}">{{ size }}</a>
               </li>
             {% endfor %}
           {% endwith %}
@@ -44,14 +43,12 @@
       <ul class="pagination justify-content-end m-0">
         {% if pagination_data.has_previous %}
           <li class="page-item">
-            <a class="page-link"
-               href="?page=1{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}"
-               onclick="load_spinner()">«</a>
+            <a class="page-link spinner-trigger"
+               href="?page=1{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">«</a>
           </li>
           <li class="page-item">
-            <a class="page-link"
-               href="?page={{ pagination_data.previous_page_number }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}"
-               onclick="load_spinner()">‹</a>
+            <a class="page-link spinner-trigger"
+               href="?page={{ pagination_data.previous_page_number }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">‹</a>
           </li>
         {% else %}
           <li class="page-item disabled">
@@ -68,18 +65,16 @@
                        {% if pagination_data.number == num %}
                          active
                        {% endif %}">
-              <a class="page-link"
-                 href="?page={{ num }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}"
-                 onclick="load_spinner()">{{ num }}</a>
+              <a class="page-link spinner-trigger"
+                 href="?page={{ num }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">{{ num }}</a>
             </li>
           {% elif num >= pagination_data.number|add:"-1" and num <= pagination_data.number|add:"1" %}
             <li class="page-item
                        {% if pagination_data.number == num %}
                          active
                        {% endif %}">
-              <a class="page-link"
-                 href="?page={{ num }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}"
-                 onclick="load_spinner()">{{ num }}</a>
+              <a class="page-link spinner-trigger"
+                 href="?page={{ num }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">{{ num }}</a>
             </li>
           {% elif num == pagination_data.number|add:"-2" or num == pagination_data.number|add:"2" %}
             <li class="page-item disabled">
@@ -90,14 +85,12 @@
         {# Next & Last #}
         {% if pagination_data.has_next %}
           <li class="page-item">
-            <a class="page-link"
-               href="?page={{ pagination_data.next_page_number }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}"
-               onclick="load_spinner()">›</a>
+            <a class="page-link spinner-trigger"
+               href="?page={{ pagination_data.next_page_number }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">›</a>
           </li>
           <li class="page-item">
-            <a class="page-link"
-               href="?page={{ pagination_data.paginator.num_pages }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}"
-               onclick="load_spinner()">»</a>
+            <a class="page-link spinner-trigger"
+               href="?page={{ pagination_data.paginator.num_pages }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">»</a>
           </li>
         {% else %}
           <li class="page-item disabled">

@@ -2,10 +2,6 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 {% load static %}
-{% block bootstrap5_extra_script %}
-  {{ block.super }}
-  <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
-{% endblock %}
 {% block login_card %}
   <div id="login_card"
        class="card border-0 bg-transparent p-3 mb-5 rounded-1 col-12 col-xl-5 m-auto">

@@ -9,14 +9,12 @@
 {% endblock %}
 {% block bootstrap5_extra_script %}
   {{ block.super }}
-  <script type="text/javascript"
-          src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
-  <script type="text/javascript"
-          src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
   <script src='{% static "js/incidents.js" %}'></script>
   <link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
 {% endblock %}
 {% block content %}
+  {{ sort_field|default:'last_update'|json_script:"sort_field_ni_table" }}
+  {{ sort_direction|default:'desc'|json_script:"sort_direction_ni_table" }}
   {% settings_value "TIME_ZONE" as time_zone %}
   <div class="d-flex justify-content-between  align-items-center">
     <div>
@@ -46,13 +44,13 @@
         {% endif %}
         <i class="bi bi-filter" aria-hidden="true"></i>
       </button>
-      <button type="button"
+      <button id="ni_legend_btn"
+              type="button"
               class="btn btn-primary bg-body border-0 p-0"
               data-bs-toggle="collapse"
               data-bs-target="#collapseLegend"
               aria-expanded="false"
-              aria-controls="collapseLegend"
-              onclick="save_ni_status_legend()">
+              aria-controls="collapseLegend">
         <img src="{% static 'images/icons/ico-legend.svg' %}"
              alt="legend"
              data-bs-placement="top"
@@ -117,44 +115,53 @@
       <caption class="visually-hidden">{% translate "Incidents table" %}</caption>
       <thead>
         <tr>
-          <th scope="col">
+          <th scope="col" class="sortable align-middle" data-sort-field="status">
             {% translate "Status" %}
           </th>
-          <th scope="col">
-            {% translate "Creation date" %}
-          </th>
-          <th scope="col">
-            {% if is_regulator and not is_regulator_incidents or is_observer %}
-              {% translate "Operator Acronym" %}
-            {% else %}
-              {% translate "Regulator" %}
-            {% endif %}
+          <th scope="col"
+              class="sortable align-middle default-sort-field"
+              data-sort-field="last_update">
+            {% translate "Last update" %}
           </th>
           <th scope="col"
-              class="{% if not is_regulator or is_regulator_incidents and not is_observer %}
-                       d-none
-                     {% endif %}">
-            {% translate "Operator Name" %}
+              class="sortable align-middle"
+              data-sort-field="notification_date">
+            {% translate "Creation date" %}
           </th>
-          <th scope="col">
-            {% if is_observer %}
+          {% if is_regulator and not is_regulator_incidents or is_observer %}
+            <th scope="col"
+                class="sortable align-middle"
+                data-sort-field="company_identifier">
+              {% translate "Operator Acronym" %}
+            </th>
+            <th scope="col"
+                class="sortable align-middle"
+                data-sort-field="company_name">
+              {% translate "Operator Name" %}
+            </th>
+          {% endif %}
+          {% if not is_regulator or is_regulator_incidents %}
+            <th scope="col" class="sortable align-middle" data-sort-field="regulator">
               {% translate "Regulator" %}
-            {% else %}
-              {% translate "Regulation" %}
-            {% endif %}
+            </th>
+          {% endif %}
+          <th scope="col"
+              class="sortable align-middle"
+              data-sort-field="regulation">
+            {% translate "Regulation" %}
           </th>
-          <th scope="col">
+          <th scope="col" class="sortable align-middle" data-sort-field="reference">
             {% translate "Reference" %}
           </th>
-          <th scope="col">
+          <th scope="col" class="sortable align-middle" data-sort-field="sectors">
             {% translate "Sectors" %}
           </th>
-          <th scope="col">
+          <th scope="col" class="align-middle">
             {% translate "Report" %}
           </th>
-          <th scope="col">
-            <div class="d-flex align-items-end">
-              <span>{% translate "Actions" %}</span>
+          <th scope="col" class="align-middle">
+            <div class="d-flex align-items-center gap-1">
+              {% translate "Actions" %}
               <button class="btn btn-sm btn-primary ms-auto"
                       data-bs-toggle="modal"
                       data-bs-target="#IncidentshideColumns">
@@ -187,7 +194,7 @@
                            {% else %}
                              title="{% translate 'No significant impact' %}"
                            {% endif %}>
-                        {% bootstrap_field field show_label=False wrapper_class="m-0" field_class="is_significative_impact_checkbox" %}
+                        {% bootstrap_field field show_label=False wrapper_class="m-0" %}
                       </div>
                     {% endif %}
                   {% endfor %}
@@ -197,8 +204,8 @@
                     {% if field.name == "incident_status" %}
                       <input type="checkbox"
                              name="incident_status"
-                             class="form-check-input status_checkbox large-checkbox m-0"
-                             onchange="onChangeIncident(this, {{ incident.id }})"
+                             class="form-check-input status_checkbox large-checkbox m-0 incident-input-field"
+                             data-incident-id="{{ incident.id }}"
                              id="incident_status_{{ incident.id }}"
                              data-bs-placement="top"
                              data-bs-toggle="tooltip"
@@ -214,9 +221,20 @@
                 {% endblock %}
               </div>
             </td>
-            <!-- NoIncident notification date -->
-            <td class="table-group-divider py-3"
-                data-order="{{ incident.incident_notification_date.timestamp }}">
+            <!-- Incident last update date -->
+            <td class="table-group-divider py-3">
+              <div class="d-inline"
+                   data-bs-placement="top"
+                   data-bs-toggle="tooltip"
+                   title="{% translate 'Last update date' %}">
+                {{ incident.incident_last_update|date:"d/m/y" }}
+                <br />
+                <i class="bi bi-clock" aria-hidden="true"></i>
+                {{ incident.incident_last_update|date:"H:i" }}
+              </div>
+            </td>
+            <!-- Incident notification date -->
+            <td class="table-group-divider py-3">
               <div class="d-inline"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
@@ -227,34 +245,25 @@
                 {{ incident.incident_notification_date|date:"H:i" }}
               </div>
             </td>
-            <!-- Regulator / Operator Acronym -->
+            {% if is_regulator and not is_regulator_incidents or is_observer %}
+              <!-- Operator/regulator Acronym -->
+              <td class="table-group-divider py-3">
+                {{ incident.company_or_regulator_acronym }}
+              </td>
+              <!-- Operator/regulator name -->
+              <td class="table-group-divider py-3">
+                {{ incident.company_or_regulator_name }}
+              </td>
+            {% endif %}
+            <!-- Regulator -->
+            {% if not is_regulator or is_regulator_incidents %}
+              <td class="table-group-divider py-3">
+                {{ incident.sector_regulation.regulator }}
+              </td>
+            {% endif %}
+            <!-- Regulation -->
             <td class="table-group-divider py-3">
-              {% block content_table_entity %}
-                {% if incident.company %}
-                  {{ incident.company.identifier }}
-                {% elif incident.regulator %}
-                  {{ incident.regulator }}
-                {% endif %}
-              {% endblock %}
-            </td>
-            <!-- Regulator / Operator Name -->
-            <td class="table-group-divider py-3
-                       {% if not is_regulator or is_regulator_incidents and not is_observer %}
-                         d-none
-                       {% endif %}">
-              {% if incident.company %}
-                {{ incident.company.name }}
-              {% elif incident.regulator %}
-                {{ incident.regulator.full_name }}
-              {% else %}
-                {{ incident.company_name }}
-              {% endif %}
-            </td>
-            <!-- Regulation or Regulator(observer case) -->
-            <td class="table-group-divider py-3">
-              {% block content_table_regulation_or_regulator %}
-                {{ incident.sector_regulation.regulation }}
-              {% endblock %}
+              {{ incident.sector_regulation.regulation }}
             </td>
             <!-- Reference -->
             <td class="table-group-divider py-3">
@@ -390,7 +399,6 @@
 {% block content_modals %}
   <div class="modal fade"
        id="access_log"
-       data-bs-backdrop="static"
        data-bs-keyboard="false"
        tabindex="-1"
        aria-labelledby="access_log_label"
@@ -400,7 +408,6 @@
   </div>
   <div class="modal fade"
        id="report_versions"
-       data-bs-backdrop="static"
        data-bs-keyboard="false"
        tabindex="-1"
        aria-labelledby="report_versions_label"
@@ -422,7 +429,6 @@
   </div>
   <div class="modal fade"
        id="IncidentshideColumns"
-       data-bs-backdrop="static"
        data-bs-keyboard="false"
        tabindex="-1"
        aria-labelledby="so_hide_columns_label"
@@ -455,15 +461,14 @@
             {% bootstrap_field filter.form.affected_sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
           </div>
           <div class="modal-footer">
-            <button class="btn btn-secondary btn-sm"
+            <button class="btn btn-secondary btn-sm spinner-trigger"
                     type="submit"
                     name="reset"
                     value="true"
-                    data-bs-dismiss="modal"
-                    onclick="load_spinner()">
+                    data-bs-dismiss="modal">
               {% translate "Reset" %}
             </button>
-            <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
+            <button class="btn btn-primary btn-sm spinner-trigger" type="submit">
               {% translate "Search" %}
             </button>
           </div>

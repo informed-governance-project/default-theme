@@ -34,13 +34,12 @@
               <ul class="dropdown-menu fit-content" aria-labelledby="module_selector">
                 {% for module in user_modules %}
                   <li role="presentation">
-                    <a class="dropdown-item
+                    <a class="dropdown-item spinner-trigger
                               {% if module.name == current_module %}
                                 active
                               {% endif %}"
                        href="{% url module.type %}"
-                       type="button"
-                       onclick="load_spinner();">
+                       type="button">
                       {{ module.name }}
                     </a>
                   </li>
@@ -50,9 +49,7 @@
           {% else %}
             <li class="nav-item">
               {% for module in user_modules %}
-                <a class="nav-link fw-bold"
-                   href="{% url module.type %}"
-                   onclick="load_spinner()">{{ module.name }}</a>
+                <a class="nav-link fw-bold spinner-trigger" href="{% url module.type %}">{{ module.name }}</a>
               {% endfor %}
             </li>
           {% endif %}
@@ -78,9 +75,7 @@
               <img class="w-lg-85 w-4"
                    src="{% static 'images/icons/ico-setting.svg' %}"
                    alt="Settings icon">
-              <a class="nav-link"
-                 href="{% url 'admin:index' %}"
-                 onclick="saveLastUserPage()">{% translate "Settings" %}</a>
+              <a id="admin-link" class="nav-link" href="{% url 'admin:index' %}">{% translate "Settings" %}</a>
             </li>
           {% endif %}
           <li class="d-inline-flex nav-item dropdown">

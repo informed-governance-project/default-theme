@@ -130,7 +130,7 @@ $(document).ready(function () {
 
   $("#exportIncidentsForm").on("submit", function (e) {
     e.preventDefault();
-    const csrftoken = getCookie('csrftoken');
+    const csrftoken = getCsrftoken();
     const form = this;
     const $form = $(form);
     const url = $form.attr("action");

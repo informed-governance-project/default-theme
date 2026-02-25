@@ -24,7 +24,7 @@
       <span class="text-primary">{{ incident.incident_notification_date|date:"d M Y, H:i" }}</span>
     </p>
     <p class="m-0">
-      <span class="fw-bold">{% translate "Report status" %}:</span>
+      <span class="fw-bold">{% translate "Status of the incident" %}:</span>
       {{ incident.get_incident_status_display }}
     </p>
   </div>

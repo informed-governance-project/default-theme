@@ -1,16 +1,25 @@
-function onChangeIncident(value, id) {
-  const csrftoken = getCookie('csrftoken');
-  let formdata = $(value).serialize();
+$(document).ready(function () {
+  $(document).on("change", ".incident-input-field", function () {
+    onChangeIncident(this);
+  });
 
-  if ($(value).attr('name') == 'incident_status'){
+});
+
+function onChangeIncident(input) {
+  const $this = $(input)
+  const id = $this.data("incident-id");
+  const csrftoken = getCsrftoken();
+  let formdata = $this.serialize();
+
+  if ($this.attr('name') == 'incident_status'){
     let status = "CLOSE"
-    if ($(value).is(':checked')) status = "GOING"
+    if ($this.is(':checked')) status = "GOING"
     formdata=`incident_status=${status}`
   }
 
-  if ($(value).attr('name') == 'is_significative_impact'){
+  if ($this.attr('name') == 'is_significative_impact'){
     let status = "False"
-    if ($(value).is(':checked')) status = "True"
+    if ($this.is(':checked')) status = "True"
     formdata=`is_significative_impact=${status}`
   }
 

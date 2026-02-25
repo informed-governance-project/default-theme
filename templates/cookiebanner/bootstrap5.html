@@ -8,6 +8,7 @@
         href="{% static 'css/cookie_banner.css' %}" />
   <script type="text/javascript" src="{% static 'js/cookie_banner.js' %}"></script>
 {% endblock %}
+{{ cb_settings.groups|json_script:"cookiegroups-data" }}
 <div class="modal fade in-front"
      id="cookiebannerModal"
      data-bs-backdrop="static"
@@ -104,6 +105,3 @@
     </div>
   </div>
 </div>
-<script>
-  const cookiegroups = JSON.parse("{{ cookiegroups_json|escapejs }}");
-</script>

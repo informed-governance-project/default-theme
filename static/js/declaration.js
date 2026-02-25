@@ -147,4 +147,44 @@ $(document).ready(function () {
     }
     localStorage.removeItem("step-changed");
   }
+
+  const ContactfieldPairs = [
+    ["contact_lastname", "technical_lastname"],
+    ["contact_firstname", "technical_firstname"],
+    ["contact_title", "technical_title"],
+    ["contact_email", "technical_email"],
+    ["contact_telephone", "technical_telephone"],
+  ];
+
+  $(".is_technical_the_same").on("change", function () {
+    if (this.checked) {
+      ContactfieldPairs.forEach(function ([sourceClass, targetClass]) {
+        const sourceVal = $("." + sourceClass).val();
+        $("." + targetClass).val(sourceVal);
+      });
+    } else {
+      ContactfieldPairs.forEach(function ([_, targetClass]) {
+        $("." + targetClass).val("");
+      });
+    }
+  });
+
+  $(".review_status_selector")
+    .on("change", function () {
+      const $this = $(this);
+      const value = $this.val();
+
+      $this.removeClass("fw-bold bg-failed bg-passed text-white");
+      if (value === "PASS") {
+        $this.addClass("fw-bold bg-passed text-white");
+      } else if (value === "FAIL") {
+        $this.addClass("fw-bold bg-failed text-white");
+      }
+    })
+    .on("focus", function () {
+      const $this = $(this);
+      if ($this[0].options.length > 0) {
+        $this[0].options[0].disabled = true;
+      }
+    });
 });

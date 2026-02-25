@@ -1,80 +1,9 @@
 $(document).ready(function () {
-  let table = $('#incidents-table').DataTable({
-    autoWidth: false,
-    stateSave: true,
-    paging: false,
-    searching: false,
-    info: false,
-    order: [1, 'desc'],
-    initComplete: function () {
-      stop_spinner();
-    },
-    columnDefs: [
-      {
-        targets: 0,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 1,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 2,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 3,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 4,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 5,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 6,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 7,
-        orderable: false,
-      },
-      {
-        targets: 8,
-        orderable: false,
-      },
-    ]
-  });
-
-  $('.column-toggle').on('change', function () {
-    var colIdx = $(this).data('column');
-    table.column(colIdx).visible(this.checked);
-  });
-
-  $('#IncidentshideColumns').on('show.bs.modal', function () {
-    table.columns().every(function (idx) {
-      var col = table.column(idx);
-      var visible = col.visible();
-      $('.column-toggle[data-column="' + idx + '"]').prop('checked', visible);
-    });
-  });
-
-
   $(document).on("click", '.access_log', function () {
     var $popup = $("#access_log");
     var popup_url = 'access_log/' + $(this).data("incident-id");
 
-    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr)  {
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr) {
       if (xhr.status === 403 || xhr.status === 404) {
         window.location.reload();
       } else {
@@ -185,11 +114,11 @@ $(document).ready(function () {
 
   $(document).on("click", '.delete_incident', function () {
     let $this = $(this);
-    let modalDeleteButton = $("#modal-delete-button");
+    let modalDeleteForm = $("#modal-delete-form");
     let deleteUrlBase = $this.data('delete-url');
     let incidentId = $this.data('incident-id');
     let deleteUrl = deleteUrlBase.replace('0', incidentId);
-    modalDeleteButton.attr('href', deleteUrl);
+    modalDeleteForm.attr('action', deleteUrl);
   });
 
   $(document).on("click", '.contacts_incident', function () {
@@ -215,7 +144,7 @@ $(document).ready(function () {
     let $popup = $("#export_incidents");
     let popup_url = `/incidents/export_incidents`;
 
-    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr)  {
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr) {
       if (xhr.status === 403) {
         window.location.reload();
       } else {
@@ -224,51 +153,30 @@ $(document).ready(function () {
     });
   });
 
-  $("#openFilter").on("click", function () {
-    $("#filterModal").modal("show");
-  });
+  // Dashboard columns sort management
 
+  sort_field_from_context = $('#sort_field_ni_table').text() ? JSON.parse($('#sort_field_ni_table').text()) : null,
+  sort_direction_from_context = $('#sort_direction_ni_table').text() ? JSON.parse($('#sort_direction_ni_table').text()) : "desc",
 
-  const $search_bar_form = $("#search_bar_form")
-  const $search_bar_input = $("#id_search")
-  const $clearSearchBtn = $("#clearSearch")
-
-  function toggleClearButton() {
-    if ($search_bar_input.val() !== "") {
-      $clearSearchBtn.removeClass("d-none");
-    } else {
-      $clearSearchBtn.addClass("d-none");
+  initSortableHeaders(
+    {
+      sortField: sort_field_from_context,
+      sortDirection: sort_direction_from_context,
     }
-  }
+  );
 
-  $(document).on("input", $search_bar_input, toggleClearButton)
-
-  $(document).on("click", "#clearSearch", function () {
-    $search_bar_input.val("");
-    toggleClearButton();
-    $search_bar_form.trigger("submit");
+  // Dashboard columns visibility management
+  const $tableDashboard = $('#incidents-table');
+  $(document).on('show.bs.modal', '#IncidentshideColumns', function () {
+    initColumnsChoice($tableDashboard);
   });
-
-  $(document).on("submit", $search_bar_form, function () {
-    load_spinner()
+  $(document).on('change', '.column-toggle', function () {
+    changeColumnVisibility($tableDashboard, this);
   });
+  loadColumnDashboardState($tableDashboard);
 
-  function checkNIStatusLegend() {
-    const status = localStorage.getItem('ni_status_legend');
-    if (status === "true") {
-      $('#collapseLegend').addClass("show");
-    } else {
-      $('#collapseLegend').removeClass("show");
-    }
-  }
-
-  checkNIStatusLegend();
-  toggleClearButton();
+  //Legend status management
+  $(document).on('click', '#ni_legend_btn', saveStatusLegend)
+  loadStatusLegend();
 });
-
-function save_ni_status_legend() {
-  const current = localStorage.getItem('ni_status_legend') === "true";
-  const newValue = !current;
-  localStorage.setItem('ni_status_legend', newValue);
-}
 

@@ -47,9 +47,6 @@
 {% block content_table_incident_id %}
   {{ incident.incident_id }}
 {% endblock %}
-{% block content_table_entity %}
-  {{ incident.sector_regulation.regulator }}
-{% endblock %}
 {% block content_table_report %}
   {% with completed_workflows=incident.get_workflows_completed %}
     <ul class="list-unstyled mb-0">
@@ -167,7 +164,6 @@
   {{ block.super }}
   <div class="modal fade"
        id="workflow_comment"
-       data-bs-backdrop="static"
        data-bs-keyboard="false"
        tabindex="-1"
        aria-labelledby="workflow_comment_label"

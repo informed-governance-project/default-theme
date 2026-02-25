@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 09:08+0100\n"
+"POT-Creation-Date: 2026-02-25 09:41+0100\n"
 "PO-Revision-Date: 2025-11-25 14:09+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -39,30 +39,30 @@ msgstr "Rien sélectionné"
 msgid "items selected"
 msgstr "éléments sélectionnés"
 
-#: theme/static/js/incidents.js:104
+#: theme/static/js/incidents.js:33
 msgid "Download PDF report"
 msgstr "Télécharger le rapport PDF"
 
-#: theme/static/js/incidents.js:105
+#: theme/static/js/incidents.js:34
 msgid "Review"
 msgstr "Revue"
 
-#: theme/static/js/incidents.js:106
+#: theme/static/js/incidents.js:35
 msgid "Comment"
 msgstr "Commentaire"
 
-#: theme/static/js/incidents_regulator.js:33
+#: theme/static/js/incidents_regulator.js:42
 msgid "The incident has been closed"
 msgstr "L'incident est clos"
 
-#: theme/static/js/incidents_regulator.js:34
+#: theme/static/js/incidents_regulator.js:43
 msgid "The incident is still ongoing"
 msgstr "L'incident est toujours en cours"
 
-#: theme/static/js/incidents_regulator.js:37
+#: theme/static/js/incidents_regulator.js:46
 msgid "Incident with significant impact"
 msgstr "Incident ayant un impact significatif"
 
-#: theme/static/js/incidents_regulator.js:38
+#: theme/static/js/incidents_regulator.js:47
 msgid "No significant impact"
 msgstr "Pas d'impact significatif"

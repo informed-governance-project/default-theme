@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 09:08+0100\n"
+"POT-Creation-Date: 2026-02-25 09:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,30 +37,30 @@ msgstr ""
 msgid "items selected"
 msgstr ""
 
-#: theme/static/js/incidents.js:104
+#: theme/static/js/incidents.js:33
 msgid "Download PDF report"
 msgstr ""
 
-#: theme/static/js/incidents.js:105
+#: theme/static/js/incidents.js:34
 msgid "Review"
 msgstr ""
 
-#: theme/static/js/incidents.js:106
+#: theme/static/js/incidents.js:35
 msgid "Comment"
 msgstr ""
 
-#: theme/static/js/incidents_regulator.js:33
+#: theme/static/js/incidents_regulator.js:42
 msgid "The incident has been closed"
 msgstr ""
 
-#: theme/static/js/incidents_regulator.js:34
+#: theme/static/js/incidents_regulator.js:43
 msgid "The incident is still ongoing"
 msgstr ""
 
-#: theme/static/js/incidents_regulator.js:37
+#: theme/static/js/incidents_regulator.js:46
 msgid "Incident with significant impact"
 msgstr ""
 
-#: theme/static/js/incidents_regulator.js:38
+#: theme/static/js/incidents_regulator.js:47
 msgid "No significant impact"
 msgstr ""

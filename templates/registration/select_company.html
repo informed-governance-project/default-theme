@@ -1,6 +1,10 @@
 {% extends "registration/base.html" %}
 {% load django_bootstrap5 %}
 {% load i18n %}
+{% load static %}
+{% block bootstrap5_extra_script %}
+  <script src='{% static "js/select_company.js" %}'></script>
+{% endblock %}
 {% block title %}
   {% translate "Select company" %}
 {% endblock %}
@@ -20,24 +24,4 @@
       </form>
     </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const select = document.getElementById("id_select_company");
-      const submitBtn = document.getElementById("submit-btn");
-
-      function toggleButton() {
-        if (select.value) {
-          submitBtn.disabled = false;
-        } else {
-          submitBtn.disabled = true;
-        }
-      }
-
-      // initial check
-      toggleButton();
-
-      // update on change
-      select.addEventListener("change", toggleButton);
-    });
-  </script>
 {% endblock login_card %}
