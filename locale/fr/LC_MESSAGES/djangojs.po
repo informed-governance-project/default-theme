@@ -3,21 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 09:41+0100\n"
-"PO-Revision-Date: 2025-11-25 14:09+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2026-03-26 08:42+0100\n"
+"PO-Revision-Date: 2026-03-25 14:12+0000\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.8\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: theme/static/js/base.js:19
 msgid "Showing _START_ to _END_ of _TOTAL_ entries"
@@ -33,7 +32,7 @@ msgstr ": Activer pour trier"
 
 #: theme/static/js/base.js:67
 msgid "Nothing selected"
-msgstr "Rien sélectionné"
+msgstr "Rien de sélectionné"
 
 #: theme/static/js/base.js:68
 msgid "items selected"
@@ -57,12 +56,12 @@ msgstr "L'incident est clos"
 
 #: theme/static/js/incidents_regulator.js:43
 msgid "The incident is still ongoing"
-msgstr "L'incident est toujours en cours"
+msgstr "L'incident est en cours"
 
 #: theme/static/js/incidents_regulator.js:46
 msgid "Incident with significant impact"
-msgstr "Incident ayant un impact significatif"
+msgstr "Incident à impact significatif"
 
 #: theme/static/js/incidents_regulator.js:47
 msgid "No significant impact"
-msgstr "Pas d'impact significatif"
+msgstr "Impact non significatif"

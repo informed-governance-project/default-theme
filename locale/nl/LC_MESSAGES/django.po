@@ -2,14 +2,14 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 09:41+0100\n"
-"PO-Revision-Date: 2026-02-12 10:27+0000\n"
-"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
+"POT-Creation-Date: 2026-03-26 08:42+0100\n"
+"PO-Revision-Date: 2026-03-25 14:12+0000\n"
+"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14.3\n"
+"X-Generator: Weblate 5.15.2\n"
 "Generated-By: xls-to-po 1.0\n"
 
 #: theme/templates/account/edit.html:8
@@ -28,7 +28,7 @@ msgstr "Wijzigingen opslaan"
 
 #: theme/templates/admin/base_site.html:16
 msgid "Django admin area"
-msgstr "Admin-gebied van Django"
+msgstr "Beheerzone Django"
 
 #: theme/templates/admin/base_site.html:21
 msgid "Account security"
@@ -36,7 +36,7 @@ msgstr "Accountbeveiliging"
 
 #: theme/templates/admin/base_site.html:22
 msgid "Password change"
-msgstr "Wijziging van wachtwoord"
+msgstr "Wachtwoord wijzigen"
 
 #: theme/templates/admin/base_site.html:24
 msgid "Return to user interface"
@@ -57,7 +57,7 @@ msgstr "Aanvaarde cookies resetten"
 
 #: theme/templates/admin/settings_list.html:5
 msgid "Variables Django Settings"
-msgstr ""
+msgstr "Django-instellingen"
 
 #: theme/templates/admin/settings_list.html:19
 #: theme/templates/cookiebanner/bootstrap5.html:53
@@ -68,7 +68,7 @@ msgstr "Naam"
 
 #: theme/templates/admin/settings_list.html:22
 msgid "Value"
-msgstr ""
+msgstr "Waarde"
 
 #: theme/templates/cookiebanner/bootstrap5.html:44
 msgid "Details"
@@ -92,11 +92,11 @@ msgstr "Maximale duur"
 
 #: theme/templates/cookiebanner/bootstrap5.html:98
 msgid "Accept"
-msgstr "Accepteren"
+msgstr "Aanvaarden"
 
 #: theme/templates/emails/incident_mass_export.html:4
 msgid "Dear Sir or Madam,"
-msgstr ""
+msgstr "Geachte heer, mevrouw,"
 
 #: theme/templates/emails/incident_mass_export.html:7
 #, python-format
@@ -104,30 +104,34 @@ msgid ""
 "We would like to inform you that a new incident mass export related to the "
 "regulation %(regulation)s has been completed."
 msgstr ""
+"Hierbij informeren we u graag dat er een nieuwe pakketexport beschikbaar is "
+"van incidenten met betrekking tot verordening %(regulation)s."
 
 #: theme/templates/emails/incident_mass_export.html:13
 msgid ""
 "If you or a member of your team did not initiate this action or if it "
 "appears suspicious, we recommend that you investigate the matter further."
 msgstr ""
+"Is deze actie niet het werk van u of van een teamlid, of lijkt de actie "
+"verdacht? Dan raden we u aan om de kwestie verder te onderzoeken."
 
 #: theme/templates/emails/incident_mass_export.html:19
 msgid "Kind regards,"
-msgstr ""
+msgstr "Met vriendelijke groet,"
 
 #: theme/templates/emails/incident_mass_export.html:23
 #: theme/templates/registration/login.html:16
 msgid "Incident Notification"
-msgstr ""
+msgstr "Incidentmelding"
 
 #: theme/templates/emails/suggestion_link_user_account.html:5
 #, python-format
 msgid "Dear %(operator_admin_name)s,"
-msgstr ""
+msgstr "Geachte heer of mevrouw %(operator_admin_name)s,"
 
 #: theme/templates/emails/suggestion_link_user_account.html:9
 msgid "Dear Madam or Sir,"
-msgstr ""
+msgstr "Geachte heer, mevrouw,"
 
 #: theme/templates/emails/suggestion_link_user_account.html:13
 #, python-format
@@ -135,12 +139,16 @@ msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
 "has been created on SERIMA and it may be part of your organization."
 msgstr ""
+"We hebben vastgesteld dat op SERIMA de gebruikersaccount %(new_user_name)s "
+"(%(new_user_email)s) is aangemaakt, die mogelijk deel uitmaakt van uw "
+"organisatie."
 
 #: theme/templates/emails/suggestion_link_user_account.html:19
 #, python-format
 msgid ""
 "However, %(new_user_name)s is not yet linked to any organization on SERIMA."
 msgstr ""
+"%(new_user_name)s is echter nog niet gekoppeld aan een organisatie op SERIMA."
 
 #: theme/templates/emails/suggestion_link_user_account.html:24
 #, python-format
