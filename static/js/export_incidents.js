@@ -149,6 +149,12 @@ $(document).ready(function () {
             const modalEl = $form.closest(".modal");
             if (modalEl.length) {
               const modal = bootstrap.Modal.getInstance(modalEl[0]);
+              modalEl[0].addEventListener('hidden.bs.modal', () => {
+                document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                document.body.classList.remove('modal-open');
+                document.body.style.removeProperty('overflow');
+                document.body.style.removeProperty('padding-right');
+              }, { once: true });
               modal.hide();
             }
             if (data.messages) {
@@ -181,6 +187,14 @@ $(document).ready(function () {
 
         if (modalEl.length) {
           const modal = bootstrap.Modal.getInstance(modalEl[0]);
+          modalEl[0].addEventListener('hidden.bs.modal', () => {
+              // delete backdrop
+            document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+              // Restore body
+            document.body.classList.remove('modal-open');
+            document.body.style.removeProperty('overflow');
+            document.body.style.removeProperty('padding-right');
+          }, { once: true });
           modal.hide();
         }
 

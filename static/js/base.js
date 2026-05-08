@@ -303,7 +303,7 @@ function toggleClearButton() {
   }
 }
 
-$(document).on("input", $search_bar_input, toggleClearButton)
+$(document).on("input", "#id_search", toggleClearButton)
 
 $(document).on("click", "#clearSearch", function () {
   $search_bar_input.val("");
@@ -311,7 +311,7 @@ $(document).on("click", "#clearSearch", function () {
   $search_bar_form.trigger("submit");
 });
 
-$(document).on("submit", $search_bar_form, function () {
+$(document).on("submit", "#search_bar_form", function () {
   load_spinner()
 });
 

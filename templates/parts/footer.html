@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}" />
 {% endblock %}
 <footer role="contentinfo" class="footer mt-auto pt-3">
-  <div class="container-fluid px-2 px-xl-5">
+  <div class="container-fluid px-4 px-xl-5">
     <div class="row d-flex justify-content-between pb-2 small">
       <div class="col-4 col-sm-3 col-xl-2 hstack gap-2">
         <div class="col-10 col-sm-auto">
@@ -13,7 +13,7 @@
         </div>
         <img src="{% static 'images/nc3_logo.svg' %}"
              alt="NC3 logo"
-             class="w-60 w-xl-50 h-100 h-sm-75">
+             class="nc3-logo">
       </div>
       <div class="col-6 col-xl-2 text-end align-self-center">
         {% translate "Version" %} : {{ app_version_from_pyproject }}

@@ -10,7 +10,14 @@
   {% translate "Home" %}
 {% endblock %}
 {% block content %}
-  <div class="row row-cols-1 row-cols-xl-3 d-flex align-items-center justify-content-center h-xl-100 gap-3 gap-xl-0 py-4 px-xl-5">
+  <div id="user-modules-container"
+       class="row row-cols-1
+              {% if user_modules|length > 1 %}
+                row-cols-xl-{{ user_modules|length }}
+              {% else %}
+                row-cols-xl-3
+              {% endif %}
+              d-flex align-items-center justify-content-center h-xl-100 gap-3 gap-xl-0 py-4 px-xl-5">
     {% for user_module in user_modules %}
       <div class="col">
         <div class="card shadow rounded-1 p-3">
@@ -19,7 +26,7 @@
               {% with "images/icons/ico-"|add:user_module.type|add:".svg" as icon_url %}
                 <img src="{% static icon_url %}"
                      alt="{{ user_module.name }} icon"
-                     class="w-10 w-xl-15 mb-3">
+                     class="icon-module mb-3">
               {% endwith %}
               <div class="d-flex flex-column justify-content-end title-container">
                 <h3 class="card-title fw-bolder lh-1 col-auto mb-0">

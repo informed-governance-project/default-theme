@@ -5,13 +5,18 @@
     background-position: center center;
 }
 
+.icon-module {
+    width: 3rem;
+    height: 3rem;
+}
+
 @media (min-width: 1200px) {
     .description-container {
         min-height: 150px;
     }
 
     .title-container {
-        min-height: 55px;
+        min-height: 3rem;
     }
 
 }

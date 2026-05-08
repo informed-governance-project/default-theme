@@ -37,7 +37,7 @@
               type="button"
               data-bs-placement="top"
               data-bs-toggle="tooltip"
-              title="{% translate 'Filter by status, sector, etc.' %}">
+              title="{% translate 'Filter incidents by status, sector, etc' %}">
         {% translate "Filter" %}
         {% if is_filtered %}
           <span>({% translate "Active" %})</span>
@@ -115,51 +115,59 @@
       <caption class="visually-hidden">{% translate "Incidents table" %}</caption>
       <thead>
         <tr>
-          <th scope="col" class="sortable align-middle" data-sort-field="status">
+          <th scope="col"
+              class="col-1 sortable align-middle"
+              data-sort-field="status">
             {% translate "Status" %}
           </th>
           <th scope="col"
-              class="sortable align-middle default-sort-field"
+              class="col-1 sortable align-middle default-sort-field"
               data-sort-field="last_update">
             {% translate "Last update" %}
           </th>
           <th scope="col"
-              class="sortable align-middle"
+              class="col-1 sortable align-middle"
               data-sort-field="notification_date">
             {% translate "Creation date" %}
           </th>
           {% if is_regulator and not is_regulator_incidents or is_observer %}
             <th scope="col"
-                class="sortable align-middle"
+                class="col-1 sortable align-middle"
                 data-sort-field="company_identifier">
               {% translate "Operator Acronym" %}
             </th>
             <th scope="col"
-                class="sortable align-middle"
+                class="col-1 sortable align-middle"
                 data-sort-field="company_name">
               {% translate "Operator Name" %}
             </th>
           {% endif %}
           {% if not is_regulator or is_regulator_incidents %}
-            <th scope="col" class="sortable align-middle" data-sort-field="regulator">
+            <th scope="col"
+                class="col-1 sortable align-middle"
+                data-sort-field="regulator">
               {% translate "Regulator" %}
             </th>
           {% endif %}
           <th scope="col"
-              class="sortable align-middle"
+              class="col-1 sortable align-middle"
               data-sort-field="regulation">
             {% translate "Regulation" %}
           </th>
-          <th scope="col" class="sortable align-middle" data-sort-field="reference">
+          <th scope="col"
+              class="col-2 sortable align-middle"
+              data-sort-field="reference">
             {% translate "Reference" %}
           </th>
-          <th scope="col" class="sortable align-middle" data-sort-field="sectors">
+          <th scope="col"
+              class="col-2 sortable align-middle"
+              data-sort-field="sectors">
             {% translate "Sectors" %}
           </th>
-          <th scope="col" class="align-middle">
+          <th scope="col" class="col-2 align-middle">
             {% translate "Report" %}
           </th>
-          <th scope="col" class="align-middle">
+          <th scope="col" class="col-1 align-middle">
             <div class="d-flex align-items-center gap-1">
               {% translate "Actions" %}
               <button class="btn btn-sm btn-primary ms-auto"
@@ -181,7 +189,7 @@
           {% timezone time_zone %}
           <tr>
             <!-- Incident status  -->
-            <td class="table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3">
               <div class="col d-inline-flex align-items-center justify-content-center gap-1">
                 {% block content_table_significative_impact %}
                   {% for field in incident.formsStatus %}
@@ -222,7 +230,7 @@
               </div>
             </td>
             <!-- Incident last update date -->
-            <td class="table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3">
               <div class="d-inline"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
@@ -234,7 +242,7 @@
               </div>
             </td>
             <!-- Incident notification date -->
-            <td class="table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3">
               <div class="d-inline"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
@@ -247,26 +255,26 @@
             </td>
             {% if is_regulator and not is_regulator_incidents or is_observer %}
               <!-- Operator/regulator Acronym -->
-              <td class="table-group-divider py-3">
+              <td class="col-1 table-group-divider py-3">
                 {{ incident.company_or_regulator_acronym }}
               </td>
               <!-- Operator/regulator name -->
-              <td class="table-group-divider py-3">
+              <td class="col-1 table-group-divider py-3">
                 {{ incident.company_or_regulator_name }}
               </td>
             {% endif %}
             <!-- Regulator -->
             {% if not is_regulator or is_regulator_incidents %}
-              <td class="table-group-divider py-3">
+              <td class="col-1 table-group-divider py-3">
                 {{ incident.sector_regulation.regulator }}
               </td>
             {% endif %}
             <!-- Regulation -->
-            <td class="table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3">
               {{ incident.sector_regulation.regulation }}
             </td>
             <!-- Reference -->
-            <td class="table-group-divider py-3">
+            <td class="col-2 table-group-divider py-3">
               {% block content_table_incident_id %}
                 {% for field in incident.formsStatus %}
                   {% if field.name == "incident_id" %}
@@ -276,7 +284,7 @@
               {% endblock %}
             </td>
             <!-- Sectors -->
-            <td class="table-group-divider py-3 px-2 list-sectors">
+            <td class="col-2 table-group-divider py-3 px-2 list-sectors">
               {% for root_sector in incident.get_no_childrens_sectors %}
                 <p class="fw-bolder">
                   {{ root_sector.get_safe_translation }}
@@ -300,7 +308,7 @@
               {% endfor %}
             </td>
             <!-- Report name and status -->
-            <td class="table-group-divider py-3">
+            <td class="col-2 table-group-divider py-3">
               {% with incident_view_action="edit_workflow" %}
                 {% block content_table_report %}
                   <ul class="list-unstyled mb-0">
@@ -309,47 +317,54 @@
                         <li class="mb-1">
                           <div class="hstack gap-2 d-inline"
                                data-bs-placement="top"
-                               data-bs-toggle="tooltip"
-                               title="{{ report.tooltip }}">
+                               data-bs-toggle="tooltip">
                             <i class="custom-icon-{{ report.css_class }} align-middle"
-                               aria-hidden="true"></i>
+                               aria-hidden="true"
+                               data-bs-toggle="tooltip"
+                               data-bs-placement="top"
+                               title="{{ report.tooltip }}"></i>
                             <a class="text-{{ report.css_class }}
                                       {% if not latest_incident_workflow %}
                                         text-decoration-none
                                       {% endif %}"
+                               title="{{ report.tooltip }}"
+                               data-bs-toggle="tooltip"
+                               data-bs-placement="top"
                                {% if latest_incident_workflow %}
                                  href="{% url incident_view_action %}?incident_workflow_id={{ latest_incident_workflow.id }}"
                                {% endif %}>{{ report.name }}</a>
                             {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
-                              <div class="d-inline-flex align-items-center">
-                                {% if incident_workflows %}
-                                  <button class="btn text-dark p-0 ps-1 border-0 report_versions"
-                                          data-workflows="{{ incident_workflows }}"
-                                          data-report="{{ report.name }}"
-                                          data-incident-ref="{{ incident.incident_id }}"
-                                          data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                                          data-download-url="{% url 'download_incident_report_pdf' 0 %}"
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#report_versions">
-                                    <i class="custom-icon-versioning h6 align-self-center"
-                                       aria-hidden="true"
+                              {% if incident_workflows or latest_incident_workflow %}
+                                <div class="d-inline-flex align-items-center">
+                                  {% if incident_workflows %}
+                                    <button class="btn text-dark p-0 ps-1 border-0 report_versions"
+                                            data-workflows="{{ incident_workflows }}"
+                                            data-report="{{ report.name }}"
+                                            data-incident-ref="{{ incident.incident_id }}"
+                                            data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
+                                            data-download-url="{% url 'download_incident_report_pdf' 0 %}"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#report_versions">
+                                      <i class="custom-icon-versioning h6 align-self-center"
+                                         aria-hidden="true"
+                                         data-bs-placement="top"
+                                         data-bs-toggle="tooltip"
+                                         title="{% translate 'Version control' %}">
+                                      </i>
+                                      <span class="visually-hidden">{% translate "Version control" %}</span>
+                                    </button>
+                                  {% endif %}
+                                  {% if latest_incident_workflow %}
+                                    <a class="btn p-0 ps-1 border-0"
+                                       href="{% url 'download_incident_report_pdf' latest_incident_workflow.id %}"
                                        data-bs-placement="top"
                                        data-bs-toggle="tooltip"
-                                       title="{% translate 'Version control' %}">
-                                    </i>
-                                    <span class="visually-hidden">{% translate "Version control" %}</span>
-                                  </button>
-                                {% endif %}
-                                {% if latest_incident_workflow %}
-                                  <a class="btn p-0 ps-1 border-0"
-                                     href="{% url 'download_incident_report_pdf' latest_incident_workflow.id %}"
-                                     data-bs-placement="top"
-                                     data-bs-toggle="tooltip"
-                                     title="{% translate 'Download PDF report' %}">
-                                    <i class="custom-icon-pdf-small h6 align-self-center" aria-hidden="true"></i>
-                                  </a>
-                                {% endif %}
-                              </div>
+                                       title="{% translate 'Download PDF report' %}">
+                                      <i class="custom-icon-pdf-small h6 align-self-center" aria-hidden="true"></i>
+                                    </a>
+                                  {% endif %}
+                                </div>
+                              {% endif %}
                             {% endwith %}
                           </div>
                         </li>
@@ -360,7 +375,7 @@
               {% endwith %}
             </td>
             <!-- Actions -->
-            <td class="table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3">
               <div class="col d-flex align-items-center">
                 {% block content_table_actions %}
                   <button class="btn access_log p-0"

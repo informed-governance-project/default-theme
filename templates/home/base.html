@@ -2,8 +2,6 @@
 {% load django_bootstrap5 %}
 {% load static %}
 {% load cookiebanner %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 {% block bootstrap5_extra_head %}
   <meta name="description" content="{{ site_name }}" />
   <link rel="stylesheet"
@@ -12,12 +10,11 @@
   <link rel="stylesheet"
         type="text/css"
         href='{% static "npm_components/bootstrap-multiselect/dist/css/bootstrap-multiselect.min.css" %}' />
+  <script src='{% static "npm_components/jquery/dist/jquery.min.js" %}'></script>
 {% endblock %}
 {% block bootstrap5_extra_script %}
-  <script src='{% static "npm_components/@popperjs/core/dist/umd/popper.min.js" %}'></script>
-  <script src='{% static "npm_components/jquery/dist/jquery.min.js" %}'></script>
-  <script src='{% static "npm_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.min.js" %}'></script>
   <script src="{% url 'javascript-catalog' %}"></script>
+  <script src='{% static "npm_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.min.js" %}'></script>
   <script src='{% static "js/base.js" %}'></script>
 {% endblock %}
 {% block bootstrap5_before_content %}

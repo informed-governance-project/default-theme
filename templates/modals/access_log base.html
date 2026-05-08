@@ -1,0 +1,30 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% load static %}
+{% block bootstrap5_extra_head %}
+  <link rel="stylesheet"
+        href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}">
+{% endblock %}
+{% block bootstrap5_extra_script %}
+  <script src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
+  <script src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
+  <script src='{% static "js/access_log.js" %}'></script>
+{% endblock %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white px-4 small">
+      <h5 class="modal-title" id="access_log_label">
+        {% translate "Access Log" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="{% translate 'Close' %}">
+      </button>
+    </div>
+    <div class="modal-body py-4 px-5">
+      {% block log_table %}
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}

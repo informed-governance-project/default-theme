@@ -2,11 +2,9 @@
 {% load django_bootstrap5 %}
 {% load static %}
 {% load i18n %}
-{% bootstrap_css %}
 {% block bootstrap5_extra_head %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
-  <script src='{% static "npm_components/@popperjs/core/dist/umd/popper.min.js" %}'></script>
 {% endblock %}
 {% block bootstrap5_extra_script %}
   {{ block.super }}

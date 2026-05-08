@@ -15,6 +15,7 @@ $secondary: #212529;
 
 @import "../../../node_modules/bootstrap/scss/functions";
 @import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
 
 // Custom Colors
 $no-impact: #727272;
@@ -93,6 +94,11 @@ $utilities: map-merge($utilities,
         ),
     ),
     ));
+
+#user-modules-container .card-title {
+    @include font-size(1.45rem);
+}
+
 
 @font-face {
     font-family: Montserrat;

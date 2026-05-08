@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% block bootstrap5_extra_script %}
+  <script src='{% static "npm_components/@popperjs/core/dist/umd/popper.min.js" %}'></script>
   <link rel="stylesheet"
         href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
   <script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
