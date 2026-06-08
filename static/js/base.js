@@ -20,6 +20,52 @@ var datatableTranslations = {
   lengthMenu: gettext("_MENU_ entries per page"),
   aria: { orderable: gettext(": Activate to sort") },
 };
+// Default options for Summernote Editor
+const summernoteMap = {
+  en: "en-US",
+  fr: "fr-FR",
+  de: "de-DE",
+  nl: "nl-NL",
+};
+const summernoteLang = summernoteMap[$('html').attr('lang')] || "en-US";
+const summernoteScript = document.createElement("script");
+summernoteScript.src =`/static/npm_components/summernote/dist/lang/summernote-${summernoteLang}.min.js`;
+const summernoteDefaultOptions = {
+  lang: summernoteLang,
+  height: 300,
+  codeviewFilter: true,
+  codeviewIframeFilter: true,
+  disableDragAndDrop: true,
+  toolbar: [
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    ['fontstyle', ['fontsize', 'color']],
+    ['para', ['ul', 'ol', 'paragraph', 'height']],
+    ['insert', ['link', 'picture']],
+    ['misc', ['fullscreen', 'undo', 'redo']]
+  ],
+  callbacks: {
+    onInit: function () {
+      $(this).removeClass('d-none');
+    }
+  }
+};
+
+const summernoteDisabledOptions = {
+  codeviewFilter: true,
+  codeviewIframeFilter: true,
+  disableResizeEditor: true,
+  disableDragAndDrop: true,
+  shortcuts: false,
+  toolbar: [],
+  callbacks: {
+    onInit: function () {
+      $(this).summernote('disable');
+      $(this).next('.note-editor').find('.note-statusbar').remove()
+    }
+  }
+};
+
+
 
 // Default options for tempus dominus
 const defaultTempusdOptions = {
@@ -66,13 +112,13 @@ $(document).ready(function () {
     buttonTextAlignment: 'left',
     nonSelectedText: gettext('Nothing selected'),
     nSelectedText: gettext('items selected'),
+    allSelectedText: gettext('All selected'),
     numberDisplayed: 1,
     templates: {
       button: '<button class="multiselect form-select dropdown-toggle" data-bs-toggle="dropdown"><span class="multiselect-selected-text"></span></button>',
       option: '<button class="multiselect-option dropdown-item"></button>',
     }
   });
-
   $('.create_so_declaration').on("click", function () {
     var $popup = $("#create_so_declaration");
     var popup_url = '/securityobjectives/create';

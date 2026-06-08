@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 08:32+0200\n"
-"PO-Revision-Date: 2026-04-30 12:29+0000\n"
-"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
+"POT-Creation-Date: 2026-06-08 11:09+0200\n"
+"PO-Revision-Date: 2026-05-30 07:28+0000\n"
+"Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -30,13 +30,17 @@ msgstr "_MENU_ Zeilen anzeigen"
 msgid ": Activate to sort"
 msgstr ": Aktivieren zum Sortieren"
 
-#: theme/static/js/base.js:67
+#: theme/static/js/base.js:113
 msgid "Nothing selected"
 msgstr "Nichts ausgewählt"
 
-#: theme/static/js/base.js:68
+#: theme/static/js/base.js:114
 msgid "items selected"
 msgstr "Objekte ausgewählt"
+
+#: theme/static/js/base.js:115
+msgid "All selected"
+msgstr "Alle ausgewählt"
 
 #: theme/static/js/incidents.js:33
 msgid "Download PDF report"

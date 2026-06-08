@@ -90,6 +90,8 @@
                 {% if latest_incident_workflow.comment %}
                   <button class="btn text-secondary workflow_comment p-0"
                           data-workflow-comment="{{ latest_incident_workflow.comment|urlencode }}"
+                          data-status="{{ latest_incident_workflow.get_review_status_display }}"
+                          data-status-css-class="{{ report.css_class }}"
                           data-bs-toggle="modal"
                           data-bs-target="#workflow_comment">
                     <i class="custom-icon-comments h6"

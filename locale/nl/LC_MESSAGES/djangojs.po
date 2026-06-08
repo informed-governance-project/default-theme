@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 08:32+0200\n"
+"POT-Creation-Date: 2026-06-08 11:09+0200\n"
 "PO-Revision-Date: 2026-04-30 12:29+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language-Team: \n"
@@ -30,13 +30,17 @@ msgstr "_MENU_ resultaten weergeven"
 msgid ": Activate to sort"
 msgstr ": Activeren om te sorteren"
 
-#: theme/static/js/base.js:67
+#: theme/static/js/base.js:113
 msgid "Nothing selected"
 msgstr "Niets geselecteerd"
 
-#: theme/static/js/base.js:68
+#: theme/static/js/base.js:114
 msgid "items selected"
 msgstr "items geselecteerd"
+
+#: theme/static/js/base.js:115
+msgid "All selected"
+msgstr ""
 
 #: theme/static/js/incidents.js:33
 msgid "Download PDF report"

@@ -57,6 +57,8 @@ $(document).ready(function () {
           <button class="btn p-0 ps-1 border-0 d-inline-flex align-items-center comment-btn"
                   type="button" data-bs-target="#report_version_workflow_comment" 
                   data-bs-toggle="modal" 
+                  data-status="${reviewStatus}"
+                  data-status-css-class="${reviewStatusCssClass}"
                   data-comment="${encodeURIComponent(reviewComment)}">
             <i class="custom-icon-comments h4 align-self-center" 
               data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_comment}">
@@ -107,7 +109,16 @@ $(document).ready(function () {
     // Show the comment
     $(document).on('click', '.comment-btn', function () {
       let comment = decodeURIComponent($(this).data('comment') || '');
-      $('#report_version_workflow_comment #modal-workflow-comment').val(comment);
+      let status = $(this).data('status');
+      let reviewStatusCssClass = $(this).data('status-css-class');
+      let $modalWorkflowComment = $('#report_version_workflow_comment').find('#modal-workflow-comment');
+      let $statusContainer = $('#report_version_workflow_comment').find('#status-container');
+      $statusContainer
+        .attr("class","form-select fw-bolder text-white")
+        .addClass(`bg-${reviewStatusCssClass}`)
+        .html(`<option value="${reviewStatusCssClass}" selected>${status}</option>`);
+      $modalWorkflowComment.summernote(summernoteDisabledOptions);
+      $modalWorkflowComment.summernote("code", comment);
     });
     $modalWorkflowRows.find('[data-bs-toggle="tooltip"]').tooltip();
   });

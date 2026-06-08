@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 08:32+0200\n"
-"PO-Revision-Date: 2026-04-30 12:29+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"POT-Creation-Date: 2026-06-08 11:09+0200\n"
+"PO-Revision-Date: 2026-05-09 10:27+0000\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,7 +17,7 @@ msgid "Account management"
 msgstr "Accountbeheer"
 
 #: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
-#: theme/templates/incidents/declaration.html:26
+#: theme/templates/incidents/declaration.html:33
 #: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr "Velden met een sterretje (*) zijn verplicht."
@@ -505,8 +505,8 @@ msgid ""
 "resolution of security incidents related to SERIMA in order to guarantee the "
 "security of SERIMA;"
 msgstr ""
-"De afhandeling van beveiligingsincidenten in verband met SERIMA om de "
-"beveiliging van SERIMA te verzekeren."
+"afhandeling van beveiligingsincidenten in verband met SERIMA om de "
+"beveiliging van SERIMA te verzekeren;"
 
 #: theme/templates/home/privacy_policy.html:139
 msgid ""
@@ -1109,11 +1109,11 @@ msgstr ""
 
 #: theme/templates/home/terms.html:284
 msgid "incident notification and follow-up of incident notifications;"
-msgstr "Melding van incidenten en follow-up van meldingen."
+msgstr "melding van incidenten en follow-up van meldingen;"
 
 #: theme/templates/home/terms.html:289
 msgid "carrying out, submitting and reviewing risk analyses;"
-msgstr "Het uitvoeren, indienen en doornemen van risicoanalyses."
+msgstr "het uitvoeren, indienen en doornemen van risicoanalyses;"
 
 #: theme/templates/home/terms.html:294
 msgid ""
@@ -1192,12 +1192,12 @@ msgid ""
 "the reasons for the request, i.e. the legal framework to which the Operator "
 "is subject;"
 msgstr ""
-"De redenen voor het verzoek, meer bepaald het wettelijke kader waaraan de "
-"Operator onderworpen is."
+"redenen voor het verzoek, meer bepaald het wettelijke kader waaraan de "
+"Operator onderworpen is;"
 
 #: theme/templates/home/terms.html:352
 msgid "the official name of the organisation;"
-msgstr "De officiële naam van de organisatie."
+msgstr "de officiële naam van de organisatie;"
 
 #: theme/templates/home/terms.html:357
 msgid ""
@@ -1754,21 +1754,21 @@ msgstr "Referenties"
 msgid "Optional"
 msgstr "Optioneel"
 
-#: theme/templates/incidents/declaration.html:20
+#: theme/templates/incidents/declaration.html:27
 msgid "Report an incident"
 msgstr "Een incident melden"
 
-#: theme/templates/incidents/declaration.html:35
+#: theme/templates/incidents/declaration.html:42
 msgid "Incident notification steps"
 msgstr "Stappen incidentmelding"
 
-#: theme/templates/incidents/declaration.html:155
+#: theme/templates/incidents/declaration.html:163
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/export_incidents.html:78
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: theme/templates/incidents/declaration.html:157
+#: theme/templates/incidents/declaration.html:165
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1778,21 +1778,21 @@ msgstr "Annuleren"
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
 #: theme/templates/modals/report_versions.html:12
 #: theme/templates/modals/report_versions_workflow_comment.html:8
-#: theme/templates/modals/workflow_comment.html:13
+#: theme/templates/modals/workflow_comment.html:20
 #: theme/templates/parts/messages.html:16
 #: theme/templates/parts/messages.html:17
 msgid "Close"
 msgstr "Sluiten"
 
-#: theme/templates/incidents/declaration.html:170
+#: theme/templates/incidents/declaration.html:178
 msgid "Previous"
 msgstr "Vorig"
 
-#: theme/templates/incidents/declaration.html:189
+#: theme/templates/incidents/declaration.html:197
 msgid "Submit"
 msgstr "Indienen"
 
-#: theme/templates/incidents/declaration.html:191
+#: theme/templates/incidents/declaration.html:199
 msgid "Next"
 msgstr "Volgend"
 
@@ -1871,6 +1871,7 @@ msgstr "Tabel Incidenten"
 
 #: theme/templates/incidents/incidents_base.html:121
 #: theme/templates/modals/report_versions.html:30
+#: theme/templates/modals/workflow_comment.html:27
 msgid "Status"
 msgstr "Status"
 
@@ -1966,9 +1967,9 @@ msgstr "Datum van indiening van de incidentmelding"
 #: theme/templates/incidents/incidents_base.html:354
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
-#: theme/templates/operator/incidents.html:124
 #: theme/templates/operator/incidents.html:126
-#: theme/templates/operator/incidents.html:133
+#: theme/templates/operator/incidents.html:128
+#: theme/templates/operator/incidents.html:135
 msgid "Version control"
 msgstr "Versiebeheer"
 
@@ -2070,8 +2071,8 @@ msgid "Are you sure that you want to delete the incident?"
 msgstr "Weet u zeker dat u het incident wilt verwijderen?"
 
 #: theme/templates/modals/delete_incident.html:29
-#: theme/templates/operator/incidents.html:156
-#: theme/templates/operator/incidents.html:159
+#: theme/templates/operator/incidents.html:158
+#: theme/templates/operator/incidents.html:161
 msgid "Delete"
 msgstr "Verwijderen"
 
@@ -2083,10 +2084,14 @@ msgstr "Incidenten exporteren"
 msgid "Choice of columns"
 msgstr "Kolommenkeuze"
 
-#: theme/templates/modals/workflow_comment.html:7
-#: theme/templates/operator/incidents.html:98
-#: theme/templates/operator/incidents.html:101
-#: theme/templates/operator/incidents.html:107
+#: theme/templates/modals/workflow_comment.html:14
+msgid "Review"
+msgstr "Beoordeling"
+
+#: theme/templates/modals/workflow_comment.html:34
+#: theme/templates/operator/incidents.html:100
+#: theme/templates/operator/incidents.html:103
+#: theme/templates/operator/incidents.html:109
 msgid "Review comment"
 msgstr "Opmerking bekijken"
 

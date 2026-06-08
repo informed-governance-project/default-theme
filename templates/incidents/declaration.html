@@ -3,8 +3,15 @@
 {% load custom_filters %}
 {% load static %}
 {% load i18n %}
+{% block bootstrap5_extra_head %}
+  {{ block.super }}
+  <link rel="stylesheet"
+        type="text/css"
+        href="{% static 'npm_components/summernote/dist/summernote-bs5.min.css' %}" />
+{% endblock %}
 {% block bootstrap5_extra_script %}
   {{ block.super }}
+  <script src='{% static "npm_components/summernote/dist/summernote-bs5.min.js" %}'></script>
   <link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
   <script src='{% static "js/declaration.js" %}'></script>
   <!-- Tempus Dominus v6 -->
@@ -124,19 +131,20 @@
               {% else %}
                 {% for field in wizard.form %}
                   {% if "_freetext_answer" in field.id_for_label %}
-                    <div>
+                    <div id="st-sm-details-container">
                       {% bootstrap_label field.label label_class="form-check-label" label_for=field.id_for_label %}
                       {% bootstrap_field field show_label=False %}
                     </div>
                   {% else %}
-                    <div class="d-flex align-items-center
+                    <div id="question-label-container"
+                         class="d-flex align-items-center
                                 {% if field.field.required %}
                                   required-field
                                 {% endif %}">
                       {% bootstrap_label field.label label_class="fw-bold me-2" label_for=field.id_for_label %}
                       <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
                     </div>
-                    <div class="pt-4">
+                    <div id="question-answer-container" class="pt-4">
                       {% bootstrap_field field show_label=False %}
                     </div>
                   {% endif %}

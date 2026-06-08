@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 08:32+0200\n"
+"POT-Creation-Date: 2026-06-08 11:09+0200\n"
 "PO-Revision-Date: 2026-05-08 06:23+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgid "Account management"
 msgstr "Kontoverwaltung"
 
 #: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
-#: theme/templates/incidents/declaration.html:26
+#: theme/templates/incidents/declaration.html:33
 #: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr ""
@@ -1774,21 +1774,21 @@ msgstr "Referenzen"
 msgid "Optional"
 msgstr "Optional"
 
-#: theme/templates/incidents/declaration.html:20
+#: theme/templates/incidents/declaration.html:27
 msgid "Report an incident"
 msgstr "Einen Vorfall melden"
 
-#: theme/templates/incidents/declaration.html:35
+#: theme/templates/incidents/declaration.html:42
 msgid "Incident notification steps"
 msgstr "Schritte zur Vorfallmeldung"
 
-#: theme/templates/incidents/declaration.html:155
+#: theme/templates/incidents/declaration.html:163
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/export_incidents.html:78
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: theme/templates/incidents/declaration.html:157
+#: theme/templates/incidents/declaration.html:165
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1798,21 +1798,21 @@ msgstr "Abbrechen"
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
 #: theme/templates/modals/report_versions.html:12
 #: theme/templates/modals/report_versions_workflow_comment.html:8
-#: theme/templates/modals/workflow_comment.html:13
+#: theme/templates/modals/workflow_comment.html:20
 #: theme/templates/parts/messages.html:16
 #: theme/templates/parts/messages.html:17
 msgid "Close"
 msgstr "Schließen"
 
-#: theme/templates/incidents/declaration.html:170
+#: theme/templates/incidents/declaration.html:178
 msgid "Previous"
 msgstr "Zurück"
 
-#: theme/templates/incidents/declaration.html:189
+#: theme/templates/incidents/declaration.html:197
 msgid "Submit"
 msgstr "Einreichen"
 
-#: theme/templates/incidents/declaration.html:191
+#: theme/templates/incidents/declaration.html:199
 msgid "Next"
 msgstr "Weiter"
 
@@ -1891,6 +1891,7 @@ msgstr "Tabelle der Vorfälle"
 
 #: theme/templates/incidents/incidents_base.html:121
 #: theme/templates/modals/report_versions.html:30
+#: theme/templates/modals/workflow_comment.html:27
 msgid "Status"
 msgstr "Status"
 
@@ -1986,9 +1987,9 @@ msgstr "Einreichungsdatum der Vorfallmeldung"
 #: theme/templates/incidents/incidents_base.html:354
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
-#: theme/templates/operator/incidents.html:124
 #: theme/templates/operator/incidents.html:126
-#: theme/templates/operator/incidents.html:133
+#: theme/templates/operator/incidents.html:128
+#: theme/templates/operator/incidents.html:135
 msgid "Version control"
 msgstr "Versionsverwaltung"
 
@@ -2091,8 +2092,8 @@ msgid "Are you sure that you want to delete the incident?"
 msgstr "Sind Sie sicher, dass Sie den Vorfall löschen möchten?"
 
 #: theme/templates/modals/delete_incident.html:29
-#: theme/templates/operator/incidents.html:156
-#: theme/templates/operator/incidents.html:159
+#: theme/templates/operator/incidents.html:158
+#: theme/templates/operator/incidents.html:161
 msgid "Delete"
 msgstr "Löschen"
 
@@ -2104,10 +2105,14 @@ msgstr "Vorfälle exportieren"
 msgid "Choice of columns"
 msgstr "Auswahl der Spalten"
 
-#: theme/templates/modals/workflow_comment.html:7
-#: theme/templates/operator/incidents.html:98
-#: theme/templates/operator/incidents.html:101
-#: theme/templates/operator/incidents.html:107
+#: theme/templates/modals/workflow_comment.html:14
+msgid "Review"
+msgstr "Prüfung"
+
+#: theme/templates/modals/workflow_comment.html:34
+#: theme/templates/operator/incidents.html:100
+#: theme/templates/operator/incidents.html:103
+#: theme/templates/operator/incidents.html:109
 msgid "Review comment"
 msgstr "Review Kommentar"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 08:32+0200\n"
+"POT-Creation-Date: 2026-06-08 11:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,12 +29,16 @@ msgstr ""
 msgid ": Activate to sort"
 msgstr ""
 
-#: theme/static/js/base.js:67
+#: theme/static/js/base.js:113
 msgid "Nothing selected"
 msgstr ""
 
-#: theme/static/js/base.js:68
+#: theme/static/js/base.js:114
 msgid "items selected"
+msgstr ""
+
+#: theme/static/js/base.js:115
+msgid "All selected"
 msgstr ""
 
 #: theme/static/js/incidents.js:33

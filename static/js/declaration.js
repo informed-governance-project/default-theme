@@ -3,6 +3,11 @@ $(document).ready(function () {
     numberDisplayed: 5,
   }).multiselect('rebuild');
 
+  // Summernote Editor Initialization
+  document.body.appendChild(summernoteScript);
+  summernoteScript.onload = () => $('.summernote').summernote(summernoteDefaultOptions);
+
+
   $("#id_0-incident_detection_date").on("change.td", function () {
     const startingDateInputId = "id_0-incident_starting_date";
     const resolutionDateInputId = "id_0-incident_resolution_date";
@@ -187,4 +192,17 @@ $(document).ready(function () {
         $this[0].options[0].disabled = true;
       }
     });
+
+  $(".answer-modified").each(function () {
+    $(this).closest("#question-answer-container")
+      .prev('#question-label-container')
+      .addClass("text-warning");
+  });
+
+  $(".st-mt-answer-modified").each(function () {
+    $(this).closest("#st-sm-details-container")
+      .prev('#question-answer-container')
+      .prev('#question-label-container')
+      .addClass("text-warning");
+  });
 });

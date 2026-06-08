@@ -1,10 +1,17 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
+{% load static %}
+{% block bootstrap5_extra_script %}
+  <link rel="stylesheet"
+        type="text/css"
+        href="{% static 'npm_components/summernote/dist/summernote-bs5.min.css' %}" />
+  <script src='{% static "npm_components/summernote/dist/summernote-bs5.min.js" %}'></script>
+{% endblock %}
 {% block content %}
   <div class="modal-content">
     <div class="modal-header bg-primary text-white px-4 small">
       <h5 class="modal-title" id="workflowCommentLabel">
-        {% translate "Review comment" %}
+        {% translate "Review" %}
       </h5>
       {% block modal_close_button %}
         <button type="button"
@@ -14,8 +21,23 @@
         </button>
       {% endblock modal_close_button %}
     </div>
-    <div class="modal-body py-4 px-5">
-      <textarea id="modal-workflow-comment" class="form-control" rows="10" disabled></textarea>
+    <div class="modal-body">
+      <div class="mb-3">
+        <label class="form-label" for="status-container">
+          {% translate "Status" %}
+        </label>
+        <select name="status" disabled id="status-container">
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="modal-workflow-comment" class="form-label">
+          {% translate "Review comment" %}
+        </label>
+        <textarea id="modal-workflow-comment"
+                  class="form-control summernote"
+                  rows="10"
+                  disabled></textarea>
+      </div>
     </div>
   </div>
 {% endblock %}
