@@ -5,7 +5,7 @@ $(document).ready(function () {
 
   // Summernote Editor Initialization
   document.body.appendChild(summernoteScript);
-  let $summernote_textarea = $('.summernote')
+  let $summernote_textarea = $('.summernote');
   let summernoteOptions = $summernote_textarea.is(':disabled')
     ? summernoteDisabledOptions
     : summernoteDefaultOptions;
