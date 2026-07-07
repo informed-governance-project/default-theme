@@ -70,13 +70,12 @@
 }
 
 .status_checkbox {
-    cursor:pointer !important;
     border: none !important;
     background-color: transparent !important;
-    background-image: url('/static/images/icons/ico-closed.svg') !important;
+    background-image: url('/static/images/icons/ico-on_going.svg') !important;
 }
 .status_checkbox:checked {
-    background-image: url('/static/images/icons/ico-on_going.svg') !important;
+    background-image: url('/static/images/icons/ico-closed.svg') !important;
 }
 
 .status_checkbox:focus {
@@ -84,16 +83,20 @@
     box-shadow: none !important;
 }
 
+.is_significative_impact_container .form-check {
+    margin: 0 !important;
+    align-items: center;
+    display: flex;
+}
+
 .is_significative_impact_checkbox {
-    cursor:pointer !important;
     border: none !important;
     background-color: transparent !important;
-    background-image: url('/static/images/icons/ico-impact-disabled.svg') !important;
-
+    background-image: url('/static/images/icons/ico-impact.svg') !important;
 }
 
 .is_significative_impact_checkbox:checked {
-    background-image: url('/static/images/icons/ico-impact.svg') !important;
+    background-image: url('/static/images/icons/ico-impact-disabled.svg') !important;
 }
 
 .is_significative_impact_checkbox:focus {
@@ -153,4 +156,9 @@
 
 .form-switch .form-check-input {
     --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23727272'/%3e%3c/svg%3e")
+}
+
+.contacts_incident .custom-icon-contact:hover {
+    background-image: url('/static/images/icons/ico-contact-hover.svg');
+    transition: background-image 0.25s ease-out;
 }

@@ -164,7 +164,7 @@
               data-sort-field="sectors">
             {% translate "Sectors" %}
           </th>
-          <th scope="col" class="col-2 align-middle">
+          <th scope="col" class="col-3 align-middle">
             {% translate "Report" %}
           </th>
           <th scope="col" class="col-1 align-middle">
@@ -191,42 +191,44 @@
             <!-- Incident status  -->
             <td class="col-1 table-group-divider py-3">
               <div class="col d-inline-flex align-items-center justify-content-center gap-1">
-                {% block content_table_significative_impact %}
-                  {% for field in incident.formsStatus %}
-                    {% if field.name == "is_significative_impact" %}
-                      <div id="impact_status_{{ incident.id }}"
-                           data-bs-placement="top"
-                           data-bs-toggle="tooltip"
-                           {% if field.initial == True %}
-                             title="{% translate 'Incident with significant impact' %}"
-                           {% else %}
-                             title="{% translate 'No significant impact' %}"
-                           {% endif %}>
-                        {% bootstrap_field field show_label=False wrapper_class="m-0" %}
-                      </div>
-                    {% endif %}
-                  {% endfor %}
-                {% endblock %}
-                {% block content_table_incident_status %}
-                  {% for field in incident.formsStatus %}
-                    {% if field.name == "incident_status" %}
-                      <input type="checkbox"
-                             name="incident_status"
-                             class="form-check-input status_checkbox large-checkbox m-0 incident-input-field"
-                             data-incident-id="{{ incident.id }}"
-                             id="incident_status_{{ incident.id }}"
-                             data-bs-placement="top"
-                             data-bs-toggle="tooltip"
-                             {% if field.initial == "GOING" %}
-                               checked title="{% translate 'The incident is still ongoing' %}"
-                             {% else %}
-                               title="{% translate 'The incident has been closed' %}"
-                             {% endif %}
-                             data-bs-placement="top"
-                             data-bs-toggle="tooltip">
-                    {% endif %}
-                  {% endfor %}
-                {% endblock %}
+                {% if incident.is_significative_impact %}
+                  <i id="impact_status_{{ incident.id }}"
+                     class="custom-icon-impact logo-status"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title="{% translate 'Incident with significant impact' %}"
+                     aria-hidden="true">
+                  </i>
+                  <span class="visually-hidden">{% translate "Incident with significant impact" %}</span>
+                {% else %}
+                  <i id="impact_status_{{ incident.id }}"
+                     class="custom-icon-impact-disabled logo-status"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title="{% translate 'No significant impact' %}"
+                     aria-hidden="true">
+                  </i>
+                  <span class="visually-hidden">{% translate "No significant impact" %}</span>
+                {% endif %}
+                {% if incident.incident_status == 'GOING' %}
+                  <i id="incident_status_{{ incident.id }}"
+                     class="custom-icon-ongoing logo-status"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title="{% translate 'The incident is still ongoing' %}"
+                     aria-hidden="true">
+                  </i>
+                  <span class="visually-hidden">{% translate "The incident is still ongoing" %}</span>
+                {% elif incident.incident_status == 'CLOSE' %}
+                  <i id="incident_status_{{ incident.id }}"
+                     class="custom-icon-closed logo-status"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title="{% translate 'The incident has been closed' %}"
+                     aria-hidden="true">
+                  </i>
+                  <span class="visually-hidden">{% translate "The incident has been closed" %}</span>
+                {% endif %}
               </div>
             </td>
             <!-- Incident last update date -->
@@ -308,13 +310,13 @@
               {% endfor %}
             </td>
             <!-- Report name and status -->
-            <td class="col-2 table-group-divider py-3">
+            <td class="col-3 table-group-divider py-3">
               {% with incident_view_action="edit_workflow" %}
                 {% block content_table_report %}
                   <ul class="list-unstyled mb-0">
                     {% for report in incident.all_reports %}
                       {% with latest_incident_workflow=report.latest_incident_workflow %}
-                        <li class="mb-1">
+                        <li class="mb-1 d-flex">
                           <div class="hstack gap-2 d-inline"
                                data-bs-placement="top"
                                data-bs-toggle="tooltip">
@@ -333,8 +335,10 @@
                                {% if latest_incident_workflow %}
                                  href="{% url incident_view_action %}?incident_workflow_id={{ latest_incident_workflow.id }}"
                                {% endif %}>{{ report.name }}</a>
-                            {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
-                              {% if incident_workflows or latest_incident_workflow %}
+                          </div>
+                          {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
+                            {% if incident_workflows or latest_incident_workflow %}
+                              <div class="m-auto ps-2 me-2">
                                 <div class="d-inline-flex align-items-center">
                                   {% if incident_workflows %}
                                     <button class="btn text-dark p-0 ps-1 border-0 report_versions"
@@ -364,9 +368,9 @@
                                     </a>
                                   {% endif %}
                                 </div>
-                              {% endif %}
-                            {% endwith %}
-                          </div>
+                              </div>
+                            {% endif %}
+                          {% endwith %}
                         </li>
                       {% endwith %}
                     {% endfor %}
@@ -375,26 +379,45 @@
               {% endwith %}
             </td>
             <!-- Actions -->
-            <td class="col-1 table-group-divider py-3">
-              <div class="col d-flex align-items-center">
+            <td class="col-1 table-group-divider py-3 border-left-dashed">
+              <div class="col d-flex align-items-center ps-2 gap-2">
+                <!-- PDF Download -->
+                <a class="btn p-0 border-0"
+                   href="{% url 'download_incident_pdf' incident.id %}"
+                   data-bs-placement="top"
+                   data-bs-toggle="tooltip"
+                   title="{% translate 'Download PDF report' %}">
+                  <i class="custom-icon-pdf h4" aria-hidden="true"></i>
+                  <span class="visually-hidden">{% translate "Download PDF report" %}</span>
+                </a>
                 {% block content_table_actions %}
-                  <button class="btn access_log p-0"
-                          data-incident-id="{{ incident.id }}"
-                          data-bs-placement="top"
-                          data-bs-toggle="tooltip"
-                          title="{% translate 'Access Log' %}">
-                    <i class="custom-icon-log  h4" aria-hidden="true"></i>
-                    <span class="visually-hidden">{% translate "Access Log" %}</span>
-                  </button>
-                  <a class="btn p-0 border-0"
-                     href="{% url 'download_incident_pdf' incident.id %}"
+                {% endblock %}
+                <div class="dropdown"
+                     aria-hidden="true"
                      data-bs-placement="top"
                      data-bs-toggle="tooltip"
-                     title="{% translate 'Download PDF report' %}">
-                    <i class="custom-icon-pdf h4" aria-hidden="true"></i>
-                    <span class="visually-hidden">{% translate "Download PDF report" %}</span>
-                  </a>
-                {% endblock %}
+                     title="{% translate 'More options' %}">
+                  <i class="custom-icon-more-options h4"
+                     role="button"
+                     data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                  </i>
+                  <ul class="dropdown-menu more-actions-dropdown">
+                    <!-- Access Log -->
+                    <li>
+                      <div class="dropdown-item">
+                        <button class="btn btn-sm access_log p-0 d-flex justify-content-start w-100 text-start"
+                                data-incident-id="{{ incident.id }}">
+                          <i class="custom-icon-log  h4" aria-hidden="true"></i>
+                          <span class="visually-hidden">{% translate "Access Log" %}</span>
+                          {% translate "Access Log" %}
+                        </button>
+                      </div>
+                    </li>
+                    {% block more_options_actions %}
+                    {% endblock %}
+                  </ul>
+                </div>
               </div>
             </td>
           </tr>

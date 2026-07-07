@@ -5,7 +5,33 @@ $(document).ready(function () {
 
   // Summernote Editor Initialization
   document.body.appendChild(summernoteScript);
-  summernoteScript.onload = () => $('.summernote').summernote(summernoteDefaultOptions);
+  let $summernote_textarea = $('.summernote');
+  let summernoteOptions = $summernote_textarea.is(':disabled')
+    ? summernoteDisabledOptions
+    : summernoteDefaultOptions;
+
+  summernoteScript.onload = () => {
+    $summernote_textarea.summernote(summernoteOptions);
+  };
+
+  $(document).on("click", '.contacts_incident', function () {
+    let $this = $(this);
+    const contacts = $this.data('contacts');
+    if (contacts.contact_name == contacts.technical_name) {
+      $('#technical-card').remove();
+      let both_subtitle = $('#translated-both-contact-text').text();
+      $('#card-subtitle-contact').text(both_subtitle);
+    }
+
+    $('#contact-name').text(contacts.contact_name);
+    $('#contact-jobtitle').text(contacts.contact_jobtitle);
+    $('#contact-email').text(contacts.contact_email);
+    $('#contact-telephone').text(contacts.contact_telephone);
+    $('#technical-name').text(contacts.technical_name);
+    $('#technical-jobtitle').text(contacts.technical_jobtitle);
+    $('#technical-email').text(contacts.technical_email);
+    $('#technical-telephone').text(contacts.technical_telephone);
+  });
 
 
   $("#id_0-incident_detection_date").on("change.td", function () {
@@ -196,13 +222,105 @@ $(document).ready(function () {
   $(".answer-modified").each(function () {
     $(this).closest("#question-answer-container")
       .prev('#question-label-container')
-      .addClass("text-warning");
+      .addClass("display-previous-answer");
   });
 
   $(".st-mt-answer-modified").each(function () {
     $(this).closest("#st-sm-details-container")
       .prev('#question-answer-container')
       .prev('#question-label-container')
-      .addClass("text-warning");
+      .addClass("display-previous-answer");
   });
+
+  // Conditional Questions
+  initConditionalInputs();
+  syncConditionals();
+
+  $(document).on("change", "input[type='radio']", function () {
+    var groupName = $(this).attr("name");
+    $("input[name='" + groupName + "'][data-next-question-id]").each(function () {
+      hideQuestion($(this).data("next-question-id"));
+    });
+    syncConditionals();
+  });
+
+  $(document).on("change", "input[type='checkbox']", function () {
+    syncConditionals();
+  });
+
 });
+
+function initConditionalInputs() {
+  $("[data_conditionals]").each(function () {
+    var $wrapper = $(this);
+    var map;
+    try {
+      map = JSON.parse($wrapper.attr("data_conditionals"));
+    } catch (e) {
+      return;
+    }
+
+
+    $.each(map, function (answerId, nextQuestionOptionsId) {
+      $wrapper
+        .find("input[type='radio'][value='" + answerId + "']," +
+          "input[type='checkbox'][value='" + answerId + "']")
+        .attr("data-next-question-id", nextQuestionOptionsId);
+    });
+  });
+}
+
+/**
+ * Build the field name (= data-question-id on the containers) from
+ * a QuestionOptions id. Field names follow the pattern set in
+ * QuestionForm.create_question: "__question__<question_option_id>".
+ */
+function fieldName(questionOptionsId) {
+  return "__question__" + questionOptionsId;
+}
+
+/**
+ * Hide a conditional question and recursively hide any further
+ * conditional questions it may itself have triggered.
+ */
+function hideQuestion(questionOptionsId) {
+  var name = fieldName(questionOptionsId);
+  var $containers = $("[data-question-id*='" + name + "']");
+  $containers.addClass("d-none");
+
+  // uncheck inputs inside so nested conditionals are cleared
+  $containers.find("input[type='radio'], input[type='checkbox']").prop("checked", false);
+
+  // recurse into any nested conditionals
+  $containers.find("input[data-next-question-id]").each(function () {
+    hideQuestion($(this).data("next-question-id"));
+  });
+}
+
+/**
+ * Show the question containers for the given QuestionOptions id.
+ */
+function showQuestion(questionOptionsId) {
+  var name = fieldName(questionOptionsId);
+  $("[data-question-id*='" + name + "']").removeClass("d-none");
+}
+
+/**
+ * Re-evaluate all conditional inputs and sync visibility.
+ */
+function syncConditionals() {
+  $("input[data-next-question-id]").each(function () {
+    var nextId = $(this).data("next-question-id");
+
+    if ($(this).is(":checked")) {
+      showQuestion(nextId);
+    } else {
+      var stillActive = $(
+        "input[data-next-question-id='" + nextId + "']:checked"
+      ).length > 0;
+      if (!stillActive) {
+        hideQuestion(nextId);
+      }
+    }
+  });
+}

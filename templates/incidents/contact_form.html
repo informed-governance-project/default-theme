@@ -3,13 +3,13 @@
 <div class="row">
   <div class="col-12 required-field">
     <label class="h6">
-      {{ _("Name of the Operator") }}
+      {{ _("Legal Entity Name") }}
     </label>
     {% bootstrap_field wizard.form.company_name show_label=False placeholder=_("Name") %}
   </div>
   <div class="col-12 required-field">
     <label class="h6">
-      {{ _("Incident Notification Manager") }}
+      {{ _("Contact Information") }}
     </label>
     <div class="row row-cols-1 row-cols-lg-2">
       <div class="col">
@@ -37,10 +37,10 @@
 <div class="row">
   <div class="col-12 required-field">
     <label class="h6">
-      {{ _("Technical contact") }}
+      {{ _("Technical Contact Information") }}
     </label>
     <div class="d-flex d-inline form-check form-switch ps-0 mb-3">
-      {% translate "Is the incident notification manager also the technical contact?" as translated_label %}
+      {% translate "Is the contact also the technical contact?" as translated_label %}
       {% bootstrap_label translated_label label_class="form-check-label pe-4" label_for=wizard.form.is_technical_the_same.id_for_label %}
       {% bootstrap_field wizard.form.is_technical_the_same show_label=False %}
     </div>

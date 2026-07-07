@@ -22,13 +22,106 @@
   <script src='{% static "js/tempus_dominus.js" %}'></script>
 {% endblock %}
 {% block content %}
-  <h1 id="declaration-title-page" class="h3 fw-bolder">
-    {% block title %}
-      {% translate "Report an incident" %}
-    {% endblock %}
-  </h1>
-  <div class="hr-separator">
-  </div>
+  {% with wizard.form.incident as incident %}
+    {% if incident %}
+      <div class="d-flex py-3 small">
+        <div class="flex-shrink-1">
+          <h1 id="declaration-title-page" class="h3 fw-bolder">
+            {% block title %}
+              {% translate "Report an incident" %}
+            {% endblock %}
+          </h1>
+          <div class="hr-separator">
+          </div>
+        </div>
+        <div class="ms-auto">
+          <div class="row gap-1">
+            <div class="col-auto">
+              <div class="d-grid grid-auto-first-column">
+                <span class="fw-bold">{% translate "Creation date" %}</span>
+                <div class="ps-3">
+                  {% if incident.incident_notification_date %}
+                    {{ incident.incident_notification_date|date:"d/m/y" }}
+                    <i class="bi bi-clock px-1"></i>
+                    {{ incident.incident_notification_date|date:"H:i" }}
+                  {% endif %}
+                </div>
+                <span class="fw-bold">{% translate "Last update" %}</span>
+                <div class="ps-3">
+                  {% if incident.incident_last_update %}
+                    {{ incident.incident_last_update|date:"d/m/y" }}
+                    <i class="bi bi-clock px-1"></i>
+                    {{ incident.incident_last_update|date:"H:i" }}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <div class="p-0 vr">
+            </div>
+            <div class="col-auto">
+              <div class="d-flex gap-2">
+                <button class="btn p-0 border-0 contacts_incident"
+                        data-contacts='{ "contact_name": "{{ incident.contact_firstname }} {{ incident.contact_lastname }}", "contact_jobtitle": "{{ incident.contact_title }}", "contact_email": "{{ incident.contact_email }}", "contact_telephone": "{{ incident.contact_telephone }}", "technical_name": "{{ incident.technical_firstname }} {{ incident.technical_lastname }}", "technical_jobtitle": "{{ incident.technical_title }}", "technical_email": "{{ incident.technical_email }}", "technical_telephone": "{{ incident.technical_telephone }}" }'
+                        data-bs-toggle="modal"
+                        data-bs-target="#contacts_incident">
+                  <i class="custom-icon-contact h3"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     aria-hidden="true"
+                     title="{% translate 'Contacts' %}">
+                  </i>
+                  <span class="visually-hidden">{% translate "Contacts" %}</span>
+                </button>
+                <div class="d-grid grid-auto-first-column">
+                  <div class="fw-bold">
+                    {% translate "Company" %}
+                  </div>
+                  <div class="ps-3">
+                    {{ incident.company_or_regulator_name }}
+                  </div>
+                  <div class="fw-bold">
+                    {% translate "Regulation" %}
+                  </div>
+                  <div class="ps-3">
+                    {{ incident.sector_regulation.regulation }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-0 vr">
+            </div>
+            <div class="col-auto">
+              {% for root_sector in incident.get_no_childrens_sectors %}
+                <ul class="m-0 p-0 list-sectors">
+                  <span class="fw-bolder">
+                    {{ root_sector.get_safe_translation }}
+                  </span>
+                </ul>
+              {% endfor %}
+              <ul class="m-0 p-0 list-sectors">
+                {% for root_sector in incident.get_incident_root_sector %}
+                  {% if root_sector %}
+                    <p class="fw-bolder mb-0">
+                      {{ root_sector.get_safe_translation }}
+                    </p>
+                    <ul class="list-unstyled">
+                      {% for sector in root_sector.children.all %}
+                        {% if sector in incident.affected_sectors.all %}
+                          <li>
+                            {{ sector.get_safe_translation }}
+                          </li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endwith %}
   <p>
     {% translate "Fields marked with an asterisk (*) are mandatory." %}
   </p>
@@ -128,26 +221,33 @@
                 {% include "incidents/sector_form.html" %}
               {% elif form_class_name == 'DetectionDateForm' %}
                 {% include "incidents/detection_date_form.html" %}
+              {% elif form_class_name == 'RegulatorIncidentWorkflowCommentForm' %}
+                {% include "incidents/regulator_review_comment_form.html" %}
               {% else %}
                 {% for field in wizard.form %}
-                  {% if "_freetext_answer" in field.id_for_label %}
-                    <div id="st-sm-details-container">
-                      {% bootstrap_label field.label label_class="form-check-label" label_for=field.id_for_label %}
-                      {% bootstrap_field field show_label=False %}
-                    </div>
-                  {% else %}
-                    <div id="question-label-container"
-                         class="d-flex align-items-center
-                                {% if field.field.required %}
-                                  required-field
-                                {% endif %}">
-                      {% bootstrap_label field.label label_class="fw-bold me-2" label_for=field.id_for_label %}
-                      <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
-                    </div>
-                    <div id="question-answer-container" class="pt-4">
-                      {% bootstrap_field field show_label=False %}
-                    </div>
-                  {% endif %}
+                  <div data-question-id="{{ field.name }}"
+                       class="{% if field.field.is_conditional %}
+                                d-none
+                              {% endif %}">
+                    {% if "_freetext_answer" in field.id_for_label %}
+                      <div id="st-sm-details-container">
+                        {% bootstrap_label field.label label_class="form-check-label" label_for=field.id_for_label %}
+                        {% bootstrap_field field show_label=False %}
+                      </div>
+                    {% else %}
+                      <div id="question-label-container"
+                           class="d-flex align-items-center
+                                  {% if field.field.required %}
+                                    required-field
+                                  {% endif %}">
+                        {% bootstrap_label field.label label_class="fw-bold me-2" label_for=field.id_for_label %}
+                        <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
+                      </div>
+                      <div id="question-answer-container" class="pt-4">
+                        {% bootstrap_field field show_label=False %}
+                      </div>
+                    {% endif %}
+                  </div>
                 {% endfor %}
               {% endif %}
             {% endwith %}
@@ -205,6 +305,16 @@
           </div>
         </div>
       </form>
+    </div>
+  </div>
+  <div class="modal fade"
+       id="contacts_incident"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="contacts_incident_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm modal-dialog-scrollable">
+      {% include "modals/contacts_incident.html" %}
     </div>
   </div>
 {% endblock %}

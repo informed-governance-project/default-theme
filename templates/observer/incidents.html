@@ -2,42 +2,6 @@
 {% load i18n %}
 {% load custom_filters %}
 {% load django_bootstrap5 %}
-{% block content_table_incident_status %}
-  {% if incident.incident_status == 'GOING' %}
-    <i class="custom-icon-ongoing logo-status"
-       data-bs-placement="top"
-       data-bs-toggle="tooltip"
-       title="{% translate 'The incident is still ongoing' %}"
-       aria-hidden="true">
-    </i>
-  {% elif incident.incident_status == 'CLOSE' %}
-    <i class="custom-icon-closed logo-status"
-       data-bs-placement="top"
-       data-bs-toggle="tooltip"
-       title="{% translate 'The incident has been closed' %}"
-       aria-hidden="true">
-    </i>
-  {% endif %}
-{% endblock %}
-{% block content_table_significative_impact %}
-  {% if incident.is_significative_impact %}
-    <i class="custom-icon-impact logo-status"
-       data-bs-placement="top"
-       data-bs-toggle="tooltip"
-       title="{% translate 'Incident with significant impact' %}"
-       aria-hidden="true">
-    </i>
-    <span class="visually-hidden">{% translate "Incident with significant impact" %}</span>
-  {% else %}
-    <i class="custom-icon-impact-disabled logo-status"
-       data-bs-placement="top"
-       data-bs-toggle="tooltip"
-       title="{% translate 'No significant impact' %}"
-       aria-hidden="true">
-    </i>
-    <span class="visually-hidden">{% translate "No significant impact" %}</span>
-  {% endif %}
-{% endblock %}
 {% block content_table_incident_id %}
   {{ incident.incident_id }}
 {% endblock %}
@@ -47,7 +11,6 @@
   {% endwith %}
 {% endblock %}
 {% block content_table_actions %}
-  {{ block.super }}
   <button class="btn p-0 border-0 contacts_incident"
           data-contacts='{ "contact_name": "{{ incident.contact_firstname }} {{ incident.contact_lastname }}", "contact_jobtitle": "{{ incident.contact_title }}", "contact_email": "{{ incident.contact_email }}", "contact_telephone": "{{ incident.contact_telephone }}", "technical_name": "{{ incident.technical_firstname }} {{ incident.technical_lastname }}", "technical_jobtitle": "{{ incident.technical_title }}", "technical_email": "{{ incident.technical_email }}", "technical_telephone": "{{ incident.technical_telephone }}" }'
           data-bs-toggle="modal"

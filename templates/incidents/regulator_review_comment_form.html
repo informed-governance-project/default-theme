@@ -1,0 +1,24 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% load tz %}
+{% for field in wizard.form %}
+  <div data-question-id="{{ field.name }}">
+    <div id="question-label-container"
+         class="d-flex align-items-center
+                {% if field.field.required %}
+                  required-field
+                {% endif %}">
+      {% bootstrap_label field.label label_class="fw-bold me-2" label_for=field.id_for_label %}
+      <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
+    </div>
+    <div id="question-answer-container" class="pt-4">
+      {% bootstrap_field field show_label=False %}
+    </div>
+    {% if field.name == "comment" and autosave_comment_date %}
+      <div class="text-passed text-end small mt-2">
+        <i class="custom-icon-passed align-self-center me-2" aria-hidden="true"></i>
+        {% translate "Saved automatically - Last saved at" %} {{ autosave_comment_date|localtime|time:"H:i" }}
+      </div>
+    {% endif %}
+  </div>
+{% endfor %}

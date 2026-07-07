@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-08 11:09+0200\n"
-"PO-Revision-Date: 2026-06-02 10:28+0000\n"
+"POT-Creation-Date: 2026-07-06 16:02+0200\n"
+"PO-Revision-Date: 2026-07-06 08:45+0000\n"
 "Last-Translator: Edgar Dugourd <Edd@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #: theme/static/js/base.js:19
 msgid "Showing _START_ to _END_ of _TOTAL_ entries"
@@ -54,18 +54,34 @@ msgstr "Revue"
 msgid "Comment"
 msgstr "Commentaire"
 
-#: theme/static/js/incidents_regulator.js:42
+#: theme/static/js/incidents_regulator.js:58
 msgid "The incident has been closed"
 msgstr "L'incident est clos"
 
-#: theme/static/js/incidents_regulator.js:43
+#: theme/static/js/incidents_regulator.js:62
+msgid "Set to Active"
+msgstr "Forcer à actif"
+
+#: theme/static/js/incidents_regulator.js:64
 msgid "The incident is still ongoing"
 msgstr "L'incident est en cours"
 
-#: theme/static/js/incidents_regulator.js:46
+#: theme/static/js/incidents_regulator.js:68
+msgid "Set to Inactive"
+msgstr "Forcer à inactif"
+
+#: theme/static/js/incidents_regulator.js:72
 msgid "Incident with significant impact"
 msgstr "Incident à impact significatif"
 
-#: theme/static/js/incidents_regulator.js:47
+#: theme/static/js/incidents_regulator.js:74
+msgid "Set to no significant impact"
+msgstr "Forcer l'impact à non significatif"
+
+#: theme/static/js/incidents_regulator.js:76
 msgid "No significant impact"
 msgstr "Impact non significatif"
+
+#: theme/static/js/incidents_regulator.js:78
+msgid "Set to significant impact"
+msgstr "Forcer l'impact à significatif"

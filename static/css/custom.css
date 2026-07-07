@@ -13670,6 +13670,10 @@ a.changelink {
   background-image: url("/static/images/icons/ico-log.svg");
 }
 
+.custom-icon-more-options {
+  background-image: url("/static/images/icons/ico-more-options.svg");
+}
+
 .custom-icon-user {
   background-image: url("/static/images/icons/ico-user.svg");
 }
@@ -13878,6 +13882,26 @@ th.sortable {
   border-bottom-right-radius: 0 !important;
   border-top-right-radius: 0 !important;
   border-radius: var(--bs-border-radius);
+}
+
+.border-left-dashed {
+  border-left: calc(var(--bs-border-width) * 2) dashed currentColor;
+}
+
+.border-top-dashed {
+  border-top: calc(var(--bs-border-width) * 1.5) dashed currentColor;
+}
+
+.grid-auto-first-column {
+  grid-template-columns: auto 1fr;
+}
+
+.more-actions-dropdown {
+  --bs-dropdown-link-active-bg: var(--bs-body-bg);
+}
+.more-actions-dropdown .dropdown-item input,
+.more-actions-dropdown .dropdown-item label {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=custom.css.map */

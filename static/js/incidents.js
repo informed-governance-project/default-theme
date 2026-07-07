@@ -184,6 +184,11 @@ $(document).ready(function () {
   $(document).on('change', '.column-toggle', function () {
     changeColumnVisibility($tableDashboard, this);
   });
+
+  // Force the reference column to be hidden by default, as it is not used in the dashboard view
+  const reference_index = $tableDashboard.find('tr th[data-sort-field="reference"]').index();
+  setColumnVisible($tableDashboard, reference_index, false);
+
   loadColumnDashboardState($tableDashboard);
 
   //Legend status management
