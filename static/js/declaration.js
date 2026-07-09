@@ -200,17 +200,23 @@ $(document).ready(function () {
     }
   });
 
-  $(".review_status_selector")
-    .on("change", function () {
-      const $this = $(this);
-      const value = $this.val();
+  function applyReviewStatusStyle($selector) {
+    const value = $selector.val();
 
-      $this.removeClass("fw-bold bg-failed bg-passed text-white");
-      if (value === "PASS") {
-        $this.addClass("fw-bold bg-passed text-white");
-      } else if (value === "FAIL") {
-        $this.addClass("fw-bold bg-failed text-white");
-      }
+    $selector.removeClass("fw-bold bg-failed bg-passed text-white");
+    if (value === "PASS") {
+      $selector.addClass("fw-bold bg-passed text-white");
+    } else if (value === "FAIL") {
+      $selector.addClass("fw-bold bg-failed text-white");
+    }
+  }
+
+  $(".review_status_selector")
+    .each(function () {
+      applyReviewStatusStyle($(this));
+    })
+    .on("change", function () {
+      applyReviewStatusStyle($(this));
     })
     .on("focus", function () {
       const $this = $(this);
