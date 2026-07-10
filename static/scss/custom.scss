@@ -30,6 +30,7 @@ $unsubmitted: #2673e5;
 $overdue: #e40521;
 $dark-gray: #4c4c4c;
 $uninitiated:#4c4c4c;
+$answer-modified: #fd7e14;
 
 $custom-colors: (
     "no-impact": $no-impact,
@@ -44,6 +45,7 @@ $custom-colors: (
     "overdue": $overdue,
     "dark-gray": $dark-gray,
     "uninitiated": $uninitiated,
+    "answer-modified": $answer-modified,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
@@ -528,4 +530,36 @@ th.sortable {
             cursor: pointer;
         }
     }
+}
+
+/* Flags a question whose answer changed from a previous version: dashed
+   orange outline with a "View previous version" pill hanging off the bottom. */
+.display-previous-answer {
+    position: relative;
+    border: 2px dashed $answer-modified;
+    border-radius: var(--bs-border-radius-lg);
+    padding: 1rem 1rem 2rem;
+    margin-bottom: 1.75rem;
+}
+
+.display-previous-answer .view-previous-version {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    white-space: nowrap;
+    background-color: $answer-modified;
+    border-color: $answer-modified;
+}
+
+.display-previous-answer .view-previous-version:hover,
+.display-previous-answer .view-previous-version:focus {
+    background-color: $answer-modified;
+    border-color: $answer-modified;
+    filter: brightness(0.92);
+}
+
+/* Preserve line breaks between the previous choices and free-text details. */
+.previous-answer-text {
+    white-space: pre-line;
 }
