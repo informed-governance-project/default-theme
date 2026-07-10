@@ -148,7 +148,9 @@
                                 disabled
                               {% endif %}>
                         <div class="step-circle
-                                    {% if action == 'Create' %}
+                                    {% if step in modified_steps %}
+                                      bg-answer-modified text-white
+                                    {% elif action == 'Create' %}
                                       bg-transparent border border-secondary force_disabled
                                     {% else %}
                                       bg-secondary text-white
@@ -168,7 +170,13 @@
                             value="{{ step }}"
                             aria-current="step"
                             formnovalidate>
-                      <div class="step-circle bg-secondary text-white">
+                      <div class="step-circle
+                                  {% if step in modified_steps %}
+                                    bg-answer-modified
+                                  {% else %}
+                                    bg-secondary
+                                  {% endif %}
+                                  text-white">
                         {{ forloop.counter }}
                       </div>
                       <span class="ps-2 d-none d-lg-block">{{ step_name }}</span>
@@ -314,6 +322,16 @@
        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-sm modal-dialog-scrollable">
       {% include "modals/contacts_incident.html" %}
+    </div>
+  </div>
+  <span id="view-previous-version-label" class="d-none">{% translate "View previous version" %}</span>
+  <div class="modal fade"
+       id="previous-answer-modal"
+       tabindex="-1"
+       aria-labelledby="previous-answer-label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      {% include "modals/previous_answer.html" %}
     </div>
   </div>
 {% endblock %}
