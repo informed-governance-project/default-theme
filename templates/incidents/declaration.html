@@ -212,7 +212,6 @@
           {% else %}
             {% with form_class_name=wizard.form|get_class_name %}
               {{ wizard.form.media }}
-              {% bootstrap_form_errors form %}
               {% if form_class_name == 'ContactForm' %}
                 {% include "incidents/contact_form.html" %}
               {% elif form_class_name == 'ImpactForm' %}
