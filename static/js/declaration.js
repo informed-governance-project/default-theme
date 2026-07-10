@@ -225,18 +225,19 @@ $(document).ready(function () {
       }
     });
 
-  $(".answer-modified").each(function () {
-    $(this).closest("#question-answer-container")
-      .prev('#question-label-container')
-      .addClass("display-previous-answer");
+  $(".answer-modified, .st-mt-answer-modified").each(function () {
+    markPreviousAnswer($(this));
   });
 
-  $(".st-mt-answer-modified").each(function () {
-    $(this).closest("#st-sm-details-container")
-      .prev('#question-answer-container')
-      .prev('#question-label-container')
-      .addClass("display-previous-answer");
-  });
+  const previousAnswerModal = document.getElementById("previous-answer-modal");
+  if (previousAnswerModal) {
+    previousAnswerModal.addEventListener("show.bs.modal", function (event) {
+      renderPreviousAnswer(
+        previousAnswerModal.querySelector("#previous-answer-body"),
+        event.relatedTarget
+      );
+    });
+  }
 
   // Conditional Questions
   initConditionalInputs();
@@ -255,6 +256,138 @@ $(document).ready(function () {
   });
 
 });
+
+// Collects the deduped previous values (free-text and choice payloads) found
+// anywhere inside the given scope.
+function collectPreviousData($scope) {
+  const text = [...new Set(
+    $scope.find("[data-previous-answer]")
+      .map(function () { return $(this).attr("data-previous-answer"); })
+      .get()
+      .filter(function (value) { return value && value.trim() !== ""; })
+  )].join("\n");
+  const choices = [...new Set(
+    $scope.find("[data-previous-choices]")
+      .map(function () { return $(this).attr("data-previous-choices"); })
+      .get()
+      .filter(function (value) { return value && value.trim() !== ""; })
+  )][0] || "";
+  return { text: text, choices: choices };
+}
+
+function buildPreviousVersionButton(previous) {
+  const $button = $(
+    '<button type="button"' +
+    ' class="view-previous-version btn btn-sm rounded-pill text-white d-inline-flex align-items-center gap-2"' +
+    ' data-bs-toggle="modal" data-bs-target="#previous-answer-modal">' +
+    '<i class="bi bi-info-circle-fill" aria-hidden="true"></i>' +
+    '<span class="previous-answer-label"></span>' +
+    '</button>'
+  );
+  $button.find(".previous-answer-label").text($("#view-previous-version-label").text().trim());
+  $button.attr("data-previous-answer", previous.text);
+  if (previous.choices) {
+    $button.attr("data-previous-choices", previous.choices);
+  }
+  return $button;
+}
+
+// Marks a field whose answer changed with the "display-previous-answer" outline
+// and a single "View previous version" pill. Incident questions live in
+// [data-question-id] containers (ST/MT span two, grouped under one outline);
+// timeline date fields sit in a grid ".col" and are styled in place so the
+// Bootstrap row layout is preserved.
+function markPreviousAnswer($modifiedWidget) {
+  const questionId = $modifiedWidget.closest("[data-question-id]").attr("data-question-id");
+
+  if (!questionId) {
+    const $col = $modifiedWidget.closest(".col");
+    if (!$col.length || $col.children(".display-previous-answer").length) {
+      return;
+    }
+    const previous = collectPreviousData($col);
+    $col.wrapInner('<div class="display-previous-answer"></div>');
+    $col.children(".display-previous-answer").append(buildPreviousVersionButton(previous));
+    return;
+  }
+
+  const baseId = questionId.replace(/_freetext_answer$/, "");
+  const $group = $(
+    '[data-question-id="' + baseId + '"], ' +
+    '[data-question-id="' + baseId + '_freetext_answer"]'
+  );
+  if (!$group.length || $group.parent(".display-previous-answer").length) {
+    return;
+  }
+  const previous = collectPreviousData($group);
+  $group.wrapAll('<div class="display-previous-answer"></div>');
+  $group.first().parent(".display-previous-answer").append(buildPreviousVersionButton(previous));
+}
+
+// Fills the "previous version" modal from the clicked pill: choice questions
+// (MULTI/MT/SO/ST) render their previous selection as disabled radios/checkboxes,
+// everything else (and ST/MT details) as text.
+function renderPreviousAnswer(body, trigger) {
+  body.innerHTML = "";
+  if (!trigger) {
+    return;
+  }
+
+  const rawChoices = trigger.getAttribute("data-previous-choices");
+  if (rawChoices) {
+    let choices = null;
+    try {
+      choices = JSON.parse(rawChoices);
+    } catch (e) {
+      choices = null;
+    }
+    if (choices && Array.isArray(choices.options)) {
+      choices.options.forEach(function (option) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "form-check";
+        const input = document.createElement("input");
+        input.className = "form-check-input";
+        input.type = choices.type === "radio" ? "radio" : "checkbox";
+        input.disabled = true;
+        input.checked = Boolean(option.checked);
+        const label = document.createElement("label");
+        label.className = "form-check-label";
+        label.textContent = option.label;
+        wrapper.appendChild(input);
+        wrapper.appendChild(label);
+        body.appendChild(wrapper);
+      });
+
+      // ST/MT questions also carry an "Add details" free-text field.
+      if (choices.details) {
+        const group = document.createElement("div");
+        group.className = "mt-3";
+        const detailsLabel = document.createElement("label");
+        detailsLabel.className = "form-label fw-light";
+        detailsLabel.textContent = choices.details.label;
+        const textarea = document.createElement("textarea");
+        textarea.className = "form-control";
+        textarea.rows = 3;
+        textarea.disabled = true;
+        textarea.value = choices.details.value || "";
+        group.appendChild(detailsLabel);
+        group.appendChild(textarea);
+        body.appendChild(group);
+      }
+    }
+  }
+
+  const text = trigger.getAttribute("data-previous-answer");
+  if (text && text.trim() !== "") {
+    const paragraph = document.createElement("p");
+    paragraph.className = "mb-0 previous-answer-text";
+    if (body.children.length) {
+      paragraph.classList.add("mt-3");
+    }
+    paragraph.textContent = text;
+    body.appendChild(paragraph);
+  }
+}
 
 function initConditionalInputs() {
   $("[data_conditionals]").each(function () {
@@ -293,6 +426,7 @@ function hideQuestion(questionOptionsId) {
   var name = fieldName(questionOptionsId);
   var $containers = $("[data-question-id*='" + name + "']");
   $containers.addClass("d-none");
+  $containers.closest(".display-previous-answer").addClass("d-none");
 
   // uncheck inputs inside so nested conditionals are cleared
   $containers.find("input[type='radio'], input[type='checkbox']").prop("checked", false);
@@ -308,7 +442,9 @@ function hideQuestion(questionOptionsId) {
  */
 function showQuestion(questionOptionsId) {
   var name = fieldName(questionOptionsId);
-  $("[data-question-id*='" + name + "']").removeClass("d-none");
+  var $containers = $("[data-question-id*='" + name + "']");
+  $containers.removeClass("d-none");
+  $containers.closest(".display-previous-answer").removeClass("d-none");
 }
 
 /**
