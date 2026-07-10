@@ -275,6 +275,17 @@ function collectPreviousData($scope) {
   return { text: text, choices: choices };
 }
 
+// Whether a question is currently shown in the form (its container exists and
+// isn't hidden). Used to decide if a conditional question already has its own
+// "View previous version" pill or should be folded into its trigger's modal.
+function isQuestionDisplayed(fieldId) {
+  if (!fieldId) {
+    return false;
+  }
+  const $wrapper = $('[data-question-id="' + fieldId + '"]');
+  return $wrapper.length > 0 && $wrapper.is(":visible");
+}
+
 function buildPreviousVersionButton(previous) {
   const $button = $(
     '<button type="button"' +
@@ -335,46 +346,13 @@ function renderPreviousAnswer(body, trigger) {
 
   const rawChoices = trigger.getAttribute("data-previous-choices");
   if (rawChoices) {
-    let choices = null;
+    let node = null;
     try {
-      choices = JSON.parse(rawChoices);
+      node = JSON.parse(rawChoices);
     } catch (e) {
-      choices = null;
+      node = null;
     }
-    if (choices && Array.isArray(choices.options)) {
-      choices.options.forEach(function (option) {
-        const wrapper = document.createElement("div");
-        wrapper.className = "form-check";
-        const input = document.createElement("input");
-        input.className = "form-check-input";
-        input.type = choices.type === "radio" ? "radio" : "checkbox";
-        input.disabled = true;
-        input.checked = Boolean(option.checked);
-        const label = document.createElement("label");
-        label.className = "form-check-label";
-        label.textContent = option.label;
-        wrapper.appendChild(input);
-        wrapper.appendChild(label);
-        body.appendChild(wrapper);
-      });
-
-      // ST/MT questions also carry an "Add details" free-text field.
-      if (choices.details) {
-        const group = document.createElement("div");
-        group.className = "mt-3";
-        const detailsLabel = document.createElement("label");
-        detailsLabel.className = "form-label fw-light";
-        detailsLabel.textContent = choices.details.label;
-        const textarea = document.createElement("textarea");
-        textarea.className = "form-control";
-        textarea.rows = 3;
-        textarea.disabled = true;
-        textarea.value = choices.details.value || "";
-        group.appendChild(detailsLabel);
-        group.appendChild(textarea);
-        body.appendChild(group);
-      }
-    }
+    renderPreviousNode(body, node);
   }
 
   const text = trigger.getAttribute("data-previous-answer");
@@ -386,6 +364,99 @@ function renderPreviousAnswer(body, trigger) {
     }
     paragraph.textContent = text;
     body.appendChild(paragraph);
+  }
+}
+
+// A horizontal rule with a centered "Conditional question" caption, used to
+// set a folded-in conditional question apart from its trigger.
+function createConditionalSeparator() {
+  const separator = document.createElement("div");
+  separator.className = "d-flex align-items-center my-3 text-muted small text-uppercase";
+  const left = document.createElement("hr");
+  left.className = "flex-grow-1 m-0";
+  const caption = document.createElement("span");
+  caption.className = "px-2";
+  caption.textContent = $("#conditional-question-label").text().trim();
+  const right = document.createElement("hr");
+  right.className = "flex-grow-1 m-0";
+  separator.appendChild(left);
+  separator.appendChild(caption);
+  separator.appendChild(right);
+  return separator;
+}
+
+// Renders one previous-answer node into the container. Choice nodes render
+// disabled radios/checkboxes; any conditional child questions the answer
+// triggered are rendered as blocks after the trigger question. Text nodes
+// (free-text / date / country lists) render as plain text.
+function renderPreviousNode(container, node) {
+  if (!node) {
+    return;
+  }
+
+  if (node.question) {
+    const heading = document.createElement("div");
+    heading.className = "fw-bold small mt-2 mb-3";
+    heading.textContent = node.question;
+    container.appendChild(heading);
+  }
+
+  if (node.kind === "choice") {
+    const conditionals = [];
+    (node.options || []).forEach(function (option) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "form-check";
+      const input = document.createElement("input");
+      input.className = "form-check-input";
+      input.type = node.type === "radio" ? "radio" : "checkbox";
+      input.disabled = true;
+      input.checked = Boolean(option.checked);
+      const label = document.createElement("label");
+      label.className = "form-check-label";
+      label.textContent = option.label;
+      wrapper.appendChild(input);
+      wrapper.appendChild(label);
+      container.appendChild(wrapper);
+
+      if (option.conditional) {
+        conditionals.push(option.conditional);
+      }
+    });
+
+    // ST/MT questions also carry an "Add details" free-text field.
+    if (node.details) {
+      const group = document.createElement("div");
+      group.className = "mt-3";
+      const detailsLabel = document.createElement("label");
+      detailsLabel.className = "form-label fw-light";
+      detailsLabel.textContent = node.details.label;
+      const textarea = document.createElement("textarea");
+      textarea.className = "form-control";
+      textarea.rows = 3;
+      textarea.disabled = true;
+      textarea.value = node.details.value || "";
+      group.appendChild(detailsLabel);
+      group.appendChild(textarea);
+      container.appendChild(group);
+    }
+
+    // Conditional child questions render after the trigger question, each
+    // behind a labelled divider, but only while hidden in the form: a displayed
+    // one carries its own pill/modal.
+    conditionals.forEach(function (child) {
+      if (isQuestionDisplayed(child.field_id)) {
+        return;
+      }
+      container.appendChild(createConditionalSeparator());
+      const block = document.createElement("div");
+      container.appendChild(block);
+      renderPreviousNode(block, child);
+    });
+  } else if (node.kind === "text") {
+    const paragraph = document.createElement("p");
+    paragraph.className = "mb-0 previous-answer-text";
+    paragraph.textContent = node.value || "";
+    container.appendChild(paragraph);
   }
 }
 
