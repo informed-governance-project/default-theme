@@ -1,0 +1,21 @@
+{% load i18n %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header text-white px-4 bg-answer-modified">
+      <h5 class="modal-title" id="so_previous_planned_label">
+        {% translate "Previous version" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="{% translate 'Close' %}">
+      </button>
+    </div>
+    <div class="modal-body">
+      <label class="form-label fw-bold" for="so_previous_actions">
+        {% translate "Planned Measures" %}
+      </label>
+      <textarea id="so_previous_actions" class="form-control" disabled></textarea>
+    </div>
+  </div>
+{% endblock %}

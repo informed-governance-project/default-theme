@@ -197,7 +197,7 @@
                              {% elif security_objective.status.status == 'FAIL' %}
                                btn-failed
                              {% else %}
-                               btn-warning
+                               btn-partially
                              {% endif %}"
                       data-bs-target="#security_objectives_carousel"
                       data-bs-slide-to="{{ forloop.counter0 }}">
@@ -211,7 +211,7 @@
                              {% if security_objective.completion_state.is_completed %}
                                btn-passed
                              {% elif security_objective.completion_state.is_partially %}
-                               btn-warning
+                               btn-partially
                              {% else %}
                                btn-uninitiated
                              {% endif %}"
@@ -228,7 +228,7 @@
                             {% elif security_objective.status.status == 'FAIL' %}
                               btn-failed
                             {% else %}
-                              btn-warning
+                              btn-partially
                             {% endif %}" 
                       data-bs-target="#security_objectives_carousel"
                       data-bs-slide-to="{{ forloop.counter0 }}">
@@ -244,7 +244,7 @@
                              {% elif security_objective.status.status == 'FAIL' %}
                                btn-failed
                              {% else %}
-                               btn-warning
+                               btn-partially
                              {% endif %}"
                       data-bs-target="#security_objectives_carousel"
                       data-bs-slide-to="{{ forloop.counter0 }}">
@@ -387,7 +387,7 @@
                 <tbody class="small">
                   {% for maturity_level, measures in maturity_levels.items %}
                     {% for measure in measures %}
-                      <tr>
+                      <tr class="{% if measure.answer_modified %}so-previous-answer-row{% endif %}">
                         {% if forloop.first %}
                           <th rowspan="{{ measures|length }}"
                               class="col-1 h3 fw-bolder table-group-divider text-center lh-sm">
@@ -399,6 +399,20 @@
                                      table-group-divider
                                    {% endif %}">
                           {{ measure }}
+                          {% if measure.answer_modified %}
+                            <button type="button"
+                                    class="view-previous-version btn btn-sm rounded-pill text-white d-inline-flex align-items-center gap-2"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#so_previous_answer"
+                                    data-measure="{{ measure }}"
+                                    data-evidence="{{ measure.evidence }}"
+                                    data-previous-implemented="{{ measure.previous_answer.is_implemented|yesno:'true,false' }}"
+                                    data-previous-justification="{{ measure.previous_answer.justification }}"
+                                    data-previous-review-comment="{{ measure.previous_answer.review_comment }}">
+                              <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
+                              {% translate "View previous version" %}
+                            </button>
+                          {% endif %}
                         </td>
                         <td class="col-3 lh-sm
                                    {% if forloop.first %}
@@ -453,9 +467,19 @@
                           {% translate "Planned Measures" %}
                         </td>
                       </tr>
-                      <tr>
+                      <tr class="{% if security_objective.actions_modified %}so-previous-answer-row so-previous-answer-row-full{% endif %}">
                         <td colspan="6" class="col-auto">
                           {% bootstrap_field security_objective.status_form.actions show_label=False wrapper_class="m-0" %}
+                          {% if security_objective.actions_modified %}
+                            <button type="button"
+                                    class="view-previous-version btn btn-sm rounded-pill text-white d-inline-flex align-items-center gap-2"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#so_previous_planned"
+                                    data-previous-actions="{{ security_objective.previous_actions }}">
+                              <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
+                              {% translate "View previous version" %}
+                            </button>
+                          {% endif %}
                         </td>
                       </tr>
                     {% endif %}
@@ -481,6 +505,24 @@
        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       {% include "modals/so_contacts.html" %}
+    </div>
+  </div>
+  <div class="modal fade"
+       id="so_previous_answer"
+       tabindex="-1"
+       aria-labelledby="so_previous_answer_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+      {% include "modals/so_previous_version_measure.html" %}
+    </div>
+  </div>
+  <div class="modal fade"
+       id="so_previous_planned"
+       tabindex="-1"
+       aria-labelledby="so_previous_planned_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      {% include "modals/so_previous_version_planned_actions.html" %}
     </div>
   </div>
 {% endblock %}

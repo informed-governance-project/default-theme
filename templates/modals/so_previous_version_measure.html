@@ -1,0 +1,42 @@
+{% load i18n %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header text-white px-4 bg-answer-modified">
+      <h5 class="modal-title" id="so_previous_answer_label">
+        {% translate "Previous version" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="{% translate 'Close' %}">
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row small g-3">
+        <div id="so_previous_measure"
+             class="col-12 col-lg-3 lh-sm previous-answer-text">
+        </div>
+        <div id="so_previous_evidence"
+             class="col-12 col-lg-3 lh-sm previous-answer-text">
+        </div>
+        <div class="col-12 col-lg-1 d-flex justify-content-center">
+          <div class="checkbox-is-measure">
+            <div class="form-check form-switch m-0">
+              <input id="so_previous_is_implemented"
+                     class="form-check-input"
+                     type="checkbox"
+                     role="switch"
+                     disabled>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-2">
+          <textarea id="so_previous_justification" class="form-control" disabled></textarea>
+        </div>
+        <div class="col-12 col-lg-3">
+          <textarea id="so_previous_review_comment" class="form-control" disabled></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
