@@ -4,6 +4,40 @@ $(document).ready(function () {
 
   let $security_objectives_carousel = $('#security_objectives_carousel');
 
+  // Fill the "previous version" modal from the clicked row's pill.
+  const soPreviousAnswerModal = document.getElementById("so_previous_answer");
+  if (soPreviousAnswerModal) {
+    soPreviousAnswerModal.addEventListener("show.bs.modal", function (event) {
+      const trigger = event.relatedTarget;
+      if (!trigger) {
+        return;
+      }
+      soPreviousAnswerModal.querySelector("#so_previous_measure").textContent =
+        trigger.getAttribute("data-measure") || "";
+      soPreviousAnswerModal.querySelector("#so_previous_evidence").textContent =
+        trigger.getAttribute("data-evidence") || "";
+      soPreviousAnswerModal.querySelector("#so_previous_is_implemented").checked =
+        trigger.getAttribute("data-previous-implemented") === "true";
+      soPreviousAnswerModal.querySelector("#so_previous_justification").value =
+        trigger.getAttribute("data-previous-justification") || "";
+      soPreviousAnswerModal.querySelector("#so_previous_review_comment").value =
+        trigger.getAttribute("data-previous-review-comment") || "";
+    });
+  }
+
+  // Fill the Planned Measures "previous version" modal from the clicked pill.
+  const soPreviousPlannedModal = document.getElementById("so_previous_planned");
+  if (soPreviousPlannedModal) {
+    soPreviousPlannedModal.addEventListener("show.bs.modal", function (event) {
+      const trigger = event.relatedTarget;
+      if (!trigger) {
+        return;
+      }
+      soPreviousPlannedModal.querySelector("#so_previous_actions").value =
+        trigger.getAttribute("data-previous-actions") || "";
+    });
+  }
+
   function adjustTextareaHeights() {
     $('.carousel-item.active').find('textarea').each(function () {
       let parentTd = $(this).closest('td');
@@ -230,7 +264,7 @@ function update_so_declaration(form) {
               let $select_SO_form = $(form_SO_StatusId).find('.so_status_form');
               let $all_buttons = $("#security_objective_selector").find("button");
               let $all_so_status_form = $('.so_status_form');
-              $so_reg_objective_button.removeClass("btn-passed btn-warning btn-failed");
+              $so_reg_objective_button.removeClass("btn-passed btn-partially btn-failed");
               $select_SO_form.removeClass("text-white bg-passed bg-failed");
               switch (data.data.status) {
                 case "PASS":
@@ -251,7 +285,7 @@ function update_so_declaration(form) {
                     .find("option[value='PASS']")
                     .attr("selected", "selected");
                   $all_buttons
-                    .removeClass("btn-passed btn-warning btn-failed")
+                    .removeClass("btn-passed btn-partially btn-failed")
                     .addClass("btn-passed");
                   break;
                 case "ALL_FAIL":
@@ -262,23 +296,23 @@ function update_so_declaration(form) {
                     .find("option[value='FAIL']")
                     .attr("selected", "selected");
                   $all_buttons
-                    .removeClass("btn-passed btn-warning btn-failed")
+                    .removeClass("btn-passed btn-partially btn-failed")
                     .addClass("btn-failed");
                   break;
                 default:
                   $select_SO_form
                     .addClass("text-dark")
-                  $so_reg_objective_button.addClass("btn-warning");
+                  $so_reg_objective_button.addClass("btn-partially");
               }
             }
             if (data.objective_state) {
               so_id = data.objective_state.id;
               $so_op_objective_button = $("#security_objective_selector").find(`#op_${so_id}`);
-              $so_op_objective_button.removeClass("btn-passed btn-failed btn-warning btn-uninitiated");
+              $so_op_objective_button.removeClass("btn-passed btn-failed btn-partially btn-uninitiated");
               if (data.objective_state.is_completed) {
                 $so_op_objective_button.addClass("btn-passed");
               } else if (data.objective_state.is_partially) {
-                $so_op_objective_button.addClass("btn-warning");
+                $so_op_objective_button.addClass("btn-partially");
               } else if (data.objective_state.is_not_started) {
                 $so_op_objective_button.addClass("btn-uninitiated");
               }
