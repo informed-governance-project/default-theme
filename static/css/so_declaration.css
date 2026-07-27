@@ -47,6 +47,23 @@
     box-shadow: none;
 }
 
+/* Resize textarea fields in previous answers modals */
+#so_previous_answer .modal-body .row > [class*="col"] {
+    display: flex;
+    flex-direction: column;
+}
+
+#so_previous_answer .modal-body textarea {
+    flex: 1 1 auto;
+    min-height: 6rem;
+}
+
+#so_previous_planned .modal-body textarea {
+    field-sizing: content;
+    min-height: 6rem;
+    max-height: 60vh;
+}
+
 /* For larger screens */
 @media (min-width: 1200px) {
     .card-body {

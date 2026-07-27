@@ -24,6 +24,7 @@ $closed: #666666;
 $ongoing: #008800;
 $passed: #008800;
 $failed: #e40521;
+$partially: #fd7e14;
 $under-review: #727272;
 $late-under-review: #5B1B8F;
 $unsubmitted: #2673e5;
@@ -39,6 +40,7 @@ $custom-colors: (
     "ongoing": $ongoing,
     "passed": $passed,
     "failed": $failed,
+    "partially" : $partially,
     "under-review": $under-review,
     "late-under-review": $late-under-review,
     "unsubmitted": $unsubmitted,
@@ -531,13 +533,30 @@ th.sortable {
         }
     }
 }
-
-/* Flags a question whose answer changed from a previous version: dashed
-   orange outline with a "View previous version" pill hanging off the bottom. */
-.display-previous-answer {
-    position: relative;
+////////////////////////////////////////
+// CSS to highlight previous answers //
+//////////////////////////////////////
+@mixin previous-answer-outline {
     border: 2px dashed $answer-modified;
     border-radius: var(--bs-border-radius-lg);
+}
+
+.view-previous-version {
+    white-space: nowrap;
+    background-color: $answer-modified;
+    border-color: $answer-modified;
+}
+
+.view-previous-version:hover,
+.view-previous-version:focus {
+    background-color: $answer-modified;
+    border-color: $answer-modified;
+    filter: brightness(0.92);
+}
+
+.display-previous-answer {
+    position: relative;
+    @include previous-answer-outline;
     padding: 1rem 1rem 2rem;
     margin-bottom: 1.75rem;
 }
@@ -547,19 +566,50 @@ th.sortable {
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 50%);
-    white-space: nowrap;
-    background-color: $answer-modified;
-    border-color: $answer-modified;
 }
 
-.display-previous-answer .view-previous-version:hover,
-.display-previous-answer .view-previous-version:focus {
-    background-color: $answer-modified;
-    border-color: $answer-modified;
-    filter: brightness(0.92);
+.so-previous-answer-row {
+    position: relative;
+    --so-level-col: 8.333%;
 }
 
-/* Preserve line breaks between the previous choices and free-text details. */
+.so-previous-answer-row.so-previous-answer-row-full {
+    --so-level-col: 0%;
+}
+
+.so-previous-answer-row > td {
+    padding-top: 1rem !important;
+    padding-bottom: 2.5rem !important;
+}
+
+.so-previous-answer-row > td:first-of-type {
+    padding-left: 1.25rem !important;
+}
+
+.so-previous-answer-row > td:last-child {
+    padding-right: 1.25rem !important;
+}
+
+.so-previous-answer-row > td:first-of-type::after {
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    bottom: 1.5rem;
+    left: calc(var(--so-level-col) + 0.5rem);
+    right: 0.5rem;
+    @include previous-answer-outline;
+    pointer-events: none;
+}
+
+.so-previous-answer-row .view-previous-version {
+    position: absolute;
+    bottom: 1.5rem;
+    left: calc(var(--so-level-col) + (100% - var(--so-level-col)) / 2);
+    transform: translate(-50%, 50%);
+    z-index: 2;
+}
+
 .previous-answer-text {
     white-space: pre-line;
 }
+////////////////////////////////////////
