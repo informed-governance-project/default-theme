@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-06 16:06+0200\n"
+"POT-Creation-Date: 2026-07-28 12:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1424,7 +1424,7 @@ msgstr ""
 msgid "Incident notification steps"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:263
+#: theme/templates/incidents/declaration.html:270
 #: theme/templates/modals/create_report_project.html:92
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/delete_report_project.html:24
@@ -1436,7 +1436,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:265
+#: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/incidents_base.html:491
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1451,6 +1451,7 @@ msgstr ""
 #: theme/templates/modals/export_incidents.html:20
 #: theme/templates/modals/import_so_declaration.html:16
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
+#: theme/templates/modals/previous_answer.html:11
 #: theme/templates/modals/report_versions.html:12
 #: theme/templates/modals/report_versions_workflow_comment.html:8
 #: theme/templates/modals/repoting_dashboard_hide_columns.html:12
@@ -1459,6 +1460,8 @@ msgstr ""
 #: theme/templates/modals/risk_analysis_import.html:16
 #: theme/templates/modals/so_contacts.html:13
 #: theme/templates/modals/so_dashboard_hide_columns.html:12
+#: theme/templates/modals/so_previous_version_measure.html:11
+#: theme/templates/modals/so_previous_version_planned_actions.html:11
 #: theme/templates/modals/so_versions.html:12
 #: theme/templates/modals/so_versions_review_comment_so_declaration.html:8
 #: theme/templates/modals/update_so_declaration.html:12
@@ -1473,18 +1476,28 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:278
+#: theme/templates/incidents/declaration.html:285
 msgid "Previous"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:297
+#: theme/templates/incidents/declaration.html:304
 #: theme/templates/operator/so_dashboard.html:20
 #: theme/templates/security_objectives/declaration.html:174
 msgid "Submit"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:299
+#: theme/templates/incidents/declaration.html:306
 msgid "Next"
+msgstr ""
+
+#: theme/templates/incidents/declaration.html:327
+#: theme/templates/security_objectives/declaration.html:413
+#: theme/templates/security_objectives/declaration.html:480
+msgid "View previous version"
+msgstr ""
+
+#: theme/templates/incidents/declaration.html:328
+msgid "Conditional question"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:8
@@ -1906,6 +1919,12 @@ msgstr ""
 msgid "Choice of columns"
 msgstr ""
 
+#: theme/templates/modals/previous_answer.html:6
+#: theme/templates/modals/so_previous_version_measure.html:6
+#: theme/templates/modals/so_previous_version_planned_actions.html:6
+msgid "Previous version"
+msgstr ""
+
 #: theme/templates/modals/review_comment_report.html:10
 #: theme/templates/modals/workflow_comment.html:34
 #: theme/templates/operator/incidents.html:64
@@ -1939,6 +1958,12 @@ msgstr ""
 #: theme/templates/modals/so_dashboard_hide_columns.html:27
 #: theme/templates/security_objectives/so_dashboard_base.html:96
 msgid "Creator"
+msgstr ""
+
+#: theme/templates/modals/so_previous_version_planned_actions.html:16
+#: theme/templates/report/security_objectives/declaration.html:154
+#: theme/templates/security_objectives/declaration.html:467
+msgid "Planned Measures"
 msgstr ""
 
 #: theme/templates/modals/so_versions.html:21
@@ -2438,17 +2463,12 @@ msgid "Review Comment"
 msgstr ""
 
 #: theme/templates/report/security_objectives/declaration.html:148
-#: theme/templates/security_objectives/declaration.html:447
+#: theme/templates/security_objectives/declaration.html:461
 msgid "No security measures data available."
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:154
-#: theme/templates/security_objectives/declaration.html:453
-msgid "Planned Measures"
-msgstr ""
-
 #: theme/templates/report/security_objectives/declaration.html:172
-#: theme/templates/security_objectives/declaration.html:468
+#: theme/templates/security_objectives/declaration.html:492
 msgid "No security objectives data available."
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-03 16:41+0200\n"
+"POT-Creation-Date: 2026-07-28 12:59+0200\n"
 "PO-Revision-Date: 2026-07-06 08:45+0000\n"
 "Last-Translator: Edgar Dugourd <Edd@ilr.lu>\n"
 "Language-Team: \n"
@@ -115,11 +115,11 @@ msgstr "Génération du rapport"
 msgid "Download"
 msgstr "Télécharger"
 
-#: theme/static/js/so_declaration.js:26
+#: theme/static/js/so_declaration.js:60
 msgid "Justification required"
 msgstr "Justification requise"
 
-#: theme/static/js/so_declaration.js:44
+#: theme/static/js/so_declaration.js:78
 msgid ""
 "Please list your current and planned measures, including a schedule with the "
 "individual stages."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-06 16:06+0200\n"
+"POT-Creation-Date: 2026-07-28 13:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,11 +114,11 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-#: theme/static/js/so_declaration.js:26
+#: theme/static/js/so_declaration.js:60
 msgid "Justification required"
 msgstr ""
 
-#: theme/static/js/so_declaration.js:44
+#: theme/static/js/so_declaration.js:78
 msgid ""
 "Please list your current and planned measures, including a schedule with the "
 "individual stages."
