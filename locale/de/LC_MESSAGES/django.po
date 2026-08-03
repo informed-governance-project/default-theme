@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-28 12:59+0200\n"
+"POT-Creation-Date: 2026-08-03 12:08+0200\n"
 "PO-Revision-Date: 2026-07-06 14:00+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -2338,7 +2338,6 @@ msgstr "Auswahl der Spalten"
 #: theme/templates/modals/previous_answer.html:6
 #: theme/templates/modals/so_previous_version_measure.html:6
 #: theme/templates/modals/so_previous_version_planned_actions.html:6
-#| msgid "Previous"
 msgid "Previous version"
 msgstr ""
 
