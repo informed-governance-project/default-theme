@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-03 12:08+0200\n"
-"PO-Revision-Date: 2026-08-03 10:11+0000\n"
+"PO-Revision-Date: 2026-08-03 10:25+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1917,7 +1917,7 @@ msgstr ""
 
 #: theme/templates/incidents/declaration.html:328
 msgid "Conditional question"
-msgstr ""
+msgstr "Voorwaardelijke vraag"
 
 #: theme/templates/incidents/incidents_base.html:8
 msgid "Incident notification"
