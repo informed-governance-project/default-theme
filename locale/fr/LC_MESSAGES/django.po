@@ -147,8 +147,8 @@ msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
 "has been created on SERIMA and it may be part of your organization."
 msgstr ""
-"Nous avons constaté que le compte utilisateur %(new_user_name)s (%"
-"(new_user_email)s) a été créé sur SERIMA et il pourrait faire partie de "
+"Nous avons constaté que le compte utilisateur %(new_user_name)s "
+"(%(new_user_email)s) a été créé sur SERIMA et il pourrait faire partie de "
 "votre organisation."
 
 #: theme/templates/emails/suggestion_link_user_account.html:19
@@ -167,8 +167,8 @@ msgid ""
 "organization."
 msgstr ""
 "Dans le cadre de nos efforts pour améliorer la qualité des données et "
-"rationaliser la gestion des comptes, nous (%(regulator)s) suggérons de lier %"
-"(new_user_name)s à votre organisation."
+"rationaliser la gestion des comptes, nous (%(regulator)s) suggérons de lier "
+"%(new_user_name)s à votre organisation."
 
 #: theme/templates/emails/suggestion_link_user_account.html:30
 msgid ""
@@ -443,7 +443,8 @@ msgstr "ILR : 17, rue du Fossé, L-1536 Luxembourg ; Tél. : (+352) 28 228 228"
 
 #: theme/templates/home/privacy_policy.html:60
 msgid "CSSF: 283 Rte d'Arlon, 2991 Belair Luxembourg; Tel.: (+352) 26 25 11"
-msgstr "CSSF : 283 Rte d'Arlon, 2991 Belair Luxembourg ; Tél. : (+352) 26 25 11"
+msgstr ""
+"CSSF : 283 Rte d'Arlon, 2991 Belair Luxembourg ; Tél. : (+352) 26 25 11"
 
 #: theme/templates/home/privacy_policy.html:65
 msgid ""
@@ -503,8 +504,8 @@ msgid ""
 "measures to the Regulators."
 msgstr ""
 "Les données à caractère personnel sont traitées en conformité avec le <a "
-"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/"
-"?uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
+"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/?"
+"uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
 "a>. Les données de l’Utilisateur ne sont enregistrées et traitées par le "
 "Régulateur concerné qu'aux seules fins de la gestion des procédures qui "
 "relèvent de ce dernier. Le traitement de données est effectué dans le cadre "
@@ -748,8 +749,8 @@ msgid ""
 "lu\">dpo@cssf.lu</a>."
 msgstr ""
 "En ce qui concerne la CSSF, les personnes concernées peuvent faire valoir "
-"leurs droits en contactant le délégué à la protection des données de la CSSF "
-": <a href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
+"leurs droits en contactant le délégué à la protection des données de la "
+"CSSF : <a href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:265
 msgid ""
@@ -758,8 +759,8 @@ msgid ""
 "etat.lu\">info@cgpd.etat.lu</a>."
 msgstr ""
 "En ce qui concerne l’HCPN, les personnes concernées peuvent faire valoir "
-"leurs droits en contactant le délégué à la protection des données de l’HCPN "
-": <a href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
+"leurs droits en contactant le délégué à la protection des données de "
+"l’HCPN : <a href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:271
 msgid ""
@@ -768,8 +769,8 @@ msgid ""
 "lu\">dpo@cnpd.lu</a>."
 msgstr ""
 "En ce qui concerne la CNPD, les personnes concernées peuvent faire valoir "
-"leurs droits en contactant le délégué à la protection des données de la CNPD "
-": <a href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
+"leurs droits en contactant le délégué à la protection des données de la "
+"CNPD : <a href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:279
 msgid "Complaints"
@@ -1024,7 +1025,8 @@ msgstr "« ILR » : signifie l’Institut Luxembourgeois de Régulation."
 
 #: theme/templates/home/terms.html:175
 msgid "\"CSSF\": means the Commission de Surveillance du Secteur Financier."
-msgstr "« CSSF » : signifie la Commission de Surveillance du Secteur Financier."
+msgstr ""
+"« CSSF » : signifie la Commission de Surveillance du Secteur Financier."
 
 #: theme/templates/home/terms.html:180
 msgid ""
@@ -1575,10 +1577,10 @@ msgid ""
 msgstr ""
 "En cas d’indisponibilité de SERIMA ou de tout dysfonctionnement, "
 "l’Utilisateur peut s’adresser à l’ILR par le biais des adresses "
-"électroniques dédiées : <a href=\"mailto:incident_notification@ilr.lu\">"
-"incident_notification@ilr.lu</a> pour tout élément en lien avec le Module de "
-"notification d’incidents et <a href=\"mailto:serima@ilr.lu\">serima@ilr.lu</"
-"a> pour tout autre Module."
+"électroniques dédiées : <a href=\"mailto:incident_notification@ilr."
+"lu\">incident_notification@ilr.lu</a> pour tout élément en lien avec le "
+"Module de notification d’incidents et <a href=\"mailto:serima@ilr."
+"lu\">serima@ilr.lu</a> pour tout autre Module."
 
 #: theme/templates/home/terms.html:574
 msgid ""
@@ -1676,8 +1678,8 @@ msgid ""
 "rel=\"noopener noreferrer\">GDPR</a>."
 msgstr ""
 "Les données à caractère personnel sont traitées en conformité avec le <a "
-"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/"
-"?uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
+"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/?"
+"uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
 "a>."
 
 #: theme/templates/home/terms.html:651
@@ -2667,7 +2669,8 @@ msgstr "Réinitialisation du mot de passe terminée"
 
 #: theme/templates/registration/password_reset_complete.html:15
 msgid "Your password has been set. You may log in now."
-msgstr "Votre mot de passe a été défini. Vous pouvez maintenant vous connecter."
+msgstr ""
+"Votre mot de passe a été défini. Vous pouvez maintenant vous connecter."
 
 #: theme/templates/registration/password_reset_complete.html:18
 msgid "Log in"
