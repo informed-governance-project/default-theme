@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-06 16:01+0200\n"
-"PO-Revision-Date: 2026-07-04 15:28+0000\n"
-"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
+"POT-Creation-Date: 2026-08-04 09:03+0200\n"
+"PO-Revision-Date: 2026-08-03 10:25+0000\n"
+"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1821,13 +1821,13 @@ msgstr "Regelgeving"
 msgid "Incident notification steps"
 msgstr "Stappen incidentmelding"
 
-#: theme/templates/incidents/declaration.html:263
+#: theme/templates/incidents/declaration.html:270
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/export_incidents.html:78
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: theme/templates/incidents/declaration.html:265
+#: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/incidents_base.html:491
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1835,6 +1835,7 @@ msgstr "Annuleren"
 #: theme/templates/modals/delete_incident.html:12
 #: theme/templates/modals/export_incidents.html:20
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
+#: theme/templates/modals/previous_answer.html:11
 #: theme/templates/modals/report_versions.html:12
 #: theme/templates/modals/report_versions_workflow_comment.html:8
 #: theme/templates/modals/workflow_comment.html:20
@@ -1843,17 +1844,25 @@ msgstr "Annuleren"
 msgid "Close"
 msgstr "Sluiten"
 
-#: theme/templates/incidents/declaration.html:278
+#: theme/templates/incidents/declaration.html:285
 msgid "Previous"
 msgstr "Vorig"
 
-#: theme/templates/incidents/declaration.html:297
+#: theme/templates/incidents/declaration.html:304
 msgid "Submit"
 msgstr "Indienen"
 
-#: theme/templates/incidents/declaration.html:299
+#: theme/templates/incidents/declaration.html:306
 msgid "Next"
 msgstr "Volgend"
+
+#: theme/templates/incidents/declaration.html:327
+msgid "View previous version"
+msgstr ""
+
+#: theme/templates/incidents/declaration.html:328
+msgid "Conditional question"
+msgstr "Voorwaardelijke vraag"
 
 #: theme/templates/incidents/incidents_base.html:8
 msgid "Incident notification"
@@ -2115,6 +2124,10 @@ msgstr "Incidenten exporteren"
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:7
 msgid "Choice of columns"
 msgstr "Kolommenkeuze"
+
+#: theme/templates/modals/previous_answer.html:6
+msgid "Previous version"
+msgstr ""
 
 #: theme/templates/modals/workflow_comment.html:14
 msgid "Review"
