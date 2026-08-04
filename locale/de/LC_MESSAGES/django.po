@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-03 12:08+0200\n"
-"PO-Revision-Date: 2026-08-03 10:11+0000\n"
-"Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
+"PO-Revision-Date: 2026-08-04 05:29+0000\n"
+"Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1913,7 +1913,7 @@ msgstr "Vorherige Version anzeigen"
 
 #: theme/templates/incidents/declaration.html:328
 msgid "Conditional question"
-msgstr ""
+msgstr "Bedingte Frage"
 
 #: theme/templates/incidents/incidents_base.html:8
 msgid "Incident notification"
@@ -2339,7 +2339,7 @@ msgstr "Auswahl der Spalten"
 #: theme/templates/modals/so_previous_version_measure.html:6
 #: theme/templates/modals/so_previous_version_planned_actions.html:6
 msgid "Previous version"
-msgstr ""
+msgstr "Vorherige Version"
 
 #: theme/templates/modals/review_comment_report.html:10
 #: theme/templates/modals/workflow_comment.html:34
