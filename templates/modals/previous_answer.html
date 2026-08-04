@@ -1,0 +1,19 @@
+{% load i18n %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header text-white px-4 small bg-answer-modified">
+      <h5 class="modal-title" id="previous-answer-label">
+        {% translate "Previous version" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="{% translate 'Close' %}">
+      </button>
+    </div>
+    <div class="modal-body m-2">
+      <div id="previous-answer-body">
+      </div>
+    </div>
+  </div>
+{% endblock %}

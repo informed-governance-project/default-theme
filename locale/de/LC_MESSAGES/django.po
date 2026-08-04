@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-06 16:01+0200\n"
-"PO-Revision-Date: 2026-07-06 14:00+0000\n"
-"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
+"POT-Creation-Date: 2026-08-04 09:03+0200\n"
+"PO-Revision-Date: 2026-08-04 05:29+0000\n"
+"Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1817,13 +1817,13 @@ msgstr "Verordnung"
 msgid "Incident notification steps"
 msgstr "Schritte zur Vorfallmeldung"
 
-#: theme/templates/incidents/declaration.html:263
+#: theme/templates/incidents/declaration.html:270
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/export_incidents.html:78
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: theme/templates/incidents/declaration.html:265
+#: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/incidents_base.html:491
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1831,6 +1831,7 @@ msgstr "Abbrechen"
 #: theme/templates/modals/delete_incident.html:12
 #: theme/templates/modals/export_incidents.html:20
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
+#: theme/templates/modals/previous_answer.html:11
 #: theme/templates/modals/report_versions.html:12
 #: theme/templates/modals/report_versions_workflow_comment.html:8
 #: theme/templates/modals/workflow_comment.html:20
@@ -1839,17 +1840,25 @@ msgstr "Abbrechen"
 msgid "Close"
 msgstr "Schließen"
 
-#: theme/templates/incidents/declaration.html:278
+#: theme/templates/incidents/declaration.html:285
 msgid "Previous"
 msgstr "Zurück"
 
-#: theme/templates/incidents/declaration.html:297
+#: theme/templates/incidents/declaration.html:304
 msgid "Submit"
 msgstr "Einreichen"
 
-#: theme/templates/incidents/declaration.html:299
+#: theme/templates/incidents/declaration.html:306
 msgid "Next"
 msgstr "Weiter"
+
+#: theme/templates/incidents/declaration.html:327
+msgid "View previous version"
+msgstr "Vorherige Version anzeigen"
+
+#: theme/templates/incidents/declaration.html:328
+msgid "Conditional question"
+msgstr "Bedingte Frage"
 
 #: theme/templates/incidents/incidents_base.html:8
 msgid "Incident notification"
@@ -2111,6 +2120,10 @@ msgstr "Vorfälle exportieren"
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:7
 msgid "Choice of columns"
 msgstr "Auswahl der Spalten"
+
+#: theme/templates/modals/previous_answer.html:6
+msgid "Previous version"
+msgstr "Vorherige Version"
 
 #: theme/templates/modals/workflow_comment.html:14
 msgid "Review"
