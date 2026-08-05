@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-03 12:08+0200\n"
-"PO-Revision-Date: 2026-08-03 10:25+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"PO-Revision-Date: 2026-08-05 11:28+0000\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1314,6 +1314,8 @@ msgid ""
 "The Operator Administrators are responsible for managing access for members "
 "linked to their organisation."
 msgstr ""
+"De Operator Admins zijn verantwoordelijk voor het beheer van de toegang voor "
+"leden die aan hun organisatie zijn gekoppeld."
 
 #: theme/templates/home/terms.html:417
 msgid ""
@@ -1913,7 +1915,7 @@ msgstr "Volgend"
 #: theme/templates/security_objectives/declaration.html:413
 #: theme/templates/security_objectives/declaration.html:480
 msgid "View previous version"
-msgstr ""
+msgstr "Zie vorige versie"
 
 #: theme/templates/incidents/declaration.html:328
 msgid "Conditional question"
@@ -2343,7 +2345,7 @@ msgstr "Kolommenkeuze"
 #: theme/templates/modals/so_previous_version_measure.html:6
 #: theme/templates/modals/so_previous_version_planned_actions.html:6
 msgid "Previous version"
-msgstr ""
+msgstr "Vorige versie"
 
 #: theme/templates/modals/review_comment_report.html:10
 #: theme/templates/modals/workflow_comment.html:34
