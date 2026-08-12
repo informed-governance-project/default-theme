@@ -497,6 +497,7 @@
             {% bootstrap_field filter.form.incident_status label_class="fw-bold" wrapper_class="mb-3" %}
             {% bootstrap_field filter.form.is_significative_impact label_class="fw-bold" wrapper_class="mb-3" %}
             {% bootstrap_field filter.form.affected_sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
+            {% block filter_extra_fields %}{% endblock %}
           </div>
           <div class="modal-footer">
             <button class="btn btn-secondary btn-sm spinner-trigger"

@@ -4,6 +4,18 @@
 {% load django_bootstrap5 %}
 {% block content_table_incident_id %}
   {{ incident.incident_id }}
+  {% if incident.is_cross_border_impact %}
+    <span class="badge text-bg-warning d-inline-flex align-items-center gap-1 mt-1"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="{% translate 'Reported as affecting more than one Member State' %}">
+      <i class="bi bi-globe" aria-hidden="true"></i>
+      {% translate "Cross-border" %}
+    </span>
+  {% endif %}
+{% endblock %}
+{% block filter_extra_fields %}
+  {% bootstrap_field filter.form.cross_border_impact label_class="fw-bold" wrapper_class="mb-3" %}
 {% endblock %}
 {% block content_table_report %}
   {% with incident_view_action="review_workflow" %}
