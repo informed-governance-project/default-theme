@@ -1843,6 +1843,14 @@ msgstr "Dernière mise à jour"
 
 #: theme/templates/incidents/declaration.html:71
 #: theme/templates/incidents/declaration.html:73
+#: theme/templates/observer/incidents.html:11
+msgid "Reported as affecting more than one Member State"
+msgstr "Déclaré comme affectant plus d’un État membre"
+
+#: theme/templates/observer/incidents.html:13
+msgid "Cross-border"
+msgstr "Transfrontalier"
+
 #: theme/templates/modals/contacts_incident.html:7
 #: theme/templates/observer/incidents.html:21
 #: theme/templates/observer/incidents.html:24
