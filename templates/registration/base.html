@@ -39,14 +39,20 @@
         <!-- Navigation Menu -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto me-3">
-            <li class="nav-item">
-              <a id="login_button" class="btn btn-secondary">{% translate "Login" %}</a>
-            </li>
-            <li class="nav-item">
-              <a id="registration_button"
-                 class="btn btn-link text-decoration-none text-secondary fw-bold create-account"
-                 href="{% url 'registration' %}">{% translate "Create account" %}</a>
-            </li>
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="btn btn-secondary me-2" href="{% url 'logout' %}">{% translate "Log out" %}</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a id="login_button" class="btn btn-secondary">{% translate "Login" %}</a>
+              </li>
+              <li class="nav-item">
+                <a id="registration_button"
+                   class="btn btn-link text-decoration-none text-secondary fw-bold create-account"
+                   href="{% url 'registration' %}">{% translate "Create account" %}</a>
+              </li>
+            {% endif %}
             <li class="nav-item">
               {% include "home/language_selector.html" %}
             </li>
