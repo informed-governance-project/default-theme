@@ -22,8 +22,10 @@ $(document).ready(function () {
   $('#id_sectorregulation').on('change', function () {
     const selectedSectorReg = $(this).val();
     $workflow.find('option').each(function () {
-      const wfReg = $(this).data('sectorregulation');
-      if (!wfReg || wfReg == selectedSectorReg) {
+      const wfRegs = String($(this).data('sectorregulation') ?? '')
+        .split(',')
+        .filter(id => id !== '');
+      if (wfRegs.length === 0 || wfRegs.includes(selectedSectorReg)) {
         $(this).show();
       } else {
         $(this).hide();
