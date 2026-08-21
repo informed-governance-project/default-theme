@@ -369,7 +369,7 @@
                     <th class="col-1 text-center align-middle">
                       {% translate "Measure Implemented?" %}
                     </th>
-                    <th class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}
+                    <th class="{% if is_regulator or security_objective.review_comment or security_objective.declaration_status != 'UNDE' %}
                                  col-2
                                {% else %}
                                  col-4
@@ -448,7 +448,7 @@
                           {% endif %}
                         </td>
                         {% if is_regulator or security_objective.review_comment or security_objective.declaration_status != "UNDE"  %}
-                          <td class="col-auto lh-sm
+                          <td class="col-2 lh-sm
                                      {% if forloop.first %}
                                        table-group-divider
                                      {% endif %}">
