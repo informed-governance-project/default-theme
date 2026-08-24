@@ -39,3 +39,23 @@
 .margin-right-10 {
     margin-right: 10px !important;
 }
+
+.link-pending > button {
+    padding: 8px 16px !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    min-width: 100px !important;
+}
+
+.approve-button {
+    background: #649c35 !important;
+
+}
+
+.reject-button {
+    background: #c63d3d !important;
+}
+
+#changelist tbody tr:has(.link-pending) {
+    background-color: var(--message-info-bg);
+}

@@ -14,3 +14,12 @@
     </li>
   {% endif %}
 {% endblock %}
+{% block content %}
+  {{ block.super }}
+  <!-- Target of the per-row Account actions buttons: they carry form="account-action-form" so they
+     post here instead of to the enclosing changelist form, which cannot legally nest a form. -->
+  <form id="account-action-form" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="changelist_filters">
+  </form>
+{% endblock %}
