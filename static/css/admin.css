@@ -59,3 +59,29 @@
 #changelist tbody tr:has(.link-pending) {
     background-color: var(--message-info-bg);
 }
+
+/* Confirmation asked before an account action goes through. Colours come from the admin
+   variables so the dialog follows the light and dark themes. */
+#account-action-confirm {
+    max-width: 32rem;
+    padding: 1.5rem;
+    border: 1px solid var(--hairline-color);
+    border-radius: 4px;
+    background: var(--body-bg);
+    color: var(--body-fg);
+}
+
+#account-action-confirm::backdrop {
+    background: rgb(0 0 0 / 50%);
+}
+
+#account-action-confirm h2 {
+    margin-top: 0;
+}
+
+.account-action-confirm-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
