@@ -40,11 +40,11 @@
     margin-right: 10px !important;
 }
 
-.link-pending > button {
+.link-pending > button, .account-actions > button {
     padding: 8px 16px !important;
     display: inline-block !important;
     margin: 0 !important;
-    min-width: 100px !important;
+    min-width: 45% !important;
 }
 
 .approve-button {
@@ -52,8 +52,16 @@
 
 }
 
+.approve-button:hover {
+    background: #4e7a2a !important;
+}
+
 .reject-button {
     background: #c63d3d !important;
+}
+
+.reject-button:hover {
+    background: #a32f2f !important;
 }
 
 #changelist tbody tr:has(.link-pending) {
