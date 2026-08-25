@@ -28,9 +28,6 @@
            name="changelist_filters"
            value="{{ request.GET.urlencode }}">
   </form>
-  {% if account_action_messages %}
-    {{ account_action_messages|json_script:"account-action-messages" }}
-  {% endif %}
   <dialog id="account-action-confirm"
           aria-labelledby="account-action-confirm-title">
     <h2 id="account-action-confirm-title">
