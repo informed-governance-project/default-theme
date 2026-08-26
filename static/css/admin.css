@@ -104,6 +104,22 @@
     margin-right: 10px !important;
 }
 
+/* Buttons sharing a changelist cell become equal grid tracks, so they keep the same width
+   whatever their label says, in any language. min-width alone is only a floor: a label longer
+   than it just pushes that one button wider. */
+#result_list .link-pending,
+#result_list .account-actions {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 8px;
+}
+
+#result_list .link-pending > button,
+#result_list .account-actions > button {
+    width: 100% !important;
+}
+
 .link-pending > button, .account-actions > button {
     padding: 8px 16px !important;
     display: inline-block !important;
