@@ -157,3 +157,17 @@
     gap: 0.5rem;
     margin-top: 1.5rem;
 }
+
+/* Prompt shown above the user detail form while a suggestion to link the account is pending. */
+.pending-link-prompt {
+    max-width: 500px;
+    margin-bottom: 20px;
+    padding: 12px 0px;
+    border-radius: 4px;
+    color: var(--body-fg);
+}
+
+.pending-link-question {
+    margin-bottom: 10px;
+    font-weight: bold;
+}

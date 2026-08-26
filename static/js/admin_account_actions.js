@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let requestedButton = null;
   let requestedUrl = null;
 
-  document.querySelectorAll("#result_list [data-confirm-message]").forEach(function (button) {
+  document.querySelectorAll("[data-confirm-message]").forEach(function (button) {
     button.addEventListener("click", function (event) {
       // Hold the submission back until the operator has read what the action implies.
       event.preventDefault();
