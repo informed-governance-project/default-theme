@@ -10,6 +10,70 @@
     --secondary: #f51616 !important;
 } */
 
+/* Restore the pre-6.1 admin layout: label beside its field, not above it.
+   6.1 reordered fieldset.html to label → help → errors → widget, so the widget
+   has to be pulled back onto the label's row rather than just un-stacked. */
+
+/* A readonly ManyToMany with no rows renders as <div class="readonly"></div>:
+   AdminReadonlyField.contents joins the related objects without ever falling back
+   to empty_value_display, so the cell — and the whole row, where the label is
+   hidden too — collapses to nothing. Show the dash Django uses elsewhere. */
+
+@media (min-width: 768px) {
+    /* Multi-field lines: each fieldBox otherwise sizes to its own content, so a line
+    holding a readonly value starts its second field further left than a line
+    holding a text input. Equal-width boxes keep the columns aligned across lines. */
+    .aligned .form-row.form-multiline > .fieldBox {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    /* .vTextField is a fixed 20em and would overflow a box narrower than that. */
+    .aligned .form-row.form-multiline > .fieldBox input,
+    .aligned .form-row.form-multiline > .fieldBox select,
+    .aligned .form-row.form-multiline > .fieldBox textarea {
+        max-width: 100%;
+    }
+
+    .aligned .form-row > .flex-container,
+    .aligned .form-row > fieldset {
+        display: grid;
+        grid-template-columns: 160px minmax(0, 1fr);
+        column-gap: 10px;
+        row-gap: 6px;
+        align-items: start;
+    }
+
+    .aligned .form-row > .flex-container > label,
+    .aligned .form-row > fieldset > legend {
+        grid-column: 1;
+        grid-row: 1;
+        float: none;
+        width: auto;
+        min-width: 0;
+        padding: 4px 10px 0 0;
+        overflow-wrap: break-word;
+    }
+
+    .aligned .form-row > .flex-container > :not(label),
+    .aligned .form-row > fieldset > :not(legend) {
+        grid-column: 2;
+    }
+
+    .aligned .form-row > .flex-container > .errorlist,
+    .aligned .form-row > fieldset > .errorlist {
+        order: 1;
+    }
+
+    .aligned .form-row > .flex-container > .help,
+    .aligned .form-row > fieldset > .help {
+        order: 2;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
 .header-links {
     display: flex;
     column-gap: 10px;
@@ -30,7 +94,6 @@
     color: red !important;
     font-weight: bold;
     padding-left: 3px;
-    vertical-align: super !important;
 }
 
 .double-padding {
@@ -39,4 +102,95 @@
 
 .margin-right-10 {
     margin-right: 10px !important;
+}
+
+/* Buttons sharing a changelist cell become equal grid tracks, so they keep the same width
+   whatever their label says, in any language. min-width alone is only a floor: a label longer
+   than it just pushes that one button wider. */
+#result_list .link-pending,
+#result_list .account-actions {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 8px;
+}
+
+#result_list .link-pending > button,
+#result_list .account-actions > button {
+    width: 100% !important;
+}
+
+.link-pending > button, .account-actions > button {
+    padding: 8px 16px !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    min-width: 45% !important;
+}
+
+.approve-button {
+    background: #649c35 !important;
+
+}
+
+.approve-button:hover {
+    background: #4e7a2a !important;
+}
+
+.reject-button {
+    background: #c63d3d !important;
+}
+
+.reject-button:hover {
+    background: #a32f2f !important;
+}
+
+#changelist tbody tr:has(.link-pending) {
+    background-color: var(--message-info-bg);
+}
+
+/* Confirmation asked before an account action goes through. Colours come from the admin
+   variables so the dialog follows the light and dark themes. */
+#account-action-confirm {
+    max-width: 32rem;
+    padding: 1.5rem;
+    border: 1px solid var(--hairline-color);
+    border-radius: 4px;
+    background: var(--body-bg);
+    color: var(--body-fg);
+}
+
+#account-action-confirm::backdrop {
+    background: rgb(0 0 0 / 50%);
+}
+
+#account-action-confirm h2 {
+    margin-top: 0;
+}
+
+.account-action-confirm-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Prompt shown above the user detail form while a suggestion to link the account is pending. */
+.pending-link-prompt {
+    max-width: 500px;
+    margin-bottom: 20px;
+    padding: 12px 0px;
+    border-radius: 4px;
+    color: var(--body-fg);
+}
+
+.pending-link-question {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* These two readonly fields hold nothing but a button that already says what it does, so drop
+   the placeholder label Django renders for their empty description. */
+.fieldBox.field-reset_2FA_action > label,
+.fieldBox.field-administrator_action > label {
+    display: none;
 }
