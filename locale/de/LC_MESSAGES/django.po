@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-03 12:08+0200\n"
+"POT-Creation-Date: 2026-08-26 15:27+0200\n"
 "PO-Revision-Date: 2026-08-04 05:29+0000\n"
 "Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -46,16 +46,43 @@ msgstr "Zurück zur Benutzeroberfläche"
 
 #: theme/templates/admin/base_site.html:29
 #: theme/templates/parts/header.html:104
+#: theme/templates/registration/base.html:44
 msgid "Log out"
 msgstr "Abmeldung"
 
-#: theme/templates/admin/reset_accepted_terms.html:8
+#: theme/templates/admin/custom_change_user_form.html:12
+#, python-format
+msgid "Add this user to Company %(company)s?"
+msgstr ""
+
+#: theme/templates/admin/custom_change_user_list.html:8
 msgid "Reset accepted terms"
 msgstr "Akzeptierte Nutzungsbedingungen zurücksetzen"
 
-#: theme/templates/admin/reset_accepted_terms.html:13
+#: theme/templates/admin/custom_change_user_list.html:13
 msgid "Reset accepted cookies"
 msgstr "Akzeptierte Cookies zurücksetzen"
+
+#: theme/templates/admin/includes/account_actions_confirm.html:13
+msgid "Attention"
+msgstr ""
+
+#: theme/templates/admin/includes/account_actions_confirm.html:19
+#: theme/templates/incidents/declaration.html:270
+#: theme/templates/modals/create_report_project.html:92
+#: theme/templates/modals/delete_incident.html:26
+#: theme/templates/modals/delete_report_project.html:24
+#: theme/templates/modals/delete_report_recommendation.html:22
+#: theme/templates/modals/delete_so_declaration.html:24
+#: theme/templates/modals/export_incidents.html:78
+#: theme/templates/reporting/add_recommendations.html:34
+#: theme/templates/reporting/project_dashboard.html:335
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: theme/templates/admin/includes/account_actions_confirm.html:22
+msgid "Confirm"
+msgstr ""
 
 #: theme/templates/admin/settings_list.html:5
 msgid "Variables Django Settings"
@@ -486,8 +513,8 @@ msgstr "Purposes and legal bases for processing"
 
 #: theme/templates/home/privacy_policy.html:100
 msgid ""
-"Personal data is processed in accordance with the <a href=\"https://eur-lex."
-"europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
+"Personal data is processed in accordance with the <a href=\"https://eur-"
+"lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
 "rel=\"noopener noreferrer\">GDPR</a>. The User’s data is recorded and "
 "processed by the relevant Regulator solely for the purposes of managing the "
 "procedures for which it is responsible. Data processing is carried out in "
@@ -496,8 +523,8 @@ msgid ""
 "notifications, risk analyses and declarations relating to their security "
 "measures to the Regulators."
 msgstr ""
-"Personal data is processed in accordance with the <a href=\"https://eur-lex."
-"europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
+"Personal data is processed in accordance with the <a href=\"https://eur-"
+"lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
 "rel=\"noopener noreferrer\">GDPR</a>. The User’s data is recorded and "
 "processed by the relevant Regulator solely for the purposes of managing the "
 "procedures for which it is responsible. Data processing is carried out in "
@@ -725,32 +752,32 @@ msgstr ""
 #: theme/templates/home/privacy_policy.html:259
 msgid ""
 "With regard to the CSSF, data subjects may exercise their rights by "
-"contacting the CSSF's data protection officer: <a href=\"mailto:dpo@cssf."
-"lu\">dpo@cssf.lu</a>."
+"contacting the CSSF's data protection officer: <a "
+"href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
 msgstr ""
 "With regard to the CSSF, data subjects may exercise their rights by "
-"contacting the CSSF's data protection officer: <a href=\"mailto:dpo@cssf."
-"lu\">dpo@cssf.lu</a>."
+"contacting the CSSF's data protection officer: <a "
+"href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:265
 msgid ""
 "With regard to the HCPN, data subjects may exercise their rights by "
-"contacting the HCPN's data protection officer: <a href=\"mailto:info@cgpd."
-"etat.lu\">info@cgpd.etat.lu</a>."
+"contacting the HCPN's data protection officer: <a "
+"href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
 msgstr ""
 "With regard to the HCPN, data subjects may exercise their rights by "
-"contacting the HCPN's data protection officer: <a href=\"mailto:info@cgpd."
-"etat.lu\">info@cgpd.etat.lu</a>."
+"contacting the HCPN's data protection officer: <a "
+"href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:271
 msgid ""
 "With regard to the CNPD, data subjects may exercise their rights by "
-"contacting the CNPD's data protection officer: <a href=\"mailto:dpo@cnpd."
-"lu\">dpo@cnpd.lu</a>."
+"contacting the CNPD's data protection officer: <a "
+"href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
 msgstr ""
 "With regard to the CNPD, data subjects may exercise their rights by "
-"contacting the CNPD's data protection officer: <a href=\"mailto:dpo@cnpd."
-"lu\">dpo@cnpd.lu</a>."
+"contacting the CNPD's data protection officer: <a "
+"href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:279
 msgid "Complaints"
@@ -1531,16 +1558,16 @@ msgstr "any other reason that the ILR deems necessary."
 #: theme/templates/home/terms.html:565
 msgid ""
 "In the event of SERIMA being unavailable or of any malfunction, the User may "
-"contact ILR via the dedicated e-mail addresses: <a href=\"mailto:"
-"incident_notification@ilr.lu\">incident_notification@ilr.lu</a> for any item "
-"relating to the Incident Notification Module and <a href=\"mailto:serima@ilr."
-"lu\">serima@ilr.lu</a> for any other Module."
+"contact ILR via the dedicated e-mail addresses: <a "
+"href=\"mailto:incident_notification@ilr.lu\">incident_notification@ilr.lu</"
+"a> for any item relating to the Incident Notification Module and <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a> for any other Module."
 msgstr ""
 "In the event of SERIMA being unavailable or of any malfunction, the User may "
-"contact ILR via the dedicated e-mail addresses: <a href=\"mailto:"
-"incident_notification@ilr.lu\">incident_notification@ilr.lu</a> for any item "
-"relating to the Incident Notification Module and <a href=\"mailto:serima@ilr."
-"lu\">serima@ilr.lu</a> for any other Module."
+"contact ILR via the dedicated e-mail addresses: <a "
+"href=\"mailto:incident_notification@ilr.lu\">incident_notification@ilr.lu</"
+"a> for any item relating to the Incident Notification Module and <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a> for any other Module."
 
 #: theme/templates/home/terms.html:574
 msgid ""
@@ -1630,12 +1657,12 @@ msgstr "Protection of personal data"
 
 #: theme/templates/home/terms.html:643
 msgid ""
-"Personal data is processed in accordance with the <a href=\"https://eur-lex."
-"europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
+"Personal data is processed in accordance with the <a href=\"https://eur-"
+"lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
 "rel=\"noopener noreferrer\">GDPR</a>."
 msgstr ""
-"Personal data is processed in accordance with the <a href=\"https://eur-lex."
-"europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
+"Personal data is processed in accordance with the <a href=\"https://eur-"
+"lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
 "rel=\"noopener noreferrer\">GDPR</a>."
 
 #: theme/templates/home/terms.html:651
@@ -1683,12 +1710,12 @@ msgstr ""
 #: theme/templates/home/terms.html:685
 msgid ""
 "For any comments, questions or complaints relating to SERIMA, the User may "
-"contact the ILR via the following e-mail address: <a href=\"mailto:"
-"serima@ilr.lu\">serima@ilr.lu</a>."
+"contact the ILR via the following e-mail address: <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a>."
 msgstr ""
 "For any comments, questions or complaints relating to SERIMA, the User may "
-"contact the ILR via the following e-mail address: <a href=\"mailto:"
-"serima@ilr.lu\">serima@ilr.lu</a>."
+"contact the ILR via the following e-mail address: <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a>."
 
 #: theme/templates/home/terms.html:691
 msgid "Only the French version of the Terms of Use is binding."
@@ -1839,23 +1866,10 @@ msgstr "Verordnung"
 msgid "Incident notification steps"
 msgstr "Schritte zur Vorfallmeldung"
 
-#: theme/templates/incidents/declaration.html:270
-#: theme/templates/modals/create_report_project.html:92
-#: theme/templates/modals/delete_incident.html:26
-#: theme/templates/modals/delete_report_project.html:24
-#: theme/templates/modals/delete_report_recommendation.html:22
-#: theme/templates/modals/delete_so_declaration.html:24
-#: theme/templates/modals/export_incidents.html:78
-#: theme/templates/reporting/add_recommendations.html:34
-#: theme/templates/reporting/project_dashboard.html:335
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/incidents_base.html:491
 #: theme/templates/modals/accept_terms.html:37
-#: theme/templates/modals/access_log base.html:22
+#: ⁨theme/templates/modals/access_log base.html⁩:22
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/copy_so_declaration.html:16
 #: theme/templates/modals/create_report_project.html:22
@@ -1867,7 +1881,6 @@ msgstr "Abbrechen"
 #: theme/templates/modals/export_incidents.html:20
 #: theme/templates/modals/import_so_declaration.html:16
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
-#: theme/templates/modals/previous_answer.html:11
 #: theme/templates/modals/previous_answer.html:11
 #: theme/templates/modals/report_versions.html:12
 #: theme/templates/modals/report_versions_workflow_comment.html:8
@@ -1894,7 +1907,6 @@ msgid "Close"
 msgstr "Schließen"
 
 #: theme/templates/incidents/declaration.html:285
-#: theme/templates/incidents/declaration.html:285
 msgid "Previous"
 msgstr "Zurück"
 
@@ -1904,7 +1916,6 @@ msgstr "Zurück"
 msgid "Submit"
 msgstr "Einreichen"
 
-#: theme/templates/incidents/declaration.html:306
 #: theme/templates/incidents/declaration.html:306
 msgid "Next"
 msgstr "Weiter"
@@ -2132,7 +2143,7 @@ msgstr "Weitere Optionen"
 
 #: theme/templates/incidents/incidents_base.html:412
 #: theme/templates/incidents/incidents_base.html:413
-#: theme/templates/modals/access_log base.html:17
+#: ⁨theme/templates/modals/access_log base.html⁩:17
 #: theme/templates/reporting/dashboard.html:205
 #: theme/templates/security_objectives/so_dashboard_base.html:225
 #: theme/templates/security_objectives/so_dashboard_base.html:227
@@ -2530,12 +2541,12 @@ msgstr "Einträgen"
 msgid "Sign in"
 msgstr "Anmelden"
 
-#: theme/templates/registration/base.html:43
+#: theme/templates/registration/base.html:48
 #: theme/templates/registration/login.html:61
 msgid "Login"
 msgstr "Login"
 
-#: theme/templates/registration/base.html:48
+#: theme/templates/registration/base.html:53
 #: theme/templates/registration/login.html:96
 #: theme/templates/registration/signup.html:11
 #: theme/templates/registration/signup.html:66
