@@ -1,0 +1,25 @@
+{% load i18n %}
+<!-- Target of the account action buttons and of the intercepted delete link: they post here
+     instead of to the enclosing admin form, which cannot legally nest a form. -->
+<form id="account-action-form" method="post">
+  {% csrf_token %}
+  <input type="hidden"
+         name="changelist_filters"
+         value="{{ request.GET.urlencode }}">
+</form>
+<dialog id="account-action-confirm"
+        aria-labelledby="account-action-confirm-title">
+  <h2 id="account-action-confirm-title">
+    {% translate "Attention" %}
+  </h2>
+  <p data-account-action-message>
+  </p>
+  <div class="account-action-confirm-buttons">
+    <button type="button" class="button" data-account-action-cancel>
+      {% translate "Cancel" %}
+    </button>
+    <button type="button" class="button default" data-account-action-confirm>
+      {% translate "Confirm" %}
+    </button>
+  </div>
+</dialog>
