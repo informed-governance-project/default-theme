@@ -187,3 +187,10 @@
     margin-bottom: 10px;
     font-weight: bold;
 }
+
+/* These two readonly fields hold nothing but a button that already says what it does, so drop
+   the placeholder label Django renders for their empty description. */
+.fieldBox.field-reset_2FA_action > label,
+.fieldBox.field-administrator_action > label {
+    display: none;
+}
