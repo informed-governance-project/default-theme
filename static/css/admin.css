@@ -150,7 +150,7 @@
 
 /* Confirmation asked before an account action goes through. Colours come from the admin
    variables so the dialog follows the light and dark themes. */
-#account-action-confirm {
+.admin-dialog {
     max-width: 32rem;
     padding: 1.5rem;
     border: 1px solid var(--hairline-color);
@@ -159,15 +159,15 @@
     color: var(--body-fg);
 }
 
-#account-action-confirm::backdrop {
+.admin-dialog::backdrop {
     background: rgb(0 0 0 / 50%);
 }
 
-#account-action-confirm h2 {
+.admin-dialog h2 {
     margin-top: 0;
 }
 
-.account-action-confirm-buttons {
+.admin-dialog-buttons {
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
@@ -194,3 +194,21 @@
 .fieldBox.field-administrator_action > label {
     display: none;
 }
+
+.email-placeholders {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.email-placeholders th,
+.email-placeholders td {
+    padding: 0.35rem 1rem 0.35rem 0;
+    text-align: left;
+    vertical-align: top;
+}
+
+.email-placeholders tbody th {
+    font-weight: normal;
+    white-space: nowrap;
+}
+
