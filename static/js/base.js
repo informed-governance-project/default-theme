@@ -440,7 +440,9 @@ $(document).on("click", '.captcha-refresh', function () {
   });
 });
 
-
+$(document).on("submit", "#create_so_declaration form", function () {
+  load_spinner();
+});
 
 
 
