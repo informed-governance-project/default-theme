@@ -232,6 +232,30 @@ $(document).ready(function () {
       });
   });
 
+  // Prevent multiple submissions of the forms
+  $(document).on("submit", "#modal-delete-declaration-form", function () {
+    load_spinner();
+  });
+
+  $(document).on("submit", "#so_declaration_submit_form", function () {
+    load_spinner();
+  });
+
+  $(document).on("submit", "#copy_so_declaration_form", function () {
+    load_spinner();
+  });
+
+  $(document).on("click", "#modal-update-declaration-button", function () {
+    load_spinner();
+  });
+
+  $(document).on("click", "#modal-review-declaration-button", function () {
+    load_spinner();
+  });
+  $(document).on("submit", "#so-review-comment-form", function () {
+    load_spinner();
+  });
+
   // Dashboard columns sort management
   sort_field_from_context = $('#sort_field_so_table').text() ? JSON.parse($('#sort_field_so_table').text()) : null,
   sort_direction_from_context = $('#sort_direction_so_table').text() ? JSON.parse($('#sort_direction_so_table').text()) : "desc",

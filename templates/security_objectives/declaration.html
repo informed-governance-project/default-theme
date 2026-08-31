@@ -161,7 +161,7 @@
                 <i class="custom-icon-submit h4"></i>
               </button>
             {% elif standard_answer.status == "UNDE" %}
-              <form method="post" action="{% url 'submit_so_declaration' standard_answer.id %}">
+              <form id="so_declaration_submit_form" method="post" action="{% url 'submit_so_declaration' standard_answer.id %}">
                 {% csrf_token %}
                 <button id="so_submit_button" type="submit" 
                     class="btn btn-passed

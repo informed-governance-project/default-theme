@@ -165,6 +165,7 @@ $(document).ready(function () {
   });
 
   $(document).on('submit', '#so-review-comment-form', function (e) {
+    load_spinner();
     let $form = $(this);
     let is_only_review_comment = $form.attr('is_only_review_comment');
     if (is_only_review_comment=="False"){
@@ -231,6 +232,11 @@ $(document).ready(function () {
 
   $(document).on("change", ".so-input-field", function () {
     update_so_declaration(this);
+  });
+
+  // Prevent multiple submissions of the SO declaration form
+  $(document).on("submit", "#so_declaration_submit_form", function () {
+    load_spinner();
   });
 });
 
