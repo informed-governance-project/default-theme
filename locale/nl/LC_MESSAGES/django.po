@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-26 15:27+0200\n"
-"PO-Revision-Date: 2026-08-05 11:28+0000\n"
+"PO-Revision-Date: 2026-09-01 12:44+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,7 +80,7 @@ msgstr "Annuleren"
 
 #: theme/templates/admin/includes/account_actions_confirm.html:22
 msgid "Confirm"
-msgstr ""
+msgstr "Bevestigen"
 
 #: theme/templates/admin/settings_list.html:5
 msgid "Variables Django Settings"
