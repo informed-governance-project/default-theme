@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-26 15:27+0200\n"
+"POT-Creation-Date: 2026-09-01 14:45+0200\n"
 "PO-Revision-Date: 2026-08-03 10:11+0000\n"
 "Last-Translator: Edgar Dugourd <Edd@ilr.lu>\n"
 "Language-Team: \n"
@@ -62,11 +62,11 @@ msgstr "Réinitialiser l'acceptation des conditions d’utilisation"
 msgid "Reset accepted cookies"
 msgstr "Réinitialiser l'acceptation des cookies"
 
-#: theme/templates/admin/includes/account_actions_confirm.html:13
+#: theme/templates/admin/includes/account_actions_confirm.html:14
 msgid "Attention"
 msgstr ""
 
-#: theme/templates/admin/includes/account_actions_confirm.html:19
+#: theme/templates/admin/includes/account_actions_confirm.html:20
 #: theme/templates/incidents/declaration.html:270
 #: theme/templates/modals/create_report_project.html:92
 #: theme/templates/modals/delete_incident.html:26
@@ -79,9 +79,68 @@ msgstr ""
 msgid "Cancel"
 msgstr "Annuler"
 
-#: theme/templates/admin/includes/account_actions_confirm.html:22
+#: theme/templates/admin/includes/account_actions_confirm.html:23
 msgid "Confirm"
 msgstr ""
+
+#: theme/templates/admin/includes/email_placeholders_help.html:8
+msgid "Available placeholders"
+msgstr ""
+
+#: theme/templates/admin/includes/email_placeholders_help.html:11
+msgid ""
+"Type one of these in the subject or in the content. It is replaced when the "
+"email is sent."
+msgstr ""
+
+#: theme/templates/admin/includes/email_placeholders_help.html:17
+msgid "Placeholder"
+msgstr ""
+
+#: theme/templates/admin/includes/email_placeholders_help.html:20
+msgid "Replaced by"
+msgstr ""
+
+#: theme/templates/admin/includes/email_placeholders_help.html:39
+#: theme/templates/incidents/declaration.html:272
+#: theme/templates/incidents/incidents_base.html:491
+#: theme/templates/modals/accept_terms.html:37
+#: ⁨theme/templates/modals/access_log base.html⁩:22
+#: theme/templates/modals/contacts_incident.html:12
+#: theme/templates/modals/copy_so_declaration.html:16
+#: theme/templates/modals/create_report_project.html:22
+#: theme/templates/modals/create_so_declaration.html:16
+#: theme/templates/modals/delete_incident.html:12
+#: theme/templates/modals/delete_report_project.html:12
+#: theme/templates/modals/delete_report_recommendation.html:12
+#: theme/templates/modals/delete_so_declaration.html:12
+#: theme/templates/modals/export_incidents.html:20
+#: theme/templates/modals/import_so_declaration.html:16
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:12
+#: theme/templates/modals/previous_answer.html:11
+#: theme/templates/modals/report_versions.html:12
+#: theme/templates/modals/report_versions_workflow_comment.html:8
+#: theme/templates/modals/repoting_dashboard_hide_columns.html:12
+#: theme/templates/modals/review_comment_report.html:15
+#: theme/templates/modals/review_comment_so_declaration.html:14
+#: theme/templates/modals/risk_analysis_import.html:16
+#: theme/templates/modals/so_contacts.html:13
+#: theme/templates/modals/so_dashboard_hide_columns.html:12
+#: theme/templates/modals/so_previous_version_measure.html:11
+#: theme/templates/modals/so_previous_version_planned_actions.html:11
+#: theme/templates/modals/so_versions.html:12
+#: theme/templates/modals/so_versions_review_comment_so_declaration.html:8
+#: theme/templates/modals/update_so_declaration.html:12
+#: theme/templates/modals/workflow_comment.html:20
+#: theme/templates/parts/messages.html:16
+#: theme/templates/parts/messages.html:17
+#: theme/templates/reporting/add_recommendations.html:65
+#: theme/templates/reporting/dashboard.html:254
+#: theme/templates/reporting/project_dashboard.html:360
+#: theme/templates/security_objectives/declaration.html:182
+#: theme/templates/security_objectives/so_dashboard_base.html:338
+msgid "Close"
+msgstr "Fermer"
 
 #: theme/templates/admin/settings_list.html:5
 msgid "Variables Django Settings"
@@ -1913,52 +1972,12 @@ msgstr "Régulation"
 msgid "Incident notification steps"
 msgstr "Étapes de notification d'un incident"
 
-#: theme/templates/incidents/declaration.html:272
-#: theme/templates/incidents/incidents_base.html:491
-#: theme/templates/modals/accept_terms.html:37
-#: ⁨theme/templates/modals/access_log base.html⁩:22
-#: theme/templates/modals/contacts_incident.html:12
-#: theme/templates/modals/copy_so_declaration.html:16
-#: theme/templates/modals/create_report_project.html:22
-#: theme/templates/modals/create_so_declaration.html:16
-#: theme/templates/modals/delete_incident.html:12
-#: theme/templates/modals/delete_report_project.html:12
-#: theme/templates/modals/delete_report_recommendation.html:12
-#: theme/templates/modals/delete_so_declaration.html:12
-#: theme/templates/modals/export_incidents.html:20
-#: theme/templates/modals/import_so_declaration.html:16
-#: theme/templates/modals/incidents_dashboard_hide_columns.html:12
-#: theme/templates/modals/previous_answer.html:11
-#: theme/templates/modals/report_versions.html:12
-#: theme/templates/modals/report_versions_workflow_comment.html:8
-#: theme/templates/modals/repoting_dashboard_hide_columns.html:12
-#: theme/templates/modals/review_comment_report.html:15
-#: theme/templates/modals/review_comment_so_declaration.html:14
-#: theme/templates/modals/risk_analysis_import.html:16
-#: theme/templates/modals/so_contacts.html:13
-#: theme/templates/modals/so_dashboard_hide_columns.html:12
-#: theme/templates/modals/so_previous_version_measure.html:11
-#: theme/templates/modals/so_previous_version_planned_actions.html:11
-#: theme/templates/modals/so_versions.html:12
-#: theme/templates/modals/so_versions_review_comment_so_declaration.html:8
-#: theme/templates/modals/update_so_declaration.html:12
-#: theme/templates/modals/workflow_comment.html:20
-#: theme/templates/parts/messages.html:16
-#: theme/templates/parts/messages.html:17
-#: theme/templates/reporting/add_recommendations.html:65
-#: theme/templates/reporting/dashboard.html:254
-#: theme/templates/reporting/project_dashboard.html:360
-#: theme/templates/security_objectives/declaration.html:182
-#: theme/templates/security_objectives/so_dashboard_base.html:338
-msgid "Close"
-msgstr "Fermer"
-
 #: theme/templates/incidents/declaration.html:285
 msgid "Previous"
 msgstr "Précédent"
 
 #: theme/templates/incidents/declaration.html:304
-#: theme/templates/operator/so_dashboard.html:20
+#: theme/templates/operator/so_dashboard.html:21
 #: theme/templates/security_objectives/declaration.html:174
 msgid "Submit"
 msgstr "Soumettre"
@@ -2042,12 +2061,12 @@ msgid "Closed"
 msgstr "Clôturé"
 
 #: theme/templates/incidents/incidents_base.html:86
-#: theme/templates/operator/so_dashboard.html:147
+#: theme/templates/operator/so_dashboard.html:148
 msgid "Unsubmitted"
 msgstr "Non remis"
 
 #: theme/templates/incidents/incidents_base.html:90
-#: theme/templates/operator/so_dashboard.html:135
+#: theme/templates/operator/so_dashboard.html:136
 #: theme/templates/regulator/so_dashboard.html:129
 msgid "Under review"
 msgstr "Revue en cours"
@@ -2061,14 +2080,14 @@ msgid "Late submission"
 msgstr "Soumission tardive"
 
 #: theme/templates/incidents/incidents_base.html:102
-#: theme/templates/operator/so_dashboard.html:141
+#: theme/templates/operator/so_dashboard.html:142
 #: theme/templates/regulator/so_dashboard.html:135
 #: theme/templates/report/security_objectives/cover.html:40
 msgid "Revision required"
 msgstr "Améliorations requises"
 
 #: theme/templates/incidents/incidents_base.html:106
-#: theme/templates/operator/so_dashboard.html:129
+#: theme/templates/operator/so_dashboard.html:130
 #: theme/templates/regulator/so_dashboard.html:117
 #: theme/templates/report/security_objectives/cover.html:38
 msgid "Passed"
@@ -2294,10 +2313,10 @@ msgstr ""
 msgid "Duplicate the selected security objectives statement to"
 msgstr "Dupliquer la déclaration des objectifs de sécurité sélectionnée vers"
 
-#: theme/templates/modals/copy_so_declaration.html:32
+#: theme/templates/modals/copy_so_declaration.html:34
 #: theme/templates/modals/create_report_project.html:96
-#: theme/templates/operator/so_dashboard.html:94
-#: theme/templates/operator/so_dashboard.html:167
+#: theme/templates/operator/so_dashboard.html:95
+#: theme/templates/operator/so_dashboard.html:168
 #: theme/templates/reporting/dashboard.html:196
 msgid "Duplicate"
 msgstr "Dupliquer"
@@ -2344,8 +2363,8 @@ msgstr "Êtes-vous sûr de vouloir supprimer l'incident ?"
 #: theme/templates/modals/delete_so_declaration.html:27
 #: theme/templates/operator/incidents.html:121
 #: theme/templates/operator/incidents.html:124
-#: theme/templates/operator/so_dashboard.html:118
-#: theme/templates/operator/so_dashboard.html:173
+#: theme/templates/operator/so_dashboard.html:119
+#: theme/templates/operator/so_dashboard.html:174
 #: theme/templates/regulator/so_dashboard.html:106
 #: theme/templates/regulator/so_dashboard.html:161
 #: theme/templates/reporting/dashboard.html:217
@@ -2410,7 +2429,7 @@ msgstr "Version précédente"
 #: theme/templates/operator/incidents.html:64
 #: theme/templates/operator/incidents.html:67
 #: theme/templates/operator/incidents.html:73
-#: theme/templates/operator/so_dashboard.html:77
+#: theme/templates/operator/so_dashboard.html:78
 #: theme/templates/regulator/so_dashboard.html:68
 #: theme/templates/regulator/so_dashboard.html:79
 #: theme/templates/security_objectives/declaration.html:108
@@ -2420,7 +2439,7 @@ msgstr "Commentaire de revue"
 #: theme/templates/modals/review_comment_so_declaration.html:8
 #: theme/templates/modals/update_so_declaration.html:25
 #: theme/templates/modals/workflow_comment.html:14
-#: theme/templates/operator/so_dashboard.html:64
+#: theme/templates/operator/so_dashboard.html:65
 #: theme/templates/regulator/so_dashboard.html:56
 msgid "Review"
 msgstr "Revue"
@@ -2469,23 +2488,23 @@ msgstr "Mettre à jour"
 msgid "not submitted yet"
 msgstr "pas encore soumis"
 
-#: theme/templates/operator/so_dashboard.html:53
+#: theme/templates/operator/so_dashboard.html:54
 #: theme/templates/reporting/dashboard.html:186
 msgid "Edit"
 msgstr "Editer"
 
-#: theme/templates/operator/so_dashboard.html:103
+#: theme/templates/operator/so_dashboard.html:104
 #: theme/templates/regulator/so_dashboard.html:94
 #: theme/templates/reporting/dashboard.html:175
 msgid "Download"
 msgstr "Télécharger"
 
-#: theme/templates/operator/so_dashboard.html:155
+#: theme/templates/operator/so_dashboard.html:156
 #: theme/templates/regulator/so_dashboard.html:149
 msgid "Versioning"
 msgstr "Gestion des versions"
 
-#: theme/templates/operator/so_dashboard.html:161
+#: theme/templates/operator/so_dashboard.html:162
 #: theme/templates/regulator/so_dashboard.html:155
 msgid "Editing"
 msgstr "Editer"
