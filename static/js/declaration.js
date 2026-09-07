@@ -70,6 +70,13 @@ $(document).ready(function () {
 
     for (const field of form.elements) {
       let $field = $(field);
+
+      // A conditional question folded away by syncConditionals() cannot be answered, so
+      // reportValidity() below would abort the step pointing at a field nobody can see.
+      // Its mandatory flag is re-checked server side once the trigger answer is selected.
+      if ($field.closest("[data-question-id].d-none").length) {
+        continue;
+      }
       let $freeTextInput = $("#id_" + field.name + "_freetext_answer");
       let $radios = $("#id_" + field.name).find('input[type="radio"]');
       let $container = $radios.closest('.mb-3');
@@ -240,7 +247,6 @@ $(document).ready(function () {
   }
 
   // Conditional Questions
-  initConditionalInputs();
   syncConditionals();
 
   $(document).on("change", "input[type='radio']", function () {
@@ -460,26 +466,6 @@ function renderPreviousNode(container, node) {
   }
 }
 
-function initConditionalInputs() {
-  $("[data_conditionals]").each(function () {
-    var $wrapper = $(this);
-    var map;
-    try {
-      map = JSON.parse($wrapper.attr("data_conditionals"));
-    } catch (e) {
-      return;
-    }
-
-
-    $.each(map, function (answerId, nextQuestionOptionsId) {
-      $wrapper
-        .find("input[type='radio'][value='" + answerId + "']," +
-          "input[type='checkbox'][value='" + answerId + "']")
-        .attr("data-next-question-id", nextQuestionOptionsId);
-    });
-  });
-}
-
 /**
  * Build the field name (= data-question-id on the containers) from
  * a QuestionOptions id. Field names follow the pattern set in
@@ -498,6 +484,10 @@ function hideQuestion(questionOptionsId) {
   var $containers = $("[data-question-id*='" + name + "']");
   $containers.addClass("d-none");
   $containers.closest(".display-previous-answer").addClass("d-none");
+
+  // A browser refuses to submit a form holding a hidden required control, and reports
+  // nothing because that control cannot be focused.
+  $containers.find(":input").prop("required", false).removeAttr("required");
 
   // uncheck inputs inside so nested conditionals are cleared
   $containers.find("input[type='radio'], input[type='checkbox']").prop("checked", false);
