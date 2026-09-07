@@ -185,9 +185,15 @@ $(document).ready(function () {
     changeColumnVisibility($tableDashboard, this);
   });
 
-  // Force the reference column to be hidden by default, as it is not used in the dashboard view
-  const reference_index = $tableDashboard.find('tr th[data-sort-field="reference"]').index();
-  setColumnVisible($tableDashboard, reference_index, false);
+// Hide some columns by default
+  const hidden_colummns_by_default = ['reference', 'detection_date', 'starting_date', 'resolution_date'];
+
+  for (const col of hidden_colummns_by_default) {
+    const $th = $tableDashboard.find(`tr th[data-sort-field="${col}"]`);
+    if ($th.length === 0) continue; // skip if column not found
+    setColumnVisible($tableDashboard, $th.index(), false);
+  }
+
 
   loadColumnDashboardState($tableDashboard);
 
