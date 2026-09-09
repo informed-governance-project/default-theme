@@ -130,6 +130,21 @@
               data-sort-field="notification_date">
             {% translate "Creation date" %}
           </th>
+          <th scope="col"
+              class="col-1 sortable align-middle"
+              data-sort-field="detection_date">
+            {% translate "Detection date" %}
+          </th>
+          <th scope="col"
+              class="col-1 sortable align-middle"
+              data-sort-field="starting_date">
+            {% translate "Start date" %}
+          </th>
+          <th scope="col"
+              class="col-1 sortable align-middle"
+              data-sort-field="resolution_date">
+            {% translate "Resolution date" %}
+          </th>
           {% if is_regulator and not is_regulator_incidents or is_observer %}
             <th scope="col"
                 class="col-1 sortable align-middle"
@@ -254,6 +269,54 @@
                 <i class="bi bi-clock" aria-hidden="true"></i>
                 {{ incident.incident_notification_date|date:"H:i" }}
               </div>
+            </td>
+            <!-- Incident detection date -->
+            <td class="col-1 table-group-divider py-3">
+              <div class="d-inline"
+                   data-bs-placement="top"
+                   data-bs-toggle="tooltip"
+                   title="{% translate 'Incident detection date' %}">
+                {{ incident.incident_detection_date|date:"d/m/y" }}
+                <br />
+                <i class="bi bi-clock" aria-hidden="true"></i>
+                {{ incident.incident_detection_date|date:"H:i" }}
+              </div>
+            </td>
+            <!-- Incident starting date -->
+            <td class="col-1 table-group-divider py-3">
+              {% with workflow=incident.get_latest_incident_workflow %}
+                {% if workflow.report_timeline.incident_starting_date %}
+                  <div class="d-inline"
+                       data-bs-placement="top"
+                       data-bs-toggle="tooltip"
+                       title="{% translate 'Incident starting date' %}">
+                    {{ workflow.report_timeline.incident_starting_date|date:"d/m/y" }}
+                    <br />
+                    <i class="bi bi-clock" aria-hidden="true"></i>
+                    {{ workflow.report_timeline.incident_starting_date|date:"H:i" }}
+                  </div>
+                {% else %}
+                  -
+                {% endif %}
+              {% endwith %}
+            </td>
+            <!-- Incident resolution date -->
+            <td class="col-1 table-group-divider py-3">
+              {% with workflow=incident.get_latest_incident_workflow %}
+                {% if workflow.report_timeline.incident_resolution_date %}
+                  <div class="d-inline"
+                       data-bs-placement="top"
+                       data-bs-toggle="tooltip"
+                       title="{% translate 'Incident resolution date' %}">
+                    {{ workflow.report_timeline.incident_resolution_date|date:"d/m/y" }}
+                    <br />
+                    <i class="bi bi-clock" aria-hidden="true"></i>
+                    {{ workflow.report_timeline.incident_resolution_date|date:"H:i" }}
+                  </div>
+                {% else %}
+                  -
+                {% endif %}
+              {% endwith %}
             </td>
             {% if is_regulator and not is_regulator_incidents or is_observer %}
               <!-- Operator/regulator Acronym -->
