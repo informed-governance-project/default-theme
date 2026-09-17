@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 09:03+0200\n"
-"PO-Revision-Date: 2026-08-03 10:25+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"POT-Creation-Date: 2026-09-17 11:06+0200\n"
+"PO-Revision-Date: 2026-09-16 10:37+0000\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,16 +44,75 @@ msgstr "Terug naar de gebruikersinterface"
 
 #: theme/templates/admin/base_site.html:29
 #: theme/templates/parts/header.html:104
+#: theme/templates/registration/base.html:44
 msgid "Log out"
 msgstr "Uitloggen"
 
-#: theme/templates/admin/reset_accepted_terms.html:8
+#: theme/templates/admin/custom_change_user_form.html:12
+#, python-format
+msgid "Add this user to Company %(company)s?"
+msgstr "Deze gebruiker toevoegen aan Onderneming%(company)s?"
+
+#: theme/templates/admin/custom_change_user_list.html:8
 msgid "Reset accepted terms"
 msgstr "Voorwaarden opnieuw instellen"
 
-#: theme/templates/admin/reset_accepted_terms.html:13
+#: theme/templates/admin/custom_change_user_list.html:13
 msgid "Reset accepted cookies"
 msgstr "Aanvaarde cookies resetten"
+
+#: theme/templates/admin/includes/account_actions_confirm.html:14
+msgid "Attention"
+msgstr "Opgelet"
+
+#: theme/templates/admin/includes/account_actions_confirm.html:20
+#: theme/templates/incidents/declaration.html:270
+#: theme/templates/modals/delete_incident.html:26
+#: theme/templates/modals/export_incidents.html:78
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: theme/templates/admin/includes/account_actions_confirm.html:23
+msgid "Confirm"
+msgstr "Bevestigen"
+
+#: theme/templates/admin/includes/email_placeholders_help.html:8
+msgid "Available placeholders"
+msgstr "Beschikbare placeholders"
+
+#: theme/templates/admin/includes/email_placeholders_help.html:11
+msgid ""
+"Type one of these in the subject or in the content. It is replaced when the "
+"email is sent."
+msgstr ""
+"Typ een van deze opties in het onderwerp of in de inhoud. Dit wordt "
+"vervangen wanneer de e-mail wordt verzonden."
+
+#: theme/templates/admin/includes/email_placeholders_help.html:17
+msgid "Placeholder"
+msgstr "Placeholder"
+
+#: theme/templates/admin/includes/email_placeholders_help.html:20
+msgid "Replaced by"
+msgstr "Vervangen door"
+
+#: theme/templates/admin/includes/email_placeholders_help.html:39
+#: theme/templates/incidents/declaration.html:272
+#: theme/templates/incidents/incidents_base.html:548
+#: theme/templates/modals/accept_terms.html:37
+#: theme/templates/modals/access_log_base.html:22
+#: theme/templates/modals/contacts_incident.html:12
+#: theme/templates/modals/delete_incident.html:12
+#: theme/templates/modals/export_incidents.html:20
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:12
+#: theme/templates/modals/previous_answer.html:11
+#: theme/templates/modals/report_versions.html:12
+#: theme/templates/modals/report_versions_workflow_comment.html:8
+#: theme/templates/modals/workflow_comment.html:20
+#: theme/templates/parts/messages.html:16
+#: theme/templates/parts/messages.html:17
+msgid "Close"
+msgstr "Sluiten"
 
 #: theme/templates/admin/settings_list.html:5
 msgid "Variables Django Settings"
@@ -467,8 +526,8 @@ msgstr "Doeleinden en rechtsgronden voor verwerking"
 
 #: theme/templates/home/privacy_policy.html:100
 msgid ""
-"Personal data is processed in accordance with the <a href=\"https://eur-lex."
-"europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
+"Personal data is processed in accordance with the <a href=\"https://eur-"
+"lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
 "rel=\"noopener noreferrer\">GDPR</a>. The User’s data is recorded and "
 "processed by the relevant Regulator solely for the purposes of managing the "
 "procedures for which it is responsible. Data processing is carried out in "
@@ -709,8 +768,8 @@ msgstr ""
 #: theme/templates/home/privacy_policy.html:259
 msgid ""
 "With regard to the CSSF, data subjects may exercise their rights by "
-"contacting the CSSF's data protection officer: <a href=\"mailto:dpo@cssf."
-"lu\">dpo@cssf.lu</a>."
+"contacting the CSSF's data protection officer: <a "
+"href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
 msgstr ""
 "Met betrekking tot het CSSF kunnen betrokkenen hun rechten uitoefenen door "
 "contact op te nemen met de functionaris voor gegevensbescherming van het "
@@ -719,8 +778,8 @@ msgstr ""
 #: theme/templates/home/privacy_policy.html:265
 msgid ""
 "With regard to the HCPN, data subjects may exercise their rights by "
-"contacting the HCPN's data protection officer: <a href=\"mailto:info@cgpd."
-"etat.lu\">info@cgpd.etat.lu</a>."
+"contacting the HCPN's data protection officer: <a "
+"href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
 msgstr ""
 "Met betrekking tot het HCPN kunnen betrokkenen hun rechten uitoefenen door "
 "contact op te nemen met de functionaris voor gegevensbescherming van het "
@@ -729,8 +788,8 @@ msgstr ""
 #: theme/templates/home/privacy_policy.html:271
 msgid ""
 "With regard to the CNPD, data subjects may exercise their rights by "
-"contacting the CNPD's data protection officer: <a href=\"mailto:dpo@cnpd."
-"lu\">dpo@cnpd.lu</a>."
+"contacting the CNPD's data protection officer: <a "
+"href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
 msgstr ""
 "Met betrekking tot het CNPD kunnen betrokkenen hun rechten uitoefenen door "
 "contact op te nemen met de functionaris voor gegevensbescherming van het "
@@ -872,6 +931,13 @@ msgid ""
 "concernant des mesures destinées à assurer un niveau élevé de cybersécurité” "
 "into Luxembourg law."
 msgstr ""
+"'NIS 2': betekent Richtlijn (EU) 2022/2555 van het Europees Parlement en de "
+"Raad van 14 december 2022 betreffende maatregelen voor een hoog gezamenlijk "
+"niveau van cyberbeveiliging in de Unie, tot wijziging van Verordening (EU) "
+"nr. 910/2014 en Richtlijn (EU) 2018/1972 en tot intrekking van Richtlijn "
+"(EU) 2016/1148 (NIS2-richtlijn), alsmede de wet die deze omzet in "
+"Luxemburgse wetgeving via de “loi du 5 mai 2026 concernant des mesures "
+"destinées à assurer un niveau élevé de cybersécurité”."
 
 #: theme/templates/home/terms.html:106
 msgid ""
@@ -881,6 +947,11 @@ msgid ""
 "the “loi du 5 mai 2026 sur la résilience des entités critiques” into "
 "Luxembourg law."
 msgstr ""
+"'CER': betekent Richtlijn (EU) 2022/2557 van het Europees Parlement en de "
+"Raad van 14 december 2022 betreffende de weerbaarheid van kritieke "
+"entiteiten en tot intrekking van Richtlijn 2008/114/EG van de Raad, alsmede "
+"de omzetting ervan in Luxemburgse wetgeving via de “loi du 5 mai 2026 sur la "
+"résilience des entités critiques”."
 
 #: theme/templates/home/terms.html:114
 msgid ""
@@ -1041,6 +1112,13 @@ msgid ""
 "transmitted to this Operator. It is created either by the Main Administrator "
 "Operator or by another Administrator Operator."
 msgstr ""
+"'Beheerder van de Operator': betekent iedere natuurlijke persoon die deel "
+"uitmaakt van een Operator en wiens belangrijkste verantwoordelijkheden "
+"bestaan in het beheer van de Gebruikers aangewezen door de Operator. De "
+"Beheerder heeft tevens een algemeen overzicht van de informatie en "
+"documenten die toebehoren of verzonden worden aan die Operator. Deze functie "
+"wordt ofwel aangemaakt door de Hoofdbeheerder van de Operator of door een "
+"andere Beheerder van de Operator."
 
 #: theme/templates/home/terms.html:220
 msgid ""
@@ -1056,6 +1134,10 @@ msgid ""
 "responsibilities are to produce and manage the information and documents to "
 "be sent to the Regulator."
 msgstr ""
+"'Gebruiker van de Operator': betekent iedere natuurlijke persoon die is "
+"aangewezen door de Operator en wiens belangrijkste verantwoordelijkheden "
+"bestaan in het aanmaken en beheren van de informatie en documenten die naar "
+"de Regulator moeten worden verstuurd."
 
 #: theme/templates/home/terms.html:232
 msgid ""
@@ -1301,6 +1383,8 @@ msgid ""
 "The Operator Administrators are responsible for managing access for members "
 "linked to their organisation."
 msgstr ""
+"De Operator Admins zijn verantwoordelijk voor het beheer van de toegang voor "
+"leden die aan hun organisatie zijn gekoppeld."
 
 #: theme/templates/home/terms.html:417
 msgid ""
@@ -1511,16 +1595,16 @@ msgstr "elke andere reden die het ILR noodzakelijk acht."
 #: theme/templates/home/terms.html:565
 msgid ""
 "In the event of SERIMA being unavailable or of any malfunction, the User may "
-"contact ILR via the dedicated e-mail addresses: <a href=\"mailto:"
-"incident_notification@ilr.lu\">incident_notification@ilr.lu</a> for any item "
-"relating to the Incident Notification Module and <a href=\"mailto:serima@ilr."
-"lu\">serima@ilr.lu</a> for any other Module."
+"contact ILR via the dedicated e-mail addresses: <a "
+"href=\"mailto:incident_notification@ilr.lu\">incident_notification@ilr.lu</"
+"a> for any item relating to the Incident Notification Module and <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a> for any other Module."
 msgstr ""
 "Indien SERIMA niet beschikbaar is of bij storingen, kan de gebruiker contact "
-"opnemen met het ILR via de speciale e-mailadressen <a href=\"mailto:"
-"incident_notification@ilr.lu\">incident_notification@ilr.lu</a> (voor "
-"problemen met de module om incidenten te melden) en <a href=\"mailto:"
-"serima@ilr.lu\">serima@ilr.lu</a> (voor elke andere module)."
+"opnemen met het ILR via de speciale e-mailadressen <a "
+"href=\"mailto:incident_notification@ilr.lu\">incident_notification@ilr.lu</"
+"a> (voor problemen met de module om incidenten te melden) en <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a> (voor elke andere module)."
 
 #: theme/templates/home/terms.html:574
 msgid ""
@@ -1619,8 +1703,8 @@ msgstr "Bescherming van persoonsgegevens"
 
 #: theme/templates/home/terms.html:643
 msgid ""
-"Personal data is processed in accordance with the <a href=\"https://eur-lex."
-"europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
+"Personal data is processed in accordance with the <a href=\"https://eur-"
+"lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
 "rel=\"noopener noreferrer\">GDPR</a>."
 msgstr ""
 "Persoonsgegevens worden verwerkt in overeenstemming met de <a href=\"https://"
@@ -1673,12 +1757,12 @@ msgstr ""
 #: theme/templates/home/terms.html:685
 msgid ""
 "For any comments, questions or complaints relating to SERIMA, the User may "
-"contact the ILR via the following e-mail address: <a href=\"mailto:"
-"serima@ilr.lu\">serima@ilr.lu</a>."
+"contact the ILR via the following e-mail address: <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a>."
 msgstr ""
 "Voor eventuele opmerkingen, vragen of klachten over SERIMA kan de Gebruiker "
-"contact opnemen met het ILR via het volgende e-mailadres: <a href=\"mailto:"
-"serima@ilr.lu\">serima@ilr.lu</a>."
+"contact opnemen met het ILR via het volgende e-mailadres: <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a>."
 
 #: theme/templates/home/terms.html:691
 msgid "Only the French version of the Terms of Use is binding."
@@ -1801,8 +1885,8 @@ msgstr "Laatste update"
 #: theme/templates/incidents/declaration.html:71
 #: theme/templates/incidents/declaration.html:73
 #: theme/templates/modals/contacts_incident.html:7
+#: theme/templates/observer/incidents.html:18
 #: theme/templates/observer/incidents.html:21
-#: theme/templates/observer/incidents.html:24
 #: theme/templates/regulator/incidents.html:19
 #: theme/templates/regulator/incidents.html:21
 msgid "Contacts"
@@ -1813,36 +1897,13 @@ msgid "Company"
 msgstr "Onderneming"
 
 #: theme/templates/incidents/declaration.html:83
-#: theme/templates/incidents/incidents_base.html:155
+#: theme/templates/incidents/incidents_base.html:170
 msgid "Regulation"
 msgstr "Regelgeving"
 
 #: theme/templates/incidents/declaration.html:135
 msgid "Incident notification steps"
 msgstr "Stappen incidentmelding"
-
-#: theme/templates/incidents/declaration.html:270
-#: theme/templates/modals/delete_incident.html:26
-#: theme/templates/modals/export_incidents.html:78
-msgid "Cancel"
-msgstr "Annuleren"
-
-#: theme/templates/incidents/declaration.html:272
-#: theme/templates/incidents/incidents_base.html:491
-#: theme/templates/modals/accept_terms.html:37
-#: theme/templates/modals/access_log base.html:22
-#: theme/templates/modals/contacts_incident.html:12
-#: theme/templates/modals/delete_incident.html:12
-#: theme/templates/modals/export_incidents.html:20
-#: theme/templates/modals/incidents_dashboard_hide_columns.html:12
-#: theme/templates/modals/previous_answer.html:11
-#: theme/templates/modals/report_versions.html:12
-#: theme/templates/modals/report_versions_workflow_comment.html:8
-#: theme/templates/modals/workflow_comment.html:20
-#: theme/templates/parts/messages.html:16
-#: theme/templates/parts/messages.html:17
-msgid "Close"
-msgstr "Sluiten"
 
 #: theme/templates/incidents/declaration.html:285
 msgid "Previous"
@@ -1858,7 +1919,7 @@ msgstr "Volgend"
 
 #: theme/templates/incidents/declaration.html:327
 msgid "View previous version"
-msgstr ""
+msgstr "Zie vorige versie"
 
 #: theme/templates/incidents/declaration.html:328
 msgid "Conditional question"
@@ -1877,7 +1938,7 @@ msgid "Filter incidents by status, sector, etc"
 msgstr "Filteren op status, sector enz"
 
 #: theme/templates/incidents/incidents_base.html:41
-#: theme/templates/incidents/incidents_base.html:486
+#: theme/templates/incidents/incidents_base.html:543
 msgid "Filter"
 msgstr "Filter"
 
@@ -1943,107 +2004,133 @@ msgstr "Tabel Incidenten"
 msgid "Status"
 msgstr "Status"
 
-#: theme/templates/incidents/incidents_base.html:137
+#: theme/templates/incidents/incidents_base.html:136
+msgid "Detection date"
+msgstr "Datum van ontdekking"
+
+#: theme/templates/incidents/incidents_base.html:141
+msgid "Start date"
+msgstr "Datum van aanvang"
+
+#: theme/templates/incidents/incidents_base.html:146
+msgid "Resolution date"
+msgstr "Datum van oplossing"
+
+#: theme/templates/incidents/incidents_base.html:152
 msgid "Operator Acronym"
 msgstr "Acroniem Operator"
 
-#: theme/templates/incidents/incidents_base.html:142
+#: theme/templates/incidents/incidents_base.html:157
 msgid "Operator Name"
 msgstr "Naam Operator"
 
-#: theme/templates/incidents/incidents_base.html:149
+#: theme/templates/incidents/incidents_base.html:164
 #: theme/templates/report/incidents/details.html:35
 msgid "Regulator"
 msgstr "Regulator"
 
-#: theme/templates/incidents/incidents_base.html:160
+#: theme/templates/incidents/incidents_base.html:175
 #: theme/templates/report/incidents/cover.html:19
 #: theme/templates/report/incidents/details.html:11
 msgid "Reference"
 msgstr "Referentie"
 
-#: theme/templates/incidents/incidents_base.html:165
+#: theme/templates/incidents/incidents_base.html:180
 msgid "Sectors"
 msgstr "Sectoren"
 
-#: theme/templates/incidents/incidents_base.html:168
+#: theme/templates/incidents/incidents_base.html:183
 #: theme/templates/report/base/template.html:8
 #: theme/templates/report/incidents/cover.html:5
 #: theme/templates/report/incidents/header.html:5
 msgid "Report"
 msgstr "Rapport"
 
-#: theme/templates/incidents/incidents_base.html:172
+#: theme/templates/incidents/incidents_base.html:187
 msgid "Actions"
 msgstr "Acties"
 
-#: theme/templates/incidents/incidents_base.html:180
+#: theme/templates/incidents/incidents_base.html:195
 msgid "Column settings"
 msgstr "Kolominstellingen"
 
-#: theme/templates/incidents/incidents_base.html:199
-#: theme/templates/incidents/incidents_base.html:202
+#: theme/templates/incidents/incidents_base.html:214
+#: theme/templates/incidents/incidents_base.html:217
 msgid "Incident with significant impact"
 msgstr "Incident met aanzienlijke gevolgen"
 
-#: theme/templates/incidents/incidents_base.html:208
-#: theme/templates/incidents/incidents_base.html:211
+#: theme/templates/incidents/incidents_base.html:223
+#: theme/templates/incidents/incidents_base.html:226
 msgid "No significant impact"
 msgstr "Geen aanzienlijke gevolgen"
 
-#: theme/templates/incidents/incidents_base.html:218
-#: theme/templates/incidents/incidents_base.html:221
+#: theme/templates/incidents/incidents_base.html:233
+#: theme/templates/incidents/incidents_base.html:236
 msgid "The incident is still ongoing"
 msgstr "Het incident is nog aan de gang"
 
-#: theme/templates/incidents/incidents_base.html:227
-#: theme/templates/incidents/incidents_base.html:230
+#: theme/templates/incidents/incidents_base.html:242
+#: theme/templates/incidents/incidents_base.html:245
 msgid "The incident has been closed"
 msgstr "Het incident is afgesloten"
 
-#: theme/templates/incidents/incidents_base.html:239
+#: theme/templates/incidents/incidents_base.html:254
 msgid "Last update date"
 msgstr "Laatste update"
 
-#: theme/templates/incidents/incidents_base.html:251
+#: theme/templates/incidents/incidents_base.html:266
 msgid "Incident notification submission date"
 msgstr "Datum van indiening van de incidentmelding"
 
-#: theme/templates/incidents/incidents_base.html:356
-#: theme/templates/incidents/incidents_base.html:358
+#: theme/templates/incidents/incidents_base.html:278
+#: theme/templates/report/incidents/timeline.html:27
+msgid "Incident detection date"
+msgstr "Datum waarop het incident is ontdekt"
+
+#: theme/templates/incidents/incidents_base.html:292
+msgid "Incident starting date"
+msgstr ""
+
+#: theme/templates/incidents/incidents_base.html:310
+#: theme/templates/report/incidents/timeline.html:43
+msgid "Incident resolution date"
+msgstr "Datum van oplossing van het incident"
+
+#: theme/templates/incidents/incidents_base.html:413
+#: theme/templates/incidents/incidents_base.html:415
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
-#: theme/templates/operator/incidents.html:90
-#: theme/templates/operator/incidents.html:92
-#: theme/templates/operator/incidents.html:99
+#: theme/templates/operator/incidents.html:87
+#: theme/templates/operator/incidents.html:89
+#: theme/templates/operator/incidents.html:96
 msgid "Version control"
 msgstr "Versiebeheer"
 
-#: theme/templates/incidents/incidents_base.html:366
-#: theme/templates/incidents/incidents_base.html:389
-#: theme/templates/incidents/incidents_base.html:391
+#: theme/templates/incidents/incidents_base.html:423
+#: theme/templates/incidents/incidents_base.html:446
+#: theme/templates/incidents/incidents_base.html:448
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
 
-#: theme/templates/incidents/incidents_base.html:399
+#: theme/templates/incidents/incidents_base.html:456
 msgid "More options"
 msgstr "Meer opties"
 
-#: theme/templates/incidents/incidents_base.html:412
-#: theme/templates/incidents/incidents_base.html:413
-#: theme/templates/modals/access_log base.html:17
+#: theme/templates/incidents/incidents_base.html:469
+#: theme/templates/incidents/incidents_base.html:470
+#: theme/templates/modals/access_log_base.html:17
 msgid "Access Log"
 msgstr "Toegangsregister"
 
-#: theme/templates/incidents/incidents_base.html:433
+#: theme/templates/incidents/incidents_base.html:490
 msgid "No incident reports have been submitted yet."
 msgstr "Nog geen incidentrapporten ingediend."
 
-#: theme/templates/incidents/incidents_base.html:507
+#: theme/templates/incidents/incidents_base.html:564
 msgid "Reset"
 msgstr "Resetten"
 
-#: theme/templates/incidents/incidents_base.html:510
+#: theme/templates/incidents/incidents_base.html:567
 msgid "Search"
 msgstr "Zoeken"
 
@@ -2112,8 +2199,8 @@ msgid "Are you sure that you want to delete the incident?"
 msgstr "Weet u zeker dat u het incident wilt verwijderen?"
 
 #: theme/templates/modals/delete_incident.html:29
+#: theme/templates/operator/incidents.html:118
 #: theme/templates/operator/incidents.html:121
-#: theme/templates/operator/incidents.html:124
 msgid "Delete"
 msgstr "Verwijderen"
 
@@ -2127,20 +2214,20 @@ msgstr "Kolommenkeuze"
 
 #: theme/templates/modals/previous_answer.html:6
 msgid "Previous version"
-msgstr ""
+msgstr "Vorige versie"
 
 #: theme/templates/modals/workflow_comment.html:14
 msgid "Review"
 msgstr "Beoordeling"
 
 #: theme/templates/modals/workflow_comment.html:34
+#: theme/templates/operator/incidents.html:61
 #: theme/templates/operator/incidents.html:64
-#: theme/templates/operator/incidents.html:67
-#: theme/templates/operator/incidents.html:73
+#: theme/templates/operator/incidents.html:70
 msgid "Review comment"
 msgstr "Opmerking bekijken"
 
-#: theme/templates/operator/incidents.html:29
+#: theme/templates/operator/incidents.html:26
 msgid "not submitted yet"
 msgstr "nog niet ingediend"
 
@@ -2242,12 +2329,12 @@ msgstr "resultaten"
 msgid "Sign in"
 msgstr "Inloggen"
 
-#: theme/templates/registration/base.html:43
+#: theme/templates/registration/base.html:48
 #: theme/templates/registration/login.html:61
 msgid "Login"
 msgstr "Inloggen"
 
-#: theme/templates/registration/base.html:48
+#: theme/templates/registration/base.html:53
 #: theme/templates/registration/login.html:96
 #: theme/templates/registration/signup.html:11
 #: theme/templates/registration/signup.html:66
@@ -2526,17 +2613,9 @@ msgstr "Tijdzone"
 msgid "Incident notification creation date"
 msgstr "Datum waarop de incidentmelding is gemaakt"
 
-#: theme/templates/report/incidents/timeline.html:27
-msgid "Incident detection date"
-msgstr "Datum waarop het incident is ontdekt"
-
 #: theme/templates/report/incidents/timeline.html:35
 msgid "Incident start date"
 msgstr "Datum van aanvang van het incident"
-
-#: theme/templates/report/incidents/timeline.html:43
-msgid "Incident resolution date"
-msgstr "Datum van oplossing van het incident"
 
 #: theme/templates/report/incidents/timeline.html:53
 msgid "Report Timeline"

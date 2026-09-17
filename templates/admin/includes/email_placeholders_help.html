@@ -1,0 +1,42 @@
+{% load i18n %}
+<!-- Opened by the "Available placeholders" button the Content fieldset renders as its description.
+     The rows come from INCIDENT_EMAIL_PLACEHOLDERS, so the list cannot drift from what is substituted. -->
+<dialog id="email-placeholders-help"
+        class="admin-dialog"
+        aria-labelledby="email-placeholders-help-title">
+  <h2 id="email-placeholders-help-title">
+    {% translate "Available placeholders" %}
+  </h2>
+  <p>
+    {% translate "Type one of these in the subject or in the content. It is replaced when the email is sent." %}
+  </p>
+  <table class="email-placeholders">
+    <thead>
+      <tr>
+        <th scope="col">
+          {% translate "Placeholder" %}
+        </th>
+        <th scope="col">
+          {% translate "Replaced by" %}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for placeholder in email_placeholders %}
+        <tr>
+          <th scope="row">
+            <code>{{ placeholder.token }}</code>
+          </th>
+          <td>
+            {{ placeholder.description }}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="admin-dialog-buttons">
+    <button type="button" class="button default" data-placeholders-help-close>
+      {% translate "Close" %}
+    </button>
+  </div>
+</dialog>

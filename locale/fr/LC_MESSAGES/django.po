@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 09:03+0200\n"
-"PO-Revision-Date: 2026-08-03 10:11+0000\n"
+"POT-Creation-Date: 2026-09-17 11:06+0200\n"
+"PO-Revision-Date: 2026-09-16 12:29+0000\n"
 "Last-Translator: Edgar Dugourd <Edd@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -45,16 +45,75 @@ msgstr "Retour à l'interface utilisateur"
 
 #: theme/templates/admin/base_site.html:29
 #: theme/templates/parts/header.html:104
+#: theme/templates/registration/base.html:44
 msgid "Log out"
 msgstr "Déconnexion"
 
-#: theme/templates/admin/reset_accepted_terms.html:8
+#: theme/templates/admin/custom_change_user_form.html:12
+#, python-format
+msgid "Add this user to Company %(company)s?"
+msgstr "Ajouter cet utilisateur à l'entreprise %(company)s?"
+
+#: theme/templates/admin/custom_change_user_list.html:8
 msgid "Reset accepted terms"
 msgstr "Réinitialiser l'acceptation des conditions d’utilisation"
 
-#: theme/templates/admin/reset_accepted_terms.html:13
+#: theme/templates/admin/custom_change_user_list.html:13
 msgid "Reset accepted cookies"
 msgstr "Réinitialiser l'acceptation des cookies"
+
+#: theme/templates/admin/includes/account_actions_confirm.html:14
+msgid "Attention"
+msgstr "Attention"
+
+#: theme/templates/admin/includes/account_actions_confirm.html:20
+#: theme/templates/incidents/declaration.html:270
+#: theme/templates/modals/delete_incident.html:26
+#: theme/templates/modals/export_incidents.html:78
+msgid "Cancel"
+msgstr "Annuler"
+
+#: theme/templates/admin/includes/account_actions_confirm.html:23
+msgid "Confirm"
+msgstr "Confirmez"
+
+#: theme/templates/admin/includes/email_placeholders_help.html:8
+msgid "Available placeholders"
+msgstr "Espaces réservés disponibles"
+
+#: theme/templates/admin/includes/email_placeholders_help.html:11
+msgid ""
+"Type one of these in the subject or in the content. It is replaced when the "
+"email is sent."
+msgstr ""
+"Saisissez l'un de ces éléments dans l'objet ou dans le corps du message. Il "
+"sera remplacé lors de l'envoi de l'e-mail."
+
+#: theme/templates/admin/includes/email_placeholders_help.html:17
+msgid "Placeholder"
+msgstr "Espace réservé"
+
+#: theme/templates/admin/includes/email_placeholders_help.html:20
+msgid "Replaced by"
+msgstr "Remplacé par"
+
+#: theme/templates/admin/includes/email_placeholders_help.html:39
+#: theme/templates/incidents/declaration.html:272
+#: theme/templates/incidents/incidents_base.html:548
+#: theme/templates/modals/accept_terms.html:37
+#: theme/templates/modals/access_log_base.html:22
+#: theme/templates/modals/contacts_incident.html:12
+#: theme/templates/modals/delete_incident.html:12
+#: theme/templates/modals/export_incidents.html:20
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:12
+#: theme/templates/modals/previous_answer.html:11
+#: theme/templates/modals/report_versions.html:12
+#: theme/templates/modals/report_versions_workflow_comment.html:8
+#: theme/templates/modals/workflow_comment.html:20
+#: theme/templates/parts/messages.html:16
+#: theme/templates/parts/messages.html:17
+msgid "Close"
+msgstr "Fermer"
 
 #: theme/templates/admin/settings_list.html:5
 msgid "Variables Django Settings"
@@ -480,8 +539,8 @@ msgstr "Finalités et bases juridiques du traitement"
 
 #: theme/templates/home/privacy_policy.html:100
 msgid ""
-"Personal data is processed in accordance with the <a href=\"https://eur-lex."
-"europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
+"Personal data is processed in accordance with the <a href=\"https://eur-"
+"lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
 "rel=\"noopener noreferrer\">GDPR</a>. The User’s data is recorded and "
 "processed by the relevant Regulator solely for the purposes of managing the "
 "procedures for which it is responsible. Data processing is carried out in "
@@ -732,8 +791,8 @@ msgstr ""
 #: theme/templates/home/privacy_policy.html:259
 msgid ""
 "With regard to the CSSF, data subjects may exercise their rights by "
-"contacting the CSSF's data protection officer: <a href=\"mailto:dpo@cssf."
-"lu\">dpo@cssf.lu</a>."
+"contacting the CSSF's data protection officer: <a "
+"href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
 msgstr ""
 "En ce qui concerne la CSSF, les personnes concernées peuvent faire valoir "
 "leurs droits en contactant le délégué à la protection des données de la "
@@ -742,8 +801,8 @@ msgstr ""
 #: theme/templates/home/privacy_policy.html:265
 msgid ""
 "With regard to the HCPN, data subjects may exercise their rights by "
-"contacting the HCPN's data protection officer: <a href=\"mailto:info@cgpd."
-"etat.lu\">info@cgpd.etat.lu</a>."
+"contacting the HCPN's data protection officer: <a "
+"href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
 msgstr ""
 "En ce qui concerne l’HCPN, les personnes concernées peuvent faire valoir "
 "leurs droits en contactant le délégué à la protection des données de "
@@ -752,8 +811,8 @@ msgstr ""
 #: theme/templates/home/privacy_policy.html:271
 msgid ""
 "With regard to the CNPD, data subjects may exercise their rights by "
-"contacting the CNPD's data protection officer: <a href=\"mailto:dpo@cnpd."
-"lu\">dpo@cnpd.lu</a>."
+"contacting the CNPD's data protection officer: <a "
+"href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
 msgstr ""
 "En ce qui concerne la CNPD, les personnes concernées peuvent faire valoir "
 "leurs droits en contactant le délégué à la protection des données de la "
@@ -1557,17 +1616,17 @@ msgstr "de tout autre motif que l’ILR juge nécessaire."
 #: theme/templates/home/terms.html:565
 msgid ""
 "In the event of SERIMA being unavailable or of any malfunction, the User may "
-"contact ILR via the dedicated e-mail addresses: <a href=\"mailto:"
-"incident_notification@ilr.lu\">incident_notification@ilr.lu</a> for any item "
-"relating to the Incident Notification Module and <a href=\"mailto:serima@ilr."
-"lu\">serima@ilr.lu</a> for any other Module."
+"contact ILR via the dedicated e-mail addresses: <a "
+"href=\"mailto:incident_notification@ilr.lu\">incident_notification@ilr.lu</"
+"a> for any item relating to the Incident Notification Module and <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a> for any other Module."
 msgstr ""
 "En cas d’indisponibilité de SERIMA ou de tout dysfonctionnement, "
 "l’Utilisateur peut s’adresser à l’ILR par le biais des adresses "
-"électroniques dédiées : <a href=\"mailto:incident_notification@ilr."
-"lu\">incident_notification@ilr.lu</a> pour tout élément en lien avec le "
-"Module de notification d’incidents et <a href=\"mailto:serima@ilr."
-"lu\">serima@ilr.lu</a> pour tout autre Module."
+"électroniques dédiées : <a "
+"href=\"mailto:incident_notification@ilr.lu\">incident_notification@ilr.lu</"
+"a> pour tout élément en lien avec le Module de notification d’incidents et "
+"<a href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a> pour tout autre Module."
 
 #: theme/templates/home/terms.html:574
 msgid ""
@@ -1660,8 +1719,8 @@ msgstr "Protection des données personnelles"
 
 #: theme/templates/home/terms.html:643
 msgid ""
-"Personal data is processed in accordance with the <a href=\"https://eur-lex."
-"europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
+"Personal data is processed in accordance with the <a href=\"https://eur-"
+"lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
 "rel=\"noopener noreferrer\">GDPR</a>."
 msgstr ""
 "Les données à caractère personnel sont traitées en conformité avec le <a "
@@ -1715,8 +1774,8 @@ msgstr ""
 #: theme/templates/home/terms.html:685
 msgid ""
 "For any comments, questions or complaints relating to SERIMA, the User may "
-"contact the ILR via the following e-mail address: <a href=\"mailto:"
-"serima@ilr.lu\">serima@ilr.lu</a>."
+"contact the ILR via the following e-mail address: <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a>."
 msgstr ""
 "Pour tout commentaire, toute question ou réclamation relatifs à SERIMA, "
 "l’Utilisateur peut contacter l’ILR par le biais de l’adresse électronique "
@@ -1844,8 +1903,8 @@ msgstr "Dernière mise à jour"
 #: theme/templates/incidents/declaration.html:71
 #: theme/templates/incidents/declaration.html:73
 #: theme/templates/modals/contacts_incident.html:7
+#: theme/templates/observer/incidents.html:18
 #: theme/templates/observer/incidents.html:21
-#: theme/templates/observer/incidents.html:24
 #: theme/templates/regulator/incidents.html:19
 #: theme/templates/regulator/incidents.html:21
 msgid "Contacts"
@@ -1856,36 +1915,13 @@ msgid "Company"
 msgstr "Entreprise"
 
 #: theme/templates/incidents/declaration.html:83
-#: theme/templates/incidents/incidents_base.html:155
+#: theme/templates/incidents/incidents_base.html:170
 msgid "Regulation"
 msgstr "Régulation"
 
 #: theme/templates/incidents/declaration.html:135
 msgid "Incident notification steps"
 msgstr "Étapes de notification d'un incident"
-
-#: theme/templates/incidents/declaration.html:270
-#: theme/templates/modals/delete_incident.html:26
-#: theme/templates/modals/export_incidents.html:78
-msgid "Cancel"
-msgstr "Annuler"
-
-#: theme/templates/incidents/declaration.html:272
-#: theme/templates/incidents/incidents_base.html:491
-#: theme/templates/modals/accept_terms.html:37
-#: theme/templates/modals/access_log base.html:22
-#: theme/templates/modals/contacts_incident.html:12
-#: theme/templates/modals/delete_incident.html:12
-#: theme/templates/modals/export_incidents.html:20
-#: theme/templates/modals/incidents_dashboard_hide_columns.html:12
-#: theme/templates/modals/previous_answer.html:11
-#: theme/templates/modals/report_versions.html:12
-#: theme/templates/modals/report_versions_workflow_comment.html:8
-#: theme/templates/modals/workflow_comment.html:20
-#: theme/templates/parts/messages.html:16
-#: theme/templates/parts/messages.html:17
-msgid "Close"
-msgstr "Fermer"
 
 #: theme/templates/incidents/declaration.html:285
 msgid "Previous"
@@ -1920,7 +1956,7 @@ msgid "Filter incidents by status, sector, etc"
 msgstr "Filtrer les incidents par statut, secteur, etc."
 
 #: theme/templates/incidents/incidents_base.html:41
-#: theme/templates/incidents/incidents_base.html:486
+#: theme/templates/incidents/incidents_base.html:543
 msgid "Filter"
 msgstr "Filtrer"
 
@@ -1986,107 +2022,133 @@ msgstr "Tableau des incidents"
 msgid "Status"
 msgstr "Statut"
 
-#: theme/templates/incidents/incidents_base.html:137
+#: theme/templates/incidents/incidents_base.html:136
+msgid "Detection date"
+msgstr "Date de détection"
+
+#: theme/templates/incidents/incidents_base.html:141
+msgid "Start date"
+msgstr "Date de début"
+
+#: theme/templates/incidents/incidents_base.html:146
+msgid "Resolution date"
+msgstr "Date de résolution"
+
+#: theme/templates/incidents/incidents_base.html:152
 msgid "Operator Acronym"
 msgstr "Acronyme de l'opérateur"
 
-#: theme/templates/incidents/incidents_base.html:142
+#: theme/templates/incidents/incidents_base.html:157
 msgid "Operator Name"
 msgstr "Nom de l'opérateur"
 
-#: theme/templates/incidents/incidents_base.html:149
+#: theme/templates/incidents/incidents_base.html:164
 #: theme/templates/report/incidents/details.html:35
 msgid "Regulator"
 msgstr "Régulateur"
 
-#: theme/templates/incidents/incidents_base.html:160
+#: theme/templates/incidents/incidents_base.html:175
 #: theme/templates/report/incidents/cover.html:19
 #: theme/templates/report/incidents/details.html:11
 msgid "Reference"
 msgstr "Référence"
 
-#: theme/templates/incidents/incidents_base.html:165
+#: theme/templates/incidents/incidents_base.html:180
 msgid "Sectors"
 msgstr "Secteurs"
 
-#: theme/templates/incidents/incidents_base.html:168
+#: theme/templates/incidents/incidents_base.html:183
 #: theme/templates/report/base/template.html:8
 #: theme/templates/report/incidents/cover.html:5
 #: theme/templates/report/incidents/header.html:5
 msgid "Report"
 msgstr "Rapport"
 
-#: theme/templates/incidents/incidents_base.html:172
+#: theme/templates/incidents/incidents_base.html:187
 msgid "Actions"
 msgstr "Actions"
 
-#: theme/templates/incidents/incidents_base.html:180
+#: theme/templates/incidents/incidents_base.html:195
 msgid "Column settings"
 msgstr "Réglage des colonnes"
 
-#: theme/templates/incidents/incidents_base.html:199
-#: theme/templates/incidents/incidents_base.html:202
+#: theme/templates/incidents/incidents_base.html:214
+#: theme/templates/incidents/incidents_base.html:217
 msgid "Incident with significant impact"
 msgstr "Incident à impact significatif"
 
-#: theme/templates/incidents/incidents_base.html:208
-#: theme/templates/incidents/incidents_base.html:211
+#: theme/templates/incidents/incidents_base.html:223
+#: theme/templates/incidents/incidents_base.html:226
 msgid "No significant impact"
 msgstr "Impact non significatif"
 
-#: theme/templates/incidents/incidents_base.html:218
-#: theme/templates/incidents/incidents_base.html:221
+#: theme/templates/incidents/incidents_base.html:233
+#: theme/templates/incidents/incidents_base.html:236
 msgid "The incident is still ongoing"
 msgstr "L'incident est en cours"
 
-#: theme/templates/incidents/incidents_base.html:227
-#: theme/templates/incidents/incidents_base.html:230
+#: theme/templates/incidents/incidents_base.html:242
+#: theme/templates/incidents/incidents_base.html:245
 msgid "The incident has been closed"
 msgstr "L'incident est clos"
 
-#: theme/templates/incidents/incidents_base.html:239
+#: theme/templates/incidents/incidents_base.html:254
 msgid "Last update date"
 msgstr "Date de la dernière mise à jour"
 
-#: theme/templates/incidents/incidents_base.html:251
+#: theme/templates/incidents/incidents_base.html:266
 msgid "Incident notification submission date"
 msgstr "Date de soumission de la notification d'incident"
 
-#: theme/templates/incidents/incidents_base.html:356
-#: theme/templates/incidents/incidents_base.html:358
+#: theme/templates/incidents/incidents_base.html:278
+#: theme/templates/report/incidents/timeline.html:27
+msgid "Incident detection date"
+msgstr "Date de détection de l’incident"
+
+#: theme/templates/incidents/incidents_base.html:292
+msgid "Incident starting date"
+msgstr ""
+
+#: theme/templates/incidents/incidents_base.html:310
+#: theme/templates/report/incidents/timeline.html:43
+msgid "Incident resolution date"
+msgstr "Date de résolution de l'incident"
+
+#: theme/templates/incidents/incidents_base.html:413
+#: theme/templates/incidents/incidents_base.html:415
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
-#: theme/templates/operator/incidents.html:90
-#: theme/templates/operator/incidents.html:92
-#: theme/templates/operator/incidents.html:99
+#: theme/templates/operator/incidents.html:87
+#: theme/templates/operator/incidents.html:89
+#: theme/templates/operator/incidents.html:96
 msgid "Version control"
 msgstr "Gestion de versions"
 
-#: theme/templates/incidents/incidents_base.html:366
-#: theme/templates/incidents/incidents_base.html:389
-#: theme/templates/incidents/incidents_base.html:391
+#: theme/templates/incidents/incidents_base.html:423
+#: theme/templates/incidents/incidents_base.html:446
+#: theme/templates/incidents/incidents_base.html:448
 msgid "Download PDF report"
 msgstr "Télécharger le rapport PDF"
 
-#: theme/templates/incidents/incidents_base.html:399
+#: theme/templates/incidents/incidents_base.html:456
 msgid "More options"
 msgstr "Plus d'options"
 
-#: theme/templates/incidents/incidents_base.html:412
-#: theme/templates/incidents/incidents_base.html:413
-#: theme/templates/modals/access_log base.html:17
+#: theme/templates/incidents/incidents_base.html:469
+#: theme/templates/incidents/incidents_base.html:470
+#: theme/templates/modals/access_log_base.html:17
 msgid "Access Log"
 msgstr "Journal des accès"
 
-#: theme/templates/incidents/incidents_base.html:433
+#: theme/templates/incidents/incidents_base.html:490
 msgid "No incident reports have been submitted yet."
 msgstr "Aucun rapport d'incident n'a encore été soumis."
 
-#: theme/templates/incidents/incidents_base.html:507
+#: theme/templates/incidents/incidents_base.html:564
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: theme/templates/incidents/incidents_base.html:510
+#: theme/templates/incidents/incidents_base.html:567
 msgid "Search"
 msgstr "Rechercher"
 
@@ -2156,8 +2218,8 @@ msgid "Are you sure that you want to delete the incident?"
 msgstr "Êtes-vous sûr de vouloir supprimer l'incident ?"
 
 #: theme/templates/modals/delete_incident.html:29
+#: theme/templates/operator/incidents.html:118
 #: theme/templates/operator/incidents.html:121
-#: theme/templates/operator/incidents.html:124
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -2178,13 +2240,13 @@ msgid "Review"
 msgstr "Revue"
 
 #: theme/templates/modals/workflow_comment.html:34
+#: theme/templates/operator/incidents.html:61
 #: theme/templates/operator/incidents.html:64
-#: theme/templates/operator/incidents.html:67
-#: theme/templates/operator/incidents.html:73
+#: theme/templates/operator/incidents.html:70
 msgid "Review comment"
 msgstr "Commentaire de revue"
 
-#: theme/templates/operator/incidents.html:29
+#: theme/templates/operator/incidents.html:26
 msgid "not submitted yet"
 msgstr "pas encore soumis"
 
@@ -2288,12 +2350,12 @@ msgstr "entrées"
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: theme/templates/registration/base.html:43
+#: theme/templates/registration/base.html:48
 #: theme/templates/registration/login.html:61
 msgid "Login"
 msgstr "Connexion"
 
-#: theme/templates/registration/base.html:48
+#: theme/templates/registration/base.html:53
 #: theme/templates/registration/login.html:96
 #: theme/templates/registration/signup.html:11
 #: theme/templates/registration/signup.html:66
@@ -2577,17 +2639,9 @@ msgstr "Fuseau horaire"
 msgid "Incident notification creation date"
 msgstr "Date de création de la notification d’incident"
 
-#: theme/templates/report/incidents/timeline.html:27
-msgid "Incident detection date"
-msgstr "Date de détection de l’incident"
-
 #: theme/templates/report/incidents/timeline.html:35
 msgid "Incident start date"
 msgstr "Date de début de l’incident"
-
-#: theme/templates/report/incidents/timeline.html:43
-msgid "Incident resolution date"
-msgstr "Date de résolution de l'incident"
 
 #: theme/templates/report/incidents/timeline.html:53
 msgid "Report Timeline"

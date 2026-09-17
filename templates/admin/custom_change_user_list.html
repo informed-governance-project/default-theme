@@ -14,3 +14,11 @@
     </li>
   {% endif %}
 {% endblock %}
+{% block extrahead %}
+  {{ block.super }}
+  <script src='{% static "js/admin_account_actions.js" %}'></script>
+{% endblock %}
+{% block content %}
+  {{ block.super }}
+  {% include "admin/includes/account_actions_confirm.html" %}
+{% endblock %}

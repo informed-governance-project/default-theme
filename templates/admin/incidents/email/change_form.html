@@ -1,0 +1,10 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+{% block extrahead %}
+  {{ block.super }}
+  <script src='{% static "js/admin_email_placeholders.js" %}'></script>
+{% endblock %}
+{% block content %}
+  {{ block.super }}
+  {% include "admin/includes/email_placeholders_help.html" %}
+{% endblock %}

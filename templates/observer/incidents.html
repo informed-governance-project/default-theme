@@ -2,9 +2,6 @@
 {% load i18n %}
 {% load custom_filters %}
 {% load django_bootstrap5 %}
-{% block content_table_incident_id %}
-  {{ incident.incident_id }}
-{% endblock %}
 {% block content_table_report %}
   {% with incident_view_action="review_workflow" %}
     {{ block.super }}

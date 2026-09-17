@@ -55,7 +55,7 @@
             </option>
             {% for wf in form.fields.workflow.queryset %}
               <option value="{{ wf.id }}"
-                      data-sectorregulation="{{ wf.sectorregulation_id }}">
+                      data-sectorregulation="{{ wf.sectorregulation_ids|join:',' }}">
                 {{ wf }}
               </option>
             {% endfor %}

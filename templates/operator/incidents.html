@@ -6,9 +6,6 @@
   {{ block.super }}
   <script src='{% static "js/incidents_operator.js" %}'></script>
 {% endblock %}
-{% block content_table_incident_id %}
-  {{ incident.incident_id }}
-{% endblock %}
 {% block content_table_report %}
   {% with completed_workflows=incident.get_workflows_completed %}
     <ul class="list-unstyled mb-0">
