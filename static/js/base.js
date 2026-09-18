@@ -115,8 +115,8 @@ $(document).ready(function () {
     allSelectedText: gettext('All selected'),
     numberDisplayed: 1,
     templates: {
-      button: '<button class="multiselect form-select dropdown-toggle" data-bs-toggle="dropdown"><span class="multiselect-selected-text"></span></button>',
-      option: '<button class="multiselect-option dropdown-item"></button>',
+      option: '<button class="multiselect-option dropdown-item text-wrap small"></button>',
+      optionGroup: '<button type="button" class="multiselect-group dropdown-item d-flex fw-bolder text-wrap small"></button>',
     }
   });
   $('.create_so_declaration').on("click", function () {
@@ -129,11 +129,55 @@ $(document).ready(function () {
   });
 
   $('.import_so_declaration').on("click", function () {
-    var $popup = $("#import_so_declaration");
+    const company_id = $(this).data("company-id");
+    const sector_id = $(this).data("sector-id");
+    const year = $(this).data("year");
+    const standard_id = $(this).data("standard-id");
+    const $popup = $("#import_so_declaration");
     var popup_url = '/securityobjectives/import';
+
+    if (company_id && sector_id && year && standard_id) {
+      const company_param = `company_id=${company_id}`;
+      const sector_param = `sector_id=${sector_id}`;
+      const year_param = `year=${year}`;
+      const standard_param = `standard_id=${standard_id}`;
+      popup_url = `${popup_url}?${company_param}&${sector_param}&${year_param}&${standard_param}`;
+    }
 
     $(".modal-dialog", $popup).load(popup_url, function () {
       $popup.modal("show");
+    });
+  });
+
+  $('.import_risk_analysis').on("click", function () {
+    const company_id = $(this).data("company-id");
+    const sector_id = $(this).data("sector-id");
+    const year = $(this).data("year");
+    const $popup = $("#import_risk_analysis");
+    var popup_url = '/reporting/import_risk_analysis';
+
+    if (company_id && sector_id && year) {
+      const company_param = `company_id=${company_id}`;
+      const sector_param = `sector_id=${sector_id}`;
+      const year_param = `year=${year}`;
+      popup_url = `${popup_url}?${company_param}&${sector_param}&${year_param}`;
+    }
+
+    $(".modal-dialog", $popup).load(popup_url, function () {
+      $popup.modal("show");
+    });
+  });
+
+  $('.create_report_project').on("click", function () {
+    let $popup = $("#create_report_project");
+    let popup_url = this.href;
+
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr) {
+      if (xhr.status === 403) {
+        window.location.reload();
+      } else {
+        $popup.modal("show");
+      }
     });
   });
 
@@ -215,14 +259,23 @@ function initSortableHeaders(options = {}) {
 
   $('.sortable').each(function () {
     const $th = $(this);
-    const sortFieldAttr = $th.data('sort-field');
-
+    const sortFieldAttr = $th.data('sort-field').trim();
     const label = $(document.createTextNode($th.text().trim()));
+    const $label = $('<span>', {
+      class: $th.hasClass('text-center') ? 'mx-auto' : ''
+    });
+    $label.append(label)
+
     $th.empty();
 
     const $container = $('<div>', {
       class: 'd-flex align-items-center justify-content-between'
     });
+
+    if (label === "") {
+      $container.removeClassClass("justify-content-between")
+      $container.addClass("justify-content-end")
+    }
 
     const $icons = $('<span>', {
       class: 'd-flex flex-column ms-2'
@@ -246,7 +299,7 @@ function initSortableHeaders(options = {}) {
     }
 
     $icons.append($up, $down);
-    $container.append(label, $icons);
+    $container.append($label, $icons);
     $th.append($container);
   });
 }
@@ -260,7 +313,6 @@ $(document).on('click', '.sortable', function () {
   const isDefaultField = $(this).hasClass("default-sort-field")
 
   let nextDirection = 'asc';
-
   if (currentField === sortField) {
     if (currentDirection === 'asc') {
       nextDirection = 'desc';
@@ -298,7 +350,7 @@ function saveLocalStorageData(data) {
 
 function setColumnVisible($table, colIdx, visible) {
   $table.find('tr').each(function () {
-    $(this).children().eq(colIdx).toggle(visible);
+    $(this).children('td, th').eq(colIdx).toggle(visible);
   });
 }
 
@@ -388,7 +440,9 @@ $(document).on("click", '.captcha-refresh', function () {
   });
 });
 
-
+$(document).on("submit", "#create_so_declaration form", function () {
+  load_spinner();
+});
 
 
 

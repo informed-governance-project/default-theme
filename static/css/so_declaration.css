@@ -15,29 +15,53 @@
     background-color: #555;
 }
 
+#declaration_table> :not(caption)>*>* {
+    padding: 1rem
+}
+
 .fixed-height {
     height: 1px;
 }
 
 .form-check-input {
-    transform: scale(1.5)
+    transform: scale(1.5);
+    border-color: var(--bs-dark);
+}
+
+.form-check-input:checked,
+.form-check-input:focus {
+    border-color: var(--bs-dark);
 }
 
 .checkbox-is-measure input:checked {
-    background-color: var(--bs-success);
-    border-color: var(--bs-success);
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e") !important;
+    background-color: transparent !important;
+    background-image: url("/static/images/icons/ico-switch-checked.svg") !important;
 }
 
 .checkbox-is-measure input {
-    background-color: var(--bs-danger);
-    border-color: var(--bs-danger);
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 6 14 14M14 6 6 14'/%3e%3c/svg%3e");
+    background-color: transparent !important;
+    background-image: url("/static/images/icons/ico-switch-unchecked.svg") !important;
 }
 
 .checkbox-is-measure input:focus {
     box-shadow: none;
-    border: none;
+}
+
+/* Resize textarea fields in previous answers modals */
+#so_previous_answer .modal-body .row > [class*="col"] {
+    display: flex;
+    flex-direction: column;
+}
+
+#so_previous_answer .modal-body textarea {
+    flex: 1 1 auto;
+    min-height: 6rem;
+}
+
+#so_previous_planned .modal-body textarea {
+    field-sizing: content;
+    min-height: 6rem;
+    max-height: 60vh;
 }
 
 /* For larger screens */
@@ -48,7 +72,7 @@
 }
 
 /* For larger screens */
-@media (min-width: 992px) and (max-width: 1200px)  {
+@media (min-width: 992px) and (max-width: 1200px) {
     .card-body {
         height: 70vh;
     }
@@ -61,3 +85,50 @@
     }
 }
 
+.slide-selector-container {
+    width: 30px;
+    height: 30px;
+    font-size: 0.75rem !important;
+}
+
+.slide-active-container {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem !important;
+}
+
+#score_container {
+    width: 110px;
+    height: 60px;
+}
+
+#score_container img {
+    width: 60px;
+    height: 60px;
+}
+
+.start-40 {
+    left: 40% !important
+}
+
+#score_container.score-only {
+    width: 60px;
+}
+
+.so_contacts .custom-icon-contact:hover {
+    background-image: url('/static/images/icons/ico-contact-hover.svg');
+    transition: background-image 0.25s ease-out;
+}
+
+#so_send_button.btn-passed:disabled {
+    background-color: var(--bs-gray-500) !important;
+    border-color: var(--bs-gray-500) !important;
+}
+
+.form-check-input {
+    border-color: #727272
+}
+
+.form-switch .form-check-input {
+    --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23727272'/%3e%3c/svg%3e")
+}

@@ -1,4 +1,15 @@
 $(document).ready(function () {
+  const multiselectConfig = {
+    numberDisplayed: 3,
+    enableClickableOptGroups: true,
+    includeSelectAllOption: true,
+    enableCollapsibleOptGroups: true,
+    collapseOptGroupsByDefault: true,
+    disableIfEmpty: true,
+  };
+
+  $('.multiselectcheckbox').multiselect('setOptions', multiselectConfig).multiselect('rebuild');
+
   $(document).on("click", '.access_log', function () {
     var $popup = $("#access_log");
     var popup_url = 'access_log/' + $(this).data("incident-id");

@@ -1,0 +1,41 @@
+.select-all-input:not(.switch-input) {
+    cursor:pointer !important;
+    transform: scale(1.5) !important;
+    border: none !important;
+    background-color: transparent !important;
+    background-image: url('/static/images/icons/ico-uncheck.svg') !important;
+    margin-right: 10px !important;
+}
+.select-all-input:not(.switch-input):checked {
+    background-image: url('/static/images/icons/ico-check.svg') !important;
+}
+
+.select-all-input:not(.switch-input):focus {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.form-switch .form-check-input {
+    transform: scale(1.5);
+    border-color: var(--bs-dark);
+    margin-left: -45px !important;
+}
+
+
+.form-switch .form-check-input:checked{
+    border-color: var(--bs-success);
+}
+
+.checkbox-as-switch input:checked {
+    background-color: transparent !important;
+    background-image: url("/static/images/icons/ico-switch-checked.svg") !important;
+}
+
+.checkbox-as-switch input {
+    background-color: transparent !important;
+    background-image: url("/static/images/icons/ico-switch-unchecked-gray.svg") !important;
+}
+
+.checkbox-as-switch input:focus {
+    box-shadow: none;
+}

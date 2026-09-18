@@ -1,0 +1,542 @@
+{% extends "security_objectives/base.html" %}
+{% block bootstrap5_title %}
+  {{ action }} Security Objective
+{% endblock %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% load i18n %}
+{% block bootstrap5_extra_script %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/so_declaration.css' %}" />
+  <script src='{% static "js/so_declaration.js" %}'></script>
+{% endblock %}
+{% block content %}
+  {% csrf_token %}
+  <div class="card border border-0">
+    <div class="small card-header py-0 border border-0 bg-transparent">
+      <div class="row gap-2 py-3">
+        <div class="col-auto">
+          <div class="d-grid grid-auto-first-column">
+            <span class="fw-bold">{% translate "Submission date" %}</span>
+            <div class="ps-3">
+              {% if standard_answer.submit_date %}
+                {{ standard_answer.submit_date|date:"d/m/y" }}
+                <i class="bi bi-clock px-1"></i>
+                {{ standard_answer.submit_date|date:"H:i" }}
+              {% endif %}
+            </div>
+            <span class="fw-bold">{% translate "Last update" %}</span>
+            <div class="ps-3">
+              {{ standard_answer.last_update|date:"d/m/y" }}
+              <i class="bi bi-clock px-1"></i>
+              {{ standard_answer.last_update|date:"H:i" }}
+            </div>
+          </div>
+        </div>
+        <div class="p-0 vr">
+        </div>
+        <div class="col-auto">
+          <div class="d-flex gap-2">
+            <button class="btn p-0 border-0 so_contacts"
+                    data-bs-toggle="modal"
+                    data-bs-target="#so_contacts"
+                    data-contacts='{ "contact_name": "{{ standard_answer.submitter_user.last_name }}", "contact_first_name": "{{ standard_answer.submitter_user.first_name }}", "contact_email": "{{ standard_answer.submitter_user.email }}", "contact_telephone": "{{ standard_answer.submitter_user.phone_number }}"}'>
+              <i class="custom-icon-contact h3"></i>
+              <span class="visually-hidden">{% translate "Profile" %}</span>
+            </button>
+            <div class="d-grid grid-auto-first-column">
+              <span class="fw-bold">{% translate "Company" %}</span>
+              <div class="ps-3">
+                {{ standard_answer.submitter_company }}
+              </div>
+              <span class="fw-bold">{% translate "Evaluation Framework" %}</span>
+              <div class="ps-3">
+                {{ standard_answer.standard }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-0 vr">
+        </div>
+        <div class="col-auto">
+          {% for root_sector in standard_answer.get_no_childrens_sectors %}
+            <ul class="m-0 p-0 list-sectors">
+              <span class="fw-bolder">
+                {{ root_sector.get_safe_translation }}
+              </span>
+            </ul>
+          {% endfor %}
+          <ul class="m-0 p-0 list-sectors">
+            {% for root_sector in standard_answer.get_root_sectors %}
+              <span class="fw-bolder">
+                {{ root_sector.get_safe_translation }}
+              </span>
+              <ul class="list-unstyled">
+                {% for sector in root_sector.children.all %}
+                  {% if sector in standard_answer.sectors.all %}
+                    <li>
+                      {{ sector.get_safe_translation }}
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="col-auto ms-auto">
+          <div class="d-flex gap-2">
+            {% if is_regulator %}
+              <button type="button"
+                      class="btn border-0 p-0 review_comment_so_declaration"
+                      data-standard-answer-id="{{ standard_answer.id }}"
+                      data-only-review-comment="true"
+                      data-bs-toggle="modal"
+                      data-bs-target="#review_comment_so_declaration">
+                {# djlint:off #}
+                <i class="{% if standard_answer.status in ',PASS,FAIL,DELIV' %}custom-icon-comments-add
+                          {% else %}custom-icon-comments{% endif %} h3"></i>
+              </button>
+            {% else %}
+              {% if standard_answer.review_comment and standard_answer.status in ',PASSM,FAILM,' %}
+                <button class="btn border-0 p-0 review_comment_so_declaration"
+                        data-standard-answer-id="{{ standard_answer.id }}"
+                        data-bs-toggle="modal"
+                        data-bs-target="#review_comment_so_declaration">
+                  <i class="custom-icon-comments h3"
+                    data-bs-placement="top"
+                    data-bs-toggle="tooltip"
+                    title="{% translate 'Review comment' %}">
+                  </i>
+                </button>
+              {% else %}
+                <button class="btn border-0 p-0" disabled>
+                  <i class="custom-icon-comments-disabled h3">
+                  </i>
+                </button>
+              {% endif %}
+            {% endif %}
+            <div id="so_status_form" class="p-0">
+              {% for security_objective, maturity_levels in security_objectives.items %}
+                <div id="form_status_slide_{{ security_objective.id }}"
+                    class="d-none h-100">
+                  {% if is_regulator and standard_answer.status in ",PASS,FAIL,DELIV," %}
+                    {% bootstrap_field security_objective.status_form.status show_label=False wrapper_class="m-0" %}
+                  {% elif standard_answer.status in ",PASS,PASSM,FAIL,FAILM," and security_objective.status.status %}
+                    <div class="border rounded border-2 d-flex align-items-center justify-content-center h-100 px-3
+                                {% if security_objective.status.status == 'PASS' %}
+                                  border-passed
+                                {% elif security_objective.status.status == 'FAIL' %}
+                                  border-failed
+                                {% else %}
+                                  border-dark
+                                {% endif %}
+                                }">
+                      <h4 class="m-0 fw-bold
+                                {% if security_objective.status.status == 'PASS' %}
+                                  text-passed
+                                {% elif security_objective.status.status == 'FAIL' %}
+                                  text-failed
+                                {% else %}
+                                  text-dark
+                                {% endif %}
+                                }">
+                        {{ security_objective.status.get_status_display }}
+                      </h4>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+            {% if is_regulator and standard_answer.status in ",PASS,FAIL,DELIV," %}
+              <button id="so_send_button"
+                      type="button"
+                      class="btn btn-passed review_comment_so_declaration"
+                      {% if not standard_answer.ready_to_send %}
+                        disabled
+                      {% endif %}
+                      data-standard-answer-id="{{ standard_answer.id }}"
+                      data-bs-toggle="modal"
+                      data-bs-target="#review_comment_so_declaration">
+                {% translate "Send" %}
+                <i class="custom-icon-submit h4"></i>
+              </button>
+            {% elif standard_answer.status == "UNDE" %}
+              <form id="so_declaration_submit_form" method="post" action="{% url 'submit_so_declaration' standard_answer.id %}">
+                {% csrf_token %}
+                <button id="so_submit_button" type="submit" 
+                    class="btn btn-passed
+                    {% if not standard_answer.ready_to_submit %}
+                      disabled
+                    {% endif %}" 
+                    {% if not standard_answer.ready_to_submit %} 
+                    disabled 
+                    {% endif %}>
+                  {% translate "Submit" %}
+                  <i class="custom-icon-submit h4"></i>
+                </button>
+              </form>
+            {% endif %}
+            <a type="button"
+              class="btn btn-primary spinner-trigger"
+              href="{% url 'securityobjectives' %}">
+              {% translate "Close" %}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="hstack d-flex border-top border-3 border-secondary bg-light">
+        <div id="security_objective_selector"
+             class="col-11 d-none d-xl-flex justify-content-between flex-wrap px-4 py-3">
+          {% for security_objective, maturity_levels in security_objectives.items %}
+            {% if is_regulator %}
+              <button id="reg_{{ security_objective.pk }}"
+                      type="button"
+                      class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
+                             {% if security_objective.status.status == 'PASS' %}
+                               btn-passed
+                             {% elif security_objective.status.status == 'FAIL' %}
+                               btn-failed
+                             {% else %}
+                               btn-partially
+                             {% endif %}"
+                      data-bs-target="#security_objectives_carousel"
+                      data-bs-slide-to="{{ forloop.counter0 }}">
+                {{ forloop.counter }}
+              </button>
+            {% elif standard_answer.status == "UNDE" or standard_answer.status == "DELIV" %}
+             {% if security_objective.status.status == "NOT_REVIEWED" or not security_objective.status %}
+              <button id="op_{{ security_objective.pk }}"
+                      type="button"
+                      class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
+                             {% if security_objective.completion_state.is_completed %}
+                               btn-passed
+                             {% elif security_objective.completion_state.is_partially %}
+                               btn-partially
+                             {% else %}
+                               btn-uninitiated
+                             {% endif %}"
+                      data-bs-target="#security_objectives_carousel"
+                      data-bs-slide-to="{{ forloop.counter0 }}">
+                {{ forloop.counter }}
+              </button>
+              {% else %}
+              <button id="op_{{ security_objective.pk }}" 
+                      type="button" 
+                      class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
+                            {% if security_objective.status.status == 'PASS' %}
+                              btn-passed
+                            {% elif security_objective.status.status == 'FAIL' %}
+                              btn-failed
+                            {% else %}
+                              btn-partially
+                            {% endif %}" 
+                      data-bs-target="#security_objectives_carousel"
+                      data-bs-slide-to="{{ forloop.counter0 }}">
+                {{ forloop.counter }}
+              </button>
+              {% endif %}
+            {% else  %}
+              <button id="op_{{ security_objective.pk }}"
+                      type="button"
+                      class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
+                             {% if security_objective.status.status == 'PASS' %}
+                               btn-passed
+                             {% elif security_objective.status.status == 'FAIL' %}
+                               btn-failed
+                             {% else %}
+                               btn-partially
+                             {% endif %}"
+                      data-bs-target="#security_objectives_carousel"
+                      data-bs-slide-to="{{ forloop.counter0 }}">
+                {{ forloop.counter }}
+              </button>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="p-0 bg-secondary vr d-none d-xl-block">
+        </div>
+        <div class="hstack gap-2 mx-auto">
+          <div class="hstack gap-1">
+            <button class="col carousel-control-prev position-relative"
+                    type="button"
+                    data-bs-target="#security_objectives_carousel"
+                    data-bs-slide="prev">
+              <i class="carousel-control-prev-icon bi bi-arrow-left text-secondary h2"></i>
+            </button>
+            <button class="col carousel-control-next position-relative"
+                    type="button"
+                    data-bs-target="#security_objectives_carousel"
+                    data-bs-slide="next">
+              <i class="carousel-control-next-icon bi bi-arrow-right text-secondary h2"></i>
+            </button>
+          </div>
+          {% if column_config.maturity_level.visible %}
+          <button id="so_declaration_status_legend_btn"
+                  type="button"
+                  class="btn btn-primary bg-body border-0 p-0"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseLegend"
+                  aria-expanded="false"
+                  aria-controls="collapseLegend">
+            <i class="custom-icon-legend h3 align-self-center"
+               alt="legend"
+               data-bs-placement="top"
+               data-bs-toggle="tooltip"
+               title="{% translate 'Icon Guide' %}">
+            </i>
+          </button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <!-- Legend -->
+    {% if column_config.maturity_level.visible %}
+    <div class="my-2">
+      <div id="collapseLegend" class="collapse">
+        <div class="legend">
+          <span class="legend-title">
+            {% translate "Legend" %}
+          </span>
+          <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+            {% for maturity_levels in security_objectives.values %}
+              {% if forloop.first %}
+                {% for maturity_level in maturity_levels %}
+                  <li class="legend-item d-flex align-items-center small">
+                    <h3 class="m-0 pe-3 fw-bolder">
+                      {{ maturity_level.level }}
+                    </h3>
+                    <span>{{ maturity_level }}</span>
+                  </li>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <div class="card-body">
+      <div id="security_objectives_carousel"
+           class="carousel slide"
+           data-justification-placeholder="{{ justification_placeholder }}"
+           data-actions-mandatory="{{ actions_config.mandatory|yesno:"true,false" }}"
+           data-bs-touch="false"
+           data-bs-interval="false"
+           data-bs-wrap="false">
+        <div class="carousel-inner">
+          {% for security_objective, maturity_levels in security_objectives.items %}
+            <div id="slide_{{ security_objective.id }}"
+                 class="carousel-item
+                        {% if forloop.first %}
+                          active
+                        {% endif %}">
+              <div class="d-flex align-items-center">
+                <div class="me-auto">
+                  <h4 class="card-title fw-bold">
+                    {{ security_objective.unique_code }}: {{ security_objective.objective }}
+                  </h4>
+                  <h6 class="card-subtitle mb-3 text-muted">
+                    {{ security_objective.description }}
+                  </h6>
+                </div>
+                {% if score_display.visible %}
+                  <div class="col-auto">
+                    <div class="d-flex align-items-center justify-content-end">
+                      <div id="score_container"
+                           class="position-relative {% if not score_display.with_maximum %}score-only{% endif %}">
+                        <img src="{% static 'images/icons/ico-score.svg' %}"
+                             class="img-fluid"
+                             alt="Score ico">
+                        <div class="position-absolute top-50 translate-middle fw-bold text-dark
+                                    {% if score_display.with_maximum %}start-40{% else %}start-50{% endif %}">
+                          <div class="small">
+                            <span id="so-score" class="h5 m-0 fw-bold">{{ security_objective.status.score|default:0|stringformat:"0.1f" }}</span>
+                            {% if score_display.with_maximum %}
+                              <span>/</span>
+                              <span>{{ last_maturity_level }}</span>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+              <table id="declaration_table"
+                     class="table table-borderless border-bottom border-2 border-dark">
+                <caption class="visually-hidden">
+                  {% translate "Table of" %} {{ security_objective.unique_code }}: {{ security_objective.objective }}
+                </caption>
+                <thead>
+                  <tr>
+                    {% if column_config.maturity_level.visible %}
+                      <th class="col-{{ column_config.maturity_level.width }} text-center align-middle">
+                        {{ column_config.maturity_level.label }}
+                      </th>
+                    {% endif %}
+                    <th class="col-{{ column_config.security_measure.width }} text-center align-middle">
+                      {{ column_config.security_measure.label }}
+                    </th>
+                    {% if column_config.evidence.visible %}
+                      <th class="col-{{ column_config.evidence.width }} text-center align-middle">
+                        {{ column_config.evidence.label }}
+                      </th>
+                    {% endif %}
+                    <th class="col-{{ column_config.is_implemented.width }} text-center align-middle">
+                      {{ column_config.is_implemented.label }}
+                    </th>
+                    {% if column_config.justification.visible %}
+                      <th class="col-{{ column_config.justification.width }} text-center align-middle">
+                        {{ column_config.justification.label }}
+                      </th>
+                    {% endif %}
+                    {% if column_config.review_comment.visible %}
+                      <th class="col-{{ column_config.review_comment.width }} text-center align-middle">
+                        {{ column_config.review_comment.label }}
+                      </th>
+                    {% endif %}
+                  </tr>
+                </thead>
+                <tbody class="small">
+                  {% for maturity_level, measures in maturity_levels.items %}
+                    {% for measure in measures %}
+                      <tr class="{% if measure.answer_modified %}so-previous-answer-row{% endif %}">
+                        {% if column_config.maturity_level.visible and forloop.first %}
+                          <th rowspan="{{ measures|length }}"
+                              class="col-{{ column_config.maturity_level.width }} h3 fw-bolder table-group-divider text-center lh-sm">
+                            {{ maturity_level.level }}
+                          </th>
+                        {% endif %}
+                        <td class="col-{{ column_config.security_measure.width }} lh-sm
+                                   {% if forloop.first %}
+                                     table-group-divider
+                                   {% endif %}">
+                          {{ measure }}
+                          {% if measure.answer_modified %}
+                            <button type="button"
+                                    class="view-previous-version btn btn-sm rounded-pill text-white d-inline-flex align-items-center gap-2"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#so_previous_answer"
+                                    data-measure="{{ measure }}"
+                                    data-evidence="{{ measure.evidence }}"
+                                    data-previous-implemented="{{ measure.previous_answer.is_implemented|yesno:'true,false' }}"
+                                    data-previous-justification="{{ measure.previous_answer.justification }}"
+                                    data-previous-review-comment="{{ measure.previous_answer.review_comment }}">
+                              <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
+                              {% translate "View previous version" %}
+                            </button>
+                          {% endif %}
+                        </td>
+                        {% if column_config.evidence.visible %}
+                          <td class="col-{{ column_config.evidence.width }} lh-sm
+                                     {% if forloop.first %}
+                                       table-group-divider
+                                     {% endif %}">
+                            {{ measure.evidence|linebreaksbr }}
+                          </td>
+                        {% endif %}
+                        <td class="col-{{ column_config.is_implemented.width }} align-middle
+                                   {% if forloop.first %}
+                                     table-group-divider
+                                   {% endif %}">
+                          <div class="checkbox-is-measure d-flex justify-content-center">
+                            {% if forloop.parentloop.first %}
+                              {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0 form-switch" field_class="not-required is-implemented-first-switch" %}
+                            {% else %}
+                              {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0 form-switch" field_class="is-implemented-switch" %}
+                            {% endif %}
+                          </div>
+                        </td>
+                        {% if column_config.justification.visible %}
+                          <td class="col-{{ column_config.justification.width }} lh-sm
+                                     {% if forloop.first %}
+                                       table-group-divider
+                                     {% endif %}">
+                            {% if forloop.parentloop.first or not justification_mandatory %}
+                              {% bootstrap_field measure.answer_form.justification show_label=False wrapper_class="m-0" field_class="not-required" %}
+                            {% else %}
+                              {% bootstrap_field measure.answer_form.justification show_label=False wrapper_class="m-0" %}
+                            {% endif %}
+                          </td>
+                        {% endif %}
+                        {% if column_config.review_comment.visible %}
+                          <td class="col-{{ column_config.review_comment.width }} lh-sm
+                                     {% if forloop.first %}
+                                       table-group-divider
+                                     {% endif %}">
+                            {% bootstrap_field measure.answer_form.review_comment show_label=False wrapper_class="m-0" %}
+                          </td>
+                        {% endif %}
+                      </tr>
+                    {% empty %}
+                      <h3>
+                        {% translate "No security measures data available." %}
+                      </h3>
+                    {% endfor %}
+                    {% if forloop.last and actions_config.visible %}
+                      <tr>
+                        <td colspan="{{ visible_column_count }}" class="col-auto table-group-divider pb-0 fw-bolder">
+                          {{ actions_config.label }}
+                        </td>
+                      </tr>
+                      <tr class="{% if security_objective.actions_modified %}so-previous-answer-row so-previous-answer-row-full{% endif %}">
+                        <td colspan="{{ visible_column_count }}" class="col-auto">
+                          {% bootstrap_field security_objective.status_form.actions show_label=False wrapper_class="m-0" %}
+                          {% if security_objective.actions_modified %}
+                            <button type="button"
+                                    class="view-previous-version btn btn-sm rounded-pill text-white d-inline-flex align-items-center gap-2"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#so_previous_planned"
+                                    data-previous-actions="{{ security_objective.previous_actions }}">
+                              <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
+                              {% translate "View previous version" %}
+                            </button>
+                          {% endif %}
+                        </td>
+                      </tr>
+                    {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% empty %}
+            <h3>
+              {% translate "No security objectives data available." %}
+            </h3>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal dialogs -->
+  <div class="modal fade"
+       id="so_contacts"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="so_contacts_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      {% include "modals/so_contacts.html" %}
+    </div>
+  </div>
+  <div class="modal fade"
+       id="so_previous_answer"
+       tabindex="-1"
+       aria-labelledby="so_previous_answer_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+      {% include "modals/so_previous_version_measure.html" %}
+    </div>
+  </div>
+  <div class="modal fade"
+       id="so_previous_planned"
+       tabindex="-1"
+       aria-labelledby="so_previous_planned_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      {% if actions_config.visible %}
+        {% include "modals/so_previous_version_planned_actions.html" %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

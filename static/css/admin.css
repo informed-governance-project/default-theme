@@ -219,3 +219,50 @@
     white-space: nowrap;
 }
 
+
+/* Security objectives column settings: a row without an obligation holds two
+   boxes and one with an obligation holds three, so the equal-width rule above
+   lands Show in a different place on each row. Three fixed tracks put every
+   control in one column down the fieldset; a two-box row leaves the last track
+   empty. Grid sizes its tracks after the gaps, so nothing wraps. */
+@media (min-width: 768px) {
+    .so-columns .form-row.form-multiline {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 10px;
+        align-items: start;
+    }
+
+
+    /* The tracks size the boxes now, so drop the equal-width flex basis. */
+    .so-columns .form-row.form-multiline > .fieldBox {
+        flex: none;
+        min-width: 0;
+    }
+
+    /* Each box inherits the shared 160px label column, which starts its content
+       part way into its own track. Worse, the two kinds of box disagree: an
+       editable toggle is a checkbox followed by its label, while a frozen one —
+       every toggle on a standard in use — is a label followed by a read-only
+       value. Lay both out as a row from the track's left edge so they line up
+       whichever form they take. */
+    .so-columns .form-row.form-multiline > .fieldBox.checkbox-row,
+    .so-columns .form-row.form-multiline > .fieldBox:has(> .readonly) {
+        display: flex;
+        align-items: center;
+        column-gap: 6px;
+    }
+
+    .so-columns .form-row.form-multiline > .fieldBox:nth-child(3) {
+        align-items: start !important;
+    }
+
+    /* The shared rules give labels a 160px box and top padding meant for a
+       stacked layout. */
+    .so-columns .form-row.form-multiline > .fieldBox.checkbox-row > label,
+    .so-columns .form-row.form-multiline > .fieldBox:has(> .readonly) > label {
+        width: auto;
+        min-width: 0;
+        padding: 0;
+    }
+}

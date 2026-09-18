@@ -1,0 +1,108 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% load static %}
+{% block bootstrap5_extra_script %}
+  <script src='{% static "js/create_report_project.js" %}'></script>
+{% endblock %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white px-4 small">
+      <h5 class="modal-title" id="create_report_project_label">
+        {% if is_copy %}
+          {% translate "Duplicate project" %}
+        {% elif is_edit %}
+          {% translate "Edit project" %}
+        {% else %}
+          {% translate "New project" %}
+        {% endif %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="{% translate 'Close' %}">
+      </button>
+    </div>
+    {% if is_copy %}
+      {% url 'copy_report_project' form.instance.id as form_action %}
+    {% elif is_edit %}
+      {% url 'edit_report_project' form.instance.id as form_action %}
+    {% else %}
+      {% url 'create_report_project' as form_action %}
+    {% endif %}
+    <form action="{{ form_action }}" method="post">
+      {% csrf_token %}
+      <div class="modal-body">
+        {% bootstrap_form_errors form %}
+        {% bootstrap_messages %}
+        <div class="row row-cols-1 row-cols-xl-2 p-3 pb-0">
+          <div class="card border-0 p-3 pb-0">
+            <div class="card-header bg-transparent fw-bolder">
+              {% translate "Report"|upper %}
+            </div>
+            <div class="card-body">
+              {% bootstrap_field form.name %}
+              {% bootstrap_field form.regulation %}
+              <div class="mb-3 required-field">
+                <label for="id_standard" class="form-label">
+                  {{ form.standard.label }}
+                </label>
+                <select name="standard"
+                        id="id_standard"
+                        class="form-select"
+                        required
+                        {% if form.fields.standard.disabled %}
+                          disabled
+                        {% endif %}>
+                  <option value="">
+                    ---------
+                  </option>
+                  {% for standard in form.fields.standard.queryset %}
+                    <option value="{{ standard.id }}"
+                            data-regulation="{{ standard.regulation.id }}"
+                            {% if form.standard.value|stringformat:"s" == standard.id|stringformat:"s" %}
+                              selected
+                            {% endif %}>
+                      {{ standard }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+              {% bootstrap_field form.reference_year %}
+              {% bootstrap_field form.years %}
+              {% bootstrap_field form.sectors %}
+            </div>
+          </div>
+          <div class="d-flex flex-column">
+            <div class="card border-0  p-3 pb-0 bg-light">
+              <div class="card-header bg-light fw-bolder">
+                {% translate "Export"|upper %}
+              </div>
+              <div class="card-body">
+                {% bootstrap_field form.selected_languages %}
+                {% bootstrap_field form.selected_file_format %}
+                {% bootstrap_field form.threshold_for_high_risk %}
+                {% bootstrap_field form.top_ranking %}
+              </div>
+            </div>
+          </div>
+        </div>
+        {% if not messages %}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              {% translate "Cancel" %}
+            </button>
+            <button type="submit" class="btn btn-primary">
+              {% if is_copy %}
+                {% translate "Duplicate" %}
+              {% elif is_edit %}
+                {% translate "Save" %}
+              {% else %}
+                {% translate "Create" %}
+              {% endif %}
+            </button>
+          </div>
+        {% endif %}
+      </div>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% load tz %}
+{% load reporting_filters %}
+{% load static %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white">
+      <h4 class="modal-title" id="review_comment_report_label">
+        {% translate "Review comment" %}
+      </h4>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="{% translate 'Close' %}">
+      </button>
+    </div>
+    <form action="{% url 'review_comment_report' company.id sector.id year %}"
+          method="post">
+      {% csrf_token %}
+      <div class="modal-body">
+        {% bootstrap_form_errors form %}
+        {% bootstrap_messages %}
+        {% if not messages %}
+          {% bootstrap_field form.comment %}
+        {% endif %}
+      </div>
+      {% if not messages and is_regulator %}
+        <div class="modal-footer">
+          <button id="submit-btn" type="submit" class="btn btn-primary">
+            {% translate "Send" %}
+          </button>
+        </div>
+      {% endif %}
+    </form>
+  </div>
+{% endblock %}

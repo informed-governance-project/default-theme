@@ -1,0 +1,12 @@
+{% load i18n %}
+<h2 class="toc-heading fw-bold">
+  {% translate "Table of contents" %}
+</h2>
+<ul class="toc list-unstyled pt-3 small">
+  {% for security_objective, maturity_levels in security_objectives.items %}
+    <li class="border-bottom border-secondary">
+      <a class="text-decoration-none text-reset"
+         href="#{{ security_objective.unique_code }}"></a>
+    </li>
+  {% endfor %}
+</ul>

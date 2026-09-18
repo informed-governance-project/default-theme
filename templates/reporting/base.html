@@ -1,0 +1,38 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block subheader %}
+  <div class="container-fluid d-flex bg-light py-4 align-items-center mb-4">
+    <div class="hstack me-auto gap-2">
+      <img src="{% static 'images/icons/ico-reporting.svg' %}"
+           alt="incident notification icon"
+           class="w-7">
+      <h2 class="fw-bolder mb-0">
+        {{ current_module|upper }}
+      </h2>
+    </div>
+    <div class="hstack gap-4 pe-2">
+      <a class="fw-bold spinner-trigger" href="{% url 'reporting' %}">
+        {% translate "Dashboard" %}
+      </a>
+      <a class="fw-bold import_risk_analysis"
+         href="#"
+         data-bs-toggle="modal"
+         data-bs-target="#import_risk_analysis">
+        {% translate "Import risk analysis" %}
+      </a>
+      <a class="fw-bold import_so_declaration"
+         href="#"
+         data-bs-toggle="modal"
+         data-bs-target="#import_so_declaration">
+        {% translate "Import security objectives" %}
+      </a>
+      <a class="btn btn-primary create_report_project"
+         href="{% url 'create_report_project' %}"
+         data-bs-toggle="modal"
+         data-bs-target="#create_report_project">
+        {% translate "New project" %}
+      </a>
+    </div>
+  </div>
+{% endblock %}

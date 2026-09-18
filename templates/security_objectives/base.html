@@ -1,0 +1,86 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block bootstrap5_extra_script %}
+  {{ block.super }}
+  <link rel="stylesheet"
+        type="text/css"
+        href="{% static 'npm_components/summernote/dist/summernote-bs5.min.css' %}" />
+  <script src='{% static "npm_components/summernote/dist/summernote-bs5.min.js" %}'></script>
+  <link rel="stylesheet"
+        href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
+  <script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
+{% endblock %}
+{% block subheader %}
+  <div class="container-fluid d-flex bg-light py-4 align-items-center mb-4">
+    <div class="hstack me-auto gap-2">
+      <img src="{% static 'images/icons/ico-securityobjectives.svg' %}"
+           alt="Security objectives icon"
+           class="w-7">
+      <h2 class="fw-bolder mb-0">
+        {{ current_module|upper }}
+      </h2>
+    </div>
+    <div class="hstack gap-4 pe-2">
+      <a class="fw-bold spinner-trigger" href="{% url 'securityobjectives' %}">
+        {% translate "Dashboard" %}
+      </a>
+      {% if is_regulator %}
+        <a class="fw-bold import_so_declaration"
+           href="#"
+           data-bs-toggle="modal"
+           data-bs-target="#import_so_declaration">
+          {% translate "Import" %}
+        </a>
+      {% else %}
+        <button type="button"
+                class="btn btn-primary create_so_declaration"
+                data-bs-toggle="modal"
+                data-bs-target="#create_so_declaration">
+          {% translate "New submission" %}
+        </button>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
+{% block app_modals %}
+  <div class="modal fade"
+       id="review_comment_so_declaration"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="review_comment_so_declaration_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="create_so_declaration"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="create_so_declaration_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="import_so_declaration"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="import_so_declaration_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="import_risk_analysis"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="import_risk_analysis_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+{% endblock %}

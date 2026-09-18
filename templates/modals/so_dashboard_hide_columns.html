@@ -1,0 +1,37 @@
+{% load i18n %}
+{% load SO_custom_filters %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white px-4 small">
+      <h5 class="modal-title">
+        {% translate "Choice of columns" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="{% translate 'Close' %}">
+      </button>
+    </div>
+    <div class="modal-body row row-cols-2 mx-4 my-3">
+      {% with "Status,Last update,Submission date,Identifier,Evaluation Framework,Company,Sectors,Year,Progress" as dashboard_columns %}
+        {% for d_col in dashboard_columns|split:"," %}
+          <div class="form-check">
+            <input class="form-check-input column-toggle"
+                   type="checkbox"
+                   data-column="{{ forloop.counter0 }}"
+                   id="column-{{ forloop.counter0 }}">
+            <label class="form-check-label" for="column-{{ forloop.counter0 }}">
+              {% if d_col == "Company" and is_regulator %}
+                {% translate d_col %}
+              {% elif d_col == "Company" %}
+                {% translate "Creator" %}
+              {% else %}
+                {% translate d_col %}
+              {% endif %}
+            </label>
+          </div>
+        {% endfor %}
+      {% endwith %}
+    </div>
+  </div>
+{% endblock %}

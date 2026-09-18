@@ -1,0 +1,332 @@
+{% extends "reporting/base.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% load reporting_filters %}
+{% load static %}
+{% block bootstrap5_extra_script %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/reporting_dashboard.css' %}" />
+  <script src='{% static "js/reporting_dashboard.js" %}'></script>
+{% endblock %}
+{% block content %}
+  {{ sort_field|default:'updated_at'|json_script:"sort_field_reporting_table" }}
+  {{ sort_direction|default:'desc'|json_script:"sort_direction_reporting_table" }}
+  {{ projects_running|json_script:"projects-running-data" }}
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <h3 class="fw-bolder">
+        {% block title %}
+          {% translate "Dashboard" %}
+        {% endblock %}
+      </h3>
+      <div class="hr-separator">
+      </div>
+    </div>
+    <div class="d-inline-flex gap-4">
+      <form id="search_bar_form" method="get">
+        {% bootstrap_field filter.form.search label_class="fw-bold" addon_before="<i class='custom-icon-search h4'></i>" addon_before_class="input-group-text search_icon" addon_after="<button id='clearSearch' type='button' class='btn-close d-none'></button>" addon_after_class="input-group-text close_icon" show_label=false wrapper_class="mb-0" %}
+      </form>
+      <button id="openFilter"
+              class="btn btn-filter-gray btn-sm px-3"
+              type="button"
+              data-bs-placement="top"
+              data-bs-toggle="tooltip"
+              title="{% translate 'Filter by year, operator and sector' %}">
+        {% translate "Filter" %}
+        {% if is_filtered %}
+          <span>
+            ({% translate "Active" %})
+          </span>
+        {% endif %}
+        <i class="bi bi-filter" aria-hidden="true"></i>
+      </button>
+      <button id="reporting_status_legend_btn"
+              type="button"
+              class="btn btn-primary bg-body border-0 p-0"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseLegend"
+              aria-expanded="false"
+              aria-controls="collapseLegend">
+        <img src="{% static 'images/icons/ico-legend.svg' %}"
+             alt="legend"
+             data-bs-placement="top"
+             data-bs-toggle="tooltip"
+             title="{% translate 'Icon Guide' %}">
+      </button>
+    </div>
+  </div>
+  {% if filter.qs %}
+    <table id="reporting-table" class="table align-middle table-sm small">
+      <caption class="visually-hidden">{% translate "Report generation table" %}</caption>
+      <thead>
+        <tr>
+          <th class="col-1 sortable align-middle default-sort-field"
+              data-sort-field="updated_at">
+            {% translate "Modified" %}
+          </th>
+          <th class="col-1 sortable align-middle" data-sort-field="created_at">
+            {% translate "Created" %}
+          </th>
+          <th class="col-1 sortable align-middle" data-sort-field="created_by">
+            {% translate "Author" %}
+          </th>
+          <th class="col-1 sortable align-middle" data-sort-field="name">
+            {% translate "Name" %}
+          </th>
+          <th class="col-1 sortable align-middle" data-sort-field="regulation">
+            {% translate "Regulation" %}
+          </th>
+          <th class="col-1 sortable align-middle" data-sort-field="standard">
+            {% translate "Standard" %}
+          </th>
+          <th class="col-1 sortable align-middle" data-sort-field="year">
+            {% translate "Base year" %}
+          </th>
+          <th class="col-2 sortable align-middle" data-sort-field="sectors">
+            {% translate "Sectors" %}
+          </th>
+          <th class="col-auto align-middle">
+            <div class="d-flex align-items-center gap-1">
+              <span>{% translate "Actions" %}</span>
+              <button class="btn btn-sm btn-primary ms-auto"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#ReportinghideColumns">
+                <i class="bi bi-gear h5 m-0"></i>
+              </button>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for project in projects %}
+          <tr>
+            <td class="col-1 table-group-divider py-3">
+              {{ project.updated_at|date:"d/m/y" }}
+              <br />
+              <i class="bi bi-clock"></i>
+              {{ project.updated_at|date:"H:i" }}
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              {{ project.created_at|date:"d/m/y" }}
+              <br />
+              <i class="bi bi-clock"></i>
+              {{ project.created_at|date:"H:i" }}
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              {{ project.author.get_full_name }}
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              {{ project.name }}
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              {{ project.standard.regulation }}
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              {{ project.standard }}
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              {{ project.reference_year }}
+            </td>
+            <td class="col-2 table-group-divider py-3 list-sectors">
+              {% for root_sector in project.get_no_childrens_sectors %}
+                <ul class="m-0 p-0 list-sectors">
+                  <span class="fw-bolder">
+                    {{ root_sector.get_safe_translation }}
+                  </span>
+                </ul>
+              {% endfor %}
+              <ul class="m-0 p-0 list-sectors">
+                {% for root_sector in project.get_root_sectors %}
+                  <span class="fw-bolder">
+                    {{ root_sector.get_safe_translation }}
+                  </span>
+                  <ul class="list-unstyled">
+                    {% for sector in root_sector.children.all %}
+                      {% if sector in project.sectors.all %}
+                        <li>
+                          {{ sector.get_safe_translation }}
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endfor %}
+              </ul>
+            </td>
+            <td class="col-auto table-group-divider py-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <a id="open_project"
+                   role="button"
+                   class="btn btn-sm btn-secondary"
+                   href="{% url 'dashboard_report_project' project.id %}">
+                  {% translate "Open" %}
+                </a>
+                {% with report_file_uuid=project.generated_report.last.file_uuid %}
+                  <a id="download_reports"
+                     role="button"
+                     data-project-id="{{ project.id }}"
+                     class="btn btn-sm btn-primary
+                            {% if not report_file_uuid %}
+                              disabled
+                            {% endif %}"
+                     {% if report_file_uuid %}
+                       href="{% url 'download_report' project.id report_file_uuid %}"
+                     {% endif %}>
+                    {% translate "Download" %} <i class="ms-2 bi bi-download"></i>
+                  </a>
+                {% endwith %}
+                <a class="btn border-0 p-0 text-dark create_report_project"
+                   type="button"
+                   href="{% url 'edit_report_project' project.id %}"
+                   data-bs-toggle="modal"
+                   data-bs-target="#create_report_project">
+                  <i class="custom-icon-edit h4"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title="{% translate 'Edit' %}">
+                  </i>
+                </a>
+                <a class="btn border-0 p-0 text-dark create_report_project"
+                   href="{% url 'copy_report_project' project.id %}"
+                   data-bs-toggle="modal"
+                   data-bs-target="#create_report_project">
+                  <i class="custom-icon-duplicate h4"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title="{% translate 'Duplicate' %}">
+                  </i>
+                </a>
+                <button class="btn border-0 p-0 text-dark reporting_access_log"
+                        data-project-id="{{ project.id }}"
+                        type="button">
+                  <i class="custom-icon-log h4"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title="{% translate 'Access Log' %}">
+                  </i>
+                </button>
+                <button class="btn border-0 p-0 delete_report_project"
+                        type="button"
+                        data-project-id="{{ project.id }}"
+                        data-delete-url="{% url 'delete_report_project' 0 %}"
+                        data-bs-toggle="modal"
+                        data-bs-target="#delete_report_project">
+                  <i class="custom-icon-trash h4"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title="{% translate 'Delete' %}">
+                  </i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+  {% with pagination_data=projects %}
+    {% include "parts/pagination.html" %}
+  {% endwith %}
+{% endblock %}
+{% block app_modals %}
+  <div class="modal fade"
+       id="reporting_access_log"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="reporting_access_log_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    </div>
+  </div>
+  <div class="modal fade right-modal pt-5 pe-5"
+       id="filterModal"
+       tabindex="-1"
+       aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title fw-bold">
+            {% translate "Filter" %}
+          </h4>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="{% translate 'Close' %}">
+          </button>
+        </div>
+        <form method="get">
+          <div class="modal-body small">
+            {% bootstrap_field filter.form.reference_year label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.author label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.standard__regulation label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.standard label_class="fw-bold" wrapper_class="mb-3" %}
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary btn-sm spinner-trigger"
+                    type="submit"
+                    name="reset"
+                    value="true"
+                    data-bs-dismiss="modal">
+              {% translate "Reset" %}
+            </button>
+            <button class="btn btn-primary btn-sm spinner-trigger" type="submit">
+              {% translate "Search" %}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade"
+       id="delete_report_project"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="delete_report_project_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      {% include "modals/delete_report_project.html" %}
+    </div>
+  </div>
+  <div class="modal fade"
+       id="import_risk_analysis"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="import_risk_analysis_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="import_so_declaration"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="import_so_declaration_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="create_report_project"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="create_report_project_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="ReportinghideColumns"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="reporting_hide_columns_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      {% include "modals/reporting_dashboard_hide_columns.html" %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,180 @@
+{% load i18n %}
+<style>
+    .switch-handle.checked {
+        background: url("images/icons/ico-switch-checked.svg") no-repeat center;
+    }
+
+    .switch-handle.not-checked {
+        background: url("images/icons/ico-switch-unchecked.svg") no-repeat center;
+    }
+</style>
+{% for security_objective, maturity_levels in security_objectives.items %}
+  <div class="page-landscape">
+    <div class="d-flex m-0 mb-1">
+      <div class="me-auto">
+        <h5 id="{{ security_objective.unique_code }}" class="fw-bold m-0">
+          {{ security_objective.unique_code }}: {{ security_objective.objective }}
+        </h5>
+        <h6 class="card-subtitle text-muted">
+          {{ security_objective.description }}
+        </h6>
+      </div>
+      <div class="col-2 text-end">
+        {% if is_regulator %}
+          {% if security_objective.status %}
+            <h5 class="fw-bold m-0
+                       {% if security_objective.status.status == 'PASS' %}
+                         text-success
+                       {% elif security_objective.status.status == 'FAIL' %}
+                         text-danger
+                       {% else %}
+                         text-dark
+                       {% endif %}">
+              [{{ security_objective.status.get_status_display }}]
+            </h5>
+          {% else %}
+            <h5 class="fw-bold m-0">
+              [{% translate "Not reviewed" %}]
+            </h5>
+          {% endif %}
+        {% endif %}
+        {% if score_display.visible %}
+          <h6 class="card-subtitle text-end text-muted m-0">
+            <div class="d-flex align-items-center justify-content-end">
+              <div id="score_container" class="position-relative pe-3">
+                <img src="images/icons/ico-score.svg" class="img-fluid" alt="Score ico">
+                <div class="score_text position-absolute fw-bold text-dark">
+                  <span class="h6 fw-bold">{{ security_objective.status.score|default:0|stringformat:"0.1f" }}</span>
+                  {% if score_display.with_maximum %}
+                    <span>/ {{ last_maturity_level }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </h6>
+        {% endif %}
+      </div>
+    </div>
+    <table id="declaration_table"
+           class="table table-sm table-borderless border-bottom border-1 border-dark small">
+      <caption class="visually-hidden">
+        {% translate "Table of" %} {{ security_objective.unique_code }}: {{ security_objective.objective }}
+      </caption>
+      <thead>
+        <tr>
+          {% if column_config.maturity_level.visible %}
+            <th class="col-{{ column_config.maturity_level.width }} text-center align-middle">
+              {{ column_config.maturity_level.label }}
+            </th>
+          {% endif %}
+          <th class="col-{{ column_config.security_measure.width }} text-center align-middle">
+            {{ column_config.security_measure.label }}
+          </th>
+          {% if column_config.evidence.visible %}
+            <th class="col-{{ column_config.evidence.width }} text-center align-middle">
+              {{ column_config.evidence.label }}
+            </th>
+          {% endif %}
+          <th class="col-{{ column_config.is_implemented.width }} text-center align-middle">
+            {{ column_config.is_implemented.label }}
+          </th>
+          {% if column_config.justification.visible %}
+            <th class="col-{{ column_config.justification.width }} text-center align-middle">
+              {{ column_config.justification.label }}
+            </th>
+          {% endif %}
+          {% if column_config.review_comment.visible %}
+            <th class="col-{{ column_config.review_comment.width }} text-center align-middle">
+              {{ column_config.review_comment.label }}
+            </th>
+          {% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for maturity_level, measures in maturity_levels.items %}
+          {% for measure in measures %}
+            <tr>
+              {% if column_config.maturity_level.visible and forloop.first %}
+                <th rowspan="{{ measures|length }}"
+                    class="col-{{ column_config.maturity_level.width }} table-group-divider text-center align-middle lh-sm">
+                  {{ maturity_level }}
+                </th>
+              {% endif %}
+              <td class="col-{{ column_config.security_measure.width }} lh-sm
+                         {% if forloop.first %}
+                           table-group-divider
+                         {% endif %}">
+                {{ measure }}
+              </td>
+              {% if column_config.evidence.visible %}
+                <td class="col-{{ column_config.evidence.width }} lh-sm
+                           {% if forloop.first %}
+                             table-group-divider
+                           {% endif %}">
+                  {{ measure.evidence|linebreaksbr }}
+                </td>
+              {% endif %}
+              <td class="col-{{ column_config.is_implemented.width }} align-middle
+                         {% if forloop.first %}
+                           table-group-divider
+                         {% endif %}">
+                <div class="d-flex justify-content-center">
+                  <div class="border rounded-pill switch">
+                    <div class="switch-handle
+                                {% if measure.is_implemented %}
+                                  checked
+                                {% else %}
+                                  not-checked
+                                {% endif %}">
+                    </div>
+                  </div>
+                </div>
+              </td>
+              {% if column_config.justification.visible %}
+                <td class="col-{{ column_config.justification.width }} lh-sm
+                           {% if forloop.first %}
+                             table-group-divider
+                           {% endif %}">
+                  {{ measure.justification|default:""|linebreaksbr }}
+                </td>
+              {% endif %}
+              {% if column_config.review_comment.visible %}
+                <td class="col-{{ column_config.review_comment.width }} lh-sm
+                           {% if forloop.first %}
+                             table-group-divider
+                           {% endif %}">
+                  {{ measure.review_comment|default:""|linebreaksbr }}
+                </td>
+              {% endif %}
+            </tr>
+          {% empty %}
+            <h3>
+              {% translate "No security measures data available." %}
+            </h3>
+          {% endfor %}
+          {% if forloop.last and actions_config.visible %}
+            <tr>
+              <td colspan="{{ visible_column_count }}"
+                  class="col-auto table-group-divider pb-0 fw-bolder">
+                {{ actions_config.label }}
+              </td>
+            </tr>
+            <tr>
+              <td colspan="{{ visible_column_count }}" class="col-auto">
+                {{ security_objective.status.actions|default:""|linebreaksbr }}
+              </td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if not forloop.last %}
+      <p class="page-break">
+      </p>
+    {% endif %}
+  {% empty %}
+    <h3>
+      {% translate "No security objectives data available." %}
+    </h3>
+  </div>
+{% endfor %}

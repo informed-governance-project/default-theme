@@ -1,0 +1,214 @@
+{% extends "security_objectives/so_dashboard_base.html" %}
+{% load django_bootstrap5 %}
+{% load SO_custom_filters %}
+{% load i18n %}
+{% block content_filter %}
+  {% bootstrap_field filter.form.submitter_user label_class="fw-bold" wrapper_class="mb-3" %}
+{% endblock %}
+{% block progress_bar %}
+  {% with progress_value=standard.answered_percentage|default:0 %}
+    <div class="hstack gap-2">
+      <span class="text-start w-15">{{ progress_value|floatformat:'0' }}%</span>
+      {% if progress_value == 100 and standard.status == "UNDE" %}
+        <form id="so_declaration_submit_form"
+              method="post"
+              class="w-75"
+              action="{% url 'submit_so_declaration' standard.id %}">
+          {% csrf_token %}
+          <button id="so_submit_button"
+                  type="submit"
+                  class="rounded-pill btn btn-sm btn-passed w-100">
+            {% translate "Submit" %}
+            <i class="custom-icon-submit h4"></i>
+          </button>
+        </form>
+      {% else %}
+        <div class="progress w-75">
+          <div class="progress-bar
+                      {% if progress_value == 100 %}
+                        bg-passed
+                      {% elif progress_value != 100 and progress_value > 40 %}
+                        bg-warning
+                      {% else %}
+                        bg-failed
+                      {% endif %}"
+               role="progressbar"
+               style="width: {{ progress_value|floatformat:'0' }}%"
+               aria-valuenow="{{ progress_value|floatformat:'0' }}"
+               aria-valuemin="0"
+               aria-valuemax="100">
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  {% endwith %}
+{% endblock %}
+{% block content_table_actions %}
+  <!-- Open -->
+  {% if standard.status == 'UNDE' %}
+    <a class="btn border-0 p-0 text-dark spinner-trigger"
+       href="{% url 'so_declaration' %}?id={{ standard.id }}">
+      <i class="custom-icon-edit h4"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title="{% translate 'Edit' %}">
+      </i>
+    </a>
+  {% else %}
+    <button class="btn border-0 p-0 update_so_declaration"
+            data-declaration-url="{% url 'so_declaration' %}?id={{ standard.id }}"
+            data-bs-toggle="modal"
+            data-bs-target="#update_so_declaration">
+      <i class="custom-icon-edit h4"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title="{% translate 'Review' %}">
+      </i>
+    </button>
+  {% endif %}
+  <!-- Review comment -->
+  {% if standard.review_comment and standard.status in ',PASSM,FAILM,' %}
+    <button class="btn border-0 p-0 review_comment_so_declaration"
+            data-standard-answer-id="{{ standard.id }}"
+            data-bs-toggle="modal"
+            data-bs-target="#review_comment_so_declaration">
+      <i class="custom-icon-comments h4"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title="{% translate 'Review comment' %}">
+      </i>
+    </button>
+  {% else %}
+    <button class="btn border-0 p-0" disabled>
+      <i class="custom-icon-comments-disabled h4">
+      </i>
+    </button>
+  {% endif %}
+  <!-- Duplicate -->
+  <button class="btn border-0 p-0 copy_so_declaration"
+          data-standard-answer-id="{{ standard.group.id }}"
+          data-bs-toggle="modal"
+          data-bs-target="#copy_so_declaration">
+    <i class="custom-icon-duplicate h4"
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title="{% translate 'Duplicate' %}">
+    </i>
+  </button>
+  <!-- PDF Download -->
+  <a class="btn border-0 p-0"
+     href="{% url 'download_so_declaration_pdf' standard.id %}">
+    <i class="custom-icon-pdf h4"
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title="{% translate 'Download' %}">
+    </i>
+  </a>
+  <!-- Delete -->
+  <button class="btn border-0 p-0 delete_so_declaration"
+          data-standard-answer-id="{{ standard.id }}"
+          data-delete-url="{% url 'delete_so_declaration' 0 %}"
+          data-bs-toggle="modal"
+          data-bs-target="#delete_so_declaration"
+          {% if not standard.status == 'UNDE' %}
+            disabled
+          {% endif %}>
+    <i class="custom-icon-trash h4"
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title="{% translate 'Delete' %}">
+    </i>
+  </button>
+{% endblock %}
+{% block content_table_legend %}
+  <div class="vstack gap-xl-3">
+    <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+      <li class="legend-item">
+        <div class="icon-container bg-passed rounded-circle d-flex justify-content-center align-items-center">
+          <i class="custom-icon-passed-white m-0 h5" aria-hidden="true"></i>
+        </div>
+        {% translate "Passed" %}
+      </li>
+      <li class="legend-item">
+        <div class="icon-container bg-under-review rounded-circle d-flex justify-content-center align-items-center">
+          <i class="custom-icon-under-review-white m-0 h5" aria-hidden="true"></i>
+        </div>
+        {% translate "Under review" %}
+      </li>
+      <li class="legend-item">
+        <div class="icon-container bg-failed rounded-circle d-flex justify-content-center align-items-center">
+          <i class="custom-icon-failed-white m-0 h5" aria-hidden="true"></i>
+        </div>
+        {% translate "Revision required" %}
+      </li>
+      <li class="legend-item">
+        <div class="icon-container bg-unsubmitted rounded-circle d-flex justify-content-center align-items-center">
+          <i class="custom-icon-unsubmitted-white m-0 h5" aria-hidden="true"></i>
+        </div>
+        {% translate "Unsubmitted" %}
+      </li>
+    </ul>
+    <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+      <li class="legend-item">
+        <div class="d-flex justify-content-center align-items-center">
+          <i class="custom-icon-versioning m-0 h4" aria-hidden="true"></i>
+        </div>
+        {% translate "Versioning" %}
+      </li>
+      <li class="legend-item">
+        <div class="d-flex justify-content-center align-items-center">
+          <i class="custom-icon-edit m-0 h4" aria-hidden="true"></i>
+        </div>
+        {% translate "Editing" %}
+      </li>
+      <li class="legend-item">
+        <div class="d-flex justify-content-center align-items-center">
+          <i class="custom-icon-duplicate m-0 h4" aria-hidden="true"></i>
+        </div>
+        {% translate "Duplicate" %}
+      </li>
+      <li class="legend-item">
+        <div class="d-flex justify-content-center align-items-center">
+          <i class="custom-icon-trash m-0 h4" aria-hidden="true"></i>
+        </div>
+        {% translate "Delete" %}
+      </li>
+    </ul>
+  </div>
+{% endblock %}
+<!-- Modals -->
+{% block content_modals %}
+  {{ block.super }}
+  <div class="modal fade"
+       id="delete_so_declaration"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="delete_so_declaration_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      {% include "modals/delete_so_declaration.html" %}
+    </div>
+  </div>
+  <div class="modal fade"
+       id="copy_so_declaration"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="copy_so_declaration_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="update_so_declaration"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="update_so_declaration_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      {% include "modals/update_so_declaration.html" %}
+    </div>
+  </div>
+{% endblock %}

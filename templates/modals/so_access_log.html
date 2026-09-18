@@ -1,0 +1,63 @@
+{% extends "modals/access_log base.html" %}
+{% load i18n %}
+{% load tz %}
+{% load SO_custom_filters %}
+{% block log_table %}
+  {% settings_value "TIME_ZONE" as time_zone %}
+  {% if log %}
+    <table id="access-log-table" class="table table-sm small">
+      <caption class="visually-hidden">{% translate "Access log table" %}</caption>
+      <thead class="table">
+        <tr>
+          <th scope="col">
+            {% translate "Date" %}
+          </th>
+          <th scope="col">
+            {% translate "Entity" %}
+          </th>
+          <th scope="col">
+            {% translate "User" %}
+          </th>
+          <th scope="col">
+            {% translate "Role" %}
+          </th>
+          <th scope="col">
+            {% translate "Action" %}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in log %}
+          {% timezone time_zone %}
+          <tr>
+            <td data-order="{{ record.timestamp.timestamp }}">
+              {{ record.timestamp|date:"d/m/y, H:i" }}
+            </td>
+            <td>
+              {{ record.entity_name }}
+            </td>
+            <td>
+              {% if record.user %}
+                {{ record.user.get_full_name }}
+              {% else %}
+                {{ record.user__full_name }}
+              {% endif %}
+            </td>
+            <td>
+              {% display_role record as role %}
+              {{ role }}
+            </td>
+            <td>
+              {{ record.action }}
+            </td>
+          </tr>
+        {% endtimezone %}
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <h2 class="text-center">
+    {% translate "No entries" %}
+  </h2>
+{% endif %}
+{% endblock %}

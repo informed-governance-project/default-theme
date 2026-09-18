@@ -1,0 +1,40 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% load static %}
+{% block bootstrap5_extra_script %}
+  <script src='{% static "js/create_so_declaration.js" %}'></script>
+{% endblock %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white px-4 small">
+      <h5 class="modal-title" id="copy_so_declaration_label">
+        {% translate "Duplicate the selected security objectives statement to" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="{% translate 'Close' %}">
+      </button>
+    </div>
+    <form id="copy_so_declaration_form"
+          action="{% url 'copy_so_declaration' group_id %}"
+          method="post">
+      {% csrf_token %}
+      <div class="modal-body">
+        {% bootstrap_form_errors form %}
+        {% bootstrap_messages %}
+        {% if not messages %}
+          {% bootstrap_field form.year %}
+          {% bootstrap_field form.sectors %}
+        {% endif %}
+      </div>
+      {% if not messages %}
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">
+            {% translate "Duplicate" %}
+          </button>
+        </div>
+      </form>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends "reporting/base.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% load reporting_filters %}
+{% load static %}
+{% block bootstrap5_extra_script %}
+  {{ block.super }}
+  <link rel="stylesheet"
+        href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
+  <script src='{% static "js/add_reporting_recommendations.js" %}'></script>
+{% endblock %}
+{% block content %}
+  <h3 class="fw-bolder">
+    {% block title %}
+      {% translate "Add recommendation(s)" %}
+    {% endblock %}
+  </h3>
+  <div class="hr-separator">
+  </div>
+  <h5 class="text-muted">
+    {{ year }} {{ company }} [{{ sector }}]
+  </h5>
+  <div class="d-flex">
+    <div class="me-auto">
+      <button id="addSelectedButton" class="btn btn-primary btn-sm spinner-trigger">
+        {% translate "Add selected recommendation(s)" %}
+      </button>
+      <a class="btn btn-secondary btn-sm spinner-trigger"
+         href="{% url 'report_recommendations' company.id sector.id year %}">
+        {% translate "Cancel" %}
+      </a>
+    </div>
+    <button id="openFilter"
+            class="btn btn-primary btn-sm ms-auto"
+            type="button"
+            data-bs-placement="top"
+            data-bs-toggle="tooltip"
+            title="{% translate 'Filter' %}">
+      {% translate "Filter" %}
+      {% if is_filtered %}
+        <span>
+          ({% translate "Active" %})
+        </span>
+      {% endif %}
+      <i class="bi bi-funnel-fill"></i>
+    </button>
+  </div>
+  <div class="modal fade right-modal pt-5 pe-5"
+       id="filterModal"
+       tabindex="-1"
+       aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title fw-bold">
+            {% translate "Filter" %}
+          </h4>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="{% translate 'Close' %}">
+          </button>
+        </div>
+        <form method="get">
+          <div class="modal-body small">
+            {% bootstrap_field filter.form.code label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.description label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary btn-sm spinner-trigger"
+                    type="submit"
+                    name="reset"
+                    value="true"
+                    data-bs-dismiss="modal">
+              {% translate "Reset" %}
+            </button>
+            <button class="btn btn-primary btn-sm spinner-trigger" type="submit">
+              {% translate "Search" %}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <form id="recommendationsTableForm" method="post" action="">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    <table id="add-reporting-recommendations-table"
+           class="table align-middle table-sm small">
+      <caption class="visually-hidden">{% translate "Recommendations table" %}</caption>
+      <thead>
+        <tr>
+          <th class="d-flex align-items-center justify-content-center">
+            <input id="select_all_recommendations"
+                   class="form-check-input large-checkbox"
+                   type="checkbox">
+          </th>
+          <th class="col-auto">
+            {% translate "Name" %}
+          </th>
+          <th class="col-auto">
+            {% translate "Description" %}
+          </th>
+          <th class="col-auto">
+            {% translate "Sectors" %}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for form in formset %}
+          <tr>
+            {% bootstrap_field form.id %}
+            <td class="col-1 table-group-divider py-3">
+              {% bootstrap_field form.selected show_label=False field_class="large-checkbox" wrapper_class="d-flex align-items-center justify-content-center" %}
+            </td>
+            <td class="col-auto table-group-divider py-3">
+              {{ form.code.value }}
+            </td>
+            <td class="col-auto table-group-divider py-3">
+              {{ form.description.value|linebreaksbr }}
+            </td>
+            <td class="col-auto table-group-divider py-3">
+              {% for sector in form.sectors %}
+                {% if sector.data.selected %}
+                  {{ sector }}
+                {% endif %}
+              {% endfor %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </form>
+{% endblock %}

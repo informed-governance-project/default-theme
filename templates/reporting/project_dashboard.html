@@ -1,0 +1,414 @@
+{% extends "reporting/base.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% block bootstrap5_extra_script %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/project_dashboard.css' %}" />
+  <script src='{% static "js/project_dashboard.js" %}'></script>
+{% endblock %}
+{% block content %}
+  {{ sort_field|default:'updated_at'|json_script:"sort_field_project_dashboard_table" }}
+  {{ sort_direction|default:'desc'|json_script:"sort_project_dashboard_table" }}
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="row py-3 gap-2 row-cols-3">
+      <div class="col-auto">
+        <h3 class="fw-bolder mb-0">
+          {% block title %}
+            {{ project.name }}
+          {% endblock %}
+        </h3>
+      </div>
+      <div class="p-0 vr">
+      </div>
+      <div class="col-auto small">
+        <div class="row">
+          <span class="col-5 fw-bold">{% translate "Modified" %}</span>
+          <div class="col-7 hstack">
+            {% if project.updated_at %}
+              {{ project.updated_at|date:"d/m/y" }}
+              <i class="bi bi-clock px-1"></i>
+              {{ project.updated_at|date:"H:i" }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="row">
+          <span class="col-5 fw-bold">{% translate "Created" %}</span>
+          <div class="col-7 hstack">
+            {{ project.created_at|date:"d/m/y" }}
+            <i class="bi bi-clock px-1"></i>
+            {{ project.created_at|date:"H:i" }}
+          </div>
+        </div>
+      </div>
+      <div class="col-auto small">
+        <div class="row gap-1">
+          <span class="col fw-bold">
+            {% translate "Author" %}
+          </span>
+          <div class="col">
+            {{ project.author }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-inline-flex gap-4">
+      <form id="search_bar_form" method="get">
+        {% bootstrap_field filter.form.search label_class="fw-bold" addon_before="<i class='custom-icon-search h4'></i>" addon_before_class="input-group-text search_icon" addon_after="<button id='clearSearch' type='button' class='btn-close d-none'></button>" addon_after_class="input-group-text close_icon" show_label=false wrapper_class="mb-0" %}
+      </form>
+      <button id="openFilter"
+              class="btn btn-filter-gray btn-sm px-3"
+              type="button"
+              data-bs-placement="top"
+              data-bs-toggle="tooltip"
+              title="{% translate 'Filter by year, operator and sector' %}">
+        {% translate "Filter" %}
+        {% if is_filtered %}
+          <span>
+            ({% translate "Active" %})
+          </span>
+        {% endif %}
+        <i class="bi bi-filter" aria-hidden="true"></i>
+      </button>
+      <button id="reporting_status_legend_btn"
+              type="button"
+              class="btn btn-primary bg-body border-0 p-0"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseLegend"
+              aria-expanded="false"
+              aria-controls="collapseLegend">
+        <img src="{% static 'images/icons/ico-legend.svg' %}"
+             alt="legend"
+             data-bs-placement="top"
+             data-bs-toggle="tooltip"
+             title="{% translate 'Icon Guide' %}">
+      </button>
+    </div>
+  </div>
+  {% if filter.qs %}
+    <table id="project-dashboard-table"
+           class="table align-middle table-sm small">
+      <caption class="visually-hidden">{% translate "Report generation table" %}</caption>
+      <thead class="border border-end-0 border-start-0 border-4 border-secondary">
+        <tr>
+          <th class="col-1 sortable align-middle" data-sort-field="is_selected">
+          </th>
+          <th class="col-3 sortable align-middle default-sort-field"
+              data-sort-field="company">
+            {% translate "Company" %}
+          </th>
+          <th class="col-2 sortable align-middle" data-sort-field="sector">
+            {% translate "Sector" %}
+          </th>
+          <th class="col-1 sortable align-middle" data-sort-field="year">
+            {% translate "Year" %}
+          </th>
+          <th class="col-2 sortable align-middle text-center"
+              data-sort-field="has_security_objectives">
+            {% translate "Security Objectives" %}
+          </th>
+          <th class="col-2 sortable align-middle text-center"
+              data-sort-field="has_risk_assessment">
+            {% translate "Risk Assessment" %}
+          </th>
+          <th class="col-1 sortable align-middle text-center border-left-dashed"
+              data-sort-field="statistic_selected">
+            {% translate "Statistics" %}
+          </th>
+          <th class="col-1 sortable align-middle text-center"
+              data-sort-field="governance_report_selected">
+            {% translate "Governance report" %}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+          <tr>
+            <td class="col-1
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3">
+              {% bootstrap_field item.formSelect.is_selected show_label=false wrapper_class="mb-0 d-flex justify-content-center align-items-center" %}
+            </td>
+            <td class="col-3
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3">
+              {% ifchanged item.company %}
+                {{ item.company }}
+              {% else %}
+                <span class="text-body text-opacity-25">
+                  {{ item.company }}
+                </span>
+              {% endifchanged %}
+            </td>
+            <td class="col-2
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3">
+              {% if not item.sector.parent %}
+                <ul class="m-0 p-0 list-sectors">
+                  <span class="fw-bolder">
+                    {{ item.sector.get_safe_translation }}
+                  </span>
+                </ul>
+              {% endif %}
+              <ul class="m-0 p-0 list-sectors">
+                {% if item.sector.parent %}
+                  <span class="fw-bolder">
+                    {{ item.sector.parent.get_safe_translation }}
+                  </span>
+                  <ul class="list-unstyled">
+                    <li>
+                      {{ item.sector.get_safe_translation }}
+                    </li>
+                  </ul>
+                {% endif %}
+              </ul>
+            </td>
+            <td class="col-1
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3">
+              {{ item.year }}
+            </td>
+            <td class="col-2
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3 text-center">
+              <a class="btn btn-sm import_so_declaration"
+                 data-bs-toggle="modal"
+                 data-bs-target="#import_so_declaration"
+                 data-year="{{ item.year }}"
+                 data-sector-id="{{ item.sector.id }}"
+                 data-company-id="{{ item.company.id }}"
+                 data-standard-id="{{ project.standard.id }}">
+                {% if item.has_security_objectives %}
+                  <i class="bi bi-check-circle text-passed h5"></i>
+                {% else %}
+                  <i class="bi bi-x-circle text-failed h5"></i>
+                {% endif %}
+              </a>
+            </td>
+            <td class="col-2
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3 text-center">
+              <a class="btn btn-sm import_risk_analysis"
+                 data-bs-toggle="modal"
+                 data-bs-target="#import_risk_analysis"
+                 data-year="{{ item.year }}"
+                 data-sector-id="{{ item.sector.id }}"
+                 data-company-id="{{ item.company.id }}">
+                {% if item.has_risk_assessment %}
+                  <i class="bi bi-check-circle text-passed h5"></i>
+                {% else %}
+                  <i class="bi bi-x-circle text-failed h5"></i>
+                {% endif %}
+              </a>
+            </td>
+            <td class="col-1
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3 border-left-dashed checkbox-as-switch">
+              {% bootstrap_field item.formSelect.statistic_selected show_label=false wrapper_class="mb-0 form-switch d-flex justify-content-center align-items-center" %}
+            </td>
+            <td class="col-1
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3 checkbox-as-switch">
+              {% bootstrap_field item.formSelect.governance_report_selected show_label=false wrapper_class="mb-0 form-switch d-flex justify-content-center align-items-center" %}
+            </td>
+          </tr>
+        {% endfor %}
+        <tr class="text-center">
+          <td class="col-1 table-group-divider px-0 py-2">
+            <input type="checkbox"
+                   name="is_selected"
+                   class="form-check-input m-0 select-all-input"
+                   data-project-id="{{ project.id }}"
+                   data-field-target="is_selected"
+                   data-bs-placement="top"
+                   data-bs-toggle="tooltip"
+                   {% if selected_status.is_selected %}
+                     checked title="{% translate 'Deselect all' %}"
+                   {% else %}
+                     title="{% translate 'Select all' %}"
+                   {% endif %}
+                   data-bs-placement="top"
+                   data-bs-toggle="tooltip">
+          </td>
+          <td class="col-3 table-group-divider py-1">
+          </td>
+          <td class="col-3 table-group-divider py-1">
+          </td>
+          <td class="col-1 table-group-divider py-1">
+          </td>
+          <td class="col-1 table-group-divider py-1">
+          </td>
+          <td class="col-1 table-group-divider py-1">
+          </td>
+          <td class="col-1 table-group-divider py-1 border-left-dashed checkbox-as-switch">
+            <div class="form-switch d-flex justify-content-center align-items-center">
+              <div class="mb-0 form-check">
+                <input type="checkbox"
+                       name="statistic_selected"
+                       class="form-check-input select-all-input switch-input"
+                       data-project-id="{{ project.id }}"
+                       data-field-target="statistic_selected"
+                       data-bs-placement="top"
+                       data-bs-toggle="tooltip"
+                       {% if selected_status.statistic_selected %}
+                         checked title="{% translate 'Deselect all' %}"
+                       {% else %}
+                         title="{% translate 'Select all' %}"
+                       {% endif %}
+                       data-bs-placement="top"
+                       data-bs-toggle="tooltip">
+              </div>
+            </div>
+          </td>
+          <td class="col-1 table-group-divider checkbox-as-switch">
+            <div class="form-switch d-flex justify-content-center align-items-center">
+              <div class="mb-0 form-check">
+                <input type="checkbox"
+                       name="governance_report_selected"
+                       class="form-check-input select-all-input switch-input"
+                       data-project-id="{{ project.id }}"
+                       data-field-target="governance_report_selected"
+                       data-bs-placement="top"
+                       data-bs-toggle="tooltip"
+                       {% if selected_status.governance_report_selected %}
+                         checked title="{% translate 'Deselect all' %}"
+                       {% else %}
+                         title="{% translate 'Select all' %}"
+                       {% endif %}
+                       data-bs-placement="top"
+                       data-bs-toggle="tooltip">
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  {% endif %}
+  {% with pagination_data=items %}
+    {% include "parts/pagination.html" %}
+  {% endwith %}
+  <div class="d-flex pt-3 justify-content-between align-items-center">
+    <a role="button"
+       class="btn btn-secondary d-inline-flex create_report_project"
+       href="{% url 'edit_report_project' project.id %}"
+       data-bs-toggle="modal"
+       data-bs-target="#create_report_project">
+      {% translate "Edit project" %}
+      <i class="ps-2 bi bi-pencil" aria-hidden="true"></i>
+    </a>
+    <div class="hstack gap-2">
+      <a class="btn btn-outline-secondary"
+         role="button"
+         href="{% url 'reporting' %}">
+        {% translate "Cancel" %}
+      </a>
+      <form method="post" action="{% url 'generate_report_project' project.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">
+          {% translate "Generate report(s)" %}
+        </button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+{% block app_modals %}
+  <div class="modal fade right-modal pt-5 pe-5"
+       id="filterModal"
+       tabindex="-1"
+       aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title fw-bold">
+            {% translate "Filter" %}
+          </h4>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="{% translate 'Close' %}">
+          </button>
+        </div>
+        <form method="get">
+          <div class="modal-body small">
+            {% bootstrap_field filter.form.year label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.sector label_class="fw-bold" wrapper_class="mb-3" %}
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary btn-sm spinner-trigger"
+                    type="submit"
+                    name="reset"
+                    value="true"
+                    data-bs-dismiss="modal">
+              {% translate "Reset" %}
+            </button>
+            <button class="btn btn-primary btn-sm spinner-trigger" type="submit">
+              {% translate "Search" %}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade"
+       id="import_so_declaration"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="import_so_declaration_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="import_risk_analysis"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="import_risk_analysis_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="create_report_project"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="create_report_project_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    </div>
+  </div>
+{% endblock %}

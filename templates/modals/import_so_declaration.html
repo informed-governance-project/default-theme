@@ -1,0 +1,44 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% load static %}
+{% block bootstrap5_extra_script %}
+  <script src='{% static "js/create_so_declaration.js" %}'></script>
+{% endblock %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white px-4 small">
+      <h5 class="modal-title" id="import_so_declaration_label">
+        {% translate "Import Security Objectives Statement" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="{% translate 'Close' %}">
+      </button>
+    </div>
+    <form action="{% url 'import_so_declaration' %}"
+          method="post"
+          enctype="multipart/form-data"
+          onsubmit="load_spinner()">
+      {% csrf_token %}
+      <div class="modal-body">
+        {% bootstrap_form_errors form %}
+        {% bootstrap_messages %}
+        {% if not messages %}
+          {% bootstrap_field form.import_file %}
+          {% bootstrap_field form.company %}
+          {% bootstrap_field form.sectors %}
+          {% bootstrap_field form.standard %}
+          {% bootstrap_field form.year %}
+        {% endif %}
+      </div>
+      {% if not messages %}
+        <div class="modal-footer">
+          <button id="submit-btn" type="submit" class="btn btn-primary">
+            {% translate "Import" %}
+          </button>
+        </div>
+      {% endif %}
+    </form>
+  </div>
+{% endblock %}
