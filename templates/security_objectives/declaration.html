@@ -270,7 +270,6 @@
               <i class="carousel-control-next-icon bi bi-arrow-right text-secondary h2"></i>
             </button>
           </div>
-          {% if column_config.maturity_level.visible %}
           <button id="so_declaration_status_legend_btn"
                   type="button"
                   class="btn btn-primary bg-body border-0 p-0"
@@ -285,36 +284,76 @@
                title="{% translate 'Icon Guide' %}">
             </i>
           </button>
-          {% endif %}
         </div>
       </div>
     </div>
     <!-- Legend -->
-    {% if column_config.maturity_level.visible %}
     <div class="my-2">
       <div id="collapseLegend" class="collapse">
         <div class="legend">
           <span class="legend-title">
             {% translate "Legend" %}
           </span>
-          <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
-            {% for maturity_levels in security_objectives.values %}
-              {% if forloop.first %}
-                {% for maturity_level in maturity_levels %}
-                  <li class="legend-item d-flex align-items-center small">
-                    <h3 class="m-0 pe-3 fw-bolder">
-                      {{ maturity_level.level }}
-                    </h3>
-                    <span>{{ maturity_level }}</span>
-                  </li>
-                {% endfor %}
+          <div class="vstack gap-xl-3">
+            <ul class="d-flex justify-content-between list-group list-group-horizontal-xl small">
+              {% if standard_answer.status == "UNDE" %}
+              <li class="legend-item">
+                <div class="btn btn-outline-uninitiated rounded-circle slide-selector-container">
+                </div>
+                {% translate "Not filled" %}
+              </li>
               {% endif %}
-            {% endfor %}
-          </ul>
+              {% if standard_answer.status == "UNDE" %}
+              <li class="legend-item">
+                <div class="btn btn-partially slide-selector-container">
+                </div>
+                  {% translate "Partially filled" %}
+              </li>
+              {% endif %}
+              {% if is_regulator and standard_answer.status in ",DELIV,PASS,FAIL" %}
+              <li class="legend-item">
+                <div class="btn btn-partially rounded-circle slide-selector-container">
+                </div>
+                  {% translate "Not reviewed" %}
+              </li>
+              {% endif %}
+              <li class="legend-item">
+                <div class="btn btn-passed rounded-circle slide-selector-container">
+                </div>
+                {% if standard_answer.status == "UNDE" %}
+                  {% translate "Fully filled" %}
+                {% else %}
+                  {% translate "Review passed" %}
+                {% endif %}
+              </li>
+              {% if standard_answer.has_failed_objectives or is_regulator %}
+                <li class="legend-item">
+                  <div class="btn btn-failed slide-selector-container">
+                  </div>
+                  {% translate "Review required" %}
+                </li>
+              {% endif %}
+            </ul>
+            {% if column_config.maturity_level.visible %}
+              <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+                {% for maturity_levels in security_objectives.values %}
+                {% if forloop.first %}
+                {% for maturity_level in maturity_levels %}
+                <li class="legend-item d-flex align-items-center small">
+                  <h3 class="m-0 pe-3 fw-bolder">
+                    {{ maturity_level.level }}
+                  </h3>
+                  <span>{{ maturity_level }}</span>
+                </li>
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>
-    {% endif %}
     <div class="card-body">
       <div id="security_objectives_carousel"
            class="carousel slide"
