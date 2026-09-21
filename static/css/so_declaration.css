@@ -97,6 +97,34 @@
     font-size: 1rem !important;
 }
 
+/* Objective states are marked by shape as well as colour, so they stay
+   distinguishable without relying on colour alone. */
+
+/* Square shape */
+.slide-selector-container.btn-failed {
+    border-radius: 12% !important;
+}
+
+/* Circle shape outlined */
+.slide-selector-container.btn-outline-uninitiated {
+    color: var(--bs-uninitiated) !important;
+}
+.slide-selector-container.btn-outline-uninitiated:hover {
+    color: var(--bs-body-bg) !important;
+}
+
+/* Triange shape */
+.slide-selector-container.btn-partially {
+    --so-triangle: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 12 L88 88 L12 88 Z' fill='black' stroke='black' stroke-width='24' stroke-linejoin='round'/></svg>");
+    -webkit-mask: var(--so-triangle) center/100% 100% no-repeat;
+    mask: var(--so-triangle) center/100% 100% no-repeat;
+    border-radius: 0 !important;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 3px !important;
+}
+
 #score_container {
     width: 110px;
     height: 60px;
