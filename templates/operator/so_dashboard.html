@@ -88,7 +88,10 @@
   <button class="btn border-0 p-0 copy_so_declaration"
           data-standard-answer-id="{{ standard.group.id }}"
           data-bs-toggle="modal"
-          data-bs-target="#copy_so_declaration">
+          data-bs-target="#copy_so_declaration"
+          {% if not standard.standard.active %}
+            disabled
+          {% endif %}>
     <i class="custom-icon-duplicate h4"
        data-bs-placement="top"
        data-bs-toggle="tooltip"
