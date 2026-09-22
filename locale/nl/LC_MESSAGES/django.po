@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 15:12+0200\n"
+"POT-Creation-Date: 2026-09-22 16:00+0200\n"
 "PO-Revision-Date: 2026-09-16 10:37+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -1971,8 +1971,8 @@ msgid "Next"
 msgstr "Volgend"
 
 #: theme/templates/incidents/declaration.html:327
-#: theme/templates/security_objectives/declaration.html:426
-#: theme/templates/security_objectives/declaration.html:492
+#: theme/templates/security_objectives/declaration.html:465
+#: theme/templates/security_objectives/declaration.html:531
 msgid "View previous version"
 msgstr "Zie vorige versie"
 
@@ -2017,13 +2017,13 @@ msgstr "Actief"
 #: theme/templates/incidents/incidents_base.html:58
 #: theme/templates/reporting/dashboard.html:54
 #: theme/templates/reporting/project_dashboard.html:84
-#: theme/templates/security_objectives/declaration.html:285
+#: theme/templates/security_objectives/declaration.html:284
 #: theme/templates/security_objectives/so_dashboard_base.html:55
 msgid "Icon Guide"
 msgstr "Pictogramgids"
 
 #: theme/templates/incidents/incidents_base.html:66
-#: theme/templates/security_objectives/declaration.html:298
+#: theme/templates/security_objectives/declaration.html:295
 #: theme/templates/security_objectives/so_dashboard_base.html:64
 msgid "Legend"
 msgstr "Legenda"
@@ -2045,12 +2045,12 @@ msgid "Closed"
 msgstr "Afgesloten"
 
 #: theme/templates/incidents/incidents_base.html:86
-#: theme/templates/operator/so_dashboard.html:148
+#: theme/templates/operator/so_dashboard.html:151
 msgid "Unsubmitted"
 msgstr "Niet ingediend"
 
 #: theme/templates/incidents/incidents_base.html:90
-#: theme/templates/operator/so_dashboard.html:136
+#: theme/templates/operator/so_dashboard.html:139
 #: theme/templates/regulator/so_dashboard.html:129
 msgid "Under review"
 msgstr "Wordt onderzocht"
@@ -2064,14 +2064,14 @@ msgid "Late submission"
 msgstr "Te late indiening"
 
 #: theme/templates/incidents/incidents_base.html:102
-#: theme/templates/operator/so_dashboard.html:142
+#: theme/templates/operator/so_dashboard.html:145
 #: theme/templates/regulator/so_dashboard.html:135
 #: theme/templates/report/security_objectives/cover.html:44
 msgid "Revision required"
 msgstr "Revisie vereist"
 
 #: theme/templates/incidents/incidents_base.html:106
-#: theme/templates/operator/so_dashboard.html:130
+#: theme/templates/operator/so_dashboard.html:133
 #: theme/templates/regulator/so_dashboard.html:117
 #: theme/templates/report/security_objectives/cover.html:42
 msgid "Passed"
@@ -2325,8 +2325,8 @@ msgstr "Geselecteerde beveiligingsdoelstellingenverklaring kopiëren naar"
 
 #: theme/templates/modals/copy_so_declaration.html:34
 #: theme/templates/modals/create_report_project.html:96
-#: theme/templates/operator/so_dashboard.html:95
-#: theme/templates/operator/so_dashboard.html:168
+#: theme/templates/operator/so_dashboard.html:98
+#: theme/templates/operator/so_dashboard.html:171
 #: theme/templates/reporting/dashboard.html:196
 msgid "Duplicate"
 msgstr "Kopiëren"
@@ -2373,8 +2373,8 @@ msgstr "Weet u zeker dat u het incident wilt verwijderen?"
 #: theme/templates/modals/delete_so_declaration.html:27
 #: theme/templates/operator/incidents.html:118
 #: theme/templates/operator/incidents.html:121
-#: theme/templates/operator/so_dashboard.html:119
-#: theme/templates/operator/so_dashboard.html:174
+#: theme/templates/operator/so_dashboard.html:122
+#: theme/templates/operator/so_dashboard.html:177
 #: theme/templates/regulator/so_dashboard.html:106
 #: theme/templates/regulator/so_dashboard.html:161
 #: theme/templates/reporting/dashboard.html:217
@@ -2496,18 +2496,18 @@ msgstr "nog niet ingediend"
 msgid "Edit"
 msgstr "Bewerken"
 
-#: theme/templates/operator/so_dashboard.html:104
+#: theme/templates/operator/so_dashboard.html:107
 #: theme/templates/regulator/so_dashboard.html:94
 #: theme/templates/reporting/dashboard.html:175
 msgid "Download"
 msgstr "Downloaden"
 
-#: theme/templates/operator/so_dashboard.html:156
+#: theme/templates/operator/so_dashboard.html:159
 #: theme/templates/regulator/so_dashboard.html:149
 msgid "Versioning"
 msgstr "Versiebeheer"
 
-#: theme/templates/operator/so_dashboard.html:162
+#: theme/templates/operator/so_dashboard.html:165
 #: theme/templates/regulator/so_dashboard.html:155
 msgid "Editing"
 msgstr "Bewerken"
@@ -2939,21 +2939,22 @@ msgid "Progress"
 msgstr "Vordering"
 
 #: theme/templates/report/security_objectives/declaration.html:37
+#: theme/templates/security_objectives/declaration.html:317
 msgid "Not reviewed"
 msgstr "Niet gecontroleerd"
 
 #: theme/templates/report/security_objectives/declaration.html:61
-#: theme/templates/security_objectives/declaration.html:368
+#: theme/templates/security_objectives/declaration.html:407
 msgid "Table of"
 msgstr "Tabel van"
 
 #: theme/templates/report/security_objectives/declaration.html:152
-#: theme/templates/security_objectives/declaration.html:473
+#: theme/templates/security_objectives/declaration.html:512
 msgid "No security measures data available."
 msgstr "Geen gegevens over beveiligingsmaatregelen beschikbaar."
 
 #: theme/templates/report/security_objectives/declaration.html:177
-#: theme/templates/security_objectives/declaration.html:504
+#: theme/templates/security_objectives/declaration.html:543
 msgid "No security objectives data available."
 msgstr "Geen gegevens over beveiligingsdoelstellingen beschikbaar."
 
@@ -3079,6 +3080,26 @@ msgstr "Kopiëren van vorig jaar"
 #: theme/templates/security_objectives/base.html:40
 msgid "New submission"
 msgstr "Nieuwe invoer"
+
+#: theme/templates/security_objectives/declaration.html:303
+msgid "Not filled"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:310
+msgid "Partially filled"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:324
+msgid "Fully filled"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:326
+msgid "Review passed"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:333
+msgid "Review required"
+msgstr ""
 
 #: theme/templates/security_objectives/so_dashboard_base.html:35
 msgid "Filter by status, sector, etc."
