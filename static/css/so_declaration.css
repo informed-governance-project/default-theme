@@ -108,6 +108,7 @@
 /* Circle shape outlined */
 .slide-selector-container.btn-outline-uninitiated {
     color: var(--bs-uninitiated) !important;
+    border-width: 2px !important;
 }
 .slide-selector-container.btn-outline-uninitiated:hover {
     color: var(--bs-body-bg) !important;
