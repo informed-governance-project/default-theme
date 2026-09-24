@@ -1,14 +1,5 @@
 $(document).ready(function () {
-  const multiselectConfig = {
-    numberDisplayed: 3,
-    enableClickableOptGroups: true,
-    includeSelectAllOption: true,
-    enableCollapsibleOptGroups: true,
-    collapseOptGroupsByDefault: true,
-    disableIfEmpty: true,
-  };
-
-  $('.multiselectcheckbox').multiselect('setOptions', multiselectConfig).multiselect('rebuild');
+  initMultiselect($('#filter-incidents-dashboard-form'), {includeSelectAllOption: true});
 
   $(document).on("click", '.access_log', function () {
     var $popup = $("#access_log");

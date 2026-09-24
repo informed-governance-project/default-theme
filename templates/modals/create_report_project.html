@@ -29,7 +29,9 @@
     {% else %}
       {% url 'create_report_project' as form_action %}
     {% endif %}
-    <form action="{{ form_action }}" method="post">
+    <form id="create-report-project-form"
+          action="{{ form_action }}"
+          method="post">
       {% csrf_token %}
       <div class="modal-body">
         {% bootstrap_form_errors form %}

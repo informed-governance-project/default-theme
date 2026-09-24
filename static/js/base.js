@@ -104,21 +104,52 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl, { delay: 200 })
 })
 
-$(document).ready(function () {
-  $('.multiselectcheckbox').multiselect({
-    maxHeight: 400,
-    buttonWidth: '100%',
-    widthSynchronizationMode: 'always',
-    buttonTextAlignment: 'left',
-    nonSelectedText: gettext('Nothing selected'),
-    nSelectedText: gettext('items selected'),
-    allSelectedText: gettext('All selected'),
-    numberDisplayed: 1,
-    templates: {
-      option: '<button class="multiselect-option dropdown-item text-wrap small"></button>',
-      optionGroup: '<button type="button" class="multiselect-group dropdown-item d-flex fw-bolder text-wrap small"></button>',
+const MULTISELECT_DEFAULTS = {
+  maxHeight: 400,
+  buttonWidth: '100%',
+  widthSynchronizationMode: 'always',
+  buttonTextAlignment: 'left',
+  nonSelectedText: gettext('Nothing selected'),
+  nSelectedText: gettext('items selected'),
+  allSelectedText: gettext('All selected'),
+  selectAllText: gettext('Select all'),
+  numberDisplayed: 3,
+  enableClickableOptGroups: true,
+  enableCollapsibleOptGroups: true,
+  collapseOptGroupsByDefault: true,
+  disableIfEmpty: true,
+  selectAllValue: 0,
+  templates: {
+    option: '<button class="multiselect-option dropdown-item text-wrap small"></button>',
+    optionGroup: '<button type="button" class="multiselect-group dropdown-item d-flex fw-bolder text-wrap small"></button>',
+  }
+};
+
+/**
+ * Apply the multiselect plugin to every .multiselectcheckbox under `scope`
+ * (the whole document when omitted), or to `scope` itself when it is one.
+ *
+ * Re-initializing is safe: an already-initialized select is destroyed first, so this
+ * also serves to refresh a dropdown whose options changed.
+ *
+ * `overrides.templates` replaces the default templates wholesale rather than merging
+ * key by key, so a caller always gets exactly the set of templates it passes.
+ */
+window.initMultiselect = function (scope, overrides) {
+  const $scope = scope ? $(scope) : $(document);
+  const config = Object.assign({}, MULTISELECT_DEFAULTS, overrides || {});
+
+  $scope.find('.multiselectcheckbox').addBack('.multiselectcheckbox').each(function () {
+    const $select = $(this);
+    if ($select.data('multiselect')) {
+      $select.multiselect('destroy');
     }
+    $select.multiselect(config);
   });
+};
+
+$(document).ready(function () {
+  initMultiselect();
   $('.create_so_declaration').on("click", function () {
     var $popup = $("#create_so_declaration");
     var popup_url = '/securityobjectives/create';

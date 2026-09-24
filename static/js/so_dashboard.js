@@ -1,15 +1,6 @@
 $(document).ready(function () {
   document.body.appendChild(summernoteScript);
-  const multiselectConfig = {
-    numberDisplayed: 3,
-    enableClickableOptGroups: true,
-    includeSelectAllOption: true,
-    enableCollapsibleOptGroups: true,
-    collapseOptGroupsByDefault: true,
-    disableIfEmpty: true,
-  };
-
-  $('.multiselectcheckbox').multiselect('setOptions', multiselectConfig).multiselect('rebuild');
+  initMultiselect($('#filter-so-dashboard-form'), {includeSelectAllOption: true});
 
   $(document).on("click", '.so_versions', function () {
     let $this = $(this);

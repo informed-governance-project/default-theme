@@ -1,28 +1,10 @@
 $(document).ready(function () {
   const multiselectConfig = {
-    maxHeight: 400,
-    buttonWidth: '100%',
-    widthSynchronizationMode: 'always',
-    buttonTextAlignment: 'left',
-    nonSelectedText: gettext('Nothing selected'),
-    nSelectedText: gettext('items selected'),
-    selectAllText: gettext('Select all'),
-    allSelectedText: gettext('All selected'),
     numberDisplayed: 4,
-    enableClickableOptGroups: true,
     includeSelectAllOption: true,
-    enableCollapsibleOptGroups: true,
-    collapseOptGroupsByDefault: true,
-    disableIfEmpty: true,
-    selectAllValue: 0,
-    templates: {
-      button: '<button class="multiselect form-select dropdown-toggle" data-bs-toggle="dropdown"><span class="multiselect-selected-text"></span></button>',
-      option: '<button class="multiselect-option dropdown-item"></button>',
-      optionGroup: '<button type="button" class="multiselect-group dropdown-item fw-bolder"></button>',
-    }
   };
 
-  $('.multiselectcheckbox').multiselect(multiselectConfig);
+  initMultiselect($('#create-report-project-form'), multiselectConfig);
 
   const $standard = $('#id_standard');
   $standard.find('option[data-regulation]').hide();
@@ -50,6 +32,8 @@ $(document).ready(function () {
 
     selectedValues = selectedValues.map(v => parseInt(v));
 
+    // Destroy before the options change: the plugin restores the original select on
+    // destroy, so tearing it down afterwards would bring the old options back.
     if ($yearsField.data('multiselect')) {
       $yearsField.multiselect("destroy");
     }
@@ -68,7 +52,7 @@ $(document).ready(function () {
       $yearsField.append(option);
     }
 
-    $yearsField.multiselect(multiselectConfig);
+    initMultiselect($yearsField, multiselectConfig);
   }
 
   $refField.on("change", function () {

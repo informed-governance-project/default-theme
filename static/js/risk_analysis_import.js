@@ -1,20 +1,9 @@
 $(document).ready(function () {
-  $('.multiselectcheckbox').multiselect({
-    maxHeight: 400,
-    buttonWidth: '100%',
-    widthSynchronizationMode: 'always',
-    buttonTextAlignment: 'left',
-    nonSelectedText: gettext('Nothing selected'),
-    nSelectedText: gettext('items selected'),
-    allSelectedText: gettext('All selected'),
-    numberDisplayed: 1,
-    templates: {
-      button: '<button class="multiselect form-select dropdown-toggle" data-bs-toggle="dropdown"><span class="multiselect-selected-text"></span></button>',
-      option: '<button class="multiselect-option dropdown-item"></button>',
-    }
-  });
 
-  $("#importRiskAnalysisForm").on("submit", function (e) {
+  const $importRiskAnalysisForm = $("#importRiskAnalysisForm");
+  initMultiselect($importRiskAnalysisForm);
+
+  $importRiskAnalysisForm.on("submit", function (e) {
     e.preventDefault();
     const csrftoken = getCsrftoken();
     const form = this;

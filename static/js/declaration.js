@@ -1,7 +1,6 @@
 $(document).ready(function () {
-  $('.multiselectcheckbox').multiselect('setOptions', {
-    numberDisplayed: 5,
-  }).multiselect('rebuild');
+
+  initMultiselect($('#declaration-container'), {numberDisplayed: 5});
 
   // Summernote Editor Initialization
   document.body.appendChild(summernoteScript);
