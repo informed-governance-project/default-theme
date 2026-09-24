@@ -180,6 +180,19 @@ $(document).ready(function () {
     });
   });
 
+  $('.export_security_objectives').on("click", function () {
+    const $popup = $("#export_security_objectives");
+    const popup_url = '/securityobjectives/export';
+
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr) {
+      if (xhr.status === 403) {
+        window.location.reload();
+      } else {
+        $popup.modal("show");
+      }
+    });
+  });
+
   $('.import_risk_analysis').on("click", function () {
     const company_id = $(this).data("company-id");
     const sector_id = $(this).data("sector-id");

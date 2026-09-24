@@ -32,6 +32,14 @@
            data-bs-target="#import_so_declaration">
           {% translate "Import" %}
         </a>
+        {% if can_export_security_objectives %}
+          <a class="fw-bold export_security_objectives"
+             href="{% url 'export_security_objectives' %}"
+             data-bs-toggle="modal"
+             data-bs-target="#export_security_objectives">
+            {% translate "Export" %}
+          </a>
+        {% endif %}
       {% else %}
         <button type="button"
                 class="btn btn-primary create_so_declaration"
@@ -83,4 +91,16 @@
     <div class="modal-dialog modal-dialog-centered">
     </div>
   </div>
+  {% if can_export_security_objectives %}
+    <div class="modal fade"
+         id="export_security_objectives"
+         data-bs-backdrop="static"
+         data-bs-keyboard="false"
+         tabindex="-1"
+         aria-labelledby="export_security_objectives_label"
+         aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+      </div>
+    </div>
+  {% endif %}
 {% endblock %}
