@@ -1,3 +1,3 @@
 $(document).ready(function () {
-  initMultiselect($('#create-so-declaration-form'));
+  initMultiselect($('.so-modal-form'), { includeSelectAllOption: false });
 })

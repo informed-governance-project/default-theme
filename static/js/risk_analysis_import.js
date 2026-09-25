@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   const $importRiskAnalysisForm = $("#importRiskAnalysisForm");
-  initMultiselect($importRiskAnalysisForm);
+  initMultiselect($importRiskAnalysisForm, { includeSelectAllOption: false });
 
   $importRiskAnalysisForm.on("submit", function (e) {
     e.preventDefault();

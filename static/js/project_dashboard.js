@@ -10,8 +10,6 @@ $(document).ready(function () {
     }
   );
 
-  initMultiselect($("#filter-project-dashboard-form"), {includeSelectAllOption: true});
-
   $(document).on("change", ".company-project-input", function () {
     onChangeCompanyProject(this);
   });

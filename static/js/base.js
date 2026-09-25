@@ -117,6 +117,7 @@ const MULTISELECT_DEFAULTS = {
   enableClickableOptGroups: true,
   enableCollapsibleOptGroups: true,
   collapseOptGroupsByDefault: true,
+  includeSelectAllOption: true,
   disableIfEmpty: true,
   selectAllValue: 0,
   templates: {
@@ -129,8 +130,10 @@ const MULTISELECT_DEFAULTS = {
  * Apply the multiselect plugin to every .multiselectcheckbox under `scope`
  * (the whole document when omitted), or to `scope` itself when it is one.
  *
- * Re-initializing is safe: an already-initialized select is destroyed first, so this
- * also serves to refresh a dropdown whose options changed.
+ * An already-initialized select is destroyed and rebuilt, which is what lets this
+ * refresh a dropdown whose options changed. It also means `scope` matters: pass the
+ * modal or the form, never the document, or opening a modal re-renders every dropdown
+ * on the page behind it with the modal's own options.
  *
  * `overrides.templates` replaces the default templates wholesale rather than merging
  * key by key, so a caller always gets exactly the set of templates it passes.

@@ -1,7 +1,6 @@
 $(document).ready(function () {
   const multiselectConfig = {
     numberDisplayed: 4,
-    includeSelectAllOption: true,
   };
 
   initMultiselect($('#create-report-project-form'), multiselectConfig);

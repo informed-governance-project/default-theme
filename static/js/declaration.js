@@ -1,6 +1,11 @@
 $(document).ready(function () {
 
-  initMultiselect($('#declaration-container'), {numberDisplayed: 5});
+  const multiselectConfig = {
+    numberDisplayed: 5,
+    includeSelectAllOption: false,
+  };
+
+  initMultiselect($('#declaration-container'), multiselectConfig);
 
   // Summernote Editor Initialization
   document.body.appendChild(summernoteScript);

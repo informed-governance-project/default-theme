@@ -23,13 +23,13 @@
     height: 1px;
 }
 
-.form-check-input {
+.checkbox-is-measure .form-check-input {
     transform: scale(1.5);
     border-color: var(--bs-dark);
 }
 
-.form-check-input:checked,
-.form-check-input:focus {
+.checkbox-is-measure .form-check-input:checked,
+.checkbox-is-measure .form-check-input:focus {
     border-color: var(--bs-dark);
 }
 

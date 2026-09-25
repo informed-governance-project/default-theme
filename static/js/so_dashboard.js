@@ -1,6 +1,6 @@
 $(document).ready(function () {
   document.body.appendChild(summernoteScript);
-  initMultiselect($('#filter-so-dashboard-form'), {includeSelectAllOption: true});
+  initMultiselect($('#filter-so-dashboard-form'));
 
   $(document).on("click", '.so_versions', function () {
     let $this = $(this);
@@ -232,7 +232,7 @@ $(document).ready(function () {
     load_spinner();
   });
 
-  $(document).on("submit", "#copy_so_declaration_form", function () {
+  $(document).on("submit", "#copy-so-declaration-form", function () {
     load_spinner();
   });
 

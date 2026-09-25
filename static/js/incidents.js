@@ -1,6 +1,4 @@
 $(document).ready(function () {
-  initMultiselect($('#filter-incidents-dashboard-form'), {includeSelectAllOption: true});
-
   $(document).on("click", '.access_log', function () {
     var $popup = $("#access_log");
     var popup_url = 'access_log/' + $(this).data("incident-id");

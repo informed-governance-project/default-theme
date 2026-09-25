@@ -1,6 +1,4 @@
 $(document).ready(function () {
-  initMultiselect($('#filter-reporting-dashboard-form'), {includeSelectAllOption: true});
-
   $(document).on("click", ".delete_report_project", function () {
     let $this = $(this);
     let modalDeleteForm = $("#modal-delete-report-form");

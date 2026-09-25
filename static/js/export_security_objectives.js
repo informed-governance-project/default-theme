@@ -1,12 +1,6 @@
 $(document).ready(function () {
   const POLL_INTERVAL_MS = 2000;
 
-  // The modal is loaded after the page, so base.js has already run and these selects
-  // still need the plugin applied to them.
-  const multiselectConfig = {
-    includeSelectAllOption: true,
-  };
-
   const $form = $('#exportSecurityObjectivesForm');
   const $regulation = $('#id_regulation');
   // DropdownCheckboxSelectMultiple names the select after the field, not id_<field>.
@@ -41,10 +35,10 @@ $(document).ready(function () {
         $standards.append(option);
       });
 
-    initMultiselect($standards, multiselectConfig);
+    initMultiselect($standards);
   }
 
-  initMultiselect($form, multiselectConfig);
+  initMultiselect($form);
   applyRegulationFilter();
 
   $regulation.on('change', applyRegulationFilter);
