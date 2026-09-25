@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 16:00+0200\n"
+"POT-Creation-Date: 2026-09-25 09:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,39 +29,32 @@ msgstr ""
 msgid ": Activate to sort"
 msgstr ""
 
-#: theme/static/js/base.js:113 theme/static/js/create_report_project.js:7
-#: theme/static/js/create_so_declaration.js:7
-#: theme/static/js/risk_analysis_import.js:7
+#: theme/static/js/base.js:112
 msgid "Nothing selected"
 msgstr ""
 
-#: theme/static/js/base.js:114 theme/static/js/create_report_project.js:8
-#: theme/static/js/create_so_declaration.js:8
-#: theme/static/js/risk_analysis_import.js:8
+#: theme/static/js/base.js:113
 msgid "items selected"
 msgstr ""
 
-#: theme/static/js/base.js:115 theme/static/js/create_report_project.js:10
-#: theme/static/js/create_so_declaration.js:9
-#: theme/static/js/risk_analysis_import.js:9
+#: theme/static/js/base.js:114
 msgid "All selected"
 msgstr ""
 
-#: theme/static/js/create_report_project.js:9
-#: theme/static/js/project_dashboard.js:51
-#: theme/static/js/project_dashboard.js:95
+#: theme/static/js/base.js:115 theme/static/js/project_dashboard.js:39
+#: theme/static/js/project_dashboard.js:83
 msgid "Select all"
 msgstr ""
 
-#: theme/static/js/incidents.js:44 theme/static/js/so_dashboard.js:21
+#: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:12
 msgid "Download PDF report"
 msgstr ""
 
-#: theme/static/js/incidents.js:45 theme/static/js/so_dashboard.js:22
+#: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:13
 msgid "Review"
 msgstr ""
 
-#: theme/static/js/incidents.js:46 theme/static/js/so_dashboard.js:23
+#: theme/static/js/incidents.js:35 theme/static/js/so_dashboard.js:14
 msgid "Comment"
 msgstr ""
 
@@ -97,20 +90,20 @@ msgstr ""
 msgid "Set to significant impact"
 msgstr ""
 
-#: theme/static/js/project_dashboard.js:50
+#: theme/static/js/project_dashboard.js:38
 msgid "Deselect all"
 msgstr ""
 
-#: theme/static/js/reporting_dashboard.js:68
+#: theme/static/js/reporting_dashboard.js:55
 msgid "Stop generating"
 msgstr ""
 
-#: theme/static/js/reporting_dashboard.js:75
-#: theme/static/js/reporting_dashboard.js:139
+#: theme/static/js/reporting_dashboard.js:62
+#: theme/static/js/reporting_dashboard.js:126
 msgid "Generating report"
 msgstr ""
 
-#: theme/static/js/reporting_dashboard.js:131
+#: theme/static/js/reporting_dashboard.js:118
 msgid "Download"
 msgstr ""
 

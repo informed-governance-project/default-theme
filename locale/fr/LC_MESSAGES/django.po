@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 16:00+0200\n"
+"POT-Creation-Date: 2026-09-25 09:38+0200\n"
 "PO-Revision-Date: 2026-09-16 12:29+0000\n"
 "Last-Translator: Edgar Dugourd <Edd@ilr.lu>\n"
 "Language-Team: \n"
@@ -68,12 +68,13 @@ msgstr "Attention"
 
 #: theme/templates/admin/includes/account_actions_confirm.html:20
 #: theme/templates/incidents/declaration.html:270
-#: theme/templates/modals/create_report_project.html:92
+#: theme/templates/modals/create_report_project.html:94
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/delete_report_project.html:24
 #: theme/templates/modals/delete_report_recommendation.html:22
 #: theme/templates/modals/delete_so_declaration.html:24
 #: theme/templates/modals/export_incidents.html:78
+#: theme/templates/modals/export_security_objectives.html:37
 #: theme/templates/reporting/add_recommendations.html:34
 #: theme/templates/reporting/project_dashboard.html:335
 msgid "Cancel"
@@ -117,6 +118,7 @@ msgstr "Remplacé par"
 #: theme/templates/modals/delete_report_recommendation.html:12
 #: theme/templates/modals/delete_so_declaration.html:12
 #: theme/templates/modals/export_incidents.html:20
+#: theme/templates/modals/export_security_objectives.html:17
 #: theme/templates/modals/import_so_declaration.html:16
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
 #: theme/templates/modals/previous_answer.html:11
@@ -190,6 +192,7 @@ msgid "Accept"
 msgstr "Accepter"
 
 #: theme/templates/emails/incident_mass_export.html:4
+#: theme/templates/emails/security_objective_mass_export.html:4
 msgid "Dear Sir or Madam,"
 msgstr "Madame, Monsieur,"
 
@@ -203,6 +206,7 @@ msgstr ""
 "liés à la réglementation %(regulation)s a été effectuée."
 
 #: theme/templates/emails/incident_mass_export.html:13
+#: theme/templates/emails/security_objective_mass_export.html:19
 msgid ""
 "If you or a member of your team did not initiate this action or if it "
 "appears suspicious, we recommend that you investigate the matter further."
@@ -212,6 +216,7 @@ msgstr ""
 "vérifications."
 
 #: theme/templates/emails/incident_mass_export.html:19
+#: theme/templates/emails/security_objective_mass_export.html:25
 msgid "Kind regards,"
 msgstr "Cordialement,"
 
@@ -219,6 +224,24 @@ msgstr "Cordialement,"
 #: theme/templates/registration/login.html:16
 msgid "Incident Notification"
 msgstr "Notification d’incidents"
+
+#: theme/templates/emails/security_objective_mass_export.html:7
+#, python-format
+msgid ""
+"We would like to inform you that a new security objective mass export "
+"related to the regulation %(regulation)s has been completed."
+msgstr ""
+
+#: theme/templates/emails/security_objective_mass_export.html:13
+msgid ""
+"This message carries no exported data. The parameters used and the number of "
+"rows returned are recorded in the logs."
+msgstr ""
+
+#: theme/templates/emails/security_objective_mass_export.html:29
+#: theme/templates/reporting/project_dashboard.html:108
+msgid "Security Objectives"
+msgstr "Objectifs de sécurité"
 
 #: theme/templates/emails/suggestion_link_user_account.html:5
 #, python-format
@@ -1878,8 +1901,10 @@ msgid "Notify an incident"
 msgstr "Notifier un incident"
 
 #: theme/templates/incidents/base.html:28
-#: theme/templates/modals/create_report_project.html:78
+#: theme/templates/modals/create_report_project.html:80
 #: theme/templates/modals/export_incidents.html:81
+#: theme/templates/modals/export_security_objectives.html:40
+#: theme/templates/security_objectives/base.html:40
 msgid "Export"
 msgstr "Exporter"
 
@@ -2147,7 +2172,7 @@ msgid "Sectors"
 msgstr "Secteurs"
 
 #: theme/templates/incidents/incidents_base.html:183
-#: theme/templates/modals/create_report_project.html:40
+#: theme/templates/modals/create_report_project.html:42
 #: theme/templates/report/base/template.html:8
 #: theme/templates/report/incidents/cover.html:5
 #: theme/templates/report/incidents/header.html:5
@@ -2342,8 +2367,8 @@ msgstr ""
 msgid "Duplicate the selected security objectives statement to"
 msgstr "Dupliquer la déclaration des objectifs de sécurité sélectionnée vers"
 
-#: theme/templates/modals/copy_so_declaration.html:34
-#: theme/templates/modals/create_report_project.html:96
+#: theme/templates/modals/copy_so_declaration.html:35
+#: theme/templates/modals/create_report_project.html:98
 #: theme/templates/operator/so_dashboard.html:98
 #: theme/templates/operator/so_dashboard.html:171
 #: theme/templates/reporting/dashboard.html:196
@@ -2364,13 +2389,13 @@ msgstr "Éditer le projet"
 msgid "New project"
 msgstr "Nouveau projet"
 
-#: theme/templates/modals/create_report_project.html:98
+#: theme/templates/modals/create_report_project.html:100
 #: theme/templates/modals/review_comment_so_declaration.html:40
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: theme/templates/modals/create_report_project.html:100
-#: theme/templates/modals/create_so_declaration.html:33
+#: theme/templates/modals/create_report_project.html:102
+#: theme/templates/modals/create_so_declaration.html:36
 msgid "Create"
 msgstr "Créer"
 
@@ -2431,11 +2456,15 @@ msgstr ""
 msgid "Export incidents"
 msgstr "Exporter les incidents"
 
+#: theme/templates/modals/export_security_objectives.html:12
+msgid "Export security objectives"
+msgstr ""
+
 #: theme/templates/modals/import_so_declaration.html:11
 msgid "Import Security Objectives Statement"
 msgstr "Importer la déclaration des objectifs de sécurité"
 
-#: theme/templates/modals/import_so_declaration.html:38
+#: theme/templates/modals/import_so_declaration.html:40
 #: theme/templates/modals/risk_analysis_import.html:38
 #: theme/templates/security_objectives/base.html:33
 msgid "Import"
@@ -3056,10 +3085,6 @@ msgstr "Ouvert"
 msgid "Sector"
 msgstr "Secteur"
 
-#: theme/templates/reporting/project_dashboard.html:108
-msgid "Security Objectives"
-msgstr "Objectifs de sécurité"
-
 #: theme/templates/reporting/project_dashboard.html:112
 msgid "Risk Assessment"
 msgstr "Analyse de risques"
@@ -3104,7 +3129,7 @@ msgstr "Ordre"
 msgid "Copy from last year"
 msgstr "Copie de l'année précédente"
 
-#: theme/templates/security_objectives/base.html:40
+#: theme/templates/security_objectives/base.html:48
 msgid "New submission"
 msgstr "Nouvelle soumission"
 

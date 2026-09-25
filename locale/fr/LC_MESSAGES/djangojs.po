@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 09:43+0200\n"
+"POT-Creation-Date: 2026-09-25 09:38+0200\n"
 "PO-Revision-Date: 2026-08-03 10:11+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -30,39 +30,32 @@ msgstr "_MENU_ entrées par page"
 msgid ": Activate to sort"
 msgstr ": Activer pour trier"
 
-#: theme/static/js/base.js:113 theme/static/js/create_report_project.js:7
-#: theme/static/js/create_so_declaration.js:7
-#: theme/static/js/risk_analysis_import.js:7
+#: theme/static/js/base.js:112
 msgid "Nothing selected"
 msgstr "Rien de sélectionné"
 
-#: theme/static/js/base.js:114 theme/static/js/create_report_project.js:8
-#: theme/static/js/create_so_declaration.js:8
-#: theme/static/js/risk_analysis_import.js:8
+#: theme/static/js/base.js:113
 msgid "items selected"
 msgstr "éléments sélectionnés"
 
-#: theme/static/js/base.js:115 theme/static/js/create_report_project.js:10
-#: theme/static/js/create_so_declaration.js:9
-#: theme/static/js/risk_analysis_import.js:9
+#: theme/static/js/base.js:114
 msgid "All selected"
 msgstr "Tous sélectionné"
 
-#: theme/static/js/create_report_project.js:9
-#: theme/static/js/project_dashboard.js:51
-#: theme/static/js/project_dashboard.js:95
+#: theme/static/js/base.js:115 theme/static/js/project_dashboard.js:39
+#: theme/static/js/project_dashboard.js:83
 msgid "Select all"
 msgstr "Tout sélectionner"
 
-#: theme/static/js/incidents.js:44 theme/static/js/so_dashboard.js:21
+#: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:12
 msgid "Download PDF report"
 msgstr "Télécharger le rapport PDF"
 
-#: theme/static/js/incidents.js:45 theme/static/js/so_dashboard.js:22
+#: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:13
 msgid "Review"
 msgstr "Revue"
 
-#: theme/static/js/incidents.js:46 theme/static/js/so_dashboard.js:23
+#: theme/static/js/incidents.js:35 theme/static/js/so_dashboard.js:14
 msgid "Comment"
 msgstr "Commentaire"
 
@@ -98,20 +91,20 @@ msgstr "Impact non significatif"
 msgid "Set to significant impact"
 msgstr "Forcer l'impact à significatif"
 
-#: theme/static/js/project_dashboard.js:50
+#: theme/static/js/project_dashboard.js:38
 msgid "Deselect all"
 msgstr "Tout désélectionner"
 
-#: theme/static/js/reporting_dashboard.js:68
+#: theme/static/js/reporting_dashboard.js:55
 msgid "Stop generating"
 msgstr "Interrompre la génération"
 
-#: theme/static/js/reporting_dashboard.js:75
-#: theme/static/js/reporting_dashboard.js:139
+#: theme/static/js/reporting_dashboard.js:62
+#: theme/static/js/reporting_dashboard.js:126
 msgid "Generating report"
 msgstr "Génération du rapport"
 
-#: theme/static/js/reporting_dashboard.js:131
+#: theme/static/js/reporting_dashboard.js:118
 msgid "Download"
 msgstr "Télécharger"
 
