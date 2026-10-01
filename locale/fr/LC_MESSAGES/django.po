@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-28 16:47+0200\n"
-"PO-Revision-Date: 2026-09-16 12:29+0000\n"
-"Last-Translator: Edgar Dugourd <Edd@ilr.lu>\n"
+"PO-Revision-Date: 2026-10-01 07:32+0000\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -59,6 +59,8 @@ msgid ""
 "Resetting the accepted terms will require every user to accept the terms of "
 "service again at their next login."
 msgstr ""
+"La réinitialisation de l'acceptation des conditions d'utilisation obligera "
+"chaque utilisateur à les accepter à nouveau lors de sa prochaine connexion."
 
 #: theme/templates/admin/custom_change_user_list.html:13
 msgid "Reset accepted terms"
@@ -69,6 +71,8 @@ msgid ""
 "Resetting the accepted cookies will show the cookie banner again to every "
 "user."
 msgstr ""
+"La réinitialisation des cookies entraînera l'affichage de la bannière "
+"relative aux cookies pour tous les utilisateurs."
 
 #: theme/templates/admin/custom_change_user_list.html:24
 msgid "Reset accepted cookies"
@@ -243,12 +247,16 @@ msgid ""
 "We would like to inform you that a new security objective mass export "
 "related to the regulation %(regulation)s has been completed."
 msgstr ""
+"Nous souhaitons vous informer qu'une exportation en masse des objectifs de "
+"sécurité liés à la réglementation %(regulation)s a été effectuée."
 
 #: theme/templates/emails/security_objective_mass_export.html:13
 msgid ""
 "This message carries no exported data. The parameters used and the number of "
 "rows returned are recorded in the logs."
 msgstr ""
+"Ce message ne contient aucune donnée exportée. Les paramètres utilisés et le "
+"nombre de lignes renvoyées sont consignés dans les logs."
 
 #: theme/templates/emails/security_objective_mass_export.html:29
 #: theme/templates/reporting/project_dashboard.html:108
@@ -2470,7 +2478,7 @@ msgstr "Exporter les incidents"
 
 #: theme/templates/modals/export_security_objectives.html:12
 msgid "Export security objectives"
-msgstr ""
+msgstr "Exporter les objectifs de sécurité"
 
 #: theme/templates/modals/import_so_declaration.html:11
 msgid "Import Security Objectives Statement"
@@ -3004,7 +3012,7 @@ msgstr "Année"
 #: theme/templates/report/security_objectives/cover.html:69
 #: theme/templates/security_objectives/so_dashboard_base.html:115
 msgid "Progress"
-msgstr "Progression"
+msgstr "Progrès"
 
 #: theme/templates/report/security_objectives/declaration.html:37
 #: theme/templates/security_objectives/declaration.html:317
@@ -3147,23 +3155,23 @@ msgstr "Nouvelle soumission"
 
 #: theme/templates/security_objectives/declaration.html:303
 msgid "Not filled"
-msgstr ""
+msgstr "Non renseigné"
 
 #: theme/templates/security_objectives/declaration.html:310
 msgid "Partially filled"
-msgstr ""
+msgstr "Partiellement rempli"
 
 #: theme/templates/security_objectives/declaration.html:324
 msgid "Fully filled"
-msgstr ""
+msgstr "Entièrement rempli"
 
 #: theme/templates/security_objectives/declaration.html:326
 msgid "Review passed"
-msgstr ""
+msgstr "Revue réussie"
 
 #: theme/templates/security_objectives/declaration.html:333
 msgid "Review required"
-msgstr ""
+msgstr "Revue nécessaire"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:35
 msgid "Filter by status, sector, etc."
