@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-28 16:47+0200\n"
-"PO-Revision-Date: 2026-08-03 10:11+0000\n"
+"PO-Revision-Date: 2026-10-01 07:32+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -49,11 +49,11 @@ msgstr "Tout sélectionner"
 
 #: theme/static/js/export_security_objectives.js:53
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: theme/static/js/export_security_objectives.js:88
 msgid "The export is taking longer than expected. Please try again later."
-msgstr ""
+msgstr "L'export prend plus de temps que prévu. Veuillez réessayer plus tard."
 
 #: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:12
 msgid "Download PDF report"
