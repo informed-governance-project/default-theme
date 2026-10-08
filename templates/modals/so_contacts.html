@@ -1,0 +1,35 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header bg-dark-gray text-white px-4 small">
+      <h5 class="modal-title fw-bold" id="so_contacts_label">
+        <i class="custom-icon-contact-white h4"></i>
+        {% translate "Profile" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="{% translate 'Close' %}">
+      </button>
+    </div>
+    <div class="modal-body mx-5 my-3">
+      <p>
+        {% translate "Name" %}:
+        <span id="contact-name" class="fw-bold"></span>
+      </p>
+      <p>
+        {% translate "First name" %}:
+        <span id="contact-first-name" class="fw-bold"></span>
+      </p>
+      <p>
+        {% translate "Email" %}:
+        <span id="contact-email" class="fw-bold"></span>
+      </p>
+      <p>
+        {% translate "Phone" %}:
+        <span id="contact-telephone" class="fw-bold"></span>
+      </p>
+    </div>
+  </div>
+{% endblock %}

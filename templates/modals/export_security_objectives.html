@@ -1,0 +1,45 @@
+{% load django_bootstrap5 %}
+{% load static %}
+{% load i18n %}
+{% block bootstrap5_extra_script %}
+  <script src='{% static "js/export_security_objectives.js" %}'></script>
+{% endblock %}
+{% block content %}
+  {{ standards_by_regulation|json_script:"so_standards_by_regulation" }}
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white px-4 small">
+      <h5 class="modal-title" id="export_security_objectives_label">
+        {% translate "Export security objectives" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="{% translate 'Close' %}">
+      </button>
+    </div>
+    <form id="exportSecurityObjectivesForm"
+          method="post"
+          action="{% url 'export_security_objectives' %}">
+      <div class="modal-body py-4 px-5">
+        {% csrf_token %}
+        {% bootstrap_form_errors form %}
+        {% bootstrap_field form.regulation %}
+        {% bootstrap_field form.standards %}
+        {% bootstrap_field form.years %}
+        {% bootstrap_field form.sectors %}
+        {% bootstrap_field form.statuses %}
+        {% bootstrap_field form.file_format %}
+      </div>
+      <div class="modal-footer">
+        <button type="button"
+                class="btn btn-sm btn-secondary"
+                data-bs-dismiss="modal">
+          {% translate "Cancel" %}
+        </button>
+        <button type="submit" class="btn btn-sm btn-primary">
+          {% translate "Export" %}
+        </button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

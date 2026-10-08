@@ -1,0 +1,12 @@
+{% extends "report/base/header.html" %}
+{% load i18n %}
+{% block report_header_left %}
+  <div class="text-primary fw-bold text-uppercase ps-2">
+    {% translate "Security objectives statement" %}
+  </div>
+{% endblock %}
+{% block report_header_right %}
+  <div class="text-primary">
+    {% now "d M Y" %}
+  </div>
+{% endblock %}

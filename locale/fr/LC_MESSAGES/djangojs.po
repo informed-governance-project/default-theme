@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 11:06+0200\n"
-"PO-Revision-Date: 2026-08-03 10:11+0000\n"
+"POT-Creation-Date: 2026-09-28 16:47+0200\n"
+"PO-Revision-Date: 2026-10-01 07:32+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -30,27 +30,40 @@ msgstr "_MENU_ entrées par page"
 msgid ": Activate to sort"
 msgstr ": Activer pour trier"
 
-#: theme/static/js/base.js:113
+#: theme/static/js/base.js:112
 msgid "Nothing selected"
 msgstr "Rien de sélectionné"
 
-#: theme/static/js/base.js:114
+#: theme/static/js/base.js:113
 msgid "items selected"
 msgstr "éléments sélectionnés"
 
-#: theme/static/js/base.js:115
+#: theme/static/js/base.js:114
 msgid "All selected"
 msgstr "Tous sélectionné"
 
-#: theme/static/js/incidents.js:33
+#: theme/static/js/base.js:115 theme/static/js/project_dashboard.js:39
+#: theme/static/js/project_dashboard.js:83
+msgid "Select all"
+msgstr "Tout sélectionner"
+
+#: theme/static/js/export_security_objectives.js:53
+msgid "Close"
+msgstr "Fermer"
+
+#: theme/static/js/export_security_objectives.js:88
+msgid "The export is taking longer than expected. Please try again later."
+msgstr "L'export prend plus de temps que prévu. Veuillez réessayer plus tard."
+
+#: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:12
 msgid "Download PDF report"
 msgstr "Télécharger le rapport PDF"
 
-#: theme/static/js/incidents.js:34
+#: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:13
 msgid "Review"
 msgstr "Revue"
 
-#: theme/static/js/incidents.js:35
+#: theme/static/js/incidents.js:35 theme/static/js/so_dashboard.js:14
 msgid "Comment"
 msgstr "Commentaire"
 
@@ -85,3 +98,28 @@ msgstr "Impact non significatif"
 #: theme/static/js/incidents_regulator.js:78
 msgid "Set to significant impact"
 msgstr "Forcer l'impact à significatif"
+
+#: theme/static/js/project_dashboard.js:38
+msgid "Deselect all"
+msgstr "Tout désélectionner"
+
+#: theme/static/js/reporting_dashboard.js:55
+msgid "Stop generating"
+msgstr "Interrompre la génération"
+
+#: theme/static/js/reporting_dashboard.js:62
+#: theme/static/js/reporting_dashboard.js:126
+msgid "Generating report"
+msgstr "Génération du rapport"
+
+#: theme/static/js/reporting_dashboard.js:118
+msgid "Download"
+msgstr "Télécharger"
+
+#: theme/static/js/so_declaration.js:82
+msgid ""
+"Please list your current and planned measures, including a schedule with the "
+"individual stages."
+msgstr ""
+"Veuillez s'il vous plaît lister les mesures en place et celles planifiées en "
+"incluant un calendrier avec les étapes individuelles."

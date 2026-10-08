@@ -1,7 +1,11 @@
 $(document).ready(function () {
-  $('.multiselectcheckbox').multiselect('setOptions', {
+
+  const multiselectConfig = {
     numberDisplayed: 5,
-  }).multiselect('rebuild');
+    includeSelectAllOption: false,
+  };
+
+  initMultiselect($('#declaration-container'), multiselectConfig);
 
   // Summernote Editor Initialization
   document.body.appendChild(summernoteScript);

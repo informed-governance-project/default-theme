@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 11:06+0200\n"
-"PO-Revision-Date: 2026-08-03 10:11+0000\n"
-"Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
+"POT-Creation-Date: 2026-09-28 16:47+0200\n"
+"PO-Revision-Date: 2026-10-01 07:32+0000\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -30,27 +30,41 @@ msgstr "_MENU_ Zeilen anzeigen"
 msgid ": Activate to sort"
 msgstr ": Aktivieren zum Sortieren"
 
-#: theme/static/js/base.js:113
+#: theme/static/js/base.js:112
 msgid "Nothing selected"
 msgstr "Nichts ausgewählt"
 
-#: theme/static/js/base.js:114
+#: theme/static/js/base.js:113
 msgid "items selected"
 msgstr "Objekte ausgewählt"
 
-#: theme/static/js/base.js:115
+#: theme/static/js/base.js:114
 msgid "All selected"
 msgstr "Alle ausgewählt"
 
-#: theme/static/js/incidents.js:33
+#: theme/static/js/base.js:115 theme/static/js/project_dashboard.js:39
+#: theme/static/js/project_dashboard.js:83
+msgid "Select all"
+msgstr "Alle auswählen"
+
+#: theme/static/js/export_security_objectives.js:53
+msgid "Close"
+msgstr "Schließen"
+
+#: theme/static/js/export_security_objectives.js:88
+msgid "The export is taking longer than expected. Please try again later."
+msgstr ""
+"Der Export dauert länger als erwartet. Bitte versuchen Sie es später erneut."
+
+#: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:12
 msgid "Download PDF report"
 msgstr "PDF-Bericht herunterladen"
 
-#: theme/static/js/incidents.js:34
+#: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:13
 msgid "Review"
 msgstr "Prüfung"
 
-#: theme/static/js/incidents.js:35
+#: theme/static/js/incidents.js:35 theme/static/js/so_dashboard.js:14
 msgid "Comment"
 msgstr "Kommentar"
 
@@ -85,3 +99,28 @@ msgstr "Keine erheblichen Auswirkungen"
 #: theme/static/js/incidents_regulator.js:78
 msgid "Set to significant impact"
 msgstr "Auf „erhebliche Auswirkungen“ einstellen"
+
+#: theme/static/js/project_dashboard.js:38
+msgid "Deselect all"
+msgstr "Alle abwählen"
+
+#: theme/static/js/reporting_dashboard.js:55
+msgid "Stop generating"
+msgstr "Erstellung abbrechen"
+
+#: theme/static/js/reporting_dashboard.js:62
+#: theme/static/js/reporting_dashboard.js:126
+msgid "Generating report"
+msgstr "Bericht wird erstellt"
+
+#: theme/static/js/reporting_dashboard.js:118
+msgid "Download"
+msgstr "Herunterladen"
+
+#: theme/static/js/so_declaration.js:82
+msgid ""
+"Please list your current and planned measures, including a schedule with the "
+"individual stages."
+msgstr ""
+"Bitte listen Sie Ihre laufenden und geplanten Maßnahmen inklusive einem "
+"Zeitplan mit den einzelnen Etappen auf."

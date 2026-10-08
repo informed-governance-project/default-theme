@@ -1,0 +1,105 @@
+{% extends "reporting/base.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% load reporting_filters %}
+{% load static %}
+{% block bootstrap5_extra_script %}
+  {{ block.super }}
+  <link rel="stylesheet"
+        href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
+  <script src='{% static "js/reporting_recommendations.js" %}'></script>
+{% endblock %}
+{% block content %}
+  <h3 class="fw-bolder">
+    {% block title %}
+      {% translate "Recommendations" %}
+    {% endblock %}
+  </h3>
+  <div class="hr-separator">
+  </div>
+  <h5 class="text-muted">
+    {{ year }} {{ company }} [{{ sector }}]
+  </h5>
+  <div class="d-flex">
+    <div class="me-auto">
+      <a class="btn btn-primary btn-sm spinner-trigger"
+         href="{% url 'add_report_recommendations' company.id sector.id year %}">
+        {% translate "Add recommendation(s)" %}
+      </a>
+    </div>
+    <div class="ms-auto">
+      <a class="btn btn-primary btn-sm spinner-trigger"
+         href="{% url 'reporting' %}">
+        {% translate "Back" %}
+      </a>
+    </div>
+  </div>
+  <table id="reporting-recommendations-table"
+         class="table align-middle table-sm small">
+    <caption class="visually-hidden">{% translate "Recommendations table" %}</caption>
+    <thead>
+      <tr>
+        <th class="col-1 text-start">
+          {% translate "Order" %}
+        </th>
+        <th class="col-3">
+          {% translate "Name" %}
+        </th>
+        <th class="col-7">
+          {% translate "Description" %}
+        </th>
+        <th class="col-1">
+          {% translate "Actions" %}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% csrf_token %}
+      {% for recommendation in recommendations %}
+        <tr>
+          <td class="col-1 table-group-divider py-3 text-start">
+            {% bootstrap_field recommendation.order show_label=False %}
+          </td>
+          <td class="col-3 table-group-divider py-3">
+            {{ recommendation.instance.observation_recommendation.code }}
+          </td>
+          <td class="col-7 table-group-divider py-3">
+            {{ recommendation.instance.observation_recommendation.description|linebreaksbr }}
+          </td>
+          <td class="col-1 table-group-divider py-3">
+            <button class="btn border-0 px-2 delete_report_recommendation"
+                    data-bs-toggle="modal"
+                    data-bs-target="#delete_report_recommendation"
+                    data-delete-url="{% url 'delete_report_recommendations' company.id sector.id year recommendation.instance.observation_recommendation.id %}"
+                    title="{% translate 'Delete' %}">
+              <i class="custom-icon-trash"></i>
+            </button>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% if not recommendations %}
+    <div class="text-center mt-3">
+      <a class="btn btn-primary btn-sm"
+         href="{% url 'copy_report_recommendations' company.id sector.id year %}">
+        {% translate "Copy from last year" %}
+      </a>
+    </div>
+  {% endif %}
+  <div class="modal fade"
+       id="delete_report_recommendation"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="delete_report_recommendation_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      {% include "modals/delete_report_recommendation.html" %}
+    </div>
+  </div>
+{% endblock %}

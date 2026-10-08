@@ -5,12 +5,24 @@
   {{ block.super }}
   {% if reset_url %}
     <li>
-      <a href="{{ reset_url }}">{% translate "Reset accepted terms" %}</a>
+      <button type="submit"
+              class="object-tools-button"
+              form="account-action-form"
+              formaction="{{ reset_url }}"
+              data-confirm-message="{% translate "Resetting the accepted terms will require every user to accept the terms of service again at their next login." %}">
+        {% translate "Reset accepted terms" %}
+      </button>
     </li>
   {% endif %}
   {% if reset_url_cookies %}
     <li>
-      <a href="{{ reset_url_cookies }}">{% translate "Reset accepted cookies" %}</a>
+      <button type="submit"
+              class="object-tools-button"
+              form="account-action-form"
+              formaction="{{ reset_url_cookies }}"
+              data-confirm-message="{% translate "Resetting the accepted cookies will show the cookie banner again to every user." %}">
+        {% translate "Reset accepted cookies" %}
+      </button>
     </li>
   {% endif %}
 {% endblock %}

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 11:06+0200\n"
+"POT-Creation-Date: 2026-09-28 16:47+0200\n"
 "PO-Revision-Date: 2026-08-03 10:11+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
@@ -30,27 +30,40 @@ msgstr "_MENU_ resultaten weergeven"
 msgid ": Activate to sort"
 msgstr ": Activeren om te sorteren"
 
-#: theme/static/js/base.js:113
+#: theme/static/js/base.js:112
 msgid "Nothing selected"
 msgstr "Niets geselecteerd"
 
-#: theme/static/js/base.js:114
+#: theme/static/js/base.js:113
 msgid "items selected"
 msgstr "items geselecteerd"
 
-#: theme/static/js/base.js:115
+#: theme/static/js/base.js:114
 msgid "All selected"
 msgstr "Alles geselecteerd"
 
-#: theme/static/js/incidents.js:33
+#: theme/static/js/base.js:115 theme/static/js/project_dashboard.js:39
+#: theme/static/js/project_dashboard.js:83
+msgid "Select all"
+msgstr "Alles selecteren"
+
+#: theme/static/js/export_security_objectives.js:53
+msgid "Close"
+msgstr ""
+
+#: theme/static/js/export_security_objectives.js:88
+msgid "The export is taking longer than expected. Please try again later."
+msgstr ""
+
+#: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:12
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
 
-#: theme/static/js/incidents.js:34
+#: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:13
 msgid "Review"
 msgstr "Beoordeling"
 
-#: theme/static/js/incidents.js:35
+#: theme/static/js/incidents.js:35 theme/static/js/so_dashboard.js:14
 msgid "Comment"
 msgstr "Opmerking"
 
@@ -85,3 +98,28 @@ msgstr "Geen aanzienlijke gevolgen"
 #: theme/static/js/incidents_regulator.js:78
 msgid "Set to significant impact"
 msgstr "Aanzienlijke gevolgen"
+
+#: theme/static/js/project_dashboard.js:38
+msgid "Deselect all"
+msgstr "Alles deselecteren"
+
+#: theme/static/js/reporting_dashboard.js:55
+msgid "Stop generating"
+msgstr "Stop met genereren"
+
+#: theme/static/js/reporting_dashboard.js:62
+#: theme/static/js/reporting_dashboard.js:126
+msgid "Generating report"
+msgstr "Rapport aan het genereren"
+
+#: theme/static/js/reporting_dashboard.js:118
+msgid "Download"
+msgstr "Downloaden"
+
+#: theme/static/js/so_declaration.js:82
+msgid ""
+"Please list your current and planned measures, including a schedule with the "
+"individual stages."
+msgstr ""
+"Geef een overzicht van uw huidige en geplande maatregelen, inclusief een "
+"tijdschema met de afzonderlijke fasen."

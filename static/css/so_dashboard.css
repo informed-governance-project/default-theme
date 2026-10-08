@@ -15,27 +15,14 @@
     box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25) !important;
 }
 
-.table-success {
-    background-color: #84df90 !important;
+.icon-container {
+    width: 35px !important;
+    height: 35px !important;
+    display: flex !important;
 }
 
-.table-info {
-    background-color: #99dde9 !important;
-}
-
-.table-secondary {
-    background-color: #e2e3e5 !important;
-}
-
-.table-danger {
-    background-color: #f5c6cb !important;
-}
-
-.table-dark {
-    background-color: #212529 !important;
-    color: #fff;
-}
-
-.status_column {
-    border-top-color: black;
+.icon-container-versions {
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
 }

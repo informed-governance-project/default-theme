@@ -1,0 +1,31 @@
+{% load i18n %}
+{% load SO_custom_filters %}
+{% block content %}
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white px-4 small">
+      <h5 class="modal-title">
+        {% translate "Choice of columns" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="{% translate 'Close' %}">
+      </button>
+    </div>
+    <div class="modal-body row row-cols-2 mx-4 my-3">
+      {% with "Modified,Created,Autor,Name,Regulation,Standard,Base year,Sectors" as dashboard_columns %}
+        {% for d_col in dashboard_columns|split:"," %}
+          <div class="form-check">
+            <input class="form-check-input column-toggle"
+                   type="checkbox"
+                   data-column="{{ forloop.counter0 }}"
+                   id="column-{{ forloop.counter0 }}">
+            <label class="form-check-label" for="column-{{ forloop.counter0 }}">
+              {% translate d_col %}
+            </label>
+          </div>
+        {% endfor %}
+      {% endwith %}
+    </div>
+  </div>
+{% endblock %}

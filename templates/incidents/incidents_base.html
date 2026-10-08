@@ -272,15 +272,19 @@
             </td>
             <!-- Incident detection date -->
             <td class="col-1 table-group-divider py-3">
-              <div class="d-inline"
-                   data-bs-placement="top"
-                   data-bs-toggle="tooltip"
-                   title="{% translate 'Incident detection date' %}">
-                {{ incident.incident_detection_date|date:"d/m/y" }}
-                <br />
-                <i class="bi bi-clock" aria-hidden="true"></i>
-                {{ incident.incident_detection_date|date:"H:i" }}
-              </div>
+              {% if incident.incident_detection_date %}
+                <div class="d-inline"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title="{% translate 'Incident detection date' %}">
+                  {{ incident.incident_detection_date|date:"d/m/y" }}
+                  <br />
+                  <i class="bi bi-clock" aria-hidden="true"></i>
+                  {{ incident.incident_detection_date|date:"H:i" }}
+                </div>
+              {% else %}
+                -
+              {% endif %}
             </td>
             <!-- Incident starting date -->
             <td class="col-1 table-group-divider py-3">
@@ -289,7 +293,7 @@
                   <div class="d-inline"
                        data-bs-placement="top"
                        data-bs-toggle="tooltip"
-                       title="{% translate 'Incident starting date' %}">
+                       title="{% translate 'Incident start date' %}">
                     {{ workflow.report_timeline.incident_starting_date|date:"d/m/y" }}
                     <br />
                     <i class="bi bi-clock" aria-hidden="true"></i>
@@ -548,7 +552,7 @@
                   aria-label="{% translate 'Close' %}">
           </button>
         </div>
-        <form method="get">
+        <form id="filter-incidents-dashboard-form" method="get">
           <div class="modal-body small">
             {% bootstrap_field filter.form.incident_id label_class="fw-bold" wrapper_class="mb-3" %}
             {% bootstrap_field filter.form.incident_status label_class="fw-bold" wrapper_class="mb-3" %}

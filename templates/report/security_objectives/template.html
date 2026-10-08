@@ -1,0 +1,13 @@
+{% extends "report/base/template.html" %}
+{% load i18n %}
+{% block report_head_title %}
+  <meta name="title" content="{% translate 'Security objectives report' %}" />
+  <title>{% translate "Security objectives report" %}</title>
+{% endblock %}
+{% block report_pages %}
+  {% include "report/security_objectives/header.html" %}
+  {% include "report/base/footer.html" %}
+  {% include "report/security_objectives/cover.html" %}
+  {% include "report/security_objectives/toc.html" %}
+  {% include "report/security_objectives/declaration.html" %}
+{% endblock %}
