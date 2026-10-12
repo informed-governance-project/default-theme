@@ -101,9 +101,12 @@ $(document).ready(function () {
       // Django never renders "required" on a CheckboxSelectMultiple (the browser would then demand
       // every box), so a mandatory checkbox group (MULTI/MT question, sectors) is flagged here: one
       // box, or the details of an MT question, is enough.
-      if (field.type === "checkbox") {
+      // The nameless checkboxes are the ones bootstrap-multiselect draws over a CL/RL <select>.
+      if (field.type === "checkbox" && field.name) {
         let $checkboxes = $(form).find('input[type="checkbox"]').filter(function () { return this.name === field.name; });
-        if ($field.closest('.required-field').length) {
+        // Only the field's own wrapper counts: the contact step nests an optional checkbox inside a
+        // section marked "required-field".
+        if ($field.closest('.mb-3, [data-checkbox-group]').hasClass('required-field')) {
           const answered = $checkboxes.is(":checked") || ($freeTextInput.length && $freeTextInput.val().trim() !== "");
           field.setCustomValidity(answered ? "" : gettext("Please select at least one option."));
         }
