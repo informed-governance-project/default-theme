@@ -104,6 +104,29 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl, { delay: 200 })
 })
 
+// The browser focuses the first invalid field to show its validation message,
+// which would also open the field's tooltip on top of it. Keep tooltips of
+// invalid fields off until the user answers or leaves the field.
+// "invalid" does not bubble, hence the capture listeners.
+var suppressedTooltips = new Set();
+document.addEventListener('invalid', function (event) {
+  var tooltip = bootstrap.Tooltip.getInstance(event.target);
+  if (tooltip) {
+    tooltip.hide();
+    tooltip.disable();
+    suppressedTooltips.add(tooltip);
+  }
+}, true);
+['change', 'focusout'].forEach(function (eventName) {
+  document.addEventListener(eventName, function (event) {
+    var tooltip = bootstrap.Tooltip.getInstance(event.target);
+    if (tooltip && suppressedTooltips.has(tooltip)) {
+      suppressedTooltips.forEach(function (t) { t.enable(); });
+      suppressedTooltips.clear();
+    }
+  }, true);
+});
+
 const MULTISELECT_DEFAULTS = {
   maxHeight: 400,
   buttonWidth: '100%',
