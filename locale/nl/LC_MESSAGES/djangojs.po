@@ -53,7 +53,7 @@ msgstr ""
 
 #: theme/static/js/export_security_objectives.js:53
 msgid "Close"
-msgstr ""
+msgstr "Sluiten"
 
 #: theme/static/js/export_security_objectives.js:88
 msgid "The export is taking longer than expected. Please try again later."
