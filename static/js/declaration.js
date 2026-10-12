@@ -98,6 +98,17 @@ $(document).ready(function () {
         }
       }
 
+      // Django never renders "required" on a CheckboxSelectMultiple (the browser would then demand
+      // every box), so a mandatory checkbox group (MULTI/MT question, sectors) is flagged here: one
+      // box, or the details of an MT question, is enough.
+      if (field.type === "checkbox") {
+        let $checkboxes = $(form).find('input[type="checkbox"]').filter(function () { return this.name === field.name; });
+        if ($field.closest('.required-field').length) {
+          const answered = $checkboxes.is(":checked") || ($freeTextInput.length && $freeTextInput.val().trim() !== "");
+          field.setCustomValidity(answered ? "" : gettext("Please select at least one option."));
+        }
+      }
+
       if (field.willValidate && !field.checkValidity()) {
         allValid = false;
         $field.addClass('is-invalid');
@@ -109,7 +120,11 @@ $(document).ready(function () {
     }
 
     if (!allValid) {
-      firstInvalid.focus();
+      // Bootstrap makes scrolling smooth, so focus() alone would still be scrolling when
+      // reportValidity() runs, and the browser drops the message of a field out of view.
+      event.preventDefault();
+      firstInvalid.scrollIntoView({ block: "center", behavior: "instant" });
+      firstInvalid.focus({ preventScroll: true });
       firstInvalid.reportValidity();
       return;
     }
@@ -510,6 +525,11 @@ function showQuestion(questionOptionsId) {
   var $containers = $("[data-question-id*='" + name + "']");
   $containers.removeClass("d-none");
   $containers.closest(".display-previous-answer").removeClass("d-none");
+
+  // Conditional questions render without "required" so that a folded-away one cannot block the
+  // form; a shown mandatory one gets it back. Checkboxes are checked in the wizard's click handler,
+  // since "required" would demand every box.
+  $containers.find(".required-field :input").not("[type='checkbox']").prop("required", true);
 }
 
 /**
