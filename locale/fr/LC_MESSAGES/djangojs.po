@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-28 16:47+0200\n"
+"POT-Creation-Date: 2026-10-12 14:46+0200\n"
 "PO-Revision-Date: 2026-10-01 07:32+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -30,22 +30,26 @@ msgstr "_MENU_ entrées par page"
 msgid ": Activate to sort"
 msgstr ": Activer pour trier"
 
-#: theme/static/js/base.js:112
+#: theme/static/js/base.js:135
 msgid "Nothing selected"
 msgstr "Rien de sélectionné"
 
-#: theme/static/js/base.js:113
+#: theme/static/js/base.js:136
 msgid "items selected"
 msgstr "éléments sélectionnés"
 
-#: theme/static/js/base.js:114
+#: theme/static/js/base.js:137
 msgid "All selected"
 msgstr "Tous sélectionné"
 
-#: theme/static/js/base.js:115 theme/static/js/project_dashboard.js:39
+#: theme/static/js/base.js:138 theme/static/js/project_dashboard.js:39
 #: theme/static/js/project_dashboard.js:83
 msgid "Select all"
 msgstr "Tout sélectionner"
+
+#: theme/static/js/declaration.js:111
+msgid "Please select at least one option."
+msgstr ""
 
 #: theme/static/js/export_security_objectives.js:53
 msgid "Close"
