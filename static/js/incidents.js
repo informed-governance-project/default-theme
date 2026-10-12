@@ -95,7 +95,7 @@ $(document).ready(function () {
                   data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
                   <i class="custom-icon-view h4 align-self-center" aria-hidden="true"></i>
               </a>
-              <a class="btn p-0 ps-1 border-0 d-inline-flex align-items-center" href="${downloadUrl}" 
+              <a class="btn p-0 ps-1 border-0 d-inline-flex align-items-center js-incident-pdf" href="${downloadUrl}" 
                   data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_download}">
                   <i class="custom-icon-pdf-small h4 align-self-center" aria-hidden="true"></i>
               </a>
