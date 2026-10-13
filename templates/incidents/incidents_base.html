@@ -10,7 +10,7 @@
 {% block bootstrap5_extra_script %}
   {{ block.super }}
   <script src='{% static "js/incidents.js" %}'></script>
-  <script src='{% static "js/incident_pdf_download.js" %}'></script>
+  <script src='{% static "js/async_pdf_download.js" %}'></script>
   <link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
 {% endblock %}
 {% block content %}
@@ -421,7 +421,7 @@
                                     </button>
                                   {% endif %}
                                   {% if latest_incident_workflow %}
-                                    <a class="btn p-0 ps-1 border-0 js-incident-pdf"
+                                    <a class="btn p-0 ps-1 border-0 js-async-pdf"
                                        href="{% url 'download_incident_report_pdf' latest_incident_workflow.id %}"
                                        data-bs-placement="top"
                                        data-bs-toggle="tooltip"
@@ -444,7 +444,7 @@
             <td class="col-1 table-group-divider py-3 border-left-dashed">
               <div class="col d-flex align-items-center ps-2 gap-2">
                 <!-- PDF Download -->
-                <a class="btn p-0 border-0 js-incident-pdf"
+                <a class="btn p-0 border-0 js-async-pdf"
                    href="{% url 'download_incident_pdf' incident.id %}"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
