@@ -8,6 +8,7 @@
   {{ block.super }}
   <link rel="stylesheet" href="{% static 'css/so_dashboard.css' %}" />
   <script src='{% static "js/so_dashboard.js" %}'></script>
+  <script src='{% static "js/async_pdf_download.js" %}'></script>
 {% endblock %}
 {% block content %}
   {{ sort_field|default:'last_update'|json_script:"sort_field_so_table" }}
