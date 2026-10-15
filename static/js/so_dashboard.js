@@ -258,17 +258,4 @@ $(document).ready(function () {
     }
   );
 
-  // Dashboard columns visibility management
-  const $tableDashboard = $('#securityobjectives-table');
-  $(document).on('show.bs.modal', '#SOhideColumns', function () {
-    initColumnsChoice($tableDashboard);
-  });
-  $(document).on('change', '.column-toggle', function () {
-    changeColumnVisibility($tableDashboard, this);
-  });
-  loadColumnDashboardState($tableDashboard);
-
-  //Legend status management
-  $(document).on('click', '#so_status_legend_btn', saveStatusLegend)
-  loadStatusLegend();
 })

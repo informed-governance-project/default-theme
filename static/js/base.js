@@ -355,7 +355,7 @@ function initSortableHeaders(options = {}) {
     const $down = chevron("down")
 
     // Default sort
-    if (currentSortField === null && $th.hasClass('default-sort-field')) {
+    if (currentSortField === null && sortFieldAttr === $th.closest('table').data('default-sort-field')) {
       $down.removeClass('unsorted')
     }
 
@@ -380,7 +380,7 @@ $(document).on('click', '.sortable', function () {
   const params = new URLSearchParams(window.location.search);
   const currentField = params.get('sort_field') ? params.get('sort_field').trim() : sort_field_from_context;
   const currentDirection = params.get('sort_direction') ? params.get('sort_direction').trim() : sort_direction_from_context;
-  const isDefaultField = $(this).hasClass("default-sort-field")
+  const isDefaultField = sortField === $(this).closest('table').data('default-sort-field')
 
   let nextDirection = 'asc';
   if (currentField === sortField) {
@@ -407,56 +407,41 @@ $(document).on('click', '.sortable', function () {
   window.location.search = params.toString();
 });
 
-// Dashboard columns visibility management
-const STORAGE_DASHBOARD_KEY = 'Dashboard:' + encodeURIComponent(window.location.pathname);
-
-function getStoredData() {
-  return JSON.parse(localStorage.getItem(STORAGE_DASHBOARD_KEY) || '{}');
-}
-
-function saveLocalStorageData(data) {
-  localStorage.setItem(STORAGE_DASHBOARD_KEY, JSON.stringify(data));
-}
-
-function setColumnVisible($table, colIdx, visible) {
-  $table.find('tr').each(function () {
-    $(this).children('td, th').eq(colIdx).toggle(visible);
+// Column choices and legend state are stored per user on the server (#673)
+function saveListPreference(url, value) {
+  fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCsrftoken() },
+    body: JSON.stringify({ value: value }),
+  }).then(function (response) {
+    if (!response.ok) {
+      console.error('Saving the list preference failed:', response.status);
+    }
+  }).catch(function (error) {
+    console.error('Saving the list preference failed:', error);
   });
 }
 
-function saveColumnDashboardState() {
-  const storedData = getStoredData();
-  storedData.ColumnsState = storedData.ColumnsState || {};
-  $('.column-toggle').each(function () {
-    storedData.ColumnsState[$(this).data('column')] = this.checked;
+$(document).on('change', '.column-toggle', function () {
+  $('table [data-column="' + $(this).data('column') + '"]').toggleClass('d-none', !this.checked);
+
+  const $columnChoice = $(this).closest('[data-preference-url]');
+  const columns = {};
+  $columnChoice.find('.column-toggle').each(function () {
+    columns[$(this).data('column')] = this.checked;
   });
-  saveLocalStorageData(storedData);
-}
+  saveListPreference($columnChoice.data('preference-url'), columns);
+});
 
-function loadColumnDashboardState($table) {
-  const storedData = getStoredData();
-  if (storedData.ColumnsState) {
-    Object.entries(storedData.ColumnsState).forEach(([colIdx, visible]) => {
-      setColumnVisible($table, Number(colIdx), visible);
-      $('.column-toggle[data-column="' + colIdx + '"]').prop('checked', visible);
-    });
-  }
-}
-
-function changeColumnVisibility($table, checkbox) {
-  const colIdx = $(checkbox).data('column');
-  const visible = checkbox.checked;
-  setColumnVisible($table,colIdx, visible);
-  saveColumnDashboardState();
-};
-
-function initColumnsChoice($table) {
-  $('.column-toggle').each(function () {
-    const colIdx = $(this).data('column');
-    const isVisible = $table.find('thead th').eq(colIdx).is(':visible');
-    $(this).prop('checked', isVisible);
+// Native listeners: jQuery would read the dots in Bootstrap's event names as namespaces.
+['shown.bs.collapse', 'hidden.bs.collapse'].forEach(function (eventName) {
+  document.addEventListener(eventName, function (event) {
+    const legend = event.target;
+    if (legend.id === 'collapseLegend' && legend.dataset.preferenceUrl) {
+      saveListPreference(legend.dataset.preferenceUrl, eventName === 'shown.bs.collapse');
+    }
   });
-};
+});
 
 // Search input global functions
 const $search_bar_form = $("#search_bar_form")
@@ -483,24 +468,6 @@ $(document).on("submit", "#search_bar_form", function () {
   load_spinner()
 });
 
-
-// Legend status management
-function loadStatusLegend() {
-  const storedData = getStoredData();
-  const $legend = $('#collapseLegend');
-
-  if (storedData.show_legend === true) {
-    $legend.addClass('show');
-  } else if (storedData.show_legend === false) {
-    $legend.removeClass('show');
-  }
-}
-
-function saveStatusLegend() {
-  const storedData = getStoredData();
-  storedData.show_legend = !(storedData.show_legend === true);
-  saveLocalStorageData(storedData);
-}
 
 // Click-handler for the CAPTCHA refresh-link
 $(document).on("click", '.captcha-refresh', function () {

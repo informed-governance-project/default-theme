@@ -176,29 +176,5 @@ $(document).ready(function () {
     }
   );
 
-  // Dashboard columns visibility management
-  const $tableDashboard = $('#incidents-table');
-  $(document).on('show.bs.modal', '#IncidentshideColumns', function () {
-    initColumnsChoice($tableDashboard);
-  });
-  $(document).on('change', '.column-toggle', function () {
-    changeColumnVisibility($tableDashboard, this);
-  });
-
-// Hide some columns by default
-  const hidden_colummns_by_default = ['reference', 'detection_date', 'starting_date', 'resolution_date'];
-
-  for (const col of hidden_colummns_by_default) {
-    const $th = $tableDashboard.find(`tr th[data-sort-field="${col}"]`);
-    if ($th.length === 0) continue; // skip if column not found
-    setColumnVisible($tableDashboard, $th.index(), false);
-  }
-
-
-  loadColumnDashboardState($tableDashboard);
-
-  //Legend status management
-  $(document).on('click', '#ni_legend_btn', saveStatusLegend)
-  loadStatusLegend();
 });
 
