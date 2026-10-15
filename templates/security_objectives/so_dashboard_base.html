@@ -47,7 +47,11 @@
               class="btn btn-primary bg-body border-0 p-0"
               data-bs-toggle="collapse"
               data-bs-target="#collapseLegend"
-              aria-expanded="false"
+              aria-expanded="{% if show_legend %}
+                               true
+                             {% else %}
+                               false
+                             {% endif %}"
               aria-controls="collapseLegend">
         <img src="{% static 'images/icons/ico-legend.svg' %}"
              alt="legend"
@@ -59,7 +63,12 @@
   </div>
   <!-- Legend -->
   <div class="my-2">
-    <div id="collapseLegend" class="collapse">
+    <div id="collapseLegend"
+         class="collapse
+                {% if show_legend %}
+                  show
+                {% endif %}"
+         data-preference-url="{% url 'save_list_preference' 'securityobjectives' 'legend' %}">
       <div class="legend">
         <span class="legend-title">
           {% translate "Legend" %}
@@ -71,43 +80,91 @@
   </div>
   {% if filter.qs %}
     <table id="securityobjectives-table"
+           data-default-sort-field="{{ default_sort_field }}"
            class="table align-middle table-sm small">
       <caption class="visually-hidden">{% translate "Security objectives table" %}</caption>
       <thead>
         <tr>
-          <th class="col-1 text-center sortable align-middle"
+          <th class="col-1 text-center sortable align-middle
+                     {% if not visible_columns.status %}
+                       d-none
+                     {% endif %}"
+              data-column="status"
               data-sort-field="status">
             {% translate "Status" %}
           </th>
-          <th class="col-1 sortable align-middle default-sort-field"
+          <th class="col-1 sortable align-middle
+                     {% if not visible_columns.last_update %}
+                       d-none
+                     {% endif %}"
+              data-column="last_update"
               data-sort-field="last_update">
             {% translate "Last update" %}
           </th>
-          <th class="col-1 sortable align-middle" data-sort-field="submit_date">
+          <th class="col-1 sortable align-middle
+                     {% if not visible_columns.submit_date %}
+                       d-none
+                     {% endif %}"
+              data-column="submit_date"
+              data-sort-field="submit_date">
             {% translate "Submission date" %}
           </th>
-          <th class="col-1 sortable align-middle" data-sort-field="identifier">
+          <th class="col-1 sortable align-middle
+                     {% if not visible_columns.identifier %}
+                       d-none
+                     {% endif %}"
+              data-column="identifier"
+              data-sort-field="identifier">
             {% translate "Identifier" %}
           </th>
-          <th class="col-1 sortable align-middle" data-sort-field="framework">
+          <th class="col-1 sortable align-middle
+                     {% if not visible_columns.framework %}
+                       d-none
+                     {% endif %}"
+              data-column="framework"
+              data-sort-field="framework">
             {% translate "Evaluation Framework" %}
           </th>
           {% if not is_regulator %}
-            <th class="col-1 sortable align-middle" data-sort-field="creator">
+            <th class="col-1 sortable align-middle
+                       {% if not visible_columns.company %}
+                         d-none
+                       {% endif %}"
+                data-column="company"
+                data-sort-field="creator">
               {% translate "Creator" %}
             </th>
           {% else %}
-            <th class="col-1 sortable align-middle" data-sort-field="company_name">
+            <th class="col-1 sortable align-middle
+                       {% if not visible_columns.company %}
+                         d-none
+                       {% endif %}"
+                data-column="company"
+                data-sort-field="company_name">
               {% translate "Company" %}
             </th>
           {% endif %}
-          <th class="col-2 sortable align-middle" data-sort-field="sectors">
+          <th class="col-2 sortable align-middle
+                     {% if not visible_columns.sectors %}
+                       d-none
+                     {% endif %}"
+              data-column="sectors"
+              data-sort-field="sectors">
             {% translate "Sectors" %}
           </th>
-          <th class="col-1 sortable align-middle" data-sort-field="year">
+          <th class="col-1 sortable align-middle
+                     {% if not visible_columns.year %}
+                       d-none
+                     {% endif %}"
+              data-column="year"
+              data-sort-field="year">
             {% translate "Year" %}
           </th>
-          <th class="col-2 sortable align-middle"
+          <th class="col-2 sortable align-middle
+                     {% if not visible_columns.progress %}
+                       d-none
+                     {% endif %}"
+              data-column="progress"
               data-sort-field="{% if is_regulator %}
                                  reviewed_percentage
                                {% else %}
@@ -131,7 +188,11 @@
         {% for standard in standard_answers %}
           {% timezone time_zone %}
           <tr>
-            <td class="col-1 table-group-divider py-3 pe-4">
+            <td class="col-1 table-group-divider py-3 pe-4
+                       {% if not visible_columns.status %}
+                         d-none
+                       {% endif %}"
+                data-column="status">
               <div class="d-none {% status_class standard.status %} icon-container m-auto rounded-circle justify-content-center align-items-center"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
@@ -140,7 +201,11 @@
                 </i>
               </div>
             </td>
-            <td class="col-1 table-group-divider py-3"
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.last_update %}
+                         d-none
+                       {% endif %}"
+                data-column="last_update"
                 data-order="{{ standard.last_update.timestamp }}">
               {% if standard.last_update %}
                 {{ standard.last_update|date:"d/m/y" }}
@@ -149,7 +214,11 @@
                 {{ standard.last_update|date:"H:i" }}
               {% endif %}
             </td>
-            <td class="col-1 table-group-divider py-3"
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.submit_date %}
+                         d-none
+                       {% endif %}"
+                data-column="submit_date"
                 data-order="{{ standard.submit_date.timestamp }}">
               {% if standard.submit_date %}
                 {{ standard.submit_date|date:"d/m/y" }}
@@ -158,20 +227,36 @@
                 {{ standard.submit_date|date:"H:i" }}
               {% endif %}
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.identifier %}
+                         d-none
+                       {% endif %}"
+                data-column="identifier">
               {{ standard.group.group_id }}
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.framework %}
+                         d-none
+                       {% endif %}"
+                data-column="framework">
               {{ standard.standard.label }}
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.company %}
+                         d-none
+                       {% endif %}"
+                data-column="company">
               {% if not is_regulator %}
                 {{ standard.creator_name }}
               {% else %}
                 {{ standard.creator_company_name }}
               {% endif %}
             </td>
-            <td class="col-2 table-group-divider py-3">
+            <td class="col-2 table-group-divider py-3
+                       {% if not visible_columns.sectors %}
+                         d-none
+                       {% endif %}"
+                data-column="sectors">
               {% for root_sector in standard.get_no_childrens_sectors %}
                 <ul class="m-0 p-0 list-sectors">
                   <span class="fw-bolder">
@@ -196,10 +281,18 @@
                 {% endfor %}
               </ul>
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.year %}
+                         d-none
+                       {% endif %}"
+                data-column="year">
               {{ standard.year_of_submission }}
             </td>
-            <td class="col-2 table-group-divider py-3">
+            <td class="col-2 table-group-divider py-3
+                       {% if not visible_columns.progress %}
+                         d-none
+                       {% endif %}"
+                data-column="progress">
               {% block progress_bar %}
               {% endblock %}
             </td>

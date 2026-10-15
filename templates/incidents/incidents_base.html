@@ -50,7 +50,11 @@
               class="btn btn-primary bg-body border-0 p-0"
               data-bs-toggle="collapse"
               data-bs-target="#collapseLegend"
-              aria-expanded="false"
+              aria-expanded="{% if show_legend %}
+                               true
+                             {% else %}
+                               false
+                             {% endif %}"
               aria-controls="collapseLegend">
         <img src="{% static 'images/icons/ico-legend.svg' %}"
              alt="legend"
@@ -62,7 +66,12 @@
   </div>
   <!-- Legend -->
   <div class="my-2">
-    <div id="collapseLegend" class="collapse">
+    <div id="collapseLegend"
+         class="collapse
+                {% if show_legend %}
+                  show
+                {% endif %}"
+         data-preference-url="{% url 'save_list_preference' preference_page 'legend' %}">
       <div class="legend">
         <span class="legend-title">{% translate "Legend" %}</span>
         <ul class="d-flex justify-content-between list-group list-group-horizontal-xl gap-2">
@@ -112,75 +121,129 @@
   </div>
   {% if filter.qs %}
     <table id="incidents-table"
+           data-default-sort-field="{{ default_sort_field }}"
            class="table table-responsive align-middle table-sm small">
       <caption class="visually-hidden">{% translate "Incidents table" %}</caption>
       <thead>
         <tr>
           <th scope="col"
-              class="col-1 sortable align-middle"
+              class="col-1 sortable align-middle
+                     {% if not visible_columns.status %}
+                       d-none
+                     {% endif %}"
+              data-column="status"
               data-sort-field="status">
             {% translate "Status" %}
           </th>
           <th scope="col"
-              class="col-1 sortable align-middle default-sort-field"
+              class="col-1 sortable align-middle
+                     {% if not visible_columns.last_update %}
+                       d-none
+                     {% endif %}"
+              data-column="last_update"
               data-sort-field="last_update">
             {% translate "Last update" %}
           </th>
           <th scope="col"
-              class="col-1 sortable align-middle"
+              class="col-1 sortable align-middle
+                     {% if not visible_columns.notification_date %}
+                       d-none
+                     {% endif %}"
+              data-column="notification_date"
               data-sort-field="notification_date">
             {% translate "Creation date" %}
           </th>
           <th scope="col"
-              class="col-1 sortable align-middle"
+              class="col-1 sortable align-middle
+                     {% if not visible_columns.detection_date %}
+                       d-none
+                     {% endif %}"
+              data-column="detection_date"
               data-sort-field="detection_date">
             {% translate "Detection date" %}
           </th>
           <th scope="col"
-              class="col-1 sortable align-middle"
+              class="col-1 sortable align-middle
+                     {% if not visible_columns.starting_date %}
+                       d-none
+                     {% endif %}"
+              data-column="starting_date"
               data-sort-field="starting_date">
             {% translate "Start date" %}
           </th>
           <th scope="col"
-              class="col-1 sortable align-middle"
+              class="col-1 sortable align-middle
+                     {% if not visible_columns.resolution_date %}
+                       d-none
+                     {% endif %}"
+              data-column="resolution_date"
               data-sort-field="resolution_date">
             {% translate "Resolution date" %}
           </th>
           {% if is_regulator and not is_regulator_incidents or is_observer %}
             <th scope="col"
-                class="col-1 sortable align-middle"
+                class="col-1 sortable align-middle
+                       {% if not visible_columns.company_identifier %}
+                         d-none
+                       {% endif %}"
+                data-column="company_identifier"
                 data-sort-field="company_identifier">
               {% translate "Operator Acronym" %}
             </th>
             <th scope="col"
-                class="col-1 sortable align-middle"
+                class="col-1 sortable align-middle
+                       {% if not visible_columns.company_name %}
+                         d-none
+                       {% endif %}"
+                data-column="company_name"
                 data-sort-field="company_name">
               {% translate "Operator Name" %}
             </th>
           {% endif %}
           {% if not is_regulator or is_regulator_incidents %}
             <th scope="col"
-                class="col-1 sortable align-middle"
+                class="col-1 sortable align-middle
+                       {% if not visible_columns.regulator %}
+                         d-none
+                       {% endif %}"
+                data-column="regulator"
                 data-sort-field="regulator">
               {% translate "Regulator" %}
             </th>
           {% endif %}
           <th scope="col"
-              class="col-1 sortable align-middle"
+              class="col-1 sortable align-middle
+                     {% if not visible_columns.regulation %}
+                       d-none
+                     {% endif %}"
+              data-column="regulation"
               data-sort-field="regulation">
             {% translate "Regulation" %}
           </th>
           <th scope="col"
-              class="col-2 sortable align-middle"
+              class="col-2 sortable align-middle
+                     {% if not visible_columns.reference %}
+                       d-none
+                     {% endif %}"
+              data-column="reference"
               data-sort-field="reference">
             {% translate "Reference" %}
           </th>
           <th scope="col"
-              class="col-2 sortable align-middle"
+              class="col-2 sortable align-middle
+                     {% if not visible_columns.sectors %}
+                       d-none
+                     {% endif %}"
+              data-column="sectors"
               data-sort-field="sectors">
             {% translate "Sectors" %}
           </th>
-          <th scope="col" class="col-3 align-middle">
+          <th scope="col"
+              class="col-3 align-middle
+                     {% if not visible_columns.report %}
+                       d-none
+                     {% endif %}"
+              data-column="report">
             {% translate "Report" %}
           </th>
           <th scope="col" class="col-1 align-middle">
@@ -205,7 +268,11 @@
           {% timezone time_zone %}
           <tr>
             <!-- Incident status  -->
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.status %}
+                         d-none
+                       {% endif %}"
+                data-column="status">
               <div class="col d-inline-flex align-items-center justify-content-center gap-1">
                 {% if incident.is_significative_impact %}
                   <i id="impact_status_{{ incident.id }}"
@@ -248,7 +315,11 @@
               </div>
             </td>
             <!-- Incident last update date -->
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.last_update %}
+                         d-none
+                       {% endif %}"
+                data-column="last_update">
               <div class="d-inline"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
@@ -260,7 +331,11 @@
               </div>
             </td>
             <!-- Incident notification date -->
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.notification_date %}
+                         d-none
+                       {% endif %}"
+                data-column="notification_date">
               <div class="d-inline"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
@@ -272,7 +347,11 @@
               </div>
             </td>
             <!-- Incident detection date -->
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.detection_date %}
+                         d-none
+                       {% endif %}"
+                data-column="detection_date">
               {% if incident.incident_detection_date %}
                 <div class="d-inline"
                      data-bs-placement="top"
@@ -288,7 +367,11 @@
               {% endif %}
             </td>
             <!-- Incident starting date -->
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.starting_date %}
+                         d-none
+                       {% endif %}"
+                data-column="starting_date">
               {% with workflow=incident.get_latest_incident_workflow %}
                 {% if workflow.report_timeline.incident_starting_date %}
                   <div class="d-inline"
@@ -306,7 +389,11 @@
               {% endwith %}
             </td>
             <!-- Incident resolution date -->
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.resolution_date %}
+                         d-none
+                       {% endif %}"
+                data-column="resolution_date">
               {% with workflow=incident.get_latest_incident_workflow %}
                 {% if workflow.report_timeline.incident_resolution_date %}
                   <div class="d-inline"
@@ -325,30 +412,54 @@
             </td>
             {% if is_regulator and not is_regulator_incidents or is_observer %}
               <!-- Operator/regulator Acronym -->
-              <td class="col-1 table-group-divider py-3">
+              <td class="col-1 table-group-divider py-3
+                         {% if not visible_columns.company_identifier %}
+                           d-none
+                         {% endif %}"
+                  data-column="company_identifier">
                 {{ incident.company_or_regulator_acronym }}
               </td>
               <!-- Operator/regulator name -->
-              <td class="col-1 table-group-divider py-3">
+              <td class="col-1 table-group-divider py-3
+                         {% if not visible_columns.company_name %}
+                           d-none
+                         {% endif %}"
+                  data-column="company_name">
                 {{ incident.company_or_regulator_name }}
               </td>
             {% endif %}
             <!-- Regulator -->
             {% if not is_regulator or is_regulator_incidents %}
-              <td class="col-1 table-group-divider py-3">
+              <td class="col-1 table-group-divider py-3
+                         {% if not visible_columns.regulator %}
+                           d-none
+                         {% endif %}"
+                  data-column="regulator">
                 {{ incident.sector_regulation.regulator }}
               </td>
             {% endif %}
             <!-- Regulation -->
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.regulation %}
+                         d-none
+                       {% endif %}"
+                data-column="regulation">
               {{ incident.sector_regulation.regulation }}
             </td>
             <!-- Reference -->
-            <td class="col-2 table-group-divider py-3">
+            <td class="col-2 table-group-divider py-3
+                       {% if not visible_columns.reference %}
+                         d-none
+                       {% endif %}"
+                data-column="reference">
               {{ incident.incident_id }}
             </td>
             <!-- Sectors -->
-            <td class="col-2 table-group-divider py-3 px-2 list-sectors">
+            <td class="col-2 table-group-divider py-3 px-2 list-sectors
+                       {% if not visible_columns.sectors %}
+                         d-none
+                       {% endif %}"
+                data-column="sectors">
               {% for root_sector in incident.get_no_childrens_sectors %}
                 <p class="fw-bolder">
                   {{ root_sector.get_safe_translation }}
@@ -372,7 +483,11 @@
               {% endfor %}
             </td>
             <!-- Report name and status -->
-            <td class="col-3 table-group-divider py-3">
+            <td class="col-3 table-group-divider py-3
+                       {% if not visible_columns.report %}
+                         d-none
+                       {% endif %}"
+                data-column="report">
               {% with incident_view_action="edit_workflow" %}
                 {% block content_table_report %}
                   <ul class="list-unstyled mb-0">

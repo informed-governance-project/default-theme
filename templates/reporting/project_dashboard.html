@@ -87,14 +87,14 @@
   </div>
   {% if filter.qs %}
     <table id="project-dashboard-table"
+           data-default-sort-field="{{ default_sort_field }}"
            class="table align-middle table-sm small">
       <caption class="visually-hidden">{% translate "Report generation table" %}</caption>
       <thead class="border border-end-0 border-start-0 border-4 border-secondary">
         <tr>
           <th class="col-1 sortable align-middle" data-sort-field="is_selected">
           </th>
-          <th class="col-3 sortable align-middle default-sort-field"
-              data-sort-field="company">
+          <th class="col-3 sortable align-middle" data-sort-field="company">
             {% translate "Company" %}
           </th>
           <th class="col-2 sortable align-middle" data-sort-field="sector">

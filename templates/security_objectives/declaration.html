@@ -275,7 +275,7 @@
                   class="btn btn-primary bg-body border-0 p-0"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseLegend"
-                  aria-expanded="false"
+                  aria-expanded="{% if show_legend %}true{% else %}false{% endif %}"
                   aria-controls="collapseLegend">
             <i class="custom-icon-legend h3 align-self-center"
                alt="legend"
@@ -289,7 +289,9 @@
     </div>
     <!-- Legend -->
     <div class="my-2">
-      <div id="collapseLegend" class="collapse">
+      <div id="collapseLegend"
+           class="collapse{% if show_legend %} show{% endif %}"
+           data-preference-url="{% url 'save_list_preference' 'so_declaration' 'legend' %}">
         <div class="legend">
           <span class="legend-title">
             {% translate "Legend" %}
