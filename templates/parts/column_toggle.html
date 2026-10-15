@@ -1,0 +1,12 @@
+<div class="form-check">
+  <input class="form-check-input column-toggle"
+         type="checkbox"
+         data-column="{{ column }}"
+         id="column-{{ column }}"
+         {% if visible %}
+           checked
+         {% endif %}>
+  <label class="form-check-label" for="column-{{ column }}">
+    {{ label }}
+  </label>
+</div>
