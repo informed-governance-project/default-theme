@@ -68,7 +68,7 @@
          title="{% translate 'Review comment' %}">
       </i>
     </button>
-  {% elif standard.status in ",PASSM,FAILM," %}
+  {% elif standard.is_review_sent %}
     <button class="btn border-0 p-0 review_comment_so_declaration"
             data-standard-answer-id="{{ standard.id }}"
             data-bs-toggle="modal"
@@ -86,14 +86,14 @@
     </button>
   {% endif %}
   <!-- PDF Download -->
-  <button class="btn border-0 p-0 download-link"
-          data-standard-answer-id="{{ standard.id }}">
+  <a class="btn border-0 p-0 js-async-pdf"
+     href="{% url 'download_so_declaration_pdf' standard.id %}">
     <i class="custom-icon-pdf h4"
        data-bs-placement="top"
        data-bs-toggle="tooltip"
        title="{% translate 'Download' %}">
     </i>
-  </button>
+  </a>
   <!-- Delete -->
   <button class="btn border-0 p-0 delete_so_declaration"
           data-standard-answer-id="{{ standard.id }}"
