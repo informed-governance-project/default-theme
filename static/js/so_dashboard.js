@@ -177,52 +177,6 @@ $(document).ready(function () {
     });
   });
 
-  $(".download-link").on("click", function (e) {
-    let $this = $(this);
-    const csrftoken = getCsrftoken();
-    const standardAnswerId = $this.data('standard-answer-id');
-    load_spinner();
-    fetch(`download/${standardAnswerId}`, {
-      method: "POST",
-      headers: {
-        "X-CSRFToken": csrftoken,
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    })
-      .then(response => {
-        if (!response.ok) {
-          stop_spinner();
-          return response.json().then(data => {
-            if (data.messages) {
-              const messagesContainer = $("#messages-container");
-              if (messagesContainer.length) {
-                messagesContainer.html(data.messages);
-              }
-              throw new Error(response.statusText);
-            }
-          });
-        }
-        const contentDisposition = response.headers.get("Content-Disposition");
-        let filename = "report.pdf"; // default filename
-        if (contentDisposition && contentDisposition.includes("filename=")) {
-          filename = contentDisposition.split("filename=")[1].replace(/"/g, "");
-        }
-
-        return response.blob().then(blob => ({ blob, filename }));
-      })
-      .then(({ blob, filename }) => {
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = filename;
-        link.click();
-        stop_spinner()
-      })
-      .catch(error => {
-        stop_spinner()
-        console.error("Error:", error);
-      });
-  });
-
   // Prevent multiple submissions of the forms
   $(document).on("submit", "#modal-delete-declaration-form", function () {
     load_spinner();
