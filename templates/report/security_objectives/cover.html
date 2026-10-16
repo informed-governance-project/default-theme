@@ -38,13 +38,7 @@
       <span class="fw-bold">
         {% translate "Review status" %}:
       </span>
-      {% if standard_answer.status == "PASSM" %}
-        {% translate "Passed" %}
-      {% elif standard_answer.status == "FAILM" %}
-        {% translate "Revision required" %}
-      {% else %}
-        {{ standard_answer.get_status_display }}
-      {% endif %}
+      {{ review_status }}
     </p>
     <p class="m-0">
       <span class="fw-bold">
