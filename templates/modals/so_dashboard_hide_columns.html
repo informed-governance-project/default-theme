@@ -13,25 +13,35 @@
       </button>
     </div>
     <div class="modal-body row row-cols-2 mx-4 my-3">
-      {% with "Status,Last update,Submission date,Identifier,Evaluation Framework,Company,Sectors,Year,Progress" as dashboard_columns %}
-        {% for d_col in dashboard_columns|split:"," %}
-          <div class="form-check">
-            <input class="form-check-input column-toggle"
-                   type="checkbox"
-                   data-column="{{ forloop.counter0 }}"
-                   id="column-{{ forloop.counter0 }}">
-            <label class="form-check-label" for="column-{{ forloop.counter0 }}">
-              {% if d_col == "Company" and is_regulator %}
+      {% if is_regulator %}
+        {% with "Status,Last update,Submission date,Identifier,Evaluation Framework,Company,Sectors,Year,Progress" as dashboard_columns %}
+          {% for d_col in dashboard_columns|split:"," %}
+            <div class="form-check">
+              <input class="form-check-input column-toggle"
+                     type="checkbox"
+                     data-column="{{ forloop.counter0 }}"
+                     id="column-{{ forloop.counter0 }}">
+              <label class="form-check-label" for="column-{{ forloop.counter0 }}">
                 {% translate d_col %}
-              {% elif d_col == "Company" %}
-                {% translate "Creator" %}
-              {% else %}
+              </label>
+            </div>
+          {% endfor %}
+        {% endwith %}
+      {% else %}
+        {% with "Status,Last update,Submission date,Identifier,Evaluation Framework,Creator,Year,Progress" as dashboard_columns %}
+          {% for d_col in dashboard_columns|split:"," %}
+            <div class="form-check">
+              <input class="form-check-input column-toggle"
+                     type="checkbox"
+                     data-column="{{ forloop.counter0 }}"
+                     id="column-{{ forloop.counter0 }}">
+              <label class="form-check-label" for="column-{{ forloop.counter0 }}">
                 {% translate d_col %}
-              {% endif %}
-            </label>
-          </div>
-        {% endfor %}
-      {% endwith %}
+              </label>
+            </div>
+          {% endfor %}
+        {% endwith %}
+      {% endif %}
     </div>
   </div>
 {% endblock %}

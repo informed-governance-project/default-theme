@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-28 16:47+0200\n"
-"PO-Revision-Date: 2026-10-01 07:32+0000\n"
+"POT-Creation-Date: 2026-10-22 15:02+0200\n"
+"PO-Revision-Date: 2026-10-27 13:06+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -30,22 +30,26 @@ msgstr "_MENU_ Zeilen anzeigen"
 msgid ": Activate to sort"
 msgstr ": Aktivieren zum Sortieren"
 
-#: theme/static/js/base.js:112
+#: theme/static/js/base.js:135
 msgid "Nothing selected"
 msgstr "Nichts ausgewählt"
 
-#: theme/static/js/base.js:113
+#: theme/static/js/base.js:136
 msgid "items selected"
 msgstr "Objekte ausgewählt"
 
-#: theme/static/js/base.js:114
+#: theme/static/js/base.js:137
 msgid "All selected"
 msgstr "Alle ausgewählt"
 
-#: theme/static/js/base.js:115 theme/static/js/project_dashboard.js:39
+#: theme/static/js/base.js:138 theme/static/js/project_dashboard.js:39
 #: theme/static/js/project_dashboard.js:83
 msgid "Select all"
 msgstr "Alle auswählen"
+
+#: theme/static/js/declaration.js:111
+msgid "Please select at least one option."
+msgstr "Bitte wählen Sie mindestens eine Option aus."
 
 #: theme/static/js/export_security_objectives.js:53
 msgid "Close"
@@ -60,7 +64,7 @@ msgstr ""
 msgid "Download PDF report"
 msgstr "PDF-Bericht herunterladen"
 
-#: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:13
+#: theme/static/js/incidents.js:34
 msgid "Review"
 msgstr "Prüfung"
 
@@ -116,6 +120,10 @@ msgstr "Bericht wird erstellt"
 #: theme/static/js/reporting_dashboard.js:118
 msgid "Download"
 msgstr "Herunterladen"
+
+#: theme/static/js/so_dashboard.js:13
+msgid "View"
+msgstr "Anzeigen"
 
 #: theme/static/js/so_declaration.js:82
 msgid ""

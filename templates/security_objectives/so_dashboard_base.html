@@ -100,9 +100,11 @@
               {% translate "Company" %}
             </th>
           {% endif %}
-          <th class="col-2 sortable align-middle" data-sort-field="sectors">
-            {% translate "Sectors" %}
-          </th>
+          {% if is_regulator %}
+            <th class="col-2 sortable align-middle" data-sort-field="sectors">
+              {% translate "Sectors" %}
+            </th>
+          {% endif %}
           <th class="col-1 sortable align-middle" data-sort-field="year">
             {% translate "Year" %}
           </th>
@@ -170,31 +172,33 @@
                 {{ standard.creator_company_name }}
               {% endif %}
             </td>
-            <td class="col-2 table-group-divider py-3">
-              {% for root_sector in standard.get_no_childrens_sectors %}
-                <ul class="m-0 p-0 list-sectors">
-                  <span class="fw-bolder">
-                    {{ root_sector.get_safe_translation }}
-                  </span>
-                </ul>
-              {% endfor %}
-              <ul class="m-0 p-0 list-sectors">
-                {% for root_sector in standard.get_root_sectors %}
-                  <span class="fw-bolder">
-                    {{ root_sector.get_safe_translation }}
-                  </span>
-                  <ul class="list-unstyled">
-                    {% for sector in root_sector.children.all %}
-                      {% if sector in standard.sectors.all %}
-                        <li>
-                          {{ sector.get_safe_translation }}
-                        </li>
-                      {% endif %}
-                    {% endfor %}
+            {% if is_regulator %}
+              <td class="col-2 table-group-divider py-3">
+                {% for root_sector in standard.get_no_childrens_sectors %}
+                  <ul class="m-0 p-0 list-sectors">
+                    <span class="fw-bolder">
+                      {{ root_sector.get_safe_translation }}
+                    </span>
                   </ul>
                 {% endfor %}
-              </ul>
-            </td>
+                <ul class="m-0 p-0 list-sectors">
+                  {% for root_sector in standard.get_root_sectors %}
+                    <span class="fw-bolder">
+                      {{ root_sector.get_safe_translation }}
+                    </span>
+                    <ul class="list-unstyled">
+                      {% for sector in root_sector.children.all %}
+                        {% if sector in standard.get_sectors %}
+                          <li>
+                            {{ sector.get_safe_translation }}
+                          </li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  {% endfor %}
+                </ul>
+              </td>
+            {% endif %}
             <td class="col-1 table-group-divider py-3">
               {{ standard.year_of_submission }}
             </td>
@@ -342,7 +346,9 @@
           <div class="modal-body small">
             {% bootstrap_field filter.form.standard label_class="fw-bold" wrapper_class="mb-3" %}
             {% bootstrap_field filter.form.year_of_submission label_class="fw-bold" wrapper_class="mb-3" %}
-            {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="sector-filter mb-3" %}
+            {% if is_regulator %}
+              {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="sector-filter mb-3" %}
+            {% endif %}
             {% bootstrap_field filter.form.status label_class="fw-bold" wrapper_class="mb-3" %}
             {% block content_filter %}
             {% endblock %}

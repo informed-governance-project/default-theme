@@ -56,33 +56,35 @@
             </div>
           </div>
         </div>
-        <div class="p-0 vr">
-        </div>
-        <div class="col-auto">
-          {% for root_sector in standard_answer.get_no_childrens_sectors %}
-            <ul class="m-0 p-0 list-sectors">
-              <span class="fw-bolder">
-                {{ root_sector.get_safe_translation }}
-              </span>
-            </ul>
-          {% endfor %}
-          <ul class="m-0 p-0 list-sectors">
-            {% for root_sector in standard_answer.get_root_sectors %}
-              <span class="fw-bolder">
-                {{ root_sector.get_safe_translation }}
-              </span>
-              <ul class="list-unstyled">
-                {% for sector in root_sector.children.all %}
-                  {% if sector in standard_answer.sectors.all %}
-                    <li>
-                      {{ sector.get_safe_translation }}
-                    </li>
-                  {% endif %}
-                {% endfor %}
+        {% if is_regulator %}
+          <div class="p-0 vr">
+          </div>
+          <div class="col-auto">
+            {% for root_sector in standard_answer.get_no_childrens_sectors %}
+              <ul class="m-0 p-0 list-sectors">
+                <span class="fw-bolder">
+                  {{ root_sector.get_safe_translation }}
+                </span>
               </ul>
             {% endfor %}
-          </ul>
-        </div>
+            <ul class="m-0 p-0 list-sectors">
+              {% for root_sector in standard_answer.get_root_sectors %}
+                <span class="fw-bolder">
+                  {{ root_sector.get_safe_translation }}
+                </span>
+                <ul class="list-unstyled">
+                  {% for sector in root_sector.children.all %}
+                    {% if sector in standard_answer.get_sectors %}
+                      <li>
+                        {{ sector.get_safe_translation }}
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
         <div class="col-auto ms-auto">
           <div class="d-flex gap-2">
             {% if is_regulator %}
@@ -97,7 +99,7 @@
                           {% else %}custom-icon-comments{% endif %} h3"></i>
               </button>
             {% else %}
-              {% if standard_answer.review_comment and standard_answer.status in ',PASSM,FAILM,' %}
+              {% if standard_answer.review_comment and standard_answer.is_review_sent %}
                 <button class="btn border-0 p-0 review_comment_so_declaration"
                         data-standard-answer-id="{{ standard_answer.id }}"
                         data-bs-toggle="modal"
@@ -121,7 +123,7 @@
                     class="d-none h-100">
                   {% if is_regulator and standard_answer.status in ",PASS,FAIL,DELIV," %}
                     {% bootstrap_field security_objective.status_form.status show_label=False wrapper_class="m-0" %}
-                  {% elif standard_answer.status in ",PASS,PASSM,FAIL,FAILM," and security_objective.status.status %}
+                  {% elif standard_answer.is_review_sent and security_objective.status.status %}
                     <div class="border rounded border-2 d-flex align-items-center justify-content-center h-100 px-3
                                 {% if security_objective.status.status == 'PASS' %}
                                   border-passed
@@ -203,8 +205,8 @@
                       data-bs-slide-to="{{ forloop.counter0 }}">
                 {{ forloop.counter }}
               </button>
-            {% elif standard_answer.status == "UNDE" or standard_answer.status == "DELIV" %}
-             {% if security_objective.status.status == "NOT_REVIEWED" or not security_objective.status %}
+            {% elif standard_answer.status in ",UNDE,DELIV,PASS,FAIL," %}
+             {% if standard_answer.status != "UNDE" or security_objective.status.status == "NOT_REVIEWED" or not security_objective.status %}
               <button id="op_{{ security_objective.pk }}"
                       type="button"
                       class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
@@ -330,7 +332,7 @@
                 <li class="legend-item">
                   <div class="btn btn-failed slide-selector-container">
                   </div>
-                  {% translate "Review required" %}
+                  {% translate "Revision required" %}
                 </li>
               {% endif %}
             </ul>

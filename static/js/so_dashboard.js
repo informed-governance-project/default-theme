@@ -10,7 +10,7 @@ $(document).ready(function () {
     let $modalVersionsRows = $('#modal-versions-rows');
     $modalVersionsRows.empty();
     let tooltip_download = gettext("Download PDF report");
-    let tooltip_review = gettext("Review");
+    let tooltip_review = gettext("View");
     let tooltip_comment = gettext("Comment");
 
     versions.forEach(function (version) {

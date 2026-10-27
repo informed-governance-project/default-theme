@@ -98,6 +98,20 @@ $(document).ready(function () {
         }
       }
 
+      // Django never renders "required" on a CheckboxSelectMultiple (the browser would then demand
+      // every box), so a mandatory checkbox group (MULTI/MT question, sectors) is flagged here: one
+      // box, or the details of an MT question, is enough.
+      // The nameless checkboxes are the ones bootstrap-multiselect draws over a CL/RL <select>.
+      if (field.type === "checkbox" && field.name) {
+        let $checkboxes = $(form).find('input[type="checkbox"]').filter(function () { return this.name === field.name; });
+        // Only the field's own wrapper counts: the contact step nests an optional checkbox inside a
+        // section marked "required-field".
+        if ($field.closest('.mb-3, [data-checkbox-group]').hasClass('required-field')) {
+          const answered = $checkboxes.is(":checked") || ($freeTextInput.length && $freeTextInput.val().trim() !== "");
+          field.setCustomValidity(answered ? "" : gettext("Please select at least one option."));
+        }
+      }
+
       if (field.willValidate && !field.checkValidity()) {
         allValid = false;
         $field.addClass('is-invalid');
@@ -109,7 +123,11 @@ $(document).ready(function () {
     }
 
     if (!allValid) {
-      firstInvalid.focus();
+      // Bootstrap makes scrolling smooth, so focus() alone would still be scrolling when
+      // reportValidity() runs, and the browser drops the message of a field out of view.
+      event.preventDefault();
+      firstInvalid.scrollIntoView({ block: "center", behavior: "instant" });
+      firstInvalid.focus({ preventScroll: true });
       firstInvalid.reportValidity();
       return;
     }
@@ -510,6 +528,11 @@ function showQuestion(questionOptionsId) {
   var $containers = $("[data-question-id*='" + name + "']");
   $containers.removeClass("d-none");
   $containers.closest(".display-previous-answer").removeClass("d-none");
+
+  // Conditional questions render without "required" so that a folded-away one cannot block the
+  // form; a shown mandatory one gets it back. Checkboxes are checked in the wizard's click handler,
+  // since "required" would demand every box.
+  $containers.find(".required-field :input").not("[type='checkbox']").prop("required", true);
 }
 
 /**

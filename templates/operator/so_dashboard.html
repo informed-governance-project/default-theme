@@ -67,7 +67,7 @@
     </button>
   {% endif %}
   <!-- Review comment -->
-  {% if standard.review_comment and standard.status in ',PASSM,FAILM,' %}
+  {% if standard.review_comment and standard.is_review_sent %}
     <button class="btn border-0 p-0 review_comment_so_declaration"
             data-standard-answer-id="{{ standard.id }}"
             data-bs-toggle="modal"

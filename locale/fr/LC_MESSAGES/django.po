@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-02 10:39+0200\n"
-"PO-Revision-Date: 2026-10-01 07:32+0000\n"
-"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
+"POT-Creation-Date: 2026-10-26 09:01+0100\n"
+"PO-Revision-Date: 2026-10-27 12:36+0000\n"
+"Last-Translator: Edgar Dugourd <Edgar.Dugourd@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.10.1\n"
 
 #: theme/templates/account/edit.html:8
 msgid "Account management"
@@ -92,7 +92,7 @@ msgstr "Attention"
 #: theme/templates/modals/export_incidents.html:78
 #: theme/templates/modals/export_security_objectives.html:37
 #: theme/templates/reporting/add_recommendations.html:34
-#: theme/templates/reporting/project_dashboard.html:335
+#: theme/templates/reporting/project_dashboard.html:334
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -100,11 +100,12 @@ msgstr "Annuler"
 msgid "Confirm"
 msgstr "Confirmez"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:8
+#: theme/templates/admin/includes/email_placeholders_help.html:5
+#: theme/templates/admin/includes/email_placeholders_help.html:11
 msgid "Available placeholders"
 msgstr "Espaces réservés disponibles"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:11
+#: theme/templates/admin/includes/email_placeholders_help.html:14
 msgid ""
 "Type one of these in the subject or in the content. It is replaced when the "
 "email is sent."
@@ -112,15 +113,15 @@ msgstr ""
 "Saisissez l'un de ces éléments dans l'objet ou dans le corps du message. Il "
 "sera remplacé lors de l'envoi de l'e-mail."
 
-#: theme/templates/admin/includes/email_placeholders_help.html:17
+#: theme/templates/admin/includes/email_placeholders_help.html:20
 msgid "Placeholder"
 msgstr "Espace réservé"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:20
+#: theme/templates/admin/includes/email_placeholders_help.html:23
 msgid "Replaced by"
 msgstr "Remplacé par"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:39
+#: theme/templates/admin/includes/email_placeholders_help.html:42
 #: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/incidents_base.html:552
 #: theme/templates/modals/accept_terms.html:37
@@ -156,9 +157,9 @@ msgstr "Remplacé par"
 #: theme/templates/parts/messages.html:17
 #: theme/templates/reporting/add_recommendations.html:65
 #: theme/templates/reporting/dashboard.html:254
-#: theme/templates/reporting/project_dashboard.html:360
-#: theme/templates/security_objectives/declaration.html:182
-#: theme/templates/security_objectives/so_dashboard_base.html:338
+#: theme/templates/reporting/project_dashboard.html:359
+#: theme/templates/security_objectives/declaration.html:184
+#: theme/templates/security_objectives/so_dashboard_base.html:342
 msgid "Close"
 msgstr "Fermer"
 
@@ -374,7 +375,7 @@ msgstr ""
 #: theme/templates/modals/review_comment_report.html:31
 #: theme/templates/modals/review_comment_so_declaration.html:42
 #: theme/templates/regulator/so_dashboard.html:19
-#: theme/templates/security_objectives/declaration.html:160
+#: theme/templates/security_objectives/declaration.html:162
 msgid "Send"
 msgstr "Envoyer"
 
@@ -1986,7 +1987,7 @@ msgstr "Date de création"
 
 #: theme/templates/incidents/declaration.html:49
 #: theme/templates/incidents/incidents_base.html:126
-#: theme/templates/report/security_objectives/cover.html:57
+#: theme/templates/report/security_objectives/cover.html:53
 #: theme/templates/security_objectives/declaration.html:28
 #: theme/templates/security_objectives/so_dashboard_base.html:83
 msgid "Last update"
@@ -2025,7 +2026,7 @@ msgstr "Précédent"
 
 #: theme/templates/incidents/declaration.html:304
 #: theme/templates/operator/so_dashboard.html:21
-#: theme/templates/security_objectives/declaration.html:174
+#: theme/templates/security_objectives/declaration.html:176
 msgid "Submit"
 msgstr "Soumettre"
 
@@ -2034,8 +2035,8 @@ msgid "Next"
 msgstr "Suivant"
 
 #: theme/templates/incidents/declaration.html:327
-#: theme/templates/security_objectives/declaration.html:465
-#: theme/templates/security_objectives/declaration.html:531
+#: theme/templates/security_objectives/declaration.html:467
+#: theme/templates/security_objectives/declaration.html:533
 msgid "View previous version"
 msgstr "Afficher la version précédente"
 
@@ -2063,9 +2064,9 @@ msgstr "Filtrer les incidents par statut, secteur, etc."
 #: theme/templates/reporting/dashboard.html:35
 #: theme/templates/reporting/dashboard.html:249
 #: theme/templates/reporting/project_dashboard.html:65
-#: theme/templates/reporting/project_dashboard.html:355
+#: theme/templates/reporting/project_dashboard.html:354
 #: theme/templates/security_objectives/so_dashboard_base.html:36
-#: theme/templates/security_objectives/so_dashboard_base.html:333
+#: theme/templates/security_objectives/so_dashboard_base.html:337
 msgid "Filter"
 msgstr "Filtrer"
 
@@ -2080,13 +2081,13 @@ msgstr "Actif"
 #: theme/templates/incidents/incidents_base.html:58
 #: theme/templates/reporting/dashboard.html:54
 #: theme/templates/reporting/project_dashboard.html:84
-#: theme/templates/security_objectives/declaration.html:284
+#: theme/templates/security_objectives/declaration.html:286
 #: theme/templates/security_objectives/so_dashboard_base.html:55
 msgid "Icon Guide"
 msgstr "Guide des icônes"
 
 #: theme/templates/incidents/incidents_base.html:66
-#: theme/templates/security_objectives/declaration.html:295
+#: theme/templates/security_objectives/declaration.html:297
 #: theme/templates/security_objectives/so_dashboard_base.html:64
 msgid "Legend"
 msgstr "Légende"
@@ -2129,14 +2130,13 @@ msgstr "Soumission tardive"
 #: theme/templates/incidents/incidents_base.html:102
 #: theme/templates/operator/so_dashboard.html:145
 #: theme/templates/regulator/so_dashboard.html:135
-#: theme/templates/report/security_objectives/cover.html:44
+#: theme/templates/security_objectives/declaration.html:335
 msgid "Revision required"
 msgstr "Améliorations requises"
 
 #: theme/templates/incidents/incidents_base.html:106
 #: theme/templates/operator/so_dashboard.html:133
 #: theme/templates/regulator/so_dashboard.html:117
-#: theme/templates/report/security_objectives/cover.html:42
 msgid "Passed"
 msgstr "Réussi"
 
@@ -2184,10 +2184,10 @@ msgid "Reference"
 msgstr "Référence"
 
 #: theme/templates/incidents/incidents_base.html:180
-#: theme/templates/report/security_objectives/cover.html:22
+#: theme/templates/report/security_objectives/cover.html:23
 #: theme/templates/reporting/add_recommendations.html:110
 #: theme/templates/reporting/dashboard.html:86
-#: theme/templates/security_objectives/so_dashboard_base.html:104
+#: theme/templates/security_objectives/so_dashboard_base.html:105
 msgid "Sectors"
 msgstr "Secteurs"
 
@@ -2202,7 +2202,7 @@ msgstr "Rapport"
 #: theme/templates/incidents/incidents_base.html:187
 #: theme/templates/reporting/dashboard.html:90
 #: theme/templates/reporting/recommendations.html:56
-#: theme/templates/security_objectives/so_dashboard_base.html:119
+#: theme/templates/security_objectives/so_dashboard_base.html:121
 msgid "Actions"
 msgstr "Actions"
 
@@ -2262,12 +2262,12 @@ msgstr "Date de résolution de l'incident"
 #: theme/templates/operator/incidents.html:87
 #: theme/templates/operator/incidents.html:89
 #: theme/templates/operator/incidents.html:96
-#: theme/templates/security_objectives/so_dashboard_base.html:248
-#: theme/templates/security_objectives/so_dashboard_base.html:250
-#: theme/templates/security_objectives/so_dashboard_base.html:251
-#: theme/templates/security_objectives/so_dashboard_base.html:259
-#: theme/templates/security_objectives/so_dashboard_base.html:261
-#: theme/templates/security_objectives/so_dashboard_base.html:262
+#: theme/templates/security_objectives/so_dashboard_base.html:252
+#: theme/templates/security_objectives/so_dashboard_base.html:254
+#: theme/templates/security_objectives/so_dashboard_base.html:255
+#: theme/templates/security_objectives/so_dashboard_base.html:263
+#: theme/templates/security_objectives/so_dashboard_base.html:265
+#: theme/templates/security_objectives/so_dashboard_base.html:266
 msgid "Version control"
 msgstr "Gestion de versions"
 
@@ -2285,9 +2285,9 @@ msgstr "Plus d'options"
 #: theme/templates/incidents/incidents_base.html:474
 #: theme/templates/modals/access_log_base.html:17
 #: theme/templates/reporting/dashboard.html:205
-#: theme/templates/security_objectives/so_dashboard_base.html:225
-#: theme/templates/security_objectives/so_dashboard_base.html:227
-#: theme/templates/security_objectives/so_dashboard_base.html:228
+#: theme/templates/security_objectives/so_dashboard_base.html:229
+#: theme/templates/security_objectives/so_dashboard_base.html:231
+#: theme/templates/security_objectives/so_dashboard_base.html:232
 msgid "Access Log"
 msgstr "Journal des accès"
 
@@ -2298,16 +2298,16 @@ msgstr "Aucun rapport d'incident n'a encore été soumis."
 #: theme/templates/incidents/incidents_base.html:568
 #: theme/templates/reporting/add_recommendations.html:80
 #: theme/templates/reporting/dashboard.html:271
-#: theme/templates/reporting/project_dashboard.html:374
-#: theme/templates/security_objectives/so_dashboard_base.html:356
+#: theme/templates/reporting/project_dashboard.html:373
+#: theme/templates/security_objectives/so_dashboard_base.html:362
 msgid "Reset"
 msgstr "Réinitialiser"
 
 #: theme/templates/incidents/incidents_base.html:571
 #: theme/templates/reporting/add_recommendations.html:83
 #: theme/templates/reporting/dashboard.html:274
-#: theme/templates/reporting/project_dashboard.html:377
-#: theme/templates/security_objectives/so_dashboard_base.html:359
+#: theme/templates/reporting/project_dashboard.html:376
+#: theme/templates/security_objectives/so_dashboard_base.html:365
 msgid "Search"
 msgstr "Rechercher"
 
@@ -2387,7 +2387,7 @@ msgstr ""
 msgid "Duplicate the selected security objectives statement to"
 msgstr "Dupliquer la déclaration des objectifs de sécurité sélectionnée vers"
 
-#: theme/templates/modals/copy_so_declaration.html:35
+#: theme/templates/modals/copy_so_declaration.html:34
 #: theme/templates/modals/create_report_project.html:98
 #: theme/templates/operator/so_dashboard.html:98
 #: theme/templates/operator/so_dashboard.html:171
@@ -2400,7 +2400,7 @@ msgid "Duplicate project"
 msgstr "Dupliquer le projet"
 
 #: theme/templates/modals/create_report_project.html:14
-#: theme/templates/reporting/project_dashboard.html:328
+#: theme/templates/reporting/project_dashboard.html:327
 msgid "Edit project"
 msgstr "Éditer le projet"
 
@@ -2415,7 +2415,7 @@ msgid "Save"
 msgstr "Sauvegarder"
 
 #: theme/templates/modals/create_report_project.html:102
-#: theme/templates/modals/create_so_declaration.html:36
+#: theme/templates/modals/create_so_declaration.html:35
 msgid "Create"
 msgstr "Créer"
 
@@ -2484,7 +2484,7 @@ msgstr "Exporter les objectifs de sécurité"
 msgid "Import Security Objectives Statement"
 msgstr "Importer la déclaration des objectifs de sécurité"
 
-#: theme/templates/modals/import_so_declaration.html:40
+#: theme/templates/modals/import_so_declaration.html:39
 #: theme/templates/modals/risk_analysis_import.html:38
 #: theme/templates/security_objectives/base.html:33
 msgid "Import"
@@ -2510,12 +2510,11 @@ msgstr "Version précédente"
 #: theme/templates/operator/so_dashboard.html:78
 #: theme/templates/regulator/so_dashboard.html:68
 #: theme/templates/regulator/so_dashboard.html:79
-#: theme/templates/security_objectives/declaration.html:108
+#: theme/templates/security_objectives/declaration.html:110
 msgid "Review comment"
 msgstr "Commentaire de revue"
 
 #: theme/templates/modals/review_comment_so_declaration.html:8
-#: theme/templates/modals/update_so_declaration.html:25
 #: theme/templates/modals/workflow_comment.html:14
 #: theme/templates/operator/so_dashboard.html:65
 #: theme/templates/regulator/so_dashboard.html:56
@@ -2532,25 +2531,25 @@ msgstr "Importer l'analyse de risques"
 msgid "Profile"
 msgstr "Profil"
 
-#: theme/templates/modals/so_dashboard_hide_columns.html:27
-#: theme/templates/security_objectives/so_dashboard_base.html:96
-msgid "Creator"
-msgstr "Créateur"
-
 #: theme/templates/modals/so_versions.html:21
-#: theme/templates/report/security_objectives/cover.html:63
+#: theme/templates/report/security_objectives/cover.html:59
 #: theme/templates/security_objectives/declaration.html:20
 #: theme/templates/security_objectives/so_dashboard_base.html:86
 msgid "Submission date"
 msgstr "Date de soumission"
 
 #: theme/templates/modals/update_so_declaration.html:7
-msgid "Update or review security objectives statement"
-msgstr "Mettre à jour ou revoir la déclaration des objectifs de sécurité"
+msgid "View or update security objectives statement"
+msgstr ""
+"Consulter ou mettre à jour la déclaration relative aux objectifs de sécurité"
 
 #: theme/templates/modals/update_so_declaration.html:17
 msgid "What do you want to do ?"
 msgstr "Que voulez-vous faire ?"
+
+#: theme/templates/modals/update_so_declaration.html:25
+msgid "View"
+msgstr "Consulter"
 
 #: theme/templates/modals/update_so_declaration.html:31
 msgid "Update"
@@ -2993,44 +2992,44 @@ msgstr "Déclaration des objectifs de sécurité"
 msgid "Identifier"
 msgstr "Identifiant"
 
-#: theme/templates/report/security_objectives/cover.html:33
+#: theme/templates/report/security_objectives/cover.html:35
 #: theme/templates/security_objectives/declaration.html:52
 #: theme/templates/security_objectives/so_dashboard_base.html:92
 msgid "Evaluation Framework"
 msgstr "Cadre d'évaluation"
 
-#: theme/templates/report/security_objectives/cover.html:39
+#: theme/templates/report/security_objectives/cover.html:41
 msgid "Review status"
 msgstr "Statut de revue"
 
-#: theme/templates/report/security_objectives/cover.html:51
+#: theme/templates/report/security_objectives/cover.html:47
 #: theme/templates/reporting/project_dashboard.html:104
-#: theme/templates/security_objectives/so_dashboard_base.html:107
+#: theme/templates/security_objectives/so_dashboard_base.html:109
 msgid "Year"
 msgstr "Année"
 
-#: theme/templates/report/security_objectives/cover.html:69
-#: theme/templates/security_objectives/so_dashboard_base.html:115
+#: theme/templates/report/security_objectives/cover.html:65
+#: theme/templates/security_objectives/so_dashboard_base.html:117
 msgid "Progress"
 msgstr "Progrès"
 
 #: theme/templates/report/security_objectives/declaration.html:37
-#: theme/templates/security_objectives/declaration.html:317
+#: theme/templates/security_objectives/declaration.html:319
 msgid "Not reviewed"
 msgstr "Non revu"
 
 #: theme/templates/report/security_objectives/declaration.html:61
-#: theme/templates/security_objectives/declaration.html:407
+#: theme/templates/security_objectives/declaration.html:409
 msgid "Table of"
 msgstr "Table de"
 
 #: theme/templates/report/security_objectives/declaration.html:152
-#: theme/templates/security_objectives/declaration.html:512
+#: theme/templates/security_objectives/declaration.html:514
 msgid "No security measures data available."
 msgstr "Aucune mesure de sécurité disponible."
 
 #: theme/templates/report/security_objectives/declaration.html:177
-#: theme/templates/security_objectives/declaration.html:543
+#: theme/templates/security_objectives/declaration.html:545
 msgid "No security objectives data available."
 msgstr "Aucun objectif de sécurité disponible."
 
@@ -3117,19 +3116,19 @@ msgstr "Statistiques"
 msgid "Governance report"
 msgstr "Gouvernance"
 
-#: theme/templates/reporting/project_dashboard.html:258
-#: theme/templates/reporting/project_dashboard.html:286
-#: theme/templates/reporting/project_dashboard.html:306
+#: theme/templates/reporting/project_dashboard.html:257
+#: theme/templates/reporting/project_dashboard.html:285
+#: theme/templates/reporting/project_dashboard.html:305
 msgid "Deselect all"
 msgstr "Tout désélectionner"
 
-#: theme/templates/reporting/project_dashboard.html:260
-#: theme/templates/reporting/project_dashboard.html:288
-#: theme/templates/reporting/project_dashboard.html:308
+#: theme/templates/reporting/project_dashboard.html:259
+#: theme/templates/reporting/project_dashboard.html:287
+#: theme/templates/reporting/project_dashboard.html:307
 msgid "Select all"
 msgstr "Tout sélectionner"
 
-#: theme/templates/reporting/project_dashboard.html:340
+#: theme/templates/reporting/project_dashboard.html:339
 msgid "Generate report(s)"
 msgstr "Générer le(s) rapport(s)"
 
@@ -3153,25 +3152,21 @@ msgstr "Copie de l'année précédente"
 msgid "New submission"
 msgstr "Nouvelle soumission"
 
-#: theme/templates/security_objectives/declaration.html:303
+#: theme/templates/security_objectives/declaration.html:305
 msgid "Not filled"
 msgstr "Non renseigné"
 
-#: theme/templates/security_objectives/declaration.html:310
+#: theme/templates/security_objectives/declaration.html:312
 msgid "Partially filled"
 msgstr "Partiellement rempli"
 
-#: theme/templates/security_objectives/declaration.html:324
+#: theme/templates/security_objectives/declaration.html:326
 msgid "Fully filled"
 msgstr "Entièrement rempli"
 
-#: theme/templates/security_objectives/declaration.html:326
+#: theme/templates/security_objectives/declaration.html:328
 msgid "Review passed"
 msgstr "Revue réussie"
-
-#: theme/templates/security_objectives/declaration.html:333
-msgid "Review required"
-msgstr "Revue nécessaire"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:35
 msgid "Filter by status, sector, etc."
@@ -3181,7 +3176,11 @@ msgstr "Filtrer par statut, secteur, etc."
 msgid "Security objectives table"
 msgstr "Table des objectifs de sécurité"
 
-#: theme/templates/security_objectives/so_dashboard_base.html:281
+#: theme/templates/security_objectives/so_dashboard_base.html:96
+msgid "Creator"
+msgstr "Créateur"
+
+#: theme/templates/security_objectives/so_dashboard_base.html:285
 msgid "No security objectives statements have been submitted yet."
 msgstr "Aucune déclaration des objectifs de sécurité n'a encore été soumise."
 

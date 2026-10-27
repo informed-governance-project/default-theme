@@ -19,6 +19,14 @@
     padding: 1rem
 }
 
+/* The justification column is narrow, so a fixed two-row field hides most of the text.
+   Browsers without field-sizing keep the two rows set on the widget. */
+#declaration_table textarea.so-input-field:not(.so_actions_form) {
+    field-sizing: content;
+    min-height: calc(2lh + 0.75rem + 2px);
+    max-height: 15rem;
+}
+
 .fixed-height {
     height: 1px;
 }

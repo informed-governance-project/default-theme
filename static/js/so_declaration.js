@@ -198,7 +198,8 @@ $(document).ready(function () {
       })
       .catch(error => {
         console.error("Error:", error);
-      });
+      })
+      .finally(() => stop_spinner());
   });
   $security_objectives_carousel.on('slid.bs.carousel', function (event) {
     adjustTextareaHeights();
