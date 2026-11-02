@@ -206,9 +206,6 @@ $(document).ready(function () {
     checkRequiredFields();
     checkActions();
     showActiveSOStatusForm();
-    $("#security_objective_selector").find('button[data-bs-slide-to]').removeClass("slide-active-container");
-    $active_button = $("#security_objective_selector").find(`[data-bs-slide-to="${event.to}"]`);
-    $active_button.addClass("slide-active-container");
   });
 
   adjustTextareaHeights();
@@ -217,8 +214,6 @@ $(document).ready(function () {
   showActiveSOStatusForm();
   checkActions();
   checkSODeclarationStatusLegend();
-
-  $("#security_objective_selector").find(`[data-bs-slide-to="0"]`).addClass("slide-active-container");
 
   $(document).on("click", '.so_contacts', function () {
     let $this = $(this);
@@ -273,7 +268,7 @@ function update_so_declaration(form) {
               let active_SO_Id = $('#security_objectives_carousel .carousel-item.active').attr('id');
               let form_SO_StatusId = '#form_status_' + active_SO_Id;
               let $select_SO_form = $(form_SO_StatusId).find('.so_status_form');
-              let $all_buttons = $("#security_objective_selector").find("button");
+              let $all_buttons = $("#security_objective_selector").find(".so-nav-bullet");
               let $all_so_status_form = $('.so_status_form');
               $so_reg_objective_button.removeClass("btn-passed btn-partially btn-failed");
               $select_SO_form.removeClass("text-white bg-passed bg-failed");
@@ -329,6 +324,7 @@ function update_so_declaration(form) {
               }
 
             }
+            $(document).trigger("so:objective-updated");
             $so_submit_button = $("#so_submit_button");
             $so_send_button = $("#so_send_button");
             $so_submit_button.prop("disabled", true);
