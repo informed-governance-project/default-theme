@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-26 09:01+0100\n"
+"POT-Creation-Date: 2026-11-02 10:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2646,7 +2646,7 @@ msgid "Copy from last year"
 msgstr ""
 
 #: theme/templates/security_objectives/base.html:48
-msgid "New submission"
+msgid "New assessment"
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:305
@@ -2678,7 +2678,7 @@ msgid "Creator"
 msgstr ""
 
 #: theme/templates/security_objectives/so_dashboard_base.html:285
-msgid "No security objectives statements have been submitted yet."
+msgid "No security objectives statements have been created yet."
 msgstr ""
 
 #: theme/templates/two_factor/core/setup_complete.html:6
