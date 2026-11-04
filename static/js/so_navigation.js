@@ -102,7 +102,7 @@ $(document).ready(function () {
         return;
       }
       const item = document.createElement("li");
-      item.className = "d-flex align-items-center gap-2";
+      item.className = "d-flex align-items-center gap-2 mb-2";
       item.append(symbolTag(symbol), labels.symbols[symbol] + ": " + count);
       list.append(item);
     });
@@ -312,6 +312,16 @@ $(document).ready(function () {
     domain.next.addEventListener("click", function () {
       turnPage(domain, pageStart + pageSize);
     });
+  });
+
+  // Bootstrap tooltips ignore Escape, and WCAG 1.4.13 requires them to be dismissible. Listen on the
+  // document because a tooltip opened by hover leaves focus elsewhere.
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      domains.forEach(function (domain) {
+        bootstrap.Tooltip.getInstance(domain.toggle).hide();
+      });
+    }
   });
 
   nav.addEventListener("keydown", function (event) {
