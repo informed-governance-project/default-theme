@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-26 09:01+0100\n"
+"POT-Creation-Date: 2026-11-02 10:36+0100\n"
 "PO-Revision-Date: 2026-10-21 09:26+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
@@ -3113,8 +3113,9 @@ msgid "Copy from last year"
 msgstr "Kopiëren van vorig jaar"
 
 #: theme/templates/security_objectives/base.html:48
-msgid "New submission"
-msgstr "Nieuwe invoer"
+#| msgid "Risk Assessment"
+msgid "New assessment"
+msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:305
 msgid "Not filled"
@@ -3145,8 +3146,9 @@ msgid "Creator"
 msgstr "Maker"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:285
-msgid "No security objectives statements have been submitted yet."
-msgstr "Nog geen veiligheidsdoelstellingenverklaringen ingediend."
+#| msgid "No security objectives statements have been submitted yet."
+msgid "No security objectives statements have been created yet."
+msgstr ""
 
 #: theme/templates/two_factor/core/setup_complete.html:6
 msgid "Enable Two-Factor Authentication"

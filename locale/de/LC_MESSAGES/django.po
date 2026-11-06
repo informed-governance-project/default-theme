@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-26 09:01+0100\n"
+"POT-Creation-Date: 2026-11-02 10:36+0100\n"
 "PO-Revision-Date: 2026-10-27 13:06+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -3101,8 +3101,9 @@ msgid "Copy from last year"
 msgstr "Kopie vom letzten Jahr"
 
 #: theme/templates/security_objectives/base.html:48
-msgid "New submission"
-msgstr "Neue Einreichung"
+#| msgid "Risk Assessment"
+msgid "New assessment"
+msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:305
 msgid "Not filled"
@@ -3133,8 +3134,9 @@ msgid "Creator"
 msgstr "Ersteller"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:285
-msgid "No security objectives statements have been submitted yet."
-msgstr "Es wurden noch keine Erklärungen zu den Sicherheitszielen abgegeben."
+#| msgid "No security objectives statements have been submitted yet."
+msgid "No security objectives statements have been created yet."
+msgstr ""
 
 #: theme/templates/two_factor/core/setup_complete.html:6
 msgid "Enable Two-Factor Authentication"
