@@ -9,6 +9,7 @@
   {{ block.super }}
   <link rel="stylesheet" href="{% static 'css/so_declaration.css' %}" />
   <script src='{% static "js/so_declaration.js" %}'></script>
+  <script src='{% static "js/so_navigation.js" %}'></script>
 {% endblock %}
 {% block content %}
   {% csrf_token %}
@@ -187,77 +188,57 @@
         </div>
       </div>
       <div class="hstack d-flex border-top border-3 border-secondary bg-light">
-        <div id="security_objective_selector"
-             class="col-11 d-none d-xl-flex justify-content-between flex-wrap px-4 py-3">
-          {% for security_objective, maturity_levels in security_objectives.items %}
-            {% if is_regulator %}
-              <button id="reg_{{ security_objective.pk }}"
-                      type="button"
-                      class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
-                             {% if security_objective.status.status == 'PASS' %}
-                               btn-passed
-                             {% elif security_objective.status.status == 'FAIL' %}
-                               btn-failed
-                             {% else %}
-                               btn-partially
-                             {% endif %}"
-                      data-bs-target="#security_objectives_carousel"
-                      data-bs-slide-to="{{ forloop.counter0 }}">
-                {{ forloop.counter }}
-              </button>
-            {% elif standard_answer.status in ",UNDE,DELIV,PASS,FAIL," %}
-             {% if standard_answer.status != "UNDE" or security_objective.status.status == "NOT_REVIEWED" or not security_objective.status %}
-              <button id="op_{{ security_objective.pk }}"
-                      type="button"
-                      class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
-                             {% if security_objective.completion_state.is_completed %}
-                               btn-passed
-                             {% elif security_objective.completion_state.is_partially %}
-                               btn-partially
-                             {% else %}
-                               btn-outline-uninitiated
-                             {% endif %}"
-                      data-bs-target="#security_objectives_carousel"
-                      data-bs-slide-to="{{ forloop.counter0 }}">
-                {{ forloop.counter }}
-              </button>
-              {% else %}
-              <button id="op_{{ security_objective.pk }}" 
-                      type="button" 
-                      class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
-                            {% if security_objective.status.status == 'PASS' %}
-                              btn-passed
-                            {% elif security_objective.status.status == 'FAIL' %}
-                              btn-failed
-                            {% else %}
-                              btn-partially
-                            {% endif %}" 
-                      data-bs-target="#security_objectives_carousel"
-                      data-bs-slide-to="{{ forloop.counter0 }}">
-                {{ forloop.counter }}
-              </button>
-              {% endif %}
-            {% else  %}
-              <button id="op_{{ security_objective.pk }}"
-                      type="button"
-                      class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm
-                             {% if security_objective.status.status == 'PASS' %}
-                               btn-passed
-                             {% elif security_objective.status.status == 'FAIL' %}
-                               btn-failed
-                             {% else %}
-                               btn-partially
-                             {% endif %}"
-                      data-bs-target="#security_objectives_carousel"
-                      data-bs-slide-to="{{ forloop.counter0 }}">
-                {{ forloop.counter }}
-              </button>
-            {% endif %}
-          {% endfor %}
-        </div>
+        <nav id="security_objective_selector"
+             class="col d-none d-xl-flex px-4 py-3 {% if navigation.is_grouped %}so-nav-grouped{% else %}justify-content-between flex-wrap{% endif %}"
+             aria-label="{% translate 'Security objectives' %}"
+             data-rule="{{ navigation.rule }}">
+          {% if navigation.is_grouped %}
+            {% for domain in navigation.domains %}
+              <div class="so-nav-domain"
+                   role="group"
+                   aria-label="{{ domain.code }}, {{ domain.label }}"
+                   data-domain-code="{{ domain.code }}"
+                   data-domain-label="{{ domain.label }}"
+                   data-domain-range="{% blocktranslate with first=domain.first_number last=domain.last_number %}Objectives {{ first }} to {{ last }}{% endblocktranslate %}">
+                <button type="button"
+                        class="btn btn-sm flex-column align-items-center gap-1 fw-bold so-nav-domain-toggle">
+                  {{ domain.code }}
+                  <span class="btn rounded-circle slide-selector-container so-nav-symbol btn-{{ domain.symbol }}"
+                        aria-hidden="true"></span>
+                </button>
+                <span class="small fw-bold so-nav-domain-code" aria-hidden="true">
+                  <span class="so-nav-domain-heading">
+                    {{ domain.code }}
+                    <span class="btn rounded-circle slide-selector-container so-nav-symbol btn-{{ domain.symbol }}"></span>
+                  </span>
+                  <span class="fw-normal text-muted so-nav-page-range"></span>
+                </span>
+                <div class="so-nav-bullets">
+                  <button type="button"
+                          class="btn btn-sm p-0 so-nav-page so-nav-page-prev"
+                          aria-label="{% translate 'Previous objectives' %}">
+                    <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                  </button>
+                  {% for security_objective in domain.objectives %}
+                    {% include "security_objectives/navigation_bullet.html" %}
+                  {% endfor %}
+                  <button type="button"
+                          class="btn btn-sm p-0 so-nav-page so-nav-page-next"
+                          aria-label="{% translate 'Next objectives' %}">
+                    <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            {% for security_objective in security_objectives %}
+              {% include "security_objectives/navigation_bullet.html" %}
+            {% endfor %}
+          {% endif %}
+        </nav>
         <div class="p-0 bg-secondary vr d-none d-xl-block">
         </div>
-        <div class="hstack gap-2 mx-auto">
+        <div class="hstack gap-2 mx-auto px-3 flex-shrink-0">
           <div class="hstack gap-1">
             <button class="col carousel-control-prev position-relative"
                     type="button"
@@ -272,6 +253,20 @@
               <i class="carousel-control-next-icon bi bi-arrow-right text-secondary h2"></i>
             </button>
           </div>
+          <button id="so_table_of_contents_btn"
+                  type="button"
+                  class="btn bg-transparent border-0 p-0"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#so_table_of_contents"
+                  aria-controls="so_table_of_contents"
+                  aria-label="{% translate 'Table of contents' %}">
+            <i class="bi bi-list-task h3 m-0 text-dark align-self-center"
+               aria-hidden="true"
+               data-bs-placement="top"
+               data-bs-toggle="tooltip"
+               title="{% translate 'Table of contents' %}">
+            </i>
+          </button>
           <button id="so_declaration_status_legend_btn"
                   type="button"
                   class="btn btn-primary bg-body border-0 p-0"
@@ -368,11 +363,18 @@
           {% for security_objective, maturity_levels in security_objectives.items %}
             <div id="slide_{{ security_objective.id }}"
                  class="carousel-item
-                        {% if forloop.first %}
+                        {% if forloop.counter0 == navigation.initial_slide %}
                           active
                         {% endif %}">
               <div class="d-flex align-items-center">
                 <div class="me-auto">
+                  {% if navigation.is_grouped %}
+                    <p class="small text-muted mb-1 so-domain-line">
+                      <span class="fw-bold">{{ security_objective.nav_domain.code }}</span>
+                      · <span class="fw-bold">{{ security_objective.nav_domain.label }}</span>
+                      · {% blocktranslate with position=security_objective.nav_position_in_domain total=security_objective.nav_domain.objectives|length %}Objective {{ position }} of {{ total }} in this domain{% endblocktranslate %}
+                    </p>
+                  {% endif %}
                   <h4 class="card-title fw-bold">
                     {{ security_objective.unique_code }}: {{ security_objective.objective }}
                   </h4>
@@ -549,6 +551,74 @@
       </div>
     </div>
   </div>
+  <!-- Table of contents -->
+  <div class="offcanvas offcanvas-end p-2"
+       id="so_table_of_contents"
+       tabindex="-1"
+       aria-labelledby="so_table_of_contents_label">
+    <div class="offcanvas-header pb-0">
+      <div>
+        <h5 class="offcanvas-title fw-bold mb-2" id="so_table_of_contents_label">
+          {% translate "Table of contents" %}
+        </h5>
+        <p class="small text-muted">
+        {{ standard_answer.standard }}
+        · {% blocktranslate count counter=security_objectives|length %}{{ counter }} objective{% plural %}{{ counter }} objectives{% endblocktranslate %}
+        · {% blocktranslate count counter=navigation.domains|length %}{{ counter }} domain{% plural %}{{ counter }} domains{% endblocktranslate %}
+      </p>
+      </div>
+      <button type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="{% translate 'Close' %}"></button>
+    </div>
+    <div class="px-3 border-bottom">
+      <div class="d-flex align-items-start justify-content-between gap-3">
+        <ul id="so_toc_totals" class="list-unstyled d-flex flex-wrap gap-3 small">
+        </ul>
+        {% if navigation.domains|length > 1 %}
+          <button id="so_toc_toggle_all"
+                  type="button"
+                  class="btn btn-link btn-sm p-0 text-nowrap"
+                  aria-expanded="false"
+                  data-expand-label="{% translate 'Expand all' %}"
+                  data-collapse-label="{% translate 'Collapse all' %}">
+            {% translate "Expand all" %}
+          </button>
+        {% endif %}
+      </div>
+    </div>
+    <div class="offcanvas-body">
+      {% for domain in navigation.domains %}
+        <details class="so-toc-domain border-bottom">
+          <summary class="d-flex align-items-center py-3 gap-3 fw-bold">
+            <i class="bi bi-chevron-right so-toc-chevron" aria-hidden="true"></i>
+            <span class="so-toc-code">
+              {{ domain.code }}
+              <span class="btn rounded-circle slide-selector-container so-nav-symbol btn-{{ domain.symbol }}"
+                    aria-hidden="true"></span>
+            </span>
+            <span>{{ domain.label }}</span>
+            <span class="small ms-auto so-toc-progress"></span>
+          </summary>
+          <ul class="list-unstyled mt-1 so-toc-objectives">
+            {% for security_objective in domain.objectives %}
+              <li>
+                <button type="button"
+                        class="btn btn-link text-start text-decoration-none text-body d-flex align-items-center p-1 so-toc-objective"
+                        data-slide-to="{{ security_objective.nav_index }}">
+                  <span class="btn rounded-circle slide-selector-container so-nav-symbol btn-{{ security_objective.nav_symbol }}"
+                        aria-hidden="true"></span>
+                  <span class="small">{{ security_objective.unique_code }}: {{ security_objective.objective }}</span>
+                </button>
+              </li>
+            {% endfor %}
+          </ul>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+  {{ navigation.labels|json_script:"so_navigation_labels" }}
   <!-- Modal dialogs -->
   <div class="modal fade"
        id="so_contacts"

@@ -118,7 +118,10 @@
     color: var(--bs-uninitiated) !important;
     border-width: 2px !important;
 }
-.slide-selector-container.btn-outline-uninitiated:hover {
+/* Keyboard focus and a press fill the button like a hover does, so the number turns light the same way. */
+.slide-selector-container.btn-outline-uninitiated:hover,
+.slide-selector-container.btn-outline-uninitiated:focus-visible,
+.slide-selector-container.btn-outline-uninitiated:active {
     color: var(--bs-body-bg) !important;
 }
 
@@ -172,4 +175,210 @@
 
 .form-switch .form-check-input {
     --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23727272'/%3e%3c/svg%3e")
+}
+/* Objective selector grouped by domain. The bar never wraps: so_navigation.js picks the
+   layout that fits, and the bar keeps its own width whatever its content. */
+#security_objective_selector.so-nav-grouped {
+    flex-wrap: nowrap;
+    align-items: center;
+    /* "safe" falls back to the start when the domains overflow, so the overflow stays
+       on the right, where so_navigation.js measures it. */
+    justify-content: safe center;
+    overflow: hidden;
+}
+
+/* Every domain gets the same padding on each side, so the separator sits in the middle of
+   the space between two domains. so_navigation.js widens it while every bullet fits. */
+.so-nav-domain {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding-inline: var(--so-nav-domain-padding, 0.75rem);
+}
+
+.so-nav-domain:first-child {
+    padding-left: 0;
+}
+
+.so-nav-domain:last-child {
+    padding-right: 0;
+}
+
+.so-nav-bullets {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.so-nav-grouped:not(.so-nav-collapsed) .so-nav-domain + .so-nav-domain {
+    border-left: 1px solid var(--bs-secondary);
+}
+
+.so-nav-domain-toggle,
+.so-nav-page,
+.so-nav-bullet.so-nav-off-page {
+    display: none !important;
+}
+
+.so-nav-collapsed .so-nav-domain:not(.so-nav-domain-active) .so-nav-bullets,
+.so-nav-collapsed .so-nav-domain:not(.so-nav-domain-active) .so-nav-domain-code {
+    display: none;
+}
+
+.so-nav-collapsed .so-nav-domain:not(.so-nav-domain-active) .so-nav-domain-toggle {
+    display: inline-flex !important;
+}
+
+/* Collapsed domains are tiles in a row, the current domain keeps its margin around its frame. */
+.so-nav-collapsed .so-nav-domain:not(.so-nav-domain-active) {
+    padding-inline: 0.125rem;
+}
+
+.so-nav-domain-toggle {
+    min-width: 2.5rem;
+    padding: 0.25rem 0.375rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    background-color: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.5rem;
+}
+
+.so-nav-domain-toggle:hover,
+.so-nav-domain-toggle:focus-visible {
+    border-color: var(--bs-dark);
+}
+
+/* A thick dark border, so that red keeps its one meaning: revision required. */
+/* The framed domain opens with the same code and symbol as its tile; with every bullet
+   shown, the code alone heads each group. */
+.so-nav-domain-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    line-height: 1;
+}
+
+.so-nav-domain-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.so-nav-domain-code .so-nav-symbol,
+.so-nav-page-range {
+    display: none;
+}
+
+/* While the domain pages, the code and symbol share a line, above the range of the page shown. */
+.so-nav-paged .so-nav-domain-active .so-nav-domain-heading {
+    flex-direction: row;
+}
+
+.so-nav-paged .so-nav-domain-active .so-nav-page-range {
+    display: block;
+    font-size: 0.625rem;
+    white-space: nowrap;
+}
+
+.so-nav-collapsed .so-nav-domain-active .so-nav-domain-code {
+    align-self: stretch;
+    justify-content: center;
+    padding-right: 0.5rem;
+    font-size: 0.75rem;
+    border-right: 1px solid var(--bs-secondary);
+}
+
+.so-nav-collapsed .so-nav-domain-active .so-nav-domain-code .so-nav-symbol {
+    display: flex;
+}
+
+.so-nav-collapsed .so-nav-domain-active {
+    flex-direction: row;
+    gap: 0.5rem;
+    border: 3px solid var(--bs-dark);
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    margin-inline: 0.75rem;
+}
+
+.so-nav-collapsed .so-nav-domain-active:first-child {
+    margin-left: 0;
+}
+
+.so-nav-paged .so-nav-domain-active .so-nav-page {
+    display: inline-block !important;
+}
+
+/* A chevron with no page behind it stays in place, greyed out, so the frame looks the
+   same on every page and still shows that the domain pages. */
+.so-nav-page:disabled {
+    border-color: transparent;
+    opacity: 0.3;
+}
+
+.so-nav-symbol.slide-selector-container {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    pointer-events: none;
+    flex: 0 0 auto;
+}
+
+.so-toc-domain summary {
+    cursor: pointer;
+}
+
+.so-toc-domain summary::-webkit-details-marker {
+    display: none;
+}
+
+.so-toc-chevron {
+    transition: transform 0.15s ease-out;
+}
+
+.so-toc-domain[open] .so-toc-chevron {
+    transform: rotate(90deg);
+}
+
+/* The same tile as a collapsed domain of the bar. A fixed width keeps the codes in one
+   column, whatever their number of digits. */
+.so-toc-code {
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 2.5rem;
+    padding: 0.25rem 0.375rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.5rem;
+}
+
+/* Each objective's symbol sits under its domain's symbol: past the chevron and the gap,
+   to the middle of the tile, less the button's border and padding and half a symbol. */
+.so-toc-objectives {
+    padding-left: calc(1rem + 1rem + 2.5rem / 2 - 1px - 0.25rem - 8px);
+}
+
+/* And its name starts where the domain's name does: the other half of the tile and the
+   summary's gap, less the other half of the symbol. */
+.so-toc-objective {
+    gap: calc(2.5rem / 2 + 1rem - 8px);
+}
+
+/* The bar takes the width the arrows and icons leave, without growing past it. */
+#security_objective_selector {
+    min-width: 0;
+}
+
+/* Wide enough for most domain and objective names to fit on one line. */
+#so_table_of_contents {
+    --bs-offcanvas-width: 580px;
 }
