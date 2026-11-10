@@ -2,7 +2,7 @@
 {% load i18n %}
 <div class="modal-content">
   <div class="modal-header bg-primary text-white px-4 small">
-    <h5 class="modal-title" id="create_api_key_label">
+    <h5 class="modal-title" id="create_api_key_label" tabindex="-1">
       {% if token %}
         {% translate "API key created" %}
       {% else %}
@@ -17,7 +17,7 @@
   </div>
   {% if token %}
     <div class="modal-body">
-      <div class="alert alert-warning" role="status">
+      <div id="api_key_warning" class="alert alert-warning">
         {% translate "Copy this key now. It will not be shown again." %}
       </div>
       <label for="api_key_token" class="form-label fw-bold">
@@ -28,14 +28,20 @@
                type="text"
                class="form-control font-monospace"
                value="{{ token }}"
+               aria-describedby="api_key_warning"
+               autocomplete="off"
+               spellcheck="false"
                readonly>
         <button id="copy_api_key"
                 type="button"
                 class="btn btn-outline-secondary"
-                data-copied-label="{% translate 'Copied' %}">
+                data-copied-message="{% translate 'Key copied to the clipboard.' %}"
+                data-failed-message="{% translate 'The key could not be copied. It is selected: copy it with Ctrl+C (Cmd+C on a Mac).' %}">
           <i class="bi bi-clipboard" aria-hidden="true"></i>
           <span>{% translate "Copy" %}</span>
         </button>
+      </div>
+      <div id="copy_api_key_status" class="form-text" role="status">
       </div>
     </div>
     <div class="modal-footer">
@@ -52,6 +58,8 @@
           method="post">
       {% csrf_token %}
       <div class="modal-body">
+        <div class="alert alert-danger d-none api-key-error" role="alert">
+        </div>
         {% bootstrap_form form %}
       </div>
       <div class="modal-footer">

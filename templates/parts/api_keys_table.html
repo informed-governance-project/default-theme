@@ -62,7 +62,7 @@
                       class="btn border-0 p-0 revoke_api_key"
                       data-revoke-url="{% url 'revoke_api_key' key.id %}"
                       data-key-name="{{ key.name }}"
-                      aria-label="{% blocktranslate with name=key.name %}
+                      aria-label="{% blocktranslate trimmed with name=key.name %}
                                     Revoke {{ name }}
                                   {% endblocktranslate %}">
                 <i class="custom-icon-trash h4"

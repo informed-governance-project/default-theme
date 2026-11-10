@@ -12,8 +12,8 @@
   <div class="container-fluid d-flex bg-light py-4 align-items-center mb-4">
     <div class="hstack me-auto gap-2">
       <i class="bi bi-key h2 mb-0" aria-hidden="true"></i>
-      <h2 class="fw-bolder mb-0">
-        {% translate "API keys"|upper %}
+      <h2 class="fw-bolder mb-0 text-uppercase">
+        {% translate "API keys" %}
       </h2>
     </div>
     <div class="hstack gap-4 pe-2">
@@ -30,7 +30,7 @@
 {% endblock %}
 {% block content %}
   <div>
-    <h3 class="fw-bolder">
+    <h3 id="api_keys_heading" class="fw-bolder" tabindex="-1">
       {% translate "Your API keys" %}
     </h3>
     <div class="hr-separator">
@@ -38,6 +38,16 @@
     <p class="small text-muted">
       {% translate "Keys grant read-only access using your current permissions. Keep them private and revoke them when no longer needed." %}
     </p>
+  </div>
+  <div id="api_keys_error"
+       class="alert alert-danger d-none"
+       role="alert"
+       data-message="{% translate 'The request failed. Check your connection and try again.' %}">
+  </div>
+  <div id="api_keys_status"
+       class="visually-hidden"
+       role="status"
+       data-revoked-message="{% translate 'API key revoked.' %}">
   </div>
   <div id="api-keys-table-container">
     {% include "parts/api_keys_table.html" %}
