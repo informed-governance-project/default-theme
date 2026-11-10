@@ -1,0 +1,85 @@
+{% load i18n %}
+{% if api_keys %}
+  <table id="api-keys-table" class="table align-middle table-sm small">
+    <caption class="visually-hidden">
+      {% translate "API keys table" %}
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col" class="col-2 align-middle">
+          {% translate "Created" %}
+        </th>
+        <th scope="col" class="col-2 align-middle">
+          {% translate "Name" %}
+        </th>
+        <th scope="col" class="col-2 align-middle">
+          {% translate "Prefix" %}
+        </th>
+        <th scope="col" class="col-2 align-middle">
+          {% translate "Expires" %}
+        </th>
+        <th scope="col" class="col-2 align-middle">
+          {% translate "Status" %}
+        </th>
+        <th scope="col" class="col-auto align-middle">
+          {% translate "Actions" %}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for key in api_keys %}
+        <tr>
+          <td class="table-group-divider py-3">
+            {{ key.created_at|date:"d/m/y" }}
+            <br />
+            <i class="bi bi-clock" aria-hidden="true"></i>
+            {{ key.created_at|date:"H:i" }}
+          </td>
+          <td class="table-group-divider py-3">
+            {{ key.name }}
+          </td>
+          <td class="table-group-divider py-3">
+            <code>{{ key.prefix }}…</code>
+          </td>
+          <td class="table-group-divider py-3">
+            {{ key.expires_at|date:"d/m/y" }}
+            <br />
+            <i class="bi bi-clock" aria-hidden="true"></i>
+            {{ key.expires_at|date:"H:i" }}
+          </td>
+          <td class="table-group-divider py-3">
+            {% if key.revoked_at %}
+              <span class="badge text-bg-secondary">{% translate "Revoked" %}</span>
+            {% elif key.is_active %}
+              <span class="badge text-bg-success">{% translate "Active" %}</span>
+            {% else %}
+              <span class="badge text-bg-warning">{% translate "Expired" %}</span>
+            {% endif %}
+          </td>
+          <td class="table-group-divider py-3">
+            {% if not key.revoked_at %}
+              <button type="button"
+                      class="btn border-0 p-0 revoke_api_key"
+                      data-revoke-url="{% url 'revoke_api_key' key.id %}"
+                      data-key-name="{{ key.name }}"
+                      aria-label="{% blocktranslate with name=key.name %}
+                                    Revoke {{ name }}
+                                  {% endblocktranslate %}">
+                <i class="custom-icon-trash h4"
+                   aria-hidden="true"
+                   data-bs-placement="top"
+                   data-bs-toggle="tooltip"
+                   title="{% translate 'Revoke' %}">
+                </i>
+              </button>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>
+    {% translate "You have no API keys." %}
+  </p>
+{% endif %}

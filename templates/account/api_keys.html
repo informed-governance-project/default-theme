@@ -1,104 +1,68 @@
 {% extends "home/base.html" %}
-{% load django_bootstrap5 i18n %}
+{% load i18n %}
+{% load static %}
 {% block title %}
   {% translate "API keys" %}
 {% endblock %}
-{% block content %}
-  <h1>
-    {% translate "API keys" %}
-  </h1>
-  <p>
-    {% translate "Keys grant read-only access using your current permissions. Keep them private and revoke them when no longer needed." %}
-  </p>
-  <p>
-    <a href="{% url 'api:swagger' %}">{% translate "API documentation" %}</a> · <a href="{% url 'api:schema' %}">{% translate "OpenAPI YAML" %}</a>
-  </p>
-  {% if token %}
-    <div class="alert alert-warning" role="status">
-      <p>
-        {% translate "Copy this key now. It will not be shown again." %}
-      </p>
-      <code class="user-select-all text-break">{{ token }}</code>
+{% block bootstrap5_extra_script %}
+  {{ block.super }}
+  <script src='{% static "js/api_keys.js" %}'></script>
+{% endblock %}
+{% block subheader %}
+  <div class="container-fluid d-flex bg-light py-4 align-items-center mb-4">
+    <div class="hstack me-auto gap-2">
+      <i class="bi bi-key h2 mb-0" aria-hidden="true"></i>
+      <h2 class="fw-bolder mb-0">
+        {% translate "API keys"|upper %}
+      </h2>
     </div>
-  {% endif %}
-  <h2>
-    {% translate "Create an API key" %}
-  </h2>
-  <form method="post" class="col-md-6">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    <button type="submit" class="btn btn-primary">
-      {% translate "Create key" %}
-    </button>
-  </form>
-  <h2 class="mt-4">
-    {% translate "Your API keys" %}
-  </h2>
-  <div class="table-responsive">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">
-            {% translate "Name" %}
-          </th>
-          <th scope="col">
-            {% translate "Prefix" %}
-          </th>
-          <th scope="col">
-            {% translate "Expires" %}
-          </th>
-          <th scope="col">
-            {% translate "Status" %}
-          </th>
-          <th scope="col">
-            {% translate "Action" %}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for key in api_keys %}
-          <tr>
-            <th scope="row">
-              {{ key.name }}
-            </th>
-            <td>
-              <code>{{ key.prefix }}…</code>
-            </td>
-            <td>
-              {{ key.expires_at }}
-            </td>
-            <td>
-              {% if key.revoked_at %}
-                {% translate "Revoked" %}
-              {% elif key.is_active %}
-                {% translate "Active" %}
-              {% else %}
-                {% translate "Expired" %}
-              {% endif %}
-            </td>
-            <td>
-              {% if not key.revoked_at %}
-                <form method="post" action="{% url 'revoke_api_key' key.id %}">
-                  {% csrf_token %}
-                  <button type="submit"
-                          class="btn btn-outline-danger btn-sm"
-                          aria-label="{% blocktranslate with name=key.name %}
-                                        Revoke {{ name }}
-                                      {% endblocktranslate %}">
-                    {% translate "Revoke" %}
-                  </button>
-                </form>
-              {% endif %}
-            </td>
-          </tr>
-        {% empty %}
-          <tr>
-            <td colspan="5">
-              {% translate "You have no API keys." %}
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="hstack gap-4 pe-2">
+      <a class="fw-bold" href="{% url 'api:swagger' %}">
+        {% translate "API documentation" %}
+      </a>
+      <button type="button"
+              class="btn btn-primary create_api_key"
+              data-url="{% url 'create_api_key' %}">
+        {% translate "New API key" %}
+      </button>
+    </div>
+  </div>
+{% endblock %}
+{% block content %}
+  <div>
+    <h3 class="fw-bolder">
+      {% translate "Your API keys" %}
+    </h3>
+    <div class="hr-separator">
+    </div>
+    <p class="small text-muted">
+      {% translate "Keys grant read-only access using your current permissions. Keep them private and revoke them when no longer needed." %}
+    </p>
+  </div>
+  <div id="api-keys-table-container">
+    {% include "parts/api_keys_table.html" %}
+  </div>
+{% endblock %}
+{% block app_modals %}
+  <div class="modal fade"
+       id="create_api_key"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="create_api_key_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="revoke_api_key"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="revoke_api_key_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      {% include "modals/revoke_api_key.html" %}
+    </div>
   </div>
 {% endblock %}
