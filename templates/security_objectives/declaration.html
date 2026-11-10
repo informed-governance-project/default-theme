@@ -13,6 +13,17 @@
 {% endblock %}
 {% block content %}
   {% csrf_token %}
+  {% if is_regulator and newer_version %}
+    <div class="alert alert-warning d-flex align-items-center gap-2 mb-3"
+         role="status">
+      <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i>
+      <div>
+        {% blocktranslate with submit_date=newer_version.submit_date|date:"d/m/y H:i" %}The operator submitted a newer version of this declaration on {{ submit_date }}. This version can no longer be reviewed.{% endblocktranslate %}
+        <a class="alert-link"
+           href="{% url 'so_declaration' %}?id={{ newer_version.id }}">{% translate "Open the newer version" %}</a>
+      </div>
+    </div>
+  {% endif %}
   <div class="card border border-0">
     <div class="small card-header py-0 border border-0 bg-transparent">
       <div class="row gap-2 py-3">
@@ -150,7 +161,7 @@
                 </div>
               {% endfor %}
             </div>
-            {% if is_regulator and standard_answer.status in ",PASS,FAIL,DELIV," %}
+            {% if is_regulator and standard_answer.status in ",PASS,FAIL,DELIV," and not newer_version %}
               <button id="so_send_button"
                       type="button"
                       class="btn btn-passed review_comment_so_declaration"
