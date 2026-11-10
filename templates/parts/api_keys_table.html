@@ -12,6 +12,11 @@
         <th scope="col" class="col-2 align-middle">
           {% translate "Name" %}
         </th>
+        {% if show_company %}
+          <th scope="col" class="col-2 align-middle">
+            {% translate "Company" %}
+          </th>
+        {% endif %}
         <th scope="col" class="col-2 align-middle">
           {% translate "Prefix" %}
         </th>
@@ -38,6 +43,11 @@
           <td class="table-group-divider py-3">
             {{ key.name }}
           </td>
+          {% if show_company %}
+            <td class="table-group-divider py-3">
+              {{ key.company.name|default:"" }}
+            </td>
+          {% endif %}
           <td class="table-group-divider py-3">
             <code>{{ key.prefix }}…</code>
           </td>

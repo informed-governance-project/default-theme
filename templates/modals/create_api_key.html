@@ -60,6 +60,13 @@
       <div class="modal-body">
         <div class="alert alert-danger d-none api-key-error" role="alert">
         </div>
+        {% if company %}
+          <p class="small text-muted">
+            {% blocktranslate trimmed with company=company.name %}
+              This key will read only the data of {{ company }}. To read another company's data, switch company and create a key there.
+            {% endblocktranslate %}
+          </p>
+        {% endif %}
         {% bootstrap_form form %}
       </div>
       <div class="modal-footer">
