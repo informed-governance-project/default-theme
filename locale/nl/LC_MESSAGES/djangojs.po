@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-11 09:22+0100\n"
-"PO-Revision-Date: 2026-08-03 10:11+0000\n"
+"PO-Revision-Date: 2026-11-11 09:14+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -53,7 +53,7 @@ msgstr ""
 
 #: theme/static/js/export_security_objectives.js:53
 msgid "Close"
-msgstr ""
+msgstr "Sluiten"
 
 #: theme/static/js/export_security_objectives.js:88
 msgid "The export is taking longer than expected. Please try again later."
