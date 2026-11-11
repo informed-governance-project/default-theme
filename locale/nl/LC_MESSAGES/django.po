@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-02 10:36+0100\n"
-"PO-Revision-Date: 2026-10-21 09:26+0000\n"
+"PO-Revision-Date: 2026-11-10 14:48+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -269,8 +269,8 @@ msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
 "has been created on SERIMA and it may be part of your organization."
 msgstr ""
-"We hebben vastgesteld dat op SERIMA de gebruikersaccount %(new_user_name)s "
-"(%(new_user_email)s) is aangemaakt, die mogelijk deel uitmaakt van uw "
+"We hebben vastgesteld dat op SERIMA de gebruikersaccount %(new_user_name)s (%"
+"(new_user_email)s) is aangemaakt, die mogelijk deel uitmaakt van uw "
 "organisatie."
 
 #: theme/templates/emails/suggestion_link_user_account.html:19
@@ -477,8 +477,7 @@ msgstr ""
 #: theme/templates/home/cookies_policy.html:72
 #: theme/templates/home/cookies_policy.html:75
 msgid "Term defined in Article 1 of SERIMA's Terms of Use."
-msgstr ""
-"Begrip gedefinieerd in artikel 1 van de Gebruiksvoorwaarden van SERIMA."
+msgstr "Begrip gedefinieerd in artikel 1 van de Gebruiksvoorwaarden van SERIMA."
 
 #: theme/templates/home/index.html:10
 msgid "Home"
@@ -888,8 +887,8 @@ msgstr ""
 "Personen die van mening zijn dat de verwerking van gegevens via SERIMA een "
 "schending van de AVG vormt, kunnen een klacht indienen bij de CNPD met "
 "behulp van het <a href=\"https://cnpd.public.lu/fr/particuliers/faire-valoir/"
-"formulaire-plainte.html\" target=\"_blank\" rel=\"noopener "
-"noreferrer\">formulier dat beschikbaar is op de website</a>."
+"formulaire-plainte.html\" target=\"_blank\" rel=\"noopener noreferrer\">"
+"formulier dat beschikbaar is op de website</a>."
 
 #: theme/templates/home/sitemap.html:7
 msgid "Sitemap"
