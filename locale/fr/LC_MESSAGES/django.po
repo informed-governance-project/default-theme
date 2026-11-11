@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-11 09:22+0100\n"
-"PO-Revision-Date: 2026-09-16 12:29+0000\n"
+"PO-Revision-Date: 2026-11-11 09:14+0000\n"
 "Last-Translator: Edgar Dugourd <Edd@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -52,7 +52,7 @@ msgstr "Déconnexion"
 #: theme/templates/admin/custom_change_user_form.html:12
 #, python-format
 msgid "Add this user to Company %(company)s?"
-msgstr "Ajouter cet utilisateur à l'entreprise %(company)s?"
+msgstr "Ajouter cet utilisateur à l'entreprise %(company)s ?"
 
 #: theme/templates/admin/custom_change_user_list.html:12
 msgid ""
@@ -3015,7 +3015,7 @@ msgstr "Année"
 #: theme/templates/report/security_objectives/cover.html:65
 #: theme/templates/security_objectives/so_dashboard_base.html:117
 msgid "Progress"
-msgstr "Progression"
+msgstr "Progrès"
 
 #: theme/templates/report/security_objectives/declaration.html:37
 #: theme/templates/security_objectives/declaration.html:325

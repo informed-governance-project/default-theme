@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-11 09:22+0100\n"
-"PO-Revision-Date: 2026-09-16 12:29+0000\n"
+"PO-Revision-Date: 2026-11-11 09:14+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -48,7 +48,7 @@ msgstr "Zurück zur Benutzeroberfläche"
 #: theme/templates/parts/header.html:104
 #: theme/templates/registration/base.html:44
 msgid "Log out"
-msgstr "Abmeldung"
+msgstr "Abmelden"
 
 #: theme/templates/admin/custom_change_user_form.html:12
 #, python-format
