@@ -79,18 +79,221 @@
     }
 }
 
-/* For larger screens */
-@media (min-width: 992px) and (max-width: 1200px) {
+/* Below xl the page scrolls as a whole: a card scrolling inside a small screen leaves too little of it in view. */
+@media (max-width: 1199.98px) {
     .card-body {
-        height: 70vh;
+        height: auto;
+        overflow: visible;
+    }
+
+    /* The table turns into one block per measure: the level heads its group, the measure
+       and its evidence on the left, the answer on the right. The header row is hidden, so
+       each cell is introduced by the name of its column. */
+    #declaration_table thead {
+        display: none;
+    }
+
+    #declaration_table,
+    #declaration_table tbody {
+        display: block;
+    }
+
+    #declaration_table tbody > tr {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-areas:
+        "level level"
+        "measure implemented"
+        "evidence justification"
+        "evidence review";
+        align-items: start;
+        border-top: 1px solid var(--bs-border-color);
+    }
+
+    #declaration_table tbody > tr:has(> .so-measure-level) {
+        border-top: 2px solid var(--bs-dark);
+    }
+
+    #declaration_table > tbody > tr > * {
+        width: auto;
+        padding: 0.5rem 0.75rem;
+        border: 0;
+    }
+
+    #declaration_table > tbody > tr > [data-label]::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    #declaration_table > tbody > tr > .so-measure-level {
+        grid-area: level;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-align: start;
+    }
+
+    #declaration_table > tbody > tr > .so-measure-level::before {
+        font-weight: 400;
+        color: var(--bs-secondary-color);
+    }
+
+    #declaration_table > tbody > tr > .so-measure-text {
+        grid-area: measure;
+    }
+
+    #declaration_table > tbody > tr > .so-measure-evidence {
+        grid-area: evidence;
+    }
+
+    #declaration_table > tbody > tr > .so-measure-implemented {
+        grid-area: implemented;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    #declaration_table > tbody > tr > .so-measure-implemented::before {
+        margin-bottom: 0;
+    }
+
+    #declaration_table .so-measure-implemented .checkbox-is-measure {
+        justify-content: flex-start !important;
+    }
+
+    #declaration_table > tbody > tr > .so-measure-justification {
+        grid-area: justification;
+    }
+
+    #declaration_table > tbody > tr > .so-measure-review {
+        grid-area: review;
+    }
+
+    #declaration_table > tbody > tr > td[colspan] {
+        grid-column: 1 / -1;
+    }
+
+    /* A changed answer is outlined by the row, placed on the grid below the level heading,
+       since the level is no longer a column to skip. The room for the button that sits on
+       the outline goes under the row, not under each of its now stacked cells. */
+    #declaration_table > tbody > tr.so-previous-answer-row {
+        /* Over the level column width the template sets for the table layout. */
+        --so-level-col: 0% !important;
+        padding-bottom: 1.25rem;
+    }
+
+    #declaration_table > tbody > tr.so-previous-answer-row > td {
+        padding: 0.5rem 1rem !important;
+    }
+
+    #declaration_table > tbody > tr.so-previous-answer-row > td:first-of-type::after {
+        content: none;
+    }
+
+    #declaration_table > tbody > tr.so-previous-answer-row::after {
+        content: "";
+        position: absolute;
+        grid-column: 1 / -1;
+        grid-row: 2 / -1;
+        inset: 0.25rem;
+        border: 2px dashed #fd7e14;
+        border-radius: var(--bs-border-radius-lg);
+        pointer-events: none;
+    }
+
+    #declaration_table > tbody > tr.so-previous-answer-row-full::after {
+        grid-row: 1 / -1;
+    }
+
+    /* The legend wraps into columns, each entry's symbol or level in a column of its own so the labels line up. */
+    #collapseLegend .legend {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    #collapseLegend .legend .vstack {
+        gap: 1rem;
+    }
+
+    #collapseLegend .legend ul {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+        gap: 0.75rem 1.5rem;
+        margin: 0;
+    }
+
+    #collapseLegend .legend-item {
+        justify-content: flex-start;
+        gap: 0.75rem;
+    }
+
+    #collapseLegend .legend-item > :first-child {
+        flex: 0 0 30px;
+        padding-right: 0 !important;
+        text-align: center;
+    }
+
+    /* The bar holds the current domain only; the menu before it names the domain. */
+    nav#security_objective_selector.so-nav-grouped {
+        justify-content: flex-start;
+        min-width: 8rem;
+    }
+
+    .so-nav-grouped .so-nav-domain:not(.so-nav-domain-active),
+    .so-nav-grouped .so-nav-domain-code {
+        display: none !important;
+    }
+
+    .so-nav-grouped .so-nav-domain {
+        padding-inline: 0;
+        border-left: 0 !important;
     }
 }
 
-/* For medium screens */
-@media (max-width: 991px) {
-    .card-body {
-        height: 60vh;
+/* One column on phones, in reading order. */
+@media (max-width: 767.98px) {
+    /* The domain menu takes a row of its own, so its name fits, and the bullets share the
+       next row with the arrows and icons instead of leaving most of it empty. */
+    .so-nav-row:has(> .so-nav-domain-menu) {
+        display: contents !important;
     }
+
+    .so-nav-row > .so-nav-domain-menu {
+        flex: 0 0 calc(100% - 2rem);
+        margin: 0.5rem 1rem 0;
+    }
+
+    .so-nav-row > #security_objective_selector {
+        padding: 0.5rem 0 0.5rem 1rem;
+    }
+
+    #declaration_table tbody > tr {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+        "level"
+        "measure"
+        "evidence"
+        "implemented"
+        "justification"
+        "review";
+    }
+}
+
+/* The menu takes the room the bullets leave, and its label shortens before the bullets page. */
+.so-nav-row {
+    flex: 1 1 20rem;
+    min-width: 0;
+}
+
+.so-nav-domain-menu {
+    flex: 0 1 22rem;
+    min-width: 8rem;
+}
+
+.so-nav-menu-item:not([aria-current]) .so-nav-menu-current {
+    visibility: hidden;
 }
 
 .slide-selector-container {

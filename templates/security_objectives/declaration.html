@@ -198,9 +198,39 @@
           </div>
         </div>
       </div>
-      <div class="hstack d-flex border-top border-3 border-secondary bg-light">
+      <div class="d-flex flex-wrap flex-xl-nowrap align-items-center border-top border-3 border-secondary bg-light">
+        <div class="{% if navigation.is_grouped %}d-flex{% else %}d-none d-xl-flex{% endif %} align-items-center gap-3 px-3 px-xl-4 py-2 py-xl-3 so-nav-row">
+          {% if navigation.is_grouped %}
+            <div id="so_nav_domain_menu" class="dropdown d-xl-none so-nav-domain-menu">
+              <button type="button"
+                      class="btn btn-sm bg-body border border-dark d-flex align-items-center gap-2 w-100 dropdown-toggle"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                <span class="fw-bold so-nav-menu-code"></span>
+                <span class="btn rounded-circle slide-selector-container so-nav-symbol"
+                      aria-hidden="true"></span>
+                <span class="fw-bold text-truncate text-start flex-grow-1 so-nav-menu-label"></span>
+              </button>
+              <ul class="dropdown-menu shadow ">
+                {% for domain in navigation.domains %}
+                  <li class="small">
+                    <button type="button"
+                            class="dropdown-item d-flex align-items-center gap-3 so-nav-menu-item">
+                      <span class="badge text-bg-dark">{{ domain.code }}</span>
+                      <span class="btn rounded-circle slide-selector-container so-nav-symbol btn-{{ domain.symbol }}"
+                            aria-hidden="true"></span>
+                      <span class="flex-grow-1">{{ domain.label }}</span>
+                      <span class="small text-muted so-nav-menu-progress"></span>
+                      <i class="bi bi-check-circle text-passed so-nav-menu-current"
+                         aria-hidden="true"></i>
+                    </button>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
         <nav id="security_objective_selector"
-             class="col d-none d-xl-flex px-4 py-3 {% if navigation.is_grouped %}so-nav-grouped{% else %}justify-content-between flex-wrap{% endif %}"
+             class="col d-flex {% if navigation.is_grouped %}so-nav-grouped{% else %}justify-content-between flex-wrap{% endif %}"
              aria-label="{% translate 'Security objectives' %}"
              data-rule="{{ navigation.rule }}">
           {% if navigation.is_grouped %}
@@ -247,9 +277,10 @@
             {% endfor %}
           {% endif %}
         </nav>
-        <div class="p-0 bg-secondary vr d-none d-xl-block">
         </div>
-        <div class="hstack gap-2 mx-auto px-3 flex-shrink-0">
+        <div class="p-0 bg-secondary vr">
+        </div>
+        <div class="hstack gap-2 ms-auto px-3 py-2 flex-shrink-0">
           <div class="hstack gap-1">
             <button class="col carousel-control-prev position-relative"
                     type="button"
@@ -453,14 +484,16 @@
                 <tbody class="small">
                   {% for maturity_level, measures in maturity_levels.items %}
                     {% for measure in measures %}
-                      <tr class="{% if measure.answer_modified %}so-previous-answer-row{% endif %}">
+                      <tr {% if measure.answer_modified %}class="so-previous-answer-row" style="--so-level-col: {% if column_config.maturity_level.visible %}calc(100% * {{ column_config.maturity_level.width }} / 12){% else %}0%{% endif %}"{% endif %}>
                         {% if column_config.maturity_level.visible and forloop.first %}
                           <th rowspan="{{ measures|length }}"
-                              class="col-{{ column_config.maturity_level.width }} h3 fw-bolder table-group-divider text-center lh-sm">
+                              data-label="{{ column_config.maturity_level.label }}"
+                              class="col-{{ column_config.maturity_level.width }} h3 fw-bolder table-group-divider text-center lh-sm so-measure-level">
                             {{ maturity_level.level }}
                           </th>
                         {% endif %}
-                        <td class="col-{{ column_config.security_measure.width }} lh-sm
+                        <td data-label="{{ column_config.security_measure.label }}"
+                            class="col-{{ column_config.security_measure.width }} lh-sm so-measure-text
                                    {% if forloop.first %}
                                      table-group-divider
                                    {% endif %}">
@@ -481,14 +514,16 @@
                           {% endif %}
                         </td>
                         {% if column_config.evidence.visible %}
-                          <td class="col-{{ column_config.evidence.width }} lh-sm
+                          <td data-label="{{ column_config.evidence.label }}"
+                              class="col-{{ column_config.evidence.width }} lh-sm so-measure-evidence
                                      {% if forloop.first %}
                                        table-group-divider
                                      {% endif %}">
                             {{ measure.evidence|linebreaksbr }}
                           </td>
                         {% endif %}
-                        <td class="col-{{ column_config.is_implemented.width }} align-middle
+                        <td data-label="{{ column_config.is_implemented.label }}"
+                            class="col-{{ column_config.is_implemented.width }} align-middle so-measure-implemented
                                    {% if forloop.first %}
                                      table-group-divider
                                    {% endif %}">
@@ -501,7 +536,8 @@
                           </div>
                         </td>
                         {% if column_config.justification.visible %}
-                          <td class="col-{{ column_config.justification.width }} lh-sm
+                          <td data-label="{{ column_config.justification.label }}"
+                              class="col-{{ column_config.justification.width }} lh-sm so-measure-justification
                                      {% if forloop.first %}
                                        table-group-divider
                                      {% endif %}">
@@ -513,7 +549,8 @@
                           </td>
                         {% endif %}
                         {% if column_config.review_comment.visible %}
-                          <td class="col-{{ column_config.review_comment.width }} lh-sm
+                          <td data-label="{{ column_config.review_comment.label }}"
+                              class="col-{{ column_config.review_comment.width }} lh-sm so-measure-review
                                      {% if forloop.first %}
                                        table-group-divider
                                      {% endif %}">
