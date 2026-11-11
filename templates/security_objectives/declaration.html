@@ -212,7 +212,7 @@
                    data-domain-label="{{ domain.label }}"
                    data-domain-range="{% blocktranslate with first=domain.first_number last=domain.last_number count total=domain.objectives|length %}{{ total }} Objective · {{ first }} to {{ last }}{% plural %}{{ total }} Objectives · {{ first }} to {{ last }}{% endblocktranslate %}">
                 <button type="button"
-                        class="btn btn-sm flex-column align-items-center gap-1 fw-bold so-nav-domain-toggle">
+                        class="btn btn-sm btn-primary bg-body text-body flex-column align-items-center gap-1 fw-bold so-nav-domain-toggle">
                   {{ domain.code }}
                   <span class="btn rounded-circle slide-selector-container so-nav-symbol btn-{{ domain.symbol }}"
                         aria-hidden="true"></span>
@@ -266,13 +266,12 @@
           </div>
           <button id="so_table_of_contents_btn"
                   type="button"
-                  class="btn bg-transparent border-0 p-0"
+                  class="btn btn-primary bg-body border-0 p-0"
                   data-bs-toggle="offcanvas"
                   data-bs-target="#so_table_of_contents"
                   aria-controls="so_table_of_contents"
                   aria-label="{% translate 'Table of contents' %}">
-            <i class="bi bi-list-task h3 m-0 text-dark align-self-center"
-               aria-hidden="true"
+            <i class="custom-icon-clipboard h3 align-self-center"
                data-bs-placement="top"
                data-bs-toggle="tooltip"
                title="{% translate 'Table of contents' %}">

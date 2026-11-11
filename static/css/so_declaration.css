@@ -246,8 +246,7 @@
     border-radius: 0.5rem;
 }
 
-.so-nav-domain-toggle:hover,
-.so-nav-domain-toggle:focus-visible {
+.so-nav-domain-toggle:hover {
     border-color: var(--bs-dark);
 }
 
