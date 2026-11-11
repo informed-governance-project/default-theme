@@ -1,7 +1,7 @@
 {# djlint:off #}
 <button id="{% if is_regulator %}reg{% else %}op{% endif %}_{{ security_objective.pk }}"
         type="button"
-        class="btn btn-sm p-0 rounded-circle slide-selector-container so-nav-bullet text-white fw-bold small shadow-sm btn-{{ security_objective.nav_symbol }}"
+        class="btn btn-sm p-0 rounded-circle slide-selector-container so-nav-bullet fw-bold small shadow-sm btn-{{ security_objective.nav_symbol }}"
         data-bs-target="#security_objectives_carousel"
         data-bs-slide-to="{{ security_objective.nav_index }}">
   {{ security_objective.nav_number }}

@@ -210,7 +210,7 @@
                    aria-label="{{ domain.code }}, {{ domain.label }}"
                    data-domain-code="{{ domain.code }}"
                    data-domain-label="{{ domain.label }}"
-                   data-domain-range="{% blocktranslate with first=domain.first_number last=domain.last_number %}Objectives {{ first }} to {{ last }}{% endblocktranslate %}">
+                   data-domain-range="{% blocktranslate with first=domain.first_number last=domain.last_number count total=domain.objectives|length %}{{ total }} Objective · {{ first }} to {{ last }}{% plural %}{{ total }} Objectives · {{ first }} to {{ last }}{% endblocktranslate %}">
                 <button type="button"
                         class="btn btn-sm flex-column align-items-center gap-1 fw-bold so-nav-domain-toggle">
                   {{ domain.code }}
@@ -380,7 +380,7 @@
               <div class="d-flex align-items-center">
                 <div class="me-auto">
                   {% if navigation.is_grouped %}
-                    <p class="small text-muted mb-1 so-domain-line">
+                    <p class="d-inline-block small mb-1 border border-dark rounded px-2 py-1 so-domain-line">
                       <span class="fw-bold">{{ security_objective.nav_domain.code }}</span>
                       · <span class="fw-bold">{{ security_objective.nav_domain.label }}</span>
                       · {% blocktranslate with position=security_objective.nav_position_in_domain total=security_objective.nav_domain.objectives|length %}Objective {{ position }} of {{ total }} in this domain{% endblocktranslate %}
