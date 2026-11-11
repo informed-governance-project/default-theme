@@ -26,6 +26,10 @@ $(document).ready(function () {
       range: element.querySelector(".so-nav-page-range"),
     };
   });
+  const menu = document.getElementById("so_nav_domain_menu");
+  const menuItems = menu ? Array.from(menu.querySelectorAll(".so-nav-menu-item")) : [];
+  // Below Bootstrap's xl breakpoint the bar holds the current domain only, and the menu picks the others.
+  const compactQuery = window.matchMedia("(max-width: 1199.98px)");
   const toc = document.getElementById("so_table_of_contents");
   const tocDomains = Array.from(toc.querySelectorAll(".so-toc-domain"));
   const tocObjectives = Array.from(toc.querySelectorAll(".so-toc-objective"));
@@ -138,6 +142,7 @@ $(document).ready(function () {
 
       const domain = domains[position];
       if (domain) {
+        domain.symbol = symbol;
         domain.element.querySelectorAll(".so-nav-domain-toggle .so-nav-symbol, .so-nav-domain-code .so-nav-symbol").forEach(function (element) {
           setSymbol(element, symbol);
         });
@@ -148,9 +153,47 @@ $(document).ready(function () {
           total: domainSymbols.length,
         }, true));
       }
+      const item = menuItems[position];
+      if (item) {
+        setSymbol(item.querySelector(".so-nav-symbol"), symbol);
+        item.querySelector(".so-nav-menu-progress").textContent = done + "/" + domainSymbols.length;
+        item.setAttribute("aria-label", domain.toggle.getAttribute("aria-label"));
+      }
     });
 
     document.getElementById("so_toc_totals").replaceChildren(...countsList(symbols).children);
+    updateMenu();
+  }
+
+  function updateMenu() {
+    if (!menu) {
+      return;
+    }
+    const active = domainOf(activeIndex);
+    menuItems.forEach(function (item, position) {
+      if (domains[position] === active) {
+        item.setAttribute("aria-current", "true");
+      } else {
+        item.removeAttribute("aria-current");
+      }
+    });
+    const toggle = menu.querySelector(".dropdown-toggle");
+    toggle.querySelector(".so-nav-menu-code").textContent = active.element.dataset.domainCode;
+    toggle.querySelector(".so-nav-menu-label").textContent = active.element.dataset.domainLabel;
+    setSymbol(toggle.querySelector(".so-nav-symbol"), active.symbol);
+    toggle.setAttribute("aria-label", active.toggle.getAttribute("aria-label"));
+  }
+
+  // Opens the domain on its first objective still to fill or review.
+  function openDomain(domain) {
+    const target = domain.bullets.find(function (bullet) { return isOpen(symbolOf(bullet)); }) || domain.bullets[0];
+    const index = slideIndex(target);
+    if (index === activeIndex) {
+      bullets[index].focus();
+      return;
+    }
+    focusActiveBullet = true;
+    carousel.to(index);
   }
 
   function markActive() {
@@ -220,13 +263,16 @@ $(document).ready(function () {
     });
     nav.style.removeProperty("--so-nav-domain-padding");
     setMode(false, false);
-    if (fits()) {
-      spreadDomains();
-    } else {
-      setMode(true, false);
+    const compact = compactQuery.matches;
+    if (!compact) {
+      if (fits()) {
+        spreadDomains();
+      } else {
+        setMode(true, false);
+      }
     }
     if (!fits()) {
-      setMode(true, true);
+      setMode(!compact, true);
       let fitting = Math.max(active.bullets.length - 1, 1);
       for (;;) {
         pageSize = fitting;
@@ -285,6 +331,7 @@ $(document).ready(function () {
   carouselEl.addEventListener("slide.bs.carousel", function (event) {
     activeIndex = event.to;
     markActive();
+    updateMenu();
     layout();
     if (focusActiveBullet) {
       focusActiveBullet = false;
@@ -301,9 +348,7 @@ $(document).ready(function () {
 
     domain.toggle.addEventListener("click", function () {
       bootstrap.Tooltip.getInstance(domain.toggle).hide();
-      const target = domain.bullets.find(function (bullet) { return isOpen(symbolOf(bullet)); }) || domain.bullets[0];
-      focusActiveBullet = true;
-      carousel.to(slideIndex(target));
+      openDomain(domain);
     });
 
     domain.prev.addEventListener("click", function () {
@@ -379,7 +424,14 @@ $(document).ready(function () {
     });
   });
 
+  menuItems.forEach(function (item, position) {
+    item.addEventListener("click", function () {
+      openDomain(domains[position]);
+    });
+  });
+
   $(document).on("so:objective-updated", refresh);
+  compactQuery.addEventListener("change", layout);
 
   new ResizeObserver(function (entries) {
     const width = entries[0].contentRect.width;
