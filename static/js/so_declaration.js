@@ -189,6 +189,11 @@ $(document).ready(function () {
       body: new FormData(this),
     })
       .then(response => {
+        // 409: the operator submitted a newer version; the reload shows it.
+        if (response.status === 409) {
+          window.location.reload();
+          return;
+        }
         if (response.ok) {
           let modalEl = $("#review_comment_so_declaration");
           let modalObj = bootstrap.Modal.getInstance(modalEl);
@@ -259,6 +264,11 @@ function update_so_declaration(form) {
       body: data
     })
       .then((response) => {
+        // 409: the operator submitted a newer version; the reload shows it.
+        if (response.status === 409) {
+          window.location.reload();
+          return;
+        }
         response.json()
           .then(data => {
             if (data.success == "false") return
