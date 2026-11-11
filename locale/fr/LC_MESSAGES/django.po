@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 10:36+0100\n"
-"PO-Revision-Date: 2026-11-10 14:48+0000\n"
-"Last-Translator: Edgar Dugourd <Edgar.Dugourd@ilr.lu>\n"
+"POT-Creation-Date: 2026-11-11 09:22+0100\n"
+"PO-Revision-Date: 2026-09-16 12:29+0000\n"
+"Last-Translator: Edgar Dugourd <Edd@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.10.1\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #: theme/templates/account/edit.html:8
 msgid "Account management"
@@ -59,8 +59,6 @@ msgid ""
 "Resetting the accepted terms will require every user to accept the terms of "
 "service again at their next login."
 msgstr ""
-"La réinitialisation de l'acceptation des conditions d'utilisation obligera "
-"chaque utilisateur à les accepter à nouveau lors de sa prochaine connexion."
 
 #: theme/templates/admin/custom_change_user_list.html:13
 msgid "Reset accepted terms"
@@ -71,8 +69,6 @@ msgid ""
 "Resetting the accepted cookies will show the cookie banner again to every "
 "user."
 msgstr ""
-"La réinitialisation des cookies entraînera l'affichage de la bannière "
-"relative aux cookies pour tous les utilisateurs."
 
 #: theme/templates/admin/custom_change_user_list.html:24
 msgid "Reset accepted cookies"
@@ -158,7 +154,8 @@ msgstr "Remplacé par"
 #: theme/templates/reporting/add_recommendations.html:65
 #: theme/templates/reporting/dashboard.html:254
 #: theme/templates/reporting/project_dashboard.html:359
-#: theme/templates/security_objectives/declaration.html:184
+#: theme/templates/security_objectives/declaration.html:196
+#: theme/templates/security_objectives/declaration.html:584
 #: theme/templates/security_objectives/so_dashboard_base.html:342
 msgid "Close"
 msgstr "Fermer"
@@ -248,16 +245,12 @@ msgid ""
 "We would like to inform you that a new security objective mass export "
 "related to the regulation %(regulation)s has been completed."
 msgstr ""
-"Nous souhaitons vous informer qu'une exportation en masse des objectifs de "
-"sécurité liés à la réglementation %(regulation)s a été effectuée."
 
 #: theme/templates/emails/security_objective_mass_export.html:13
 msgid ""
 "This message carries no exported data. The parameters used and the number of "
 "rows returned are recorded in the logs."
 msgstr ""
-"Ce message ne contient aucune donnée exportée. Les paramètres utilisés et le "
-"nombre de lignes renvoyées sont consignés dans les logs."
 
 #: theme/templates/emails/security_objective_mass_export.html:29
 #: theme/templates/reporting/project_dashboard.html:108
@@ -279,8 +272,8 @@ msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
 "has been created on SERIMA and it may be part of your organization."
 msgstr ""
-"Nous avons constaté que le compte utilisateur %(new_user_name)s (%"
-"(new_user_email)s) a été créé sur SERIMA et il pourrait faire partie de "
+"Nous avons constaté que le compte utilisateur %(new_user_name)s "
+"(%(new_user_email)s) a été créé sur SERIMA et il pourrait faire partie de "
 "votre organisation."
 
 #: theme/templates/emails/suggestion_link_user_account.html:19
@@ -299,8 +292,8 @@ msgid ""
 "organization."
 msgstr ""
 "Dans le cadre de nos efforts pour améliorer la qualité des données et "
-"rationaliser la gestion des comptes, nous (%(regulator)s) suggérons de lier %"
-"(new_user_name)s à votre organisation."
+"rationaliser la gestion des comptes, nous (%(regulator)s) suggérons de lier "
+"%(new_user_name)s à votre organisation."
 
 #: theme/templates/emails/suggestion_link_user_account.html:30
 msgid ""
@@ -375,7 +368,7 @@ msgstr ""
 #: theme/templates/modals/review_comment_report.html:31
 #: theme/templates/modals/review_comment_so_declaration.html:42
 #: theme/templates/regulator/so_dashboard.html:19
-#: theme/templates/security_objectives/declaration.html:162
+#: theme/templates/security_objectives/declaration.html:174
 msgid "Send"
 msgstr "Envoyer"
 
@@ -575,7 +568,8 @@ msgstr "ILR : 17, rue du Fossé, L-1536 Luxembourg ; Tél. : (+352) 28 228 228"
 
 #: theme/templates/home/privacy_policy.html:60
 msgid "CSSF: 283 Rte d'Arlon, 2991 Belair Luxembourg; Tel.: (+352) 26 25 11"
-msgstr "CSSF : 283 Rte d'Arlon, 2991 Belair Luxembourg ; Tél. : (+352) 26 25 11"
+msgstr ""
+"CSSF : 283 Rte d'Arlon, 2991 Belair Luxembourg ; Tél. : (+352) 26 25 11"
 
 #: theme/templates/home/privacy_policy.html:65
 msgid ""
@@ -635,8 +629,8 @@ msgid ""
 "measures to the Regulators."
 msgstr ""
 "Les données à caractère personnel sont traitées en conformité avec le <a "
-"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/"
-"?uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
+"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/?"
+"uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
 "a>. Les données de l’Utilisateur ne sont enregistrées et traitées par le "
 "Régulateur concerné qu'aux seules fins de la gestion des procédures qui "
 "relèvent de ce dernier. Le traitement de données est effectué dans le cadre "
@@ -880,8 +874,8 @@ msgid ""
 "href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
 msgstr ""
 "En ce qui concerne la CSSF, les personnes concernées peuvent faire valoir "
-"leurs droits en contactant le délégué à la protection des données de la CSSF "
-": <a href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
+"leurs droits en contactant le délégué à la protection des données de la "
+"CSSF : <a href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:265
 msgid ""
@@ -890,8 +884,8 @@ msgid ""
 "href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
 msgstr ""
 "En ce qui concerne l’HCPN, les personnes concernées peuvent faire valoir "
-"leurs droits en contactant le délégué à la protection des données de l’HCPN "
-": <a href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
+"leurs droits en contactant le délégué à la protection des données de "
+"l’HCPN : <a href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:271
 msgid ""
@@ -900,8 +894,8 @@ msgid ""
 "href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
 msgstr ""
 "En ce qui concerne la CNPD, les personnes concernées peuvent faire valoir "
-"leurs droits en contactant le délégué à la protection des données de la CNPD "
-": <a href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
+"leurs droits en contactant le délégué à la protection des données de la "
+"CNPD : <a href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:279
 msgid "Complaints"
@@ -1156,7 +1150,8 @@ msgstr "« ILR » : signifie l’Institut Luxembourgeois de Régulation."
 
 #: theme/templates/home/terms.html:175
 msgid "\"CSSF\": means the Commission de Surveillance du Secteur Financier."
-msgstr "« CSSF » : signifie la Commission de Surveillance du Secteur Financier."
+msgstr ""
+"« CSSF » : signifie la Commission de Surveillance du Secteur Financier."
 
 #: theme/templates/home/terms.html:180
 msgid ""
@@ -1707,10 +1702,10 @@ msgid ""
 msgstr ""
 "En cas d’indisponibilité de SERIMA ou de tout dysfonctionnement, "
 "l’Utilisateur peut s’adresser à l’ILR par le biais des adresses "
-"électroniques dédiées : <a href=\"mailto:incident_notification@ilr.lu\">"
-"incident_notification@ilr.lu</a> pour tout élément en lien avec le Module de "
-"notification d’incidents et <a href=\"mailto:serima@ilr.lu\">serima@ilr.lu</"
-"a> pour tout autre Module."
+"électroniques dédiées : <a "
+"href=\"mailto:incident_notification@ilr.lu\">incident_notification@ilr.lu</"
+"a> pour tout élément en lien avec le Module de notification d’incidents et "
+"<a href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a> pour tout autre Module."
 
 #: theme/templates/home/terms.html:574
 msgid ""
@@ -1808,8 +1803,8 @@ msgid ""
 "rel=\"noopener noreferrer\">GDPR</a>."
 msgstr ""
 "Les données à caractère personnel sont traitées en conformité avec le <a "
-"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/"
-"?uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
+"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/?"
+"uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
 "a>."
 
 #: theme/templates/home/terms.html:651
@@ -1986,7 +1981,7 @@ msgstr "Date de création"
 #: theme/templates/incidents/declaration.html:49
 #: theme/templates/incidents/incidents_base.html:126
 #: theme/templates/report/security_objectives/cover.html:53
-#: theme/templates/security_objectives/declaration.html:28
+#: theme/templates/security_objectives/declaration.html:40
 #: theme/templates/security_objectives/so_dashboard_base.html:83
 msgid "Last update"
 msgstr "Dernière mise à jour"
@@ -2003,7 +1998,7 @@ msgstr "Contacts"
 
 #: theme/templates/incidents/declaration.html:77
 #: theme/templates/reporting/project_dashboard.html:98
-#: theme/templates/security_objectives/declaration.html:48
+#: theme/templates/security_objectives/declaration.html:60
 #: theme/templates/security_objectives/so_dashboard_base.html:100
 msgid "Company"
 msgstr "Entreprise"
@@ -2024,7 +2019,7 @@ msgstr "Précédent"
 
 #: theme/templates/incidents/declaration.html:304
 #: theme/templates/operator/so_dashboard.html:21
-#: theme/templates/security_objectives/declaration.html:176
+#: theme/templates/security_objectives/declaration.html:188
 msgid "Submit"
 msgstr "Soumettre"
 
@@ -2033,8 +2028,8 @@ msgid "Next"
 msgstr "Suivant"
 
 #: theme/templates/incidents/declaration.html:327
-#: theme/templates/security_objectives/declaration.html:467
-#: theme/templates/security_objectives/declaration.html:533
+#: theme/templates/security_objectives/declaration.html:480
+#: theme/templates/security_objectives/declaration.html:546
 msgid "View previous version"
 msgstr "Afficher la version précédente"
 
@@ -2079,13 +2074,13 @@ msgstr "Actif"
 #: theme/templates/incidents/incidents_base.html:58
 #: theme/templates/reporting/dashboard.html:54
 #: theme/templates/reporting/project_dashboard.html:84
-#: theme/templates/security_objectives/declaration.html:286
+#: theme/templates/security_objectives/declaration.html:292
 #: theme/templates/security_objectives/so_dashboard_base.html:55
 msgid "Icon Guide"
 msgstr "Guide des icônes"
 
 #: theme/templates/incidents/incidents_base.html:66
-#: theme/templates/security_objectives/declaration.html:297
+#: theme/templates/security_objectives/declaration.html:303
 #: theme/templates/security_objectives/so_dashboard_base.html:64
 msgid "Legend"
 msgstr "Légende"
@@ -2128,7 +2123,7 @@ msgstr "Soumission tardive"
 #: theme/templates/incidents/incidents_base.html:102
 #: theme/templates/operator/so_dashboard.html:145
 #: theme/templates/regulator/so_dashboard.html:135
-#: theme/templates/security_objectives/declaration.html:335
+#: theme/templates/security_objectives/declaration.html:341
 msgid "Revision required"
 msgstr "Améliorations requises"
 
@@ -2476,7 +2471,7 @@ msgstr "Exporter les incidents"
 
 #: theme/templates/modals/export_security_objectives.html:12
 msgid "Export security objectives"
-msgstr "Exporter les objectifs de sécurité"
+msgstr ""
 
 #: theme/templates/modals/import_so_declaration.html:11
 msgid "Import Security Objectives Statement"
@@ -2508,7 +2503,7 @@ msgstr "Version précédente"
 #: theme/templates/operator/so_dashboard.html:78
 #: theme/templates/regulator/so_dashboard.html:68
 #: theme/templates/regulator/so_dashboard.html:79
-#: theme/templates/security_objectives/declaration.html:110
+#: theme/templates/security_objectives/declaration.html:122
 msgid "Review comment"
 msgstr "Commentaire de revue"
 
@@ -2525,13 +2520,13 @@ msgid "Import risk analysis"
 msgstr "Importer l'analyse de risques"
 
 #: theme/templates/modals/so_contacts.html:8
-#: theme/templates/security_objectives/declaration.html:45
+#: theme/templates/security_objectives/declaration.html:57
 msgid "Profile"
 msgstr "Profil"
 
 #: theme/templates/modals/so_versions.html:21
 #: theme/templates/report/security_objectives/cover.html:59
-#: theme/templates/security_objectives/declaration.html:20
+#: theme/templates/security_objectives/declaration.html:32
 #: theme/templates/security_objectives/so_dashboard_base.html:86
 msgid "Submission date"
 msgstr "Date de soumission"
@@ -2539,7 +2534,6 @@ msgstr "Date de soumission"
 #: theme/templates/modals/update_so_declaration.html:7
 msgid "View or update security objectives statement"
 msgstr ""
-"Consulter ou mettre à jour la déclaration relative aux objectifs de sécurité"
 
 #: theme/templates/modals/update_so_declaration.html:17
 msgid "What do you want to do ?"
@@ -2547,7 +2541,7 @@ msgstr "Que voulez-vous faire ?"
 
 #: theme/templates/modals/update_so_declaration.html:25
 msgid "View"
-msgstr "Consulter"
+msgstr ""
 
 #: theme/templates/modals/update_so_declaration.html:31
 msgid "Update"
@@ -2772,7 +2766,8 @@ msgstr "Réinitialisation du mot de passe terminée"
 
 #: theme/templates/registration/password_reset_complete.html:15
 msgid "Your password has been set. You may log in now."
-msgstr "Votre mot de passe a été défini. Vous pouvez maintenant vous connecter."
+msgstr ""
+"Votre mot de passe a été défini. Vous pouvez maintenant vous connecter."
 
 #: theme/templates/registration/password_reset_complete.html:18
 msgid "Log in"
@@ -2898,6 +2893,9 @@ msgstr "Améliorations requises et envoyé"
 
 #: theme/templates/report/base/toc.html:3
 #: theme/templates/report/security_objectives/toc.html:3
+#: theme/templates/security_objectives/declaration.html:273
+#: theme/templates/security_objectives/declaration.html:278
+#: theme/templates/security_objectives/declaration.html:573
 msgid "Table of contents"
 msgstr "Sommaire"
 
@@ -2990,7 +2988,7 @@ msgid "Identifier"
 msgstr "Identifiant"
 
 #: theme/templates/report/security_objectives/cover.html:35
-#: theme/templates/security_objectives/declaration.html:52
+#: theme/templates/security_objectives/declaration.html:64
 #: theme/templates/security_objectives/so_dashboard_base.html:92
 msgid "Evaluation Framework"
 msgstr "Cadre d'évaluation"
@@ -3008,25 +3006,25 @@ msgstr "Année"
 #: theme/templates/report/security_objectives/cover.html:65
 #: theme/templates/security_objectives/so_dashboard_base.html:117
 msgid "Progress"
-msgstr "Progrès"
+msgstr "Progression"
 
 #: theme/templates/report/security_objectives/declaration.html:37
-#: theme/templates/security_objectives/declaration.html:319
+#: theme/templates/security_objectives/declaration.html:325
 msgid "Not reviewed"
 msgstr "Non revu"
 
 #: theme/templates/report/security_objectives/declaration.html:61
-#: theme/templates/security_objectives/declaration.html:409
+#: theme/templates/security_objectives/declaration.html:422
 msgid "Table of"
 msgstr "Table de"
 
 #: theme/templates/report/security_objectives/declaration.html:152
-#: theme/templates/security_objectives/declaration.html:514
+#: theme/templates/security_objectives/declaration.html:527
 msgid "No security measures data available."
 msgstr "Aucune mesure de sécurité disponible."
 
 #: theme/templates/report/security_objectives/declaration.html:177
-#: theme/templates/security_objectives/declaration.html:545
+#: theme/templates/security_objectives/declaration.html:558
 msgid "No security objectives data available."
 msgstr "Aucun objectif de sécurité disponible."
 
@@ -3147,23 +3145,79 @@ msgstr "Copie de l'année précédente"
 
 #: theme/templates/security_objectives/base.html:48
 msgid "New assessment"
-msgstr "Nouvelle évaluation"
+msgstr ""
 
-#: theme/templates/security_objectives/declaration.html:305
+#: theme/templates/security_objectives/declaration.html:21
+#, python-format
+msgid ""
+"The operator submitted a newer version of this declaration on "
+"%(submit_date)s. This version can no longer be reviewed."
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:23
+msgid "Open the newer version"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:204
+msgid "Security objectives"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:213
+#, python-format
+msgid "Objectives %(first)s to %(last)s"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:230
+msgid "Previous objectives"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:238
+msgid "Next objectives"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:311
 msgid "Not filled"
-msgstr "Non renseigné"
+msgstr ""
 
-#: theme/templates/security_objectives/declaration.html:312
+#: theme/templates/security_objectives/declaration.html:318
 msgid "Partially filled"
-msgstr "Partiellement rempli"
+msgstr ""
 
-#: theme/templates/security_objectives/declaration.html:326
+#: theme/templates/security_objectives/declaration.html:332
 msgid "Fully filled"
-msgstr "Entièrement rempli"
+msgstr ""
 
-#: theme/templates/security_objectives/declaration.html:328
+#: theme/templates/security_objectives/declaration.html:334
 msgid "Review passed"
-msgstr "Revue réussie"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:386
+#, python-format
+msgid "Objective %(position)s of %(total)s in this domain"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:577
+#, python-format
+msgid "%(counter)s objective"
+msgid_plural "%(counter)s objectives"
+msgstr[0] ""
+msgstr[1] ""
+
+#: theme/templates/security_objectives/declaration.html:578
+#, python-format
+msgid "%(counter)s domain"
+msgid_plural "%(counter)s domains"
+msgstr[0] ""
+msgstr[1] ""
+
+#: theme/templates/security_objectives/declaration.html:595
+#: theme/templates/security_objectives/declaration.html:597
+msgid "Expand all"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:596
+msgid "Collapse all"
+msgstr ""
 
 #: theme/templates/security_objectives/so_dashboard_base.html:35
 msgid "Filter by status, sector, etc."
@@ -3179,7 +3233,7 @@ msgstr "Créateur"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:285
 msgid "No security objectives statements have been created yet."
-msgstr "Aucune déclaration des objectifs de sécurité n'a encore été rédigée."
+msgstr ""
 
 #: theme/templates/two_factor/core/setup_complete.html:6
 msgid "Enable Two-Factor Authentication"

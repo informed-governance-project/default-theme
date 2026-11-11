@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 10:36+0100\n"
-"PO-Revision-Date: 2026-11-11 07:49+0000\n"
+"POT-Creation-Date: 2026-11-11 09:22+0100\n"
+"PO-Revision-Date: 2026-09-16 12:29+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -21,7 +21,8 @@ msgstr "Kontoverwaltung"
 #: theme/templates/incidents/declaration.html:126
 #: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
-msgstr "Die mit einem Sternchen (*) gekennzeichneten Felder sind Pflichtfelder."
+msgstr ""
+"Die mit einem Sternchen (*) gekennzeichneten Felder sind Pflichtfelder."
 
 #: theme/templates/account/edit.html:21
 msgid "Save changes"
@@ -47,7 +48,7 @@ msgstr "Zurück zur Benutzeroberfläche"
 #: theme/templates/parts/header.html:104
 #: theme/templates/registration/base.html:44
 msgid "Log out"
-msgstr "Abmelden"
+msgstr "Abmeldung"
 
 #: theme/templates/admin/custom_change_user_form.html:12
 #, python-format
@@ -59,9 +60,6 @@ msgid ""
 "Resetting the accepted terms will require every user to accept the terms of "
 "service again at their next login."
 msgstr ""
-"Durch das Zurücksetzen der akzeptierten Nutzungsbedingungen müssen alle "
-"Nutzer die Nutzungsbedingungen bei ihrer nächsten Anmeldung erneut "
-"akzeptieren."
 
 #: theme/templates/admin/custom_change_user_list.html:13
 msgid "Reset accepted terms"
@@ -72,8 +70,6 @@ msgid ""
 "Resetting the accepted cookies will show the cookie banner again to every "
 "user."
 msgstr ""
-"Durch das Zurücksetzen der akzeptierten Cookies wird das Cookie-Banner für "
-"alle Nutzer erneut angezeigt."
 
 #: theme/templates/admin/custom_change_user_list.html:24
 msgid "Reset accepted cookies"
@@ -159,7 +155,8 @@ msgstr "Ersetzt durch"
 #: theme/templates/reporting/add_recommendations.html:65
 #: theme/templates/reporting/dashboard.html:254
 #: theme/templates/reporting/project_dashboard.html:359
-#: theme/templates/security_objectives/declaration.html:184
+#: theme/templates/security_objectives/declaration.html:196
+#: theme/templates/security_objectives/declaration.html:584
 #: theme/templates/security_objectives/so_dashboard_base.html:342
 msgid "Close"
 msgstr "Schließen"
@@ -250,17 +247,12 @@ msgid ""
 "We would like to inform you that a new security objective mass export "
 "related to the regulation %(regulation)s has been completed."
 msgstr ""
-"Wir möchten Sie darüber informieren, dass ein neuer Massenexport von "
-"Sicherheitszielen im Zusammenhang mit der Verordnung %(regulation)s "
-"abgeschlossen wurde."
 
 #: theme/templates/emails/security_objective_mass_export.html:13
 msgid ""
 "This message carries no exported data. The parameters used and the number of "
 "rows returned are recorded in the logs."
 msgstr ""
-"Diese Meldung enthält keine exportierten Daten. Die verwendeten Parameter "
-"und die Anzahl der zurückgegebenen Zeilen werden in den Logs festgehalten."
 
 #: theme/templates/emails/security_objective_mass_export.html:29
 #: theme/templates/reporting/project_dashboard.html:108
@@ -282,8 +274,8 @@ msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
 "has been created on SERIMA and it may be part of your organization."
 msgstr ""
-"Wir haben festgestellt, dass das Benutzerkonto %(new_user_name)s (%"
-"(new_user_email)s) auf SERIMA erstellt wurde und möglicherweise Teil Ihrer "
+"Wir haben festgestellt, dass das Benutzerkonto %(new_user_name)s "
+"(%(new_user_email)s) auf SERIMA erstellt wurde und möglicherweise Teil Ihrer "
 "Organisation ist."
 
 #: theme/templates/emails/suggestion_link_user_account.html:19
@@ -302,8 +294,8 @@ msgid ""
 "organization."
 msgstr ""
 "Im Rahmen unserer Bemühungen, die Datenqualität zu verbessern und das "
-"Kontomanagement zu optimieren, schlagen wir (%(regulator)s) vor, %"
-"(new_user_name)s mit Ihrer Organisation zu verknüpfen."
+"Kontomanagement zu optimieren, schlagen wir (%(regulator)s) vor, "
+"%(new_user_name)s mit Ihrer Organisation zu verknüpfen."
 
 #: theme/templates/emails/suggestion_link_user_account.html:30
 msgid ""
@@ -378,7 +370,7 @@ msgstr ""
 #: theme/templates/modals/review_comment_report.html:31
 #: theme/templates/modals/review_comment_so_declaration.html:42
 #: theme/templates/regulator/so_dashboard.html:19
-#: theme/templates/security_objectives/declaration.html:162
+#: theme/templates/security_objectives/declaration.html:174
 msgid "Send"
 msgstr "Senden"
 
@@ -418,9 +410,9 @@ msgid ""
 "a></sup> browser and stored on the hard drive of their device (e.g. PC, "
 "laptop or mobile phone) when they visit a website or online platform."
 msgstr ""
-"A client cookie is a text file sent to the User's <sup><a href=\"#fn1\">1</a>"
-"</sup> browser and stored on the hard drive of their device (e.g. PC, laptop "
-"or mobile phone) when they visit a website or online platform."
+"A client cookie is a text file sent to the User's <sup><a href=\"#fn1\">1</"
+"a></sup> browser and stored on the hard drive of their device (e.g. PC, "
+"laptop or mobile phone) when they visit a website or online platform."
 
 #: theme/templates/home/cookies_policy.html:31
 msgid ""
@@ -1942,7 +1934,7 @@ msgstr "Erstelldatum"
 #: theme/templates/incidents/declaration.html:49
 #: theme/templates/incidents/incidents_base.html:126
 #: theme/templates/report/security_objectives/cover.html:53
-#: theme/templates/security_objectives/declaration.html:28
+#: theme/templates/security_objectives/declaration.html:40
 #: theme/templates/security_objectives/so_dashboard_base.html:83
 msgid "Last update"
 msgstr "Letzte Aktualisierung"
@@ -1959,7 +1951,7 @@ msgstr "Kontakte"
 
 #: theme/templates/incidents/declaration.html:77
 #: theme/templates/reporting/project_dashboard.html:98
-#: theme/templates/security_objectives/declaration.html:48
+#: theme/templates/security_objectives/declaration.html:60
 #: theme/templates/security_objectives/so_dashboard_base.html:100
 msgid "Company"
 msgstr "Unternehmen"
@@ -1980,7 +1972,7 @@ msgstr "Zurück"
 
 #: theme/templates/incidents/declaration.html:304
 #: theme/templates/operator/so_dashboard.html:21
-#: theme/templates/security_objectives/declaration.html:176
+#: theme/templates/security_objectives/declaration.html:188
 msgid "Submit"
 msgstr "Einreichen"
 
@@ -1989,8 +1981,8 @@ msgid "Next"
 msgstr "Weiter"
 
 #: theme/templates/incidents/declaration.html:327
-#: theme/templates/security_objectives/declaration.html:467
-#: theme/templates/security_objectives/declaration.html:533
+#: theme/templates/security_objectives/declaration.html:480
+#: theme/templates/security_objectives/declaration.html:546
 msgid "View previous version"
 msgstr "Vorherige Version anzeigen"
 
@@ -2035,13 +2027,13 @@ msgstr "Aktiv"
 #: theme/templates/incidents/incidents_base.html:58
 #: theme/templates/reporting/dashboard.html:54
 #: theme/templates/reporting/project_dashboard.html:84
-#: theme/templates/security_objectives/declaration.html:286
+#: theme/templates/security_objectives/declaration.html:292
 #: theme/templates/security_objectives/so_dashboard_base.html:55
 msgid "Icon Guide"
 msgstr "Icon Beschreibung"
 
 #: theme/templates/incidents/incidents_base.html:66
-#: theme/templates/security_objectives/declaration.html:297
+#: theme/templates/security_objectives/declaration.html:303
 #: theme/templates/security_objectives/so_dashboard_base.html:64
 msgid "Legend"
 msgstr "Legende"
@@ -2084,7 +2076,7 @@ msgstr "Verspätete Einreichung"
 #: theme/templates/incidents/incidents_base.html:102
 #: theme/templates/operator/so_dashboard.html:145
 #: theme/templates/regulator/so_dashboard.html:135
-#: theme/templates/security_objectives/declaration.html:335
+#: theme/templates/security_objectives/declaration.html:341
 msgid "Revision required"
 msgstr "Überarbeitung erforderlich"
 
@@ -2430,7 +2422,7 @@ msgstr "Vorfälle exportieren"
 
 #: theme/templates/modals/export_security_objectives.html:12
 msgid "Export security objectives"
-msgstr "Sicherheitsziele exportieren"
+msgstr ""
 
 #: theme/templates/modals/import_so_declaration.html:11
 msgid "Import Security Objectives Statement"
@@ -2462,7 +2454,7 @@ msgstr "Vorherige Version"
 #: theme/templates/operator/so_dashboard.html:78
 #: theme/templates/regulator/so_dashboard.html:68
 #: theme/templates/regulator/so_dashboard.html:79
-#: theme/templates/security_objectives/declaration.html:110
+#: theme/templates/security_objectives/declaration.html:122
 msgid "Review comment"
 msgstr "Review Kommentar"
 
@@ -2479,20 +2471,20 @@ msgid "Import risk analysis"
 msgstr "Risikoanalyse importieren"
 
 #: theme/templates/modals/so_contacts.html:8
-#: theme/templates/security_objectives/declaration.html:45
+#: theme/templates/security_objectives/declaration.html:57
 msgid "Profile"
 msgstr "Profil"
 
 #: theme/templates/modals/so_versions.html:21
 #: theme/templates/report/security_objectives/cover.html:59
-#: theme/templates/security_objectives/declaration.html:20
+#: theme/templates/security_objectives/declaration.html:32
 #: theme/templates/security_objectives/so_dashboard_base.html:86
 msgid "Submission date"
 msgstr "Einreichungsdatum"
 
 #: theme/templates/modals/update_so_declaration.html:7
 msgid "View or update security objectives statement"
-msgstr "Sicherheitsziele anzeigen oder aktualisieren"
+msgstr ""
 
 #: theme/templates/modals/update_so_declaration.html:17
 msgid "What do you want to do ?"
@@ -2500,7 +2492,7 @@ msgstr "Was möchten Sie tun?"
 
 #: theme/templates/modals/update_so_declaration.html:25
 msgid "View"
-msgstr "Anzeigen"
+msgstr ""
 
 #: theme/templates/modals/update_so_declaration.html:31
 msgid "Update"
@@ -2852,6 +2844,9 @@ msgstr "Korrektur erforderlich und gesendet"
 
 #: theme/templates/report/base/toc.html:3
 #: theme/templates/report/security_objectives/toc.html:3
+#: theme/templates/security_objectives/declaration.html:273
+#: theme/templates/security_objectives/declaration.html:278
+#: theme/templates/security_objectives/declaration.html:573
 msgid "Table of contents"
 msgstr "Inhaltsverzeichnis"
 
@@ -2944,7 +2939,7 @@ msgid "Identifier"
 msgstr "Kennung"
 
 #: theme/templates/report/security_objectives/cover.html:35
-#: theme/templates/security_objectives/declaration.html:52
+#: theme/templates/security_objectives/declaration.html:64
 #: theme/templates/security_objectives/so_dashboard_base.html:92
 msgid "Evaluation Framework"
 msgstr "Bewertungsrahmen"
@@ -2965,22 +2960,22 @@ msgid "Progress"
 msgstr "Fortschritt"
 
 #: theme/templates/report/security_objectives/declaration.html:37
-#: theme/templates/security_objectives/declaration.html:319
+#: theme/templates/security_objectives/declaration.html:325
 msgid "Not reviewed"
 msgstr "Nicht überprüft"
 
 #: theme/templates/report/security_objectives/declaration.html:61
-#: theme/templates/security_objectives/declaration.html:409
+#: theme/templates/security_objectives/declaration.html:422
 msgid "Table of"
 msgstr "Tabelle von"
 
 #: theme/templates/report/security_objectives/declaration.html:152
-#: theme/templates/security_objectives/declaration.html:514
+#: theme/templates/security_objectives/declaration.html:527
 msgid "No security measures data available."
 msgstr "Keine Daten zu Sicherheitsmaßnahmen verfügbar."
 
 #: theme/templates/report/security_objectives/declaration.html:177
-#: theme/templates/security_objectives/declaration.html:545
+#: theme/templates/security_objectives/declaration.html:558
 msgid "No security objectives data available."
 msgstr "Keine Daten zu Sicherheitszielen verfügbar."
 
@@ -3101,23 +3096,79 @@ msgstr "Kopie vom letzten Jahr"
 
 #: theme/templates/security_objectives/base.html:48
 msgid "New assessment"
-msgstr "Neue Bewertung"
+msgstr ""
 
-#: theme/templates/security_objectives/declaration.html:305
+#: theme/templates/security_objectives/declaration.html:21
+#, python-format
+msgid ""
+"The operator submitted a newer version of this declaration on "
+"%(submit_date)s. This version can no longer be reviewed."
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:23
+msgid "Open the newer version"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:204
+msgid "Security objectives"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:213
+#, python-format
+msgid "Objectives %(first)s to %(last)s"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:230
+msgid "Previous objectives"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:238
+msgid "Next objectives"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:311
 msgid "Not filled"
-msgstr "Nicht ausgefüllt"
+msgstr ""
 
-#: theme/templates/security_objectives/declaration.html:312
+#: theme/templates/security_objectives/declaration.html:318
 msgid "Partially filled"
-msgstr "Teilweise ausgefüllt"
+msgstr ""
 
-#: theme/templates/security_objectives/declaration.html:326
+#: theme/templates/security_objectives/declaration.html:332
 msgid "Fully filled"
-msgstr "Vollständig ausgefüllt"
+msgstr ""
 
-#: theme/templates/security_objectives/declaration.html:328
+#: theme/templates/security_objectives/declaration.html:334
 msgid "Review passed"
-msgstr "Überprüfung bestanden"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:386
+#, python-format
+msgid "Objective %(position)s of %(total)s in this domain"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:577
+#, python-format
+msgid "%(counter)s objective"
+msgid_plural "%(counter)s objectives"
+msgstr[0] ""
+msgstr[1] ""
+
+#: theme/templates/security_objectives/declaration.html:578
+#, python-format
+msgid "%(counter)s domain"
+msgid_plural "%(counter)s domains"
+msgstr[0] ""
+msgstr[1] ""
+
+#: theme/templates/security_objectives/declaration.html:595
+#: theme/templates/security_objectives/declaration.html:597
+msgid "Expand all"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:596
+msgid "Collapse all"
+msgstr ""
 
 #: theme/templates/security_objectives/so_dashboard_base.html:35
 msgid "Filter by status, sector, etc."
@@ -3133,7 +3184,7 @@ msgstr "Ersteller"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:285
 msgid "No security objectives statements have been created yet."
-msgstr "Es wurde noch keine Sicherheitszielerklärung erstellt."
+msgstr ""
 
 #: theme/templates/two_factor/core/setup_complete.html:6
 msgid "Enable Two-Factor Authentication"

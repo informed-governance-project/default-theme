@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-22 15:02+0200\n"
-"PO-Revision-Date: 2026-10-27 13:06+0000\n"
-"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
+"POT-Creation-Date: 2026-11-11 09:22+0100\n"
+"PO-Revision-Date: 2026-08-03 10:11+0000\n"
+"Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -49,16 +49,15 @@ msgstr "Alle auswählen"
 
 #: theme/static/js/declaration.js:111
 msgid "Please select at least one option."
-msgstr "Bitte wählen Sie mindestens eine Option aus."
+msgstr ""
 
 #: theme/static/js/export_security_objectives.js:53
 msgid "Close"
-msgstr "Schließen"
+msgstr ""
 
 #: theme/static/js/export_security_objectives.js:88
 msgid "The export is taking longer than expected. Please try again later."
 msgstr ""
-"Der Export dauert länger als erwartet. Bitte versuchen Sie es später erneut."
 
 #: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:12
 msgid "Download PDF report"
@@ -123,7 +122,7 @@ msgstr "Herunterladen"
 
 #: theme/static/js/so_dashboard.js:13
 msgid "View"
-msgstr "Anzeigen"
+msgstr ""
 
 #: theme/static/js/so_declaration.js:82
 msgid ""
