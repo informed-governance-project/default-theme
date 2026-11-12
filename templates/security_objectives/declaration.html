@@ -49,18 +49,26 @@
         </div>
         <div class="col-auto">
           <div class="d-flex gap-2">
-            <button class="btn p-0 border-0 so_contacts"
-                    data-bs-toggle="modal"
-                    data-bs-target="#so_contacts"
-                    data-contacts='{ "contact_name": "{{ standard_answer.submitter_user.last_name }}", "contact_first_name": "{{ standard_answer.submitter_user.first_name }}", "contact_email": "{{ standard_answer.submitter_user.email }}", "contact_telephone": "{{ standard_answer.submitter_user.phone_number }}"}'>
-              <i class="custom-icon-contact h3"></i>
-              <span class="visually-hidden">{% translate "Profile" %}</span>
-            </button>
+            {% if is_regulator %}
+              <button class="btn p-0 border-0 so_contacts"
+                      data-bs-toggle="modal"
+                      data-bs-target="#so_contacts"
+                      data-contacts='{ "contact_name": "{{ standard_answer.submitter_user.last_name }}", "contact_first_name": "{{ standard_answer.submitter_user.first_name }}", "contact_email": "{{ standard_answer.submitter_user.email }}", "contact_telephone": "{{ standard_answer.submitter_user.phone_number }}"}'>
+                <i class="custom-icon-contact h3"></i>
+                <span class="visually-hidden">{% translate "Profile" %}</span>
+              </button>
+            {% endif %}
             <div class="d-grid grid-auto-first-column">
-              <span class="fw-bold">{% translate "Company" %}</span>
+              <span class="fw-bold">{% translate "Reference" %}</span>
               <div class="ps-3">
-                {{ standard_answer.submitter_company }}
+                {{ standard_answer.group.group_id }}
               </div>
+              {% if is_regulator %}
+                <span class="fw-bold">{% translate "Company" %}</span>
+                <div class="ps-3">
+                  {{ standard_answer.submitter_company }}
+                </div>
+              {% endif %}
               <span class="fw-bold">{% translate "Evaluation Framework" %}</span>
               <div class="ps-3">
                 {{ standard_answer.standard }}
