@@ -4,7 +4,17 @@
 </h2>
 <ul class="toc list-unstyled pt-3 small">
   {% for security_objective, maturity_levels in security_objectives.items %}
-    <li class="border-bottom border-secondary">
+    {% if is_grouped %}
+      {% ifchanged security_objective.nav_domain.code %}
+        <li class="fw-bold pt-2">
+          {{ security_objective.nav_domain.code }} · {{ security_objective.nav_domain.label }}
+        </li>
+      {% endifchanged %}
+    {% endif %}
+    <li class="border-bottom border-secondary
+               {% if is_grouped %}
+                 ps-3
+               {% endif %}">
       <a class="text-decoration-none text-reset"
          href="#{{ security_objective.unique_code }}"></a>
     </li>
