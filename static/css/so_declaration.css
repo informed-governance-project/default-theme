@@ -327,6 +327,10 @@
 .slide-selector-container.btn-outline-uninitiated:active {
     color: var(--bs-body-bg) !important;
 }
+/* The tooltip background is near-black, where the #4c4c4c outline drops below the 3:1 non-text contrast minimum. */
+.tooltip .so-nav-symbol.btn-outline-uninitiated {
+    --bs-btn-border-color: #adb5bd;
+}
 
 /* Triange shape */
 .slide-selector-container.btn-partially {
