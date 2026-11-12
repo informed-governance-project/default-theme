@@ -187,18 +187,16 @@ $(document).ready(function () {
 
   $('.import_so_declaration').on("click", function () {
     const company_id = $(this).data("company-id");
-    const sector_id = $(this).data("sector-id");
     const year = $(this).data("year");
     const standard_id = $(this).data("standard-id");
     const $popup = $("#import_so_declaration");
     var popup_url = '/securityobjectives/import';
 
-    if (company_id && sector_id && year && standard_id) {
+    if (company_id && year && standard_id) {
       const company_param = `company_id=${company_id}`;
-      const sector_param = `sector_id=${sector_id}`;
       const year_param = `year=${year}`;
       const standard_param = `standard_id=${standard_id}`;
-      popup_url = `${popup_url}?${company_param}&${sector_param}&${year_param}&${standard_param}`;
+      popup_url = `${popup_url}?${company_param}&${year_param}&${standard_param}`;
     }
 
     $(".modal-dialog", $popup).load(popup_url, function () {

@@ -17,17 +17,19 @@
       <span class="fw-bold">{% translate "Identifier" %}:</span>
       {{ standard_answer.group.group_id }}
     </p>
-    <p class="m-0">
-      <span class="fw-bold">
-        {% translate "Sectors" %}:
-      </span>
-      <ul class="ms-1 p-0">
-        {% for sector in standard_answer.sectors.all %}
-          {{ sector }}
-          <br />
-        {% endfor %}
-      </ul>
-    </p>
+    {% if is_regulator %}
+      <p class="m-0">
+        <span class="fw-bold">
+          {% translate "Sectors" %}:
+        </span>
+        <ul class="ms-1 p-0">
+          {% for sector in standard_answer.get_sectors %}
+            {{ sector }}
+            <br />
+          {% endfor %}
+        </ul>
+      </p>
+    {% endif %}
     <p class="m-0">
       <span class="fw-bold">
         {% translate "Evaluation Framework" %}:

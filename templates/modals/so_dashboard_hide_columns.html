@@ -23,7 +23,9 @@
       {% else %}
         {% include "parts/column_toggle.html" with column="company" label=_("Creator") visible=visible_columns.company %}
       {% endif %}
-      {% include "parts/column_toggle.html" with column="sectors" label=_("Sectors") visible=visible_columns.sectors %}
+      {% if is_regulator %}
+        {% include "parts/column_toggle.html" with column="sectors" label=_("Sectors") visible=visible_columns.sectors %}
+      {% endif %}
       {% include "parts/column_toggle.html" with column="year" label=_("Year") visible=visible_columns.year %}
       {% include "parts/column_toggle.html" with column="progress" label=_("Progress") visible=visible_columns.progress %}
     </div>

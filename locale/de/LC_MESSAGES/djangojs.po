@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-12 14:46+0200\n"
-"PO-Revision-Date: 2026-10-01 07:32+0000\n"
-"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
+"POT-Creation-Date: 2026-11-11 09:22+0100\n"
+"PO-Revision-Date: 2026-11-11 09:14+0000\n"
+"Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +49,7 @@ msgstr "Alle auswählen"
 
 #: theme/static/js/declaration.js:111
 msgid "Please select at least one option."
-msgstr ""
+msgstr "Bitte wählen Sie mindestens eine Option aus."
 
 #: theme/static/js/export_security_objectives.js:53
 msgid "Close"
@@ -64,7 +64,7 @@ msgstr ""
 msgid "Download PDF report"
 msgstr "PDF-Bericht herunterladen"
 
-#: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:13
+#: theme/static/js/incidents.js:34
 msgid "Review"
 msgstr "Prüfung"
 
@@ -120,6 +120,10 @@ msgstr "Bericht wird erstellt"
 #: theme/static/js/reporting_dashboard.js:118
 msgid "Download"
 msgstr "Herunterladen"
+
+#: theme/static/js/so_dashboard.js:13
+msgid "View"
+msgstr "Anzeigen"
 
 #: theme/static/js/so_declaration.js:82
 msgid ""

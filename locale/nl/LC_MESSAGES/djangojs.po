@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-12 14:46+0200\n"
-"PO-Revision-Date: 2026-08-03 10:11+0000\n"
+"POT-Creation-Date: 2026-11-11 09:22+0100\n"
+"PO-Revision-Date: 2026-11-11 09:14+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -63,7 +63,7 @@ msgstr ""
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
 
-#: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:13
+#: theme/static/js/incidents.js:34
 msgid "Review"
 msgstr "Beoordeling"
 
@@ -119,6 +119,10 @@ msgstr "Rapport aan het genereren"
 #: theme/static/js/reporting_dashboard.js:118
 msgid "Download"
 msgstr "Downloaden"
+
+#: theme/static/js/so_dashboard.js:13
+msgid "View"
+msgstr ""
 
 #: theme/static/js/so_declaration.js:82
 msgid ""

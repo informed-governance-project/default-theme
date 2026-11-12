@@ -76,27 +76,32 @@ $(document).ready(function () {
             stop_spinner();
           });
         }
-        response.json().then(data => {
+        return response.json().then(data => {
           const groupId = data.import_ra_group_id;
-          if (groupId) {
-            let attempts = 0;
-            const poll = setInterval(async () => {
-              attempts += 1;
-              if (attempts > MAX_POLL_ATTEMPTS) {
-                clearInterval(poll);
-                finishImport(buildAlert(gettext("The risk analysis import is taking longer than expected. Check the imported data later before importing it again.")));
-                return;
-              }
-              $.get(`/reporting/import_risk_analysis_status/${groupId}`, function (data) {
-                if (data.state === "SUCCESS" || data.state === "FAILURE" || data.state === "UNKNOWN") {
-                  clearInterval(poll);
-                  finishImport(data.messages);
-                }
-              }).fail(function () {
-                console.warn("Error");
-              });
-            }, 2000);
+          // No task is queued when every file was skipped; the reload shows their errors from the session messages.
+          if (!groupId) {
+            window.location.reload();
+            return;
           }
+          let attempts = 0;
+          const poll = setInterval(async () => {
+            attempts += 1;
+            if (attempts > MAX_POLL_ATTEMPTS) {
+              clearInterval(poll);
+              finishImport(buildAlert(gettext("The risk analysis import is taking longer than expected. Check the imported data later before importing it again.")));
+              return;
+            }
+            $.get(`/reporting/import_risk_analysis_status/${groupId}`, function (data) {
+              if (data.state === "SUCCESS" || data.state === "FAILURE" || data.state === "UNKNOWN") {
+                clearInterval(poll);
+                finishImport(data.messages);
+              }
+            }).fail(function () {
+              clearInterval(poll);
+              stop_spinner();
+              console.warn("Error");
+            });
+          }, 2000);
         });
       })
       .catch(error => {

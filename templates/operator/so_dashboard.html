@@ -9,7 +9,7 @@
   {% with progress_value=standard.answered_percentage|default:0 %}
     <div class="hstack gap-2">
       <span class="text-start w-15">{{ progress_value|floatformat:'0' }}%</span>
-      {% if progress_value == 100 and standard.status == "UNDE" %}
+      {% if progress_value == 100 and standard.status == "UNDE" and not standard.has_failed_objectives %}
         <form id="so_declaration_submit_form"
               method="post"
               class="w-75"
