@@ -372,7 +372,7 @@
                   {% translate "Review passed" %}
                 {% endif %}
               </li>
-              {% if standard_answer.has_failed_objectives or is_regulator %}
+              {% if navigation.shows_failed or is_regulator %}
                 <li class="legend-item">
                   <div class="btn btn-failed slide-selector-container">
                   </div>
