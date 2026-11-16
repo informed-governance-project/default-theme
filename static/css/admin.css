@@ -210,7 +210,7 @@
 }
 
 #changelist tbody tr:has(.link-pending) {
-    background-color: var(--message-info-bg);
+    background-color: var(--color-primary-50);
 }
 
 /* Unfold keeps the table while it fits its container. When it overflows, JavaScript
@@ -390,15 +390,14 @@
     }
 }
 
-/* Confirmation asked before an account action goes through. Colours come from the admin
-   variables so the dialog follows the light and dark themes. */
+/* Confirmation asked before an account action goes through. */
 .admin-dialog {
     max-width: 32rem;
     padding: 1.5rem;
-    border: 1px solid var(--hairline-color);
+    border: 1px solid var(--color-base-200);
     border-radius: 4px;
-    background: var(--body-bg);
-    color: var(--body-fg);
+    background: #ffffff;
+    color: var(--color-base-700);
 }
 
 .admin-dialog::backdrop {
@@ -424,8 +423,8 @@
     padding: 3px 12px;
     border: none;
     border-radius: 15px;
-    background: var(--object-tools-bg);
-    color: var(--object-tools-fg);
+    background: var(--color-primary-600);
+    color: #ffffff;
     font-family: inherit;
     font-weight: 400;
     font-size: 0.6875rem;
@@ -437,7 +436,7 @@
 
 .object-tools .object-tools-button:focus,
 .object-tools .object-tools-button:hover {
-    background-color: var(--object-tools-hover-bg);
+    background-color: var(--color-primary-700);
 }
 
 /* Prompt shown above the user detail form while a suggestion to link the account is pending. */
@@ -446,7 +445,7 @@
     margin-bottom: 20px;
     padding: 12px 0px;
     border-radius: 4px;
-    color: var(--body-fg);
+    color: var(--color-base-700);
 }
 
 .pending-link-question {
@@ -708,4 +707,94 @@ body > #page {
 .changelist-add-link:focus-visible {
     outline: 2px solid var(--color-primary-400);
     outline-offset: 2px;
+}
+
+/* Header user menu (templates/admin/includes/header_links.html). */
+.admin-user-menu {
+    position: relative;
+}
+
+.admin-user-menu > summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: var(--border-radius, 6px);
+    cursor: pointer;
+    list-style: none;
+}
+
+.admin-user-menu > summary::-webkit-details-marker {
+    display: none;
+}
+
+.admin-user-menu > summary:hover,
+.admin-user-menu[open] > summary {
+    background-color: var(--color-base-100);
+}
+
+.admin-user-menu > summary:focus-visible,
+.admin-user-menu-panel a:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
+.admin-user-menu-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.admin-user-menu-name {
+    max-width: 16rem;
+    overflow: hidden;
+    color: var(--color-base-900);
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.admin-user-menu-panel {
+    position: absolute;
+    z-index: 50;
+    top: calc(100% + 6px);
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 16rem;
+    padding: 4px;
+    border: 1px solid var(--color-base-200);
+    border-radius: var(--border-radius, 6px);
+    background-color: #ffffff;
+    box-shadow: 0 10px 24px rgb(0 0 0 / 12%);
+}
+
+.admin-user-menu-identity {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 4px;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--color-base-200);
+}
+
+.admin-user-menu-identity span {
+    color: var(--color-base-500);
+    font-size: 0.75rem;
+}
+
+.admin-user-menu-panel > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-radius: var(--border-radius, 6px);
+}
+
+.admin-user-menu-panel > a:hover {
+    background-color: var(--color-base-100);
+}
+
+.admin-user-menu-panel > hr {
+    margin: 4px 0;
+    border-color: var(--color-base-200);
 }

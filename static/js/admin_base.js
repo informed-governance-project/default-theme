@@ -14,3 +14,18 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Invalid URL in last_user_page:", e);
   }
 });
+
+// The header user menu is a <details>; give it the dropdown behaviour users expect.
+document.addEventListener("click", function (event) {
+  document.querySelectorAll(".admin-user-menu[open]").forEach(function (menu) {
+    if (!menu.contains(event.target)) menu.open = false;
+  });
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key !== "Escape") return;
+  document.querySelectorAll(".admin-user-menu[open]").forEach(function (menu) {
+    menu.open = false;
+    menu.querySelector("summary").focus();
+  });
+});
