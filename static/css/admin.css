@@ -207,6 +207,183 @@
     background-color: var(--message-info-bg);
 }
 
+/* Unfold keeps the table while it fits its container. When it overflows, JavaScript
+   adds translated column headings and activates one card per result tbody. */
+@media screen {
+    .overflow-x-auto:has(> #result_list.responsive-cards-active) {
+        overflow: visible;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    #result_list.responsive-cards-active,
+    #result_list.responsive-cards-active > thead,
+    #result_list.responsive-cards-active > tbody {
+        display: block;
+        width: 100%;
+    }
+
+    #result_list.responsive-cards-active > thead {
+        margin-bottom: 12px;
+    }
+
+    #result_list.responsive-cards-active > thead:not(:has(.action-checkbox-column)) {
+        display: none;
+        margin-bottom: 0;
+    }
+
+    #result_list.responsive-cards-active > thead > tr {
+        display: flex;
+        align-items: center;
+    }
+
+    #result_list.responsive-cards-active > thead th:not(.action-checkbox-column) {
+        display: none;
+    }
+
+    #result_list.responsive-cards-active > thead .action-checkbox-column {
+        padding: 0 12px;
+        border: 0;
+    }
+
+    #result_list.responsive-cards-active > tbody {
+        position: relative;
+        margin-bottom: 16px;
+        overflow: hidden;
+        border: 1px solid var(--color-base-200);
+        border-radius: var(--border-radius, 6px);
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px rgb(0 0 0 / 6%);
+    }
+
+    #result_list.responsive-cards-active > tbody > tr.data-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 16px;
+        gap: 12px 24px;
+    }
+
+    #result_list.responsive-cards-active > tbody > tr.data-row > th,
+    #result_list.responsive-cards-active > tbody > tr.data-row > td {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: auto !important;
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        flex-direction: column;
+        gap: 0;
+        overflow: visible;
+        overflow-wrap: anywhere;
+        text-align: left;
+        white-space: normal;
+    }
+
+    #result_list.responsive-cards-active > tbody > tr.data-row > [data-mobile-label]::before {
+        margin-bottom: 4px;
+        color: var(--color-base-500);
+        content: attr(data-mobile-label);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.025em;
+        line-height: 1rem;
+        text-transform: uppercase;
+    }
+
+    #result_list.responsive-cards-active .action-checkbox {
+        position: absolute;
+        z-index: 1;
+        top: 16px;
+        right: 16px;
+    }
+
+    #result_list.responsive-cards-active .responsive-card-title {
+        grid-column: 1 / -1;
+        padding-right: 40px;
+        font-size: 1rem;
+        font-weight: 600;
+        order: -20;
+    }
+
+    .model-user #result_list.responsive-cards-active .field-is_active {
+        order: -10;
+    }
+
+    .model-user #result_list.responsive-cards-active .field-account_actions,
+    .model-user #result_list.responsive-cards-active .field-reset_2FA_column {
+        align-items: stretch;
+        grid-column: 1 / -1;
+        margin: 0 -16px -16px;
+        padding: 16px;
+        border-top: 1px solid var(--color-base-200);
+        background-color: var(--color-base-50);
+        order: 100;
+    }
+
+    .model-user #result_list.responsive-cards-active .field-account_actions > .account-actions,
+    .model-user #result_list.responsive-cards-active .field-account_actions > .link-pending,
+    .model-user #result_list.responsive-cards-active .field-reset_2FA_column > .account-actions {
+        width: 100%;
+    }
+
+    .model-user #result_list.responsive-cards-active .field-account_actions::before,
+    .model-user #result_list.responsive-cards-active .field-reset_2FA_column::before {
+        margin-bottom: 10px;
+    }
+
+    #result_list.responsive-cards-active .field-actions_holder {
+        align-items: stretch;
+        grid-column: 1 / -1;
+        margin: 0 -16px -16px;
+        padding: 16px;
+        border-top: 1px solid var(--color-base-200);
+        background-color: var(--color-base-50);
+        order: 110;
+    }
+
+    #result_list.responsive-cards-active .field-actions_holder > div {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    #result_list.responsive-cards-active > tbody > tr:not(.data-row) {
+        display: block;
+    }
+
+    #result_list.responsive-cards-active > tbody > tr:not(.data-row) > td {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (max-width: 639px) {
+    #result_list.responsive-cards-active > tbody > tr.data-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #result_list.responsive-cards-active .responsive-card-title,
+    .model-user #result_list.responsive-cards-active .field-account_actions,
+    .model-user #result_list.responsive-cards-active .field-reset_2FA_column {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 479px) {
+    .model-user #result_list.responsive-cards-active .link-pending,
+    .model-user #result_list.responsive-cards-active .account-actions {
+        grid-auto-flow: row;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .model-user #result_list.responsive-cards-active .link-pending > button,
+    .model-user #result_list.responsive-cards-active .account-actions > button {
+        min-width: 0 !important;
+        white-space: normal;
+    }
+}
+
 /* Confirmation asked before an account action goes through. Colours come from the admin
    variables so the dialog follows the light and dark themes. */
 .admin-dialog {

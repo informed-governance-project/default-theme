@@ -28,6 +28,25 @@ html.dark #changelist tbody tr:has(.link-pending) {
     background-color: var(--message-info-bg);
 }
 
+@media screen {
+    html.dark #result_list.responsive-cards-active > tbody {
+        border-color: var(--color-base-700);
+        background-color: var(--color-base-900);
+        box-shadow: 0 1px 2px rgb(0 0 0 / 30%);
+    }
+
+    html.dark #result_list.responsive-cards-active > tbody > tr.data-row > [data-mobile-label]::before {
+        color: var(--color-base-400);
+    }
+
+    html.dark .model-user #result_list.responsive-cards-active .field-account_actions,
+    html.dark .model-user #result_list.responsive-cards-active .field-reset_2FA_column,
+    html.dark #result_list.responsive-cards-active .field-actions_holder {
+        border-top-color: var(--color-base-700);
+        background-color: var(--color-base-800);
+    }
+}
+
 html.dark .approve-button {
     border-color: rgb(63 122 24) !important;
     background-color: rgb(63 122 24) !important;
