@@ -111,6 +111,21 @@
     margin-right: 10px !important;
 }
 
+/* Unfold renders the configured site logo in the sidebar header. The source
+   logo contains black lettering, so a light surface keeps it legible in both
+   themes while the fixed box prevents it from overflowing the navigation. */
+#nav-sidebar-inner > div:first-child img {
+    box-sizing: border-box;
+    width: auto;
+    max-width: 190px;
+    height: 44px !important;
+    padding: 5px 8px;
+    border: 1px solid rgb(0 0 0 / 8%);
+    border-radius: var(--border-radius, 6px);
+    background-color: #ffffff;
+    object-fit: contain;
+}
+
 /* Buttons sharing a changelist cell become equal grid tracks, so they keep the same width
    whatever their label says, in any language. min-width alone is only a floor: a label longer
    than it just pushes that one button wider. */
@@ -127,28 +142,65 @@
     width: 100% !important;
 }
 
-.link-pending > button, .account-actions > button {
-    padding: 8px 16px !important;
+.link-pending > button,
+.account-actions > button {
     display: inline-block !important;
+    min-height: 38px;
     margin: 0 !important;
+    padding: 8px 16px !important;
     min-width: 45% !important;
+    border: 1px solid var(--color-primary-600) !important;
+    border-radius: var(--border-radius, 6px) !important;
+    background-color: var(--color-primary-600) !important;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 12%);
+    color: #ffffff !important;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.link-pending > button:hover,
+.account-actions > button:hover {
+    border-color: var(--color-primary-700) !important;
+    background-color: var(--color-primary-700) !important;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 18%);
+}
+
+.link-pending > button:active,
+.account-actions > button:active {
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 25%);
+}
+
+.link-pending > button:focus-visible,
+.account-actions > button:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
 }
 
 .approve-button {
-    background: #649c35 !important;
-
+    border-color: #649c35 !important;
+    background-color: #649c35 !important;
 }
 
-.approve-button:hover {
-    background: #4e7a2a !important;
+.approve-button:hover,
+.approve-button:focus-visible {
+    border-color: #4e7a2a !important;
+    background-color: #4e7a2a !important;
 }
 
 .reject-button {
-    background: #c63d3d !important;
+    border-color: #c63d3d !important;
+    background-color: #c63d3d !important;
 }
 
-.reject-button:hover {
-    background: #a32f2f !important;
+.reject-button:hover,
+.reject-button:focus-visible {
+    border-color: #a32f2f !important;
+    background-color: #a32f2f !important;
 }
 
 #changelist tbody tr:has(.link-pending) {

@@ -1,0 +1,136 @@
+/* Dark-mode additions for the custom SERIMA admin components.
+   Unfold toggles the `dark` class on the root element. */
+
+html.dark {
+    color-scheme: dark;
+
+    /* Compatibility variables used by the historical Django admin styles. */
+    --body-bg: var(--color-base-900);
+    --body-fg: var(--color-base-200);
+    --hairline-color: var(--color-base-700);
+    --message-info-bg: color-mix(in srgb, var(--color-primary-950) 45%, transparent);
+    --object-tools-bg: var(--color-primary-700);
+    --object-tools-fg: #ffffff;
+    --object-tools-hover-bg: var(--color-primary-600);
+}
+
+/* admin.css keeps this class white for the legacy admin. Unfold uses the same
+   utility on its main panel, so the dark variant must win over that rule. */
+html.dark .bg-white {
+    background-color: var(--color-base-900) !important;
+}
+
+html.dark .required::after {
+    color: rgb(248 113 113) !important;
+}
+
+html.dark #changelist tbody tr:has(.link-pending) {
+    background-color: var(--message-info-bg);
+}
+
+html.dark .approve-button {
+    border-color: rgb(63 122 24) !important;
+    background-color: rgb(63 122 24) !important;
+    color: #ffffff !important;
+}
+
+html.dark .approve-button:focus,
+html.dark .approve-button:hover {
+    border-color: rgb(77 150 29) !important;
+    background-color: rgb(77 150 29) !important;
+}
+
+html.dark .reject-button {
+    border-color: rgb(185 28 28) !important;
+    background-color: rgb(185 28 28) !important;
+    color: #ffffff !important;
+}
+
+html.dark .reject-button:focus,
+html.dark .reject-button:hover {
+    border-color: rgb(220 38 38) !important;
+    background-color: rgb(220 38 38) !important;
+}
+
+html.dark .admin-dialog {
+    border-color: var(--hairline-color);
+    background: var(--color-base-800);
+    color: var(--body-fg);
+    box-shadow: 0 24px 64px rgb(0 0 0 / 55%);
+}
+
+html.dark .admin-dialog::backdrop {
+    background: rgb(0 0 0 / 72%);
+}
+
+html.dark .admin-dialog button:focus-visible,
+html.dark .object-tools-button:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
+html.dark .email-placeholders th,
+html.dark .email-placeholders td {
+    border-bottom-color: var(--color-base-700);
+}
+
+html.dark .email-placeholders tbody tr:hover {
+    background-color: var(--color-base-800);
+}
+
+html.dark .pending-link-prompt {
+    color: var(--body-fg);
+}
+
+html.dark .table {
+    color: var(--color-base-200);
+}
+
+html.dark .table th,
+html.dark .table td {
+    border-color: var(--color-base-700);
+}
+
+html.dark .table tbody tr:hover {
+    background-color: var(--color-base-800);
+}
+
+html.dark .table pre {
+    color: var(--color-base-300);
+}
+
+/* Email previews reset all inherited styles so their content needs an explicit
+   dark palette as well. */
+html.dark .markdown-html-preview {
+    color: var(--color-base-200) !important;
+    background: transparent !important;
+}
+
+html.dark .markdown-html-preview a {
+    color: var(--color-primary-400);
+}
+
+html.dark .markdown-html-preview blockquote {
+    border-left-color: var(--color-base-600);
+    color: var(--color-base-400);
+}
+
+html.dark .markdown-html-preview code,
+html.dark .markdown-html-preview pre {
+    background-color: var(--color-base-800);
+    color: var(--color-base-200);
+}
+
+html.dark .markdown-html-preview pre code {
+    background-color: transparent;
+}
+
+html.dark .markdown-html-preview hr,
+html.dark .markdown-html-preview th,
+html.dark .markdown-html-preview td {
+    border-color: var(--color-base-700);
+}
+
+html.dark .markdown-html-preview th {
+    background-color: var(--color-base-800);
+}
