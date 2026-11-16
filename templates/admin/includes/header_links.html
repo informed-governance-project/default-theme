@@ -1,0 +1,10 @@
+{% load i18n %}
+<div class="header-links">
+  <a href="{% url 'two_factor:profile' %}">{% translate "Account security" %}</a>
+  <a href="{% url 'password_change' %}">{% translate "Password change" %}</a>
+  {% if site_url and not is_only_admin %}
+    <a href="{{ site_url }}" id="back-to-interface">{% translate "Return to user interface" %}</a>
+  {% endif %}
+  <a href="{% url 'logout' %}">{% translate "Log out" %}</a>
+  {% include "home/language_selector_admin.html" %}
+</div>

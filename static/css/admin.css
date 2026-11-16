@@ -668,3 +668,44 @@ body > #page {
         justify-content: center;
     }
 }
+
+/* List toolbar: Filters and the add button (templates/admin/change_list.html) sit
+   together at the end of the row, after the search field. */
+.changelist-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (min-width: 64rem) {
+    .changelist-tools {
+        margin-inline-start: auto;
+    }
+}
+
+/* Import/export items keep Unfold's joined button-group look (tab_action.html): its
+   classes stack them below lg and join them side by side above, so the list follows. */
+.changelist-tools-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.changelist-tools-actions:empty {
+    display: none;
+}
+
+@media (min-width: 64rem) {
+    .changelist-tools-actions {
+        flex-direction: row;
+    }
+}
+
+.changelist-add-link {
+    white-space: nowrap;
+}
+
+.changelist-add-link:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
+}

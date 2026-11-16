@@ -1,6 +1,20 @@
 {% extends "admin/base.html" %}
 {% load static %}
 {% load i18n %}
+{% comment %}
+  Set here rather than in admin/base_site.html: Unfold's dashboard and app index pages
+  extend admin/base.html directly and never pass through base_site.html.
+{% endcomment %}
+{% block extrahead %}
+  {{ block.super }}
+  <link rel="icon"
+        type="image/x-icon"
+        href="{% static 'images/favicon.svg' %}" />
+  <script src='{% static "js/admin_base.js" %}'></script>
+{% endblock %}
+{% block nav-global %}
+  {% include "admin/includes/header_links.html" %}
+{% endblock %}
 {% block usertools %}
   {% block welcome-msg %}
     {{ request.user.get_username }} [ {{ request.user.get_permissions_groups }} ]
