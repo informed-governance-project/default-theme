@@ -153,3 +153,12 @@ html.dark .markdown-html-preview td {
 html.dark .markdown-html-preview th {
     background-color: var(--color-base-800);
 }
+
+/* The page itself is base-900 in dark mode, so the footer bar steps one shade darker. */
+html.dark .admin-footer-top {
+    color: var(--color-base-400);
+}
+
+html.dark .admin-footer-bottom {
+    background-color: var(--color-base-950);
+}

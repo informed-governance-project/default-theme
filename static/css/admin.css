@@ -3,12 +3,18 @@
     https://github.com/django/django/tree/main/django/contrib/admin/static/admin/css
 */
 
-/* Exemple: */
+/* Admin colours come from $primary in scss/custom.scss, through
+   governanceplatform/unfold_colors.py in the serima repo. */
 
-/* :root {
-    --primary: #e78484 !important;
-    --secondary: #f51616 !important;
-} */
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+/* Unfold declares --font-sans inside a cascade layer, so this unlayered rule wins. */
+:root {
+    --font-sans: "Montserrat", sans-serif;
+}
 
 /* Restore the pre-6.1 admin layout: label beside its field, not above it.
    6.1 reordered fieldset.html to label → help → errors → widget, so the widget
@@ -517,5 +523,148 @@
         width: auto;
         min-width: 0;
         padding: 0;
+    }
+}
+
+/* The footer follows #page (templates/admin/base.html). Unfold makes #page at least a
+   screen tall, which pushes the footer below the fold on every page; instead #page fills
+   whatever the footer leaves, so a short page shows the footer at the bottom of the screen. */
+body:has(> #page) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body > #page {
+    flex: 1 0 auto;
+    min-height: 0;
+}
+
+/* On desktop Unfold pins the sidebar with position: fixed over the whole viewport, so it
+   would cover the footer. Here it sticks to the top while scrolling, capped at both the
+   screen and #page, so it scrolls away above the footer; its app list scrolls on its own.
+   The sidebar must not add to #page's height either, or a long app list pushes the footer
+   below the fold again: the width-holding wrapper takes no height of its own and only
+   stretches to #page, and the panel inside is taken out of flow.
+   Below xl the sidebar is an overlay drawer and keeps Unfold's behaviour. */
+@media (min-width: 80rem) {
+    #page > :has(#nav-sidebar) > div {
+        height: 0;
+        min-height: 100%;
+    }
+
+    #page > :has(#nav-sidebar) > div > div {
+        position: absolute;
+        inset: 0;
+    }
+
+    #nav-sidebar {
+        position: sticky;
+        height: 100vh;
+        max-height: 100%;
+    }
+
+    #nav-sidebar-inner {
+        height: 100%;
+        min-height: 0;
+    }
+}
+
+/* Admin footer (templates/parts/footer_admin.html), mirroring the public footer.
+   The bottom bar is the theme's $secondary, i.e. base-900. */
+.admin-footer {
+    font-size: 0.8125rem;
+}
+
+.admin-footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding: 12px 24px 24px;
+    color: var(--color-base-600);
+}
+
+.admin-footer-developer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-footer-nc3-logo {
+    width: 5rem;
+    height: auto;
+}
+
+.admin-footer-bottom {
+    padding: 0 24px 8px;
+    background-color: var(--color-base-900);
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Sits astride the bar's top edge, as on the public site. Unfold's preflight makes
+   images block-level, so text-align cannot centre it. */
+.admin-footer-regulator-logo {
+    display: block;
+    width: 60px;
+    margin: 0 auto;
+    transform: translateY(-50%);
+}
+
+.admin-footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    gap: 8px;
+    margin-top: -15px;
+}
+
+.admin-footer-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 16px;
+}
+
+.admin-footer-group:first-child {
+    justify-content: flex-start;
+}
+
+.admin-footer-group:last-child {
+    justify-content: flex-end;
+}
+
+.admin-footer-group > a + a {
+    padding-left: 16px;
+    border-left: 1px solid rgb(255 255 255 / 50%);
+}
+
+.admin-footer-bottom a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.admin-footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.admin-footer-bottom a:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
+.admin-footer-regulator-link {
+    font-weight: 700;
+}
+
+@media (max-width: 1023px) {
+    .admin-footer-links {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .admin-footer-group:first-child,
+    .admin-footer-group:last-child {
+        justify-content: center;
     }
 }

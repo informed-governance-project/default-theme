@@ -6,3 +6,13 @@
     {{ request.user.get_username }} [ {{ request.user.get_permissions_groups }} ]
   {% endblock %}
 {% endblock %}
+{% comment %}
+  The footer goes after #page rather than in Unfold's footer block, which sits inside
+  the main column and so would leave the sidebar running down beside it.
+{% endcomment %}
+{% block base %}
+  {{ block.super }}
+  {% if not is_popup %}
+    {% include "parts/footer_admin.html" %}
+  {% endif %}
+{% endblock %}
