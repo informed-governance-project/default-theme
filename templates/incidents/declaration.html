@@ -60,25 +60,35 @@
             </div>
             <div class="col-auto">
               <div class="d-flex gap-2">
-                <button class="btn p-0 border-0 contacts_incident"
-                        data-contacts='{ "contact_name": "{{ incident.contact_firstname }} {{ incident.contact_lastname }}", "contact_jobtitle": "{{ incident.contact_title }}", "contact_email": "{{ incident.contact_email }}", "contact_telephone": "{{ incident.contact_telephone }}", "technical_name": "{{ incident.technical_firstname }} {{ incident.technical_lastname }}", "technical_jobtitle": "{{ incident.technical_title }}", "technical_email": "{{ incident.technical_email }}", "technical_telephone": "{{ incident.technical_telephone }}" }'
-                        data-bs-toggle="modal"
-                        data-bs-target="#contacts_incident">
-                  <i class="custom-icon-contact h3"
-                     data-bs-placement="top"
-                     data-bs-toggle="tooltip"
-                     aria-hidden="true"
-                     title="{% translate 'Contacts' %}">
-                  </i>
-                  <span class="visually-hidden">{% translate "Contacts" %}</span>
-                </button>
+                {% if is_regulator or is_observer %}
+                  <button class="btn p-0 border-0 contacts_incident"
+                          data-contacts='{ "contact_name": "{{ incident.contact_firstname }} {{ incident.contact_lastname }}", "contact_jobtitle": "{{ incident.contact_title }}", "contact_email": "{{ incident.contact_email }}", "contact_telephone": "{{ incident.contact_telephone }}", "technical_name": "{{ incident.technical_firstname }} {{ incident.technical_lastname }}", "technical_jobtitle": "{{ incident.technical_title }}", "technical_email": "{{ incident.technical_email }}", "technical_telephone": "{{ incident.technical_telephone }}" }'
+                          data-bs-toggle="modal"
+                          data-bs-target="#contacts_incident">
+                    <i class="custom-icon-contact h3"
+                       data-bs-placement="top"
+                       data-bs-toggle="tooltip"
+                       aria-hidden="true"
+                       title="{% translate 'Contacts' %}">
+                    </i>
+                    <span class="visually-hidden">{% translate "Contacts" %}</span>
+                  </button>
+                {% endif %}
                 <div class="d-grid grid-auto-first-column">
                   <div class="fw-bold">
-                    {% translate "Company" %}
+                    {% translate "Reference" %}
                   </div>
                   <div class="ps-3">
-                    {{ incident.company_or_regulator_name }}
+                    {{ incident.incident_id }}
                   </div>
+                  {% if is_regulator or is_observer %}
+                    <div class="fw-bold">
+                      {% translate "Company" %}
+                    </div>
+                    <div class="ps-3">
+                      {{ incident.company_or_regulator_name }}
+                    </div>
+                  {% endif %}
                   <div class="fw-bold">
                     {% translate "Regulation" %}
                   </div>
