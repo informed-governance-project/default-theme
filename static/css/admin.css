@@ -514,6 +514,8 @@ div:has(> #header-inner) {
     .so-columns .field-row > .field-line:not(:first-child):has(.readonly) > div:first-child {
         align-self: center;
         height: auto;
+        /* 20px to the value, as Unfold spaces an editable checkbox from its label. */
+        margin-inline-end: 20px;
     }
 }
 
