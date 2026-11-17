@@ -87,27 +87,61 @@
     max-width: 35em;
 }
 
+/* Admin header (templates/admin/includes/header_links.html), styled after the public
+   site's Bootstrap navbar: gray labels (--bs-navbar-color is rgba(0,0,0,.65)) at the
+   admin's own text size (Unfold's text-sm),
+   32px outline icons, a solid caret on each dropdown. */
 .header-links {
     display: flex;
-    column-gap: 10px;
-    justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+    color: rgb(0 0 0 / 65%);
+    font-size: 0.95rem;
+    /* Unfold renders the header inside a font-medium list (unfold/helpers/tab_actions.html). */
+    font-weight: 400;
 }
 
-.bg-white {
-    background-color: #ffffff !important;
+.header-links > a,
+.admin-dropdown > summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    color: inherit;
+}
+
+.header-links > a:hover,
+.admin-dropdown > summary:hover,
+.admin-dropdown[open] > summary {
+    color: rgb(0 0 0 / 80%);
+}
+
+.header-links > a:focus-visible,
+.admin-dropdown > summary:focus-visible,
+.admin-dropdown-panel > :focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
+.admin-header-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+    font-variation-settings: "wght" 200;
+}
+
+/* Bootstrap's .dropdown-toggle caret. */
+.admin-dropdown > summary::after {
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-left: 0.3em solid transparent;
 }
 
 .field-sectors label , .field-questions label {
     display: none !important;
 }
 
-.required::after {
-    content: "*" !important;
-    color: red !important;
-    font-weight: bold;
-    padding-left: 3px;
-}
 
 .double-padding {
     padding: 16px 0px;
@@ -117,19 +151,33 @@
     margin-right: 10px !important;
 }
 
-/* Unfold renders the configured site logo in the sidebar header. The source
-   logo contains black lettering, so a light surface keeps it legible in both
-   themes while the fixed box prevents it from overflowing the navigation. */
+/* Same size as the public navbar's logo (parts/header.html); Unfold's h-8 would shrink it. */
 #nav-sidebar-inner > div:first-child img {
-    box-sizing: border-box;
-    width: auto;
-    max-width: 190px;
-    height: 44px !important;
-    padding: 5px 8px;
-    border: 1px solid rgb(0 0 0 / 8%);
-    border-radius: var(--border-radius, 6px);
-    background-color: #ffffff;
-    object-fit: contain;
+    width: 200px;
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* Height of the public navbar (parts/header.html) as rendered around the 200px logo.
+   The sidebar's logo bar and the page header share it, so their bottom borders stay
+   level; the sidebar bar's 1px border is inside its height. */
+:root {
+    --admin-header-height: 82px;
+}
+
+#nav-sidebar-inner > div:first-child {
+    height: calc(var(--admin-header-height) + 1px);
+}
+
+/* Unfold pads the logo twice (px-3 on both bars); the public logo sits at the
+   container-fluid gutter, 12px from the edge. */
+#nav-sidebar-inner > div:first-child > div:first-child {
+    height: var(--admin-header-height);
+    padding-inline: 0;
+}
+
+div:has(> #header-inner) {
+    height: var(--admin-header-height);
 }
 
 /* Buttons sharing a changelist cell become equal grid tracks, so they keep the same width
@@ -143,9 +191,22 @@
     gap: 8px;
 }
 
+/* Unfold keeps headings on one line, so a column of 24px yes/no icons was as wide as
+   "Email verified". Wrapping them lets the content set the width; the table then fits a
+   narrower screen before the card layout takes over. */
+#result_list:not(.responsive-cards-active) > thead th {
+    white-space: normal;
+}
+
+/* Unfold's cells are overflow-hidden min-w-0, so a squeezed table clipped one-line labels
+   instead of overflowing, and the card layout (admin_responsive_cards.js), which waits for
+   an overflow, never took over. Labels wrap instead, and no button is narrower than its
+   longest word: beyond that the table overflows and turns into cards. */
 #result_list .link-pending > button,
 #result_list .account-actions > button {
     width: 100% !important;
+    min-width: min-content !important;
+    white-space: normal;
 }
 
 .link-pending > button,
@@ -187,26 +248,31 @@
     outline-offset: 2px;
 }
 
-.approve-button {
-    border-color: #649c35 !important;
-    background-color: #649c35 !important;
+/* Same colours as Unfold's yes/no icons in the list (unfold/helpers/boolean.html:
+   green-100/green-700 and red-100/red-700). Scoped to .link-pending so they outrank the
+   generic .link-pending > button colours. */
+.link-pending > .approve-button {
+    border-color: var(--color-green-200) !important;
+    background-color: var(--color-green-100) !important;
+    color: var(--color-green-700) !important;
 }
 
-.approve-button:hover,
-.approve-button:focus-visible {
-    border-color: #4e7a2a !important;
-    background-color: #4e7a2a !important;
+.link-pending > .approve-button:hover,
+.link-pending > .approve-button:focus-visible {
+    border-color: var(--color-green-300) !important;
+    background-color: var(--color-green-200) !important;
 }
 
-.reject-button {
-    border-color: #c63d3d !important;
-    background-color: #c63d3d !important;
+.link-pending > .reject-button {
+    border-color: var(--color-red-200) !important;
+    background-color: var(--color-red-100) !important;
+    color: var(--color-red-700) !important;
 }
 
-.reject-button:hover,
-.reject-button:focus-visible {
-    border-color: #a32f2f !important;
-    background-color: #a32f2f !important;
+.link-pending > .reject-button:hover,
+.link-pending > .reject-button:focus-visible {
+    border-color: var(--color-red-300) !important;
+    background-color: var(--color-red-200) !important;
 }
 
 #changelist tbody tr:has(.link-pending) {
@@ -569,10 +635,22 @@ body > #page {
     }
 }
 
-/* Admin footer (templates/parts/footer_admin.html), mirroring the public footer.
+/* Admin footer (templates/parts/footer_admin.html), mirroring the public footer and its
+   Bootstrap spacing (parts/footer.html): .small text, pt-3 above, pb-2 under each row,
+   px-4 gutters widening to px-xl-5 from 1200px, links padded px-2 around a .vr divider.
    The bottom bar is the theme's $secondary, i.e. base-900. */
 .admin-footer {
-    font-size: 0.8125rem;
+    --admin-footer-gutter: 24px;
+    --admin-footer-bar-gutter: 8px;
+    padding-top: 16px;
+    font-size: 0.875rem;
+}
+
+@media (min-width: 1200px) {
+    .admin-footer {
+        --admin-footer-gutter: 48px;
+        --admin-footer-bar-gutter: 48px;
+    }
 }
 
 .admin-footer-top {
@@ -581,7 +659,7 @@ body > #page {
     align-items: center;
     justify-content: space-between;
     gap: 8px 24px;
-    padding: 12px 24px 24px;
+    padding: 0 var(--admin-footer-gutter) 8px;
     color: var(--color-base-600);
 }
 
@@ -596,20 +674,24 @@ body > #page {
     height: auto;
 }
 
+/* The public bar is px-2 below 1200px, px-xl-5 from there. flow-root keeps the logo's
+   negative margin inside the bar instead of collapsing through it and lifting the bar. */
 .admin-footer-bottom {
-    padding: 0 24px 8px;
+    display: flow-root;
+    padding: 0 var(--admin-footer-bar-gutter) 8px;
     background-color: var(--color-base-900);
     color: #ffffff;
     text-align: center;
 }
 
-/* Sits astride the bar's top edge, as on the public site. Unfold's preflight makes
-   images block-level, so text-align cannot centre it. */
+/* Sits astride the bar's top edge, as on the public site: half of it above the bar, the
+   other half in a 30px band (.logo-container). Unfold's preflight makes images block-level,
+   so text-align cannot centre it. */
 .admin-footer-regulator-logo {
     display: block;
     width: 60px;
-    margin: 0 auto;
-    transform: translateY(-50%);
+    height: 60px;
+    margin: -30px auto 0;
 }
 
 .admin-footer-links {
@@ -617,13 +699,12 @@ body > #page {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: center;
     gap: 8px;
-    margin-top: -15px;
 }
 
 .admin-footer-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 0 16px;
+    gap: 0 8px;
 }
 
 .admin-footer-group:first-child {
@@ -634,9 +715,14 @@ body > #page {
     justify-content: flex-end;
 }
 
+.admin-footer-group > a {
+    padding: 0 8px;
+}
+
+/* Bootstrap's .vr: 25% of the text colour, 8px gap and 8px link padding on either side. */
 .admin-footer-group > a + a {
     padding-left: 16px;
-    border-left: 1px solid rgb(255 255 255 / 50%);
+    border-left: 1px solid rgb(255 255 255 / 25%);
 }
 
 .admin-footer-bottom a {
@@ -704,68 +790,102 @@ body > #page {
     white-space: nowrap;
 }
 
+/* Unfold fixes the selected-rows action bar to the bottom of the window, where it covers
+   the footer (unfold/helpers/change_list_actions.html). Moved after the list and made
+   sticky, it still follows a long list down but stops above the pagination and footer.
+   The inline inset-inline-start Unfold binds for the sidebar would offset a sticky box. */
+#changelist-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#changelist-form > div:has(> #changelist-actions-wrapper) {
+    position: sticky;
+    order: 1;
+    inset-inline-start: auto !important;
+    padding-inline: 0;
+}
+
+.changeform-tools {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
 .changelist-add-link:focus-visible {
     outline: 2px solid var(--color-primary-400);
     outline-offset: 2px;
 }
 
-/* Header user menu (templates/admin/includes/header_links.html). */
-.admin-user-menu {
+/* Header dropdowns: the user menu (admin/includes/header_links.html) and the language
+   (home/language_selector_admin.html). admin_base.js closes them on an outside click or
+   Escape. */
+.admin-dropdown {
     position: relative;
 }
 
-.admin-user-menu > summary {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 4px 8px;
-    border-radius: var(--border-radius, 6px);
+.admin-dropdown > summary {
     cursor: pointer;
     list-style: none;
 }
 
-.admin-user-menu > summary::-webkit-details-marker {
+.admin-dropdown > summary::-webkit-details-marker {
     display: none;
 }
 
-.admin-user-menu > summary:hover,
-.admin-user-menu[open] > summary {
-    background-color: var(--color-base-100);
-}
-
-.admin-user-menu > summary:focus-visible,
-.admin-user-menu-panel a:focus-visible {
-    outline: 2px solid var(--color-primary-400);
-    outline-offset: 2px;
-}
-
-.admin-user-menu-icon {
-    width: 20px;
-    height: 20px;
-}
-
-.admin-user-menu-name {
-    max-width: 16rem;
-    overflow: hidden;
-    color: var(--color-base-900);
-    font-weight: 600;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.admin-user-menu-panel {
+.admin-dropdown-panel {
     position: absolute;
     z-index: 50;
     top: calc(100% + 6px);
     right: 0;
     display: flex;
     flex-direction: column;
-    min-width: 16rem;
     padding: 4px;
     border: 1px solid var(--color-base-200);
     border-radius: var(--border-radius, 6px);
     background-color: #ffffff;
     box-shadow: 0 10px 24px rgb(0 0 0 / 12%);
+}
+
+.admin-dropdown-panel > a,
+.admin-dropdown-panel > button {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: var(--border-radius, 6px);
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: start;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.admin-dropdown-panel > a:hover,
+.admin-dropdown-panel > button:hover {
+    background-color: var(--color-base-100);
+}
+
+.admin-dropdown-panel > [aria-current] {
+    color: var(--color-primary-600);
+    font-weight: 600;
+}
+
+.admin-dropdown-panel > hr {
+    margin: 4px 0;
+    border-color: var(--color-base-200);
+}
+
+.admin-user-menu .admin-dropdown-panel {
+    min-width: 16rem;
+}
+
+.admin-user-menu-name {
+    max-width: 16rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .admin-user-menu-identity {
@@ -780,21 +900,4 @@ body > #page {
 .admin-user-menu-identity span {
     color: var(--color-base-500);
     font-size: 0.75rem;
-}
-
-.admin-user-menu-panel > a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    border-radius: var(--border-radius, 6px);
-}
-
-.admin-user-menu-panel > a:hover {
-    background-color: var(--color-base-100);
-}
-
-.admin-user-menu-panel > hr {
-    margin: 4px 0;
-    border-color: var(--color-base-200);
 }

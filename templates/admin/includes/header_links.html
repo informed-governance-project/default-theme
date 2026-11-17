@@ -1,28 +1,39 @@
 {% load i18n static %}
 {% comment %}
-  Header of every admin page. The user menu mirrors the public site's header and
-  replaces Unfold's sidebar user box (emptied in unfold/helpers/navigation_user.html).
-  Its light/dark switch is left out, as the public site has none: UNFOLD["THEME"] pins
-  the admin to light. admin_base.js closes the menu on an outside click or Escape.
+  Header of every admin page, laid out like the public site's (parts/header.html): an
+  icon and a gray label per item, then the language. The public site's Settings link is
+  mirrored by Return to user interface, hidden from a platform administrator, who cannot
+  open the public site (is_only_admin). The user menu replaces Unfold's sidebar user box
+  (emptied in unfold/helpers/navigation_user.html) and shares its dropdown with the
+  language selector. Bootstrap Icons are not loaded in the admin, so the home icon comes
+  from Unfold's Material Symbols.
 {% endcomment %}
-<div class="header-links">
+<nav class="header-links" aria-label="{% translate "Account" %}">
   {% if site_url and not is_only_admin %}
-    <a href="{{ site_url }}" id="back-to-interface">{% translate "Return to user interface" %}</a>
+    <a href="{{ site_url }}" id="back-to-interface">
+      <span class="material-symbols-outlined admin-header-icon"
+            aria-hidden="true">exit_to_app</span>
+      {% translate "Return to user interface" %}
+    </a>
   {% endif %}
-  <details class="admin-user-menu">
+  <details class="admin-dropdown admin-user-menu">
     <summary>
       <img src="{% static 'images/icons/ico-user.svg' %}"
-           alt="User Icon"
-           class="admin-user-menu-icon">
+           alt=""
+           class="admin-header-icon">
       <span class="admin-user-menu-name">{{ request.user.get_full_name|default:request.user.get_username }}</span>
-      <span class="material-symbols-outlined md-18" aria-hidden="true">expand_more</span>
     </summary>
-    <div class="admin-user-menu-panel">
+    <div class="admin-dropdown-panel">
       <div class="admin-user-menu-identity">
         <strong>{{ request.user.get_full_name|default:request.user.get_username }}</strong>
         {% if request.user.email %}
           <span>{{ request.user.email }}</span>
         {% endif %}
+        {% with roles=request.user.get_permissions_groups %}
+          {% if roles %}
+            <span class="admin-user-menu-role">{{ roles }}</span>
+          {% endif %}
+        {% endwith %}
       </div>
       <a href="{% url 'two_factor:profile' %}">{% translate "Security" %}</a>
       <a href="{% url 'password_change' %}">{% translate "Password" %}</a>
@@ -31,4 +42,4 @@
     </div>
   </details>
   {% include "home/language_selector_admin.html" %}
-</div>
+</nav>

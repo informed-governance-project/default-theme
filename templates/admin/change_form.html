@@ -1,6 +1,26 @@
 {% extends "admin/change_form.html" %}
-{% load static %}
+{% load static admin_modify %}
+{% comment %}
+  Unfold's change form puts History and View on site in nav-global and an add button in
+  nav-global-side, which replaces the header links. The header keeps the same links as
+  every other admin page; the object tools sit above the form, as the list page's tools
+  sit next to its filters. Adding from an edit page is left to "Save and add another".
+{% endcomment %}
 {% block extrahead %}
   {{ block.super }}
   <script src='{% static "js/admin_change_form.js" %}'></script>
+{% endblock %}
+{% block nav-global %}
+  {% include "admin/includes/header_links.html" %}
+{% endblock %}
+{% block nav-global-side %}
+{% endblock %}
+{% block form_before %}
+  {% if change and not is_popup %}
+    <div class="changeform-tools">
+      <ul class="changelist-tools-actions">
+        {% change_form_object_tools %}
+      </ul>
+    </div>
+  {% endif %}
 {% endblock %}

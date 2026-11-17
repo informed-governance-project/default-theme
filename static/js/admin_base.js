@@ -15,16 +15,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// The header user menu is a <details>; give it the dropdown behaviour users expect.
+// The header dropdowns (user menu, language) are <details>; give them the behaviour users expect.
 document.addEventListener("click", function (event) {
-  document.querySelectorAll(".admin-user-menu[open]").forEach(function (menu) {
+  document.querySelectorAll(".admin-dropdown[open]").forEach(function (menu) {
     if (!menu.contains(event.target)) menu.open = false;
   });
 });
 
 document.addEventListener("keydown", function (event) {
   if (event.key !== "Escape") return;
-  document.querySelectorAll(".admin-user-menu[open]").forEach(function (menu) {
+  document.querySelectorAll(".admin-dropdown[open]").forEach(function (menu) {
     menu.open = false;
     menu.querySelector("summary").focus();
   });

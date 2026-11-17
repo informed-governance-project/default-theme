@@ -1,0 +1,84 @@
+/*
+  Replaces django-parler's parler/admin/parler_admin.css: the theme's static folder comes
+  before the app folders, so this file is served instead. Parler loads it as form media,
+  after css/admin.css, so a rule there could not win over it. Layout is upstream's; the
+  colours are the admin's (primary-* from $primary, base-900 is $secondary).
+*/
+.parler-language-tabs {
+    border-bottom: 2px solid var(--color-primary-600);
+}
+
+.parler-language-tabs span {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid var(--color-base-200);
+    border-bottom: none;
+    position: relative;
+    left: 0;
+    top: 1px;
+    font-weight: 600;
+}
+
+.parler-language-tabs span a {
+    color: var(--color-base-900);
+}
+
+.parler-language-tabs span a:hover {
+    color: var(--color-primary-600);
+}
+
+.parler-language-tabs span.available,
+.parler-language-tabs span.current,
+.parler-language-tabs span.empty {
+    border-radius: 6px 6px 0 0;
+}
+
+.parler-language-tabs span.available {
+    border-color: var(--color-primary-200);
+}
+
+.parler-language-tabs span.current {
+    border-bottom: 1px solid #fff;
+    background-color: var(--color-primary-600);
+    border-color: var(--color-primary-600);
+    color: #fff;
+}
+
+.parler-language-tabs span.empty {
+    opacity: 0.7;
+    font-weight: normal;
+}
+
+.parler-language-tabs a.deletelink {
+    right: -17px;
+    bottom: 4px;
+    position: relative;
+}
+
+.parler-inline-language-tabs + .inline-group {
+    margin-top: 0;
+}
+
+.language-buttons {
+    font-size: smaller;
+}
+
+.language-buttons a {
+    background-color: var(--color-base-100);
+    border: 1px solid var(--color-base-100);
+    border-radius: 3px;
+    padding: 0 2px;
+    color: var(--color-base-900);
+}
+
+.language-buttons.all-languages a.active {
+    background-color: var(--color-primary-600);
+    border: 1px solid var(--color-primary-600);
+    color: #fff;
+}
+
+.language-buttons a.untranslated {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--color-base-400);
+}
