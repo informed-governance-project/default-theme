@@ -138,11 +138,6 @@
     border-left: 0.3em solid transparent;
 }
 
-.field-sectors label , .field-questions label {
-    display: none !important;
-}
-
-
 .double-padding {
     padding: 16px 0px;
 }
