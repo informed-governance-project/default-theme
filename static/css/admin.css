@@ -911,6 +911,35 @@ body > #page {
     transform: rotate(180deg);
 }
 
+/* The observer form's Test RT Connection button (ObserverAdmin.rt_test_button) used Django's
+   unstyled .button class: a primary button, like the other actions. Inline, so the connection
+   result (#rt-test-result) stays beside it. */
+.rt-test-btn {
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+    margin-inline-end: 12px;
+    padding: 0 16px;
+    border: 1px solid var(--color-primary-700);
+    border-radius: var(--border-radius, 6px);
+    background-color: var(--color-primary-600);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 12%);
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.rt-test-btn:hover {
+    background-color: var(--color-primary-700);
+}
+
+.rt-test-btn:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
 .changeform-tools {
     display: flex;
     justify-content: flex-end;
