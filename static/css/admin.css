@@ -870,6 +870,47 @@ body > #page {
     color: rgb(33 37 41 / 75%);
 }
 
+/* Collapsible stacked inline cards (templates/unfold/helpers/edit_inline/stacked_title.html):
+   the summary after the title while closed, and the chevron that opens the card. */
+.inline-summary {
+    margin-inline-start: 8px;
+    color: var(--color-base-500);
+    font-weight: 400;
+}
+
+.inline-summary::before {
+    content: "· ";
+}
+
+.inline-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--border-radius, 6px);
+    color: var(--color-base-500);
+    cursor: pointer;
+}
+
+.inline-toggle:hover {
+    background-color: var(--color-base-50);
+    color: var(--color-base-700);
+}
+
+.inline-toggle:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
+.inline-toggle > span {
+    transition: transform 150ms ease;
+}
+
+.inline-toggle[aria-expanded="true"] > span {
+    transform: rotate(180deg);
+}
+
 .changeform-tools {
     display: flex;
     justify-content: flex-end;
