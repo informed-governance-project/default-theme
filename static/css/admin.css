@@ -72,6 +72,32 @@
 }
 
 /* Same size as the public navbar's logo (parts/header.html); Unfold's h-8 would shrink it. */
+/* The logo in the page header while the sidebar is hidden (unfold/helpers/welcomemsg.html),
+   the size of the sidebar's and the public navbar's. */
+.admin-header-logo {
+    flex: none;
+    margin-inline-end: 16px;
+}
+
+/* The size of the sidebar's logo at all widths, so hiding the sidebar never resizes it. */
+.admin-header-logo > img {
+    width: 200px;
+    max-width: none;
+    height: auto;
+}
+
+/* While the logo is shown (x-show leaves an inline display: none otherwise), the header runs
+   full width like the public navbar, the logo 12px from the edge as in the sidebar, instead of
+   inside Unfold's 16px padding and centred container. */
+div:has(> div > #header-inner .admin-header-logo:not([x-cloak], [style*="display: none"])) {
+    padding-inline-start: 12px;
+}
+
+div:has(> #header-inner .admin-header-logo:not([x-cloak], [style*="display: none"])) {
+    max-width: none;
+    margin-inline-start: 0;
+}
+
 #nav-sidebar-inner > div:first-child img {
     width: 200px;
     max-width: 100%;
@@ -87,6 +113,55 @@
 
 #nav-sidebar-inner > div:first-child {
     height: calc(var(--admin-header-height) + 1px);
+    background-color: #ffffff;
+}
+
+/* The logo bar and the page header form one white header block, as on the public site: the
+   sidebar's right border is redrawn as a 1px stripe that starts below the header height. */
+#nav-sidebar {
+    border-right-width: 0;
+}
+
+#nav-sidebar-inner {
+    background-image: linear-gradient(var(--color-base-200), var(--color-base-200));
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 1px calc(100% - var(--admin-header-height) - 1px);
+}
+
+/* Folding sidebar categories (templates/admin/app_list.html): the heading as a button, the
+   look of Unfold's category title, with a chevron turning down while the category is open. */
+.admin-nav-group-toggle {
+    display: flex;
+    align-items: center;
+    width: calc(100% + 24px);
+    margin: 16px -12px 8px;
+    padding: 6px 12px;
+    border-radius: var(--border-radius, 6px);
+    color: var(--color-base-900);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: start;
+    cursor: pointer;
+}
+
+.admin-nav-group-toggle:hover {
+    color: var(--color-primary-600);
+}
+
+.admin-nav-group-toggle:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: -2px;
+}
+
+.admin-nav-group-chevron {
+    margin-inline-start: auto;
+    font-size: 20px;
+    transition: transform 150ms ease;
+}
+
+.admin-nav-group-chevron.is-open {
+    transform: rotate(90deg);
 }
 
 /* Unfold pads the logo twice (px-3 on both bars); the public logo sits at the
