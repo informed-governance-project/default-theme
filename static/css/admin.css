@@ -940,6 +940,60 @@ body > #page {
     outline-offset: 2px;
 }
 
+/* Progress of an import or export job (django-import-export-extensions' progress_bar.html). Its
+   own CSS colours the bar with Django admin variables (--primary, --breadcrumbs-fg, --body-fg)
+   that Unfold does not define, which left the bar transparent behind its label. */
+#progress-bar {
+    max-width: 32rem;
+    height: 1.75rem;
+    overflow: hidden;
+    border-radius: var(--border-radius, 6px);
+    background-color: var(--color-base-100);
+}
+
+#progress-bar::before {
+    top: 0.25rem;
+    color: var(--color-base-900);
+    font-size: 0.8125rem;
+}
+
+#progress-bar::-webkit-progress-bar {
+    background-color: var(--color-base-100);
+}
+
+#progress-bar::-webkit-progress-value {
+    background-color: var(--color-primary-200);
+}
+
+#progress-bar::-moz-progress-bar {
+    background-color: var(--color-primary-200);
+}
+
+/* Import preview and validation tables (Unfold's import_preview.html and import_validation.html).
+   A full-width table squeezed the text columns to a word a line, and on a long import the
+   horizontal scrollbar was at the very bottom of the table. Sized to their content, capped to
+   the screen height with the header pinned, the box keeps both scrollbars in view. */
+div:has(> table:is(.import-preview-table, .import-preview)) {
+    max-height: 70vh;
+}
+
+table:is(.import-preview-table, .import-preview) {
+    width: max-content;
+    min-width: 100%;
+}
+
+table:is(.import-preview-table, .import-preview) :is(th, td) {
+    max-width: 28rem;
+    vertical-align: top;
+}
+
+table:is(.import-preview-table, .import-preview) > thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #ffffff;
+}
+
 .changeform-tools {
     display: flex;
     justify-content: flex-end;

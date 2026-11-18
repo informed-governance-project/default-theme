@@ -1,0 +1,21 @@
+{% extends "admin/import_export/base.html" %}
+{% load i18n static %}
+{% comment %}
+  django-import-export-extensions' export status page in Unfold's markup. Its scripts update
+  #current-job-status and #progress-bar, so both ids stay.
+{% endcomment %}
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet"
+        href="{% static "import_export_extensions/css/widgets/progress_bar.css" %}">
+{% endblock %}
+{% block extrahead %}
+  {{ block.super }}
+  <script src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+  <script src="{% static 'admin/js/jquery.init.js' %}"></script>
+  <script src="{% static 'import_export_extensions/js/admin/admin.js' %}"></script>
+  <script src="{% static 'import_export_extensions/js/widgets/progress_bar.js' %}"></script>
+{% endblock %}
+{% block content %}
+  {% include "admin/import_export_extensions/includes/job_status.html" with status=export_job.export_status finished=export_job.export_finished_statuses job_url=export_job_url %}
+{% endblock %}
