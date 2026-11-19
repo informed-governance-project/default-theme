@@ -233,68 +233,114 @@ div:has(> #header-inner) {
 
 .link-pending > button,
 .account-actions > button {
-    display: inline-block !important;
+    min-width: 45%;
+}
+
+/* Admin buttons outside Unfold's own markup, in five roles. Every new button is one of them:
+   - .admin-button: a tool, the default, outlined as Unfold's History and Filters buttons;
+   - --primary: the action that completes the task, at most one per area;
+   - --secondary: an action on one record (Set Administrator, Reset 2FA token), dark as the
+     public site's .btn-secondary, in $secondary from the theme (unfold_colors.theme_secondary);
+   - --danger: destroys something, behind a confirmation; outlined, so it is not mistaken for
+     the solid red primary;
+   - --status-ok / --status-ko: a decision on one row, in the colours of Unfold's yes/no icons
+     (unfold/helpers/boolean.html: green-100/green-700, red-100/red-700).
+   Unlayered, so they win over Unfold's Tailwind utilities and its preflight button reset. */
+.admin-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     min-height: 38px;
-    margin: 0 !important;
-    padding: 8px 16px !important;
-    min-width: 45% !important;
-    border: 1px solid var(--color-primary-600) !important;
-    border-radius: var(--border-radius, 6px) !important;
-    background-color: var(--color-primary-600) !important;
-    box-shadow: 0 1px 2px rgb(0 0 0 / 12%);
-    color: #ffffff !important;
-    cursor: pointer;
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid var(--color-base-200);
+    border-radius: var(--border-radius, 6px);
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+    color: var(--color-base-700);
     font: inherit;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 500;
     line-height: 1.25;
     text-align: center;
     white-space: nowrap;
-    transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+    cursor: pointer;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
 }
 
-.link-pending > button:hover,
-.account-actions > button:hover {
-    border-color: var(--color-primary-700) !important;
-    background-color: var(--color-primary-700) !important;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 18%);
+.admin-button:hover {
+    color: var(--color-primary-600);
 }
 
-.link-pending > button:active,
-.account-actions > button:active {
-    box-shadow: inset 0 1px 2px rgb(0 0 0 / 25%);
-}
-
-.link-pending > button:focus-visible,
-.account-actions > button:focus-visible {
+.admin-button:focus-visible {
     outline: 2px solid var(--color-primary-400);
     outline-offset: 2px;
 }
 
-/* Same colours as Unfold's yes/no icons in the list (unfold/helpers/boolean.html:
-   green-100/green-700 and red-100/red-700). Scoped to .link-pending so they outrank the
-   generic .link-pending > button colours. */
-.link-pending > .approve-button {
-    border-color: var(--color-green-200) !important;
-    background-color: var(--color-green-100) !important;
-    color: var(--color-green-700) !important;
+.admin-button .material-symbols-outlined {
+    font-size: 18px;
 }
 
-.link-pending > .approve-button:hover,
-.link-pending > .approve-button:focus-visible {
-    border-color: var(--color-green-300) !important;
-    background-color: var(--color-green-200) !important;
+.admin-button--primary {
+    border-color: var(--color-primary-600);
+    background-color: var(--color-primary-600);
+    color: #ffffff;
 }
 
-.link-pending > .reject-button {
-    border-color: var(--color-red-200) !important;
-    background-color: var(--color-red-100) !important;
-    color: var(--color-red-700) !important;
+.admin-button--primary:hover {
+    border-color: var(--color-primary-700);
+    background-color: var(--color-primary-700);
+    color: #ffffff;
 }
 
-.link-pending > .reject-button:hover,
-.link-pending > .reject-button:focus-visible {
-    border-color: var(--color-red-300) !important;
-    background-color: var(--color-red-200) !important;
+.admin-button--secondary {
+    border-color: var(--color-secondary-600);
+    background-color: var(--color-secondary-600);
+    color: #ffffff;
+}
+
+.admin-button--secondary:hover {
+    border-color: var(--color-secondary-700);
+    background-color: var(--color-secondary-700);
+    color: #ffffff;
+}
+
+.admin-button--danger,
+#submit-row a.mr-auto[href*="/delete/"] {
+    border: 1px solid var(--color-red-600);
+    background-color: #ffffff;
+    color: var(--color-red-600);
+}
+
+.admin-button--danger:hover,
+#submit-row a.mr-auto[href*="/delete/"]:hover {
+    background-color: var(--color-red-50);
+    color: var(--color-red-700);
+}
+
+.admin-button--status-ok {
+    border-color: var(--color-green-200);
+    background-color: var(--color-green-100);
+    color: var(--color-green-700);
+}
+
+.admin-button--status-ok:hover {
+    border-color: var(--color-green-300);
+    background-color: var(--color-green-200);
+    color: var(--color-green-700);
+}
+
+.admin-button--status-ko {
+    border-color: var(--color-red-200);
+    background-color: var(--color-red-100);
+    color: var(--color-red-700);
+}
+
+.admin-button--status-ko:hover {
+    border-color: var(--color-red-300);
+    background-color: var(--color-red-200);
+    color: var(--color-red-700);
 }
 
 #changelist tbody tr:has(.link-pending) {
@@ -479,8 +525,8 @@ div:has(> #header-inner) {
 }
 
 /* Confirmation asked before an account action goes through. */
-/* Confirmation dialog (templates/admin/includes/account_actions_confirm.html). Its title and
-   buttons used Django's admin CSS (h2, .button, .button.default), which Unfold does not load. */
+/* Confirmation dialog (templates/admin/includes/account_actions_confirm.html). Its title used
+   Django's admin CSS, which Unfold does not load; its buttons are .admin-button. */
 .admin-dialog {
     max-width: 32rem;
     padding: 1.5rem;
@@ -511,67 +557,11 @@ div:has(> #header-inner) {
     margin-top: 1.5rem;
 }
 
-/* Cancel as the toolbar's secondary buttons, Confirm as its primary Add button. */
-.admin-dialog-buttons > .button {
-    height: 38px;
-    padding: 0 16px;
-    border: 1px solid var(--color-base-200);
-    border-radius: var(--border-radius, 6px);
-    background-color: #ffffff;
-    box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
-    color: var(--color-base-700);
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.admin-dialog-buttons > .button:hover {
-    background-color: var(--color-base-50);
-}
-
-.admin-dialog-buttons > .button.default {
-    border-color: var(--color-primary-700);
-    background-color: var(--color-primary-600);
-    color: #ffffff;
-}
-
-.admin-dialog-buttons > .button.default:hover {
-    background-color: var(--color-primary-700);
-}
-
-.admin-dialog-buttons > .button:focus-visible {
-    outline: 2px solid var(--color-primary-400);
-    outline-offset: 2px;
-}
 
 /* Buttons that post through the confirmation dialog (custom_change_user_list.html), in the list
-   toolbar, styled as its Filters button. */
-.changelist-tools-actions:has(.changelist-tools-button) {
+   toolbar beside its Filters button. */
+.changelist-tools-actions:has(.admin-button) {
     gap: 8px;
-}
-
-.changelist-tools-button {
-    display: flex;
-    align-items: center;
-    height: 38px;
-    padding: 0 12px;
-    border: 1px solid var(--color-base-200);
-    border-radius: var(--border-radius, 6px);
-    background-color: #ffffff;
-    box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
-    color: var(--color-base-700);
-    font-size: 0.875rem;
-    font-weight: 500;
-    white-space: nowrap;
-    cursor: pointer;
-}
-
-.changelist-tools-button:hover {
-    background-color: var(--color-base-50);
-}
-
-.changelist-tools-button:focus-visible {
-    outline: 2px solid var(--color-primary-400);
-    outline-offset: 2px;
 }
 
 /* Prompt shown above the user detail form while a suggestion to link the account is pending. */
@@ -607,22 +597,37 @@ div:has(> #header-inner) {
     }
 }
 
+/* Wider than the confirmation dialogs, so each description fits beside its placeholder. A width,
+   not a max-width: a dialog shrinks to its content, and a 100%-wide table gives it none. */
+.email-placeholders-dialog {
+    width: min(48rem, calc(100vw - 2rem));
+    max-width: none;
+}
+
 .email-placeholders {
     width: 100%;
+    margin-top: 1rem;
     border-collapse: collapse;
 }
 
 .email-placeholders th,
 .email-placeholders td {
-    padding: 0.35rem 1rem 0.35rem 0;
+    padding: 0.5rem 1rem 0.5rem 0;
+    border-bottom: 1px solid var(--color-base-200);
     text-align: left;
     vertical-align: top;
+}
+
+.email-placeholders thead th {
+    color: var(--color-base-900);
+    font-weight: 600;
 }
 
 .email-placeholders tbody th {
     font-weight: normal;
     white-space: nowrap;
 }
+
 
 /* Security objectives column settings (fieldset class so-columns): each row holds a column's
    label and the toggles that govern it. Unfold stacks the fields of a row, which strands Show
@@ -986,33 +991,10 @@ body > #page {
     transform: rotate(180deg);
 }
 
-/* The observer form's Test RT Connection button (ObserverAdmin.rt_test_button) used Django's
-   unstyled .button class: a primary button, like the other actions. Inline, so the connection
-   result (#rt-test-result) stays beside it. */
+/* The observer form's Test RT Connection button (ObserverAdmin.rt_test_button): the connection
+   result (#rt-test-result) follows it on the same line. */
 .rt-test-btn {
-    display: inline-flex;
-    align-items: center;
-    height: 38px;
     margin-inline-end: 12px;
-    padding: 0 16px;
-    border: 1px solid var(--color-primary-700);
-    border-radius: var(--border-radius, 6px);
-    background-color: var(--color-primary-600);
-    box-shadow: 0 1px 2px rgb(0 0 0 / 12%);
-    color: #ffffff;
-    font-size: 0.875rem;
-    font-weight: 600;
-    white-space: nowrap;
-    cursor: pointer;
-}
-
-.rt-test-btn:hover {
-    background-color: var(--color-primary-700);
-}
-
-.rt-test-btn:focus-visible {
-    outline: 2px solid var(--color-primary-400);
-    outline-offset: 2px;
 }
 
 /* Progress of an import or export job (django-import-export-extensions' progress_bar.html). Its
