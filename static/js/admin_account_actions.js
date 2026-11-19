@@ -21,8 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Django's delete link is a GET to its own confirmation page. Confirming here instead means
-  // posting straight to that view, which deletes on any POST.
-  const deleteLink = document.querySelector("a.deletelink");
+  // posting straight to that view, which deletes on any POST. Unfold's link has no deletelink
+  // class: it is the submit row's link to the delete view.
+  const deleteLink = document.querySelector('#submit-row a[href*="/delete/"]');
   const deleteMessage = document.getElementById("account-delete-confirm");
 
   if (deleteLink && deleteMessage) {
