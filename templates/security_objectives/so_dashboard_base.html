@@ -221,12 +221,12 @@
                          d-none
                        {% endif %}"
                 data-column="submit_date"
-                data-order="{{ standard.submit_date.timestamp }}">
-              {% if standard.submit_date %}
-                {{ standard.submit_date|date:"d/m/y" }}
+                data-order="{{ standard.first_submit_date.timestamp }}">
+              {% if standard.first_submit_date %}
+                {{ standard.first_submit_date|date:"d/m/y" }}
                 <br />
                 <i class="bi bi-clock"></i>
-                {{ standard.submit_date|date:"H:i" }}
+                {{ standard.first_submit_date|date:"H:i" }}
               {% endif %}
             </td>
             <td class="col-1 table-group-divider py-3
