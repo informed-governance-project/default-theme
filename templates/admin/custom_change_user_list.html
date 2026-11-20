@@ -1,12 +1,16 @@
 {% extends "admin/change_list.html" %}
 {% load static %}
 {% load i18n %}
-{% block object-tools-items %}
+{% comment %}
+  The reset buttons sit in the list toolbar with its other tools (admin/change_list.html),
+  not in the page header, where Unfold leaves them unstyled.
+{% endcomment %}
+{% block changelist-tools-items %}
   {{ block.super }}
   {% if reset_url %}
     <li>
       <button type="submit"
-              class="object-tools-button"
+              class="admin-button"
               form="account-action-form"
               formaction="{{ reset_url }}"
               data-confirm-message="{% translate "Resetting the accepted terms will require every user to accept the terms of service again at their next login." %}">
@@ -17,7 +21,7 @@
   {% if reset_url_cookies %}
     <li>
       <button type="submit"
-              class="object-tools-button"
+              class="admin-button"
               form="account-action-form"
               formaction="{{ reset_url_cookies }}"
               data-confirm-message="{% translate "Resetting the accepted cookies will show the cookie banner again to every user." %}">

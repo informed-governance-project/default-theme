@@ -1,0 +1,71 @@
+{% load i18n admin_pagination %}
+{% comment %}
+  Laid out like the public pagination (parts/pagination.html): the count, then joined
+  page boxes with first/previous/next/last arrows. Bootstrap is not loaded in the admin,
+  so the boxes are styled by the admin-pagination rules in css/admin.css.
+{% endcomment %}
+<div class="admin-pagination">
+  {% if pagination_required %}
+    {% admin_pagination cl page_range as pagination %}
+    <span>
+      {% translate "Showing" %} {{ pagination.start }} {% translate "to" %} {{ pagination.end }}
+      {% translate "of" %} {{ cl.result_count }} {% translate "entries" %}
+    </span>
+    <nav aria-label="{% translate "Pagination" %}">
+      <ul class="admin-pagination-pages">
+        <li>
+          {% if pagination.first_url %}
+            <a href="{{ pagination.first_url }}"
+               aria-label="{% translate "First page" %}">«</a>
+          {% else %}
+            <span aria-disabled="true">«</span>
+          {% endif %}
+        </li>
+        <li>
+          {% if pagination.previous_url %}
+            <a href="{{ pagination.previous_url }}"
+               aria-label="{% translate "Previous page" %}">‹</a>
+          {% else %}
+            <span aria-disabled="true">‹</span>
+          {% endif %}
+        </li>
+        {% for page in pagination.pages %}
+          <li>
+            {% if page.current %}
+              <span aria-current="page">{{ page.number }}</span>
+            {% elif page.url %}
+              <a href="{{ page.url }}">{{ page.number }}</a>
+            {% else %}
+              <span aria-disabled="true">{{ page.number }}</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+        <li>
+          {% if pagination.next_url %}
+            <a href="{{ pagination.next_url }}"
+               aria-label="{% translate "Next page" %}">›</a>
+          {% else %}
+            <span aria-disabled="true">›</span>
+          {% endif %}
+        </li>
+        <li>
+          {% if pagination.last_url %}
+            <a href="{{ pagination.last_url }}"
+               aria-label="{% translate "Last page" %}">»</a>
+          {% else %}
+            <span aria-disabled="true">»</span>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+  {% else %}
+    <span>
+      {{ cl.result_count }}
+      {% if cl.result_count == 1 %}
+        {{ cl.opts.verbose_name }}
+      {% else %}
+        {{ cl.opts.verbose_name_plural }}
+      {% endif %}
+    </span>
+  {% endif %}
+</div>

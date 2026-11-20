@@ -1,0 +1,16 @@
+{% load i18n %}
+{% comment %}
+  Status and progress of an import or export job, as the read-only rows of an Unfold fieldset.
+{% endcomment %}
+<fieldset class="border border-base-200 rounded-default shadow-xs dark:border-base-800">
+  <div class="flex flex-col gap-2 border-b border-dashed border-base-200 px-3 py-2.5 lg:flex-row lg:items-center dark:border-base-800">
+    <span class="font-semibold text-important lg:w-56">{% translate "Status" %}</span>
+    <span id="current-job-status">{{ status|title }}</span>
+  </div>
+  {% if status not in finished %}
+    <div class="flex flex-col gap-2 px-3 py-2.5 lg:flex-row lg:items-center">
+      <span class="font-semibold text-important lg:w-56">{% translate "Progress" %}</span>
+      {% include "admin/import_export_extensions/progress_bar.html" %}
+    </div>
+  {% endif %}
+</fieldset>

@@ -1,8 +1,32 @@
 {% extends "admin/base.html" %}
 {% load static %}
 {% load i18n %}
+{% comment %}
+  Set here rather than in admin/base_site.html: Unfold's dashboard and app index pages
+  extend admin/base.html directly and never pass through base_site.html.
+{% endcomment %}
+{% block extrahead %}
+  {{ block.super }}
+  <link rel="icon"
+        type="image/x-icon"
+        href="{% static 'images/favicon.svg' %}" />
+  <script src='{% static "js/admin_base.js" %}'></script>
+{% endblock %}
+{% block nav-global %}
+  {% include "admin/includes/header_links.html" %}
+{% endblock %}
 {% block usertools %}
   {% block welcome-msg %}
     {{ request.user.get_username }} [ {{ request.user.get_permissions_groups }} ]
   {% endblock %}
+{% endblock %}
+{% comment %}
+  The footer goes after #page rather than in Unfold's footer block, which sits inside
+  the main column and so would leave the sidebar running down beside it.
+{% endcomment %}
+{% block base %}
+  {{ block.super }}
+  {% if not is_popup %}
+    {% include "parts/footer_admin.html" %}
+  {% endif %}
 {% endblock %}

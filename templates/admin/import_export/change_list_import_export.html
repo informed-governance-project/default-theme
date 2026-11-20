@@ -1,0 +1,10 @@
+{% extends "admin/import_export/change_list.html" %}
+{% comment %}
+  Replaces Unfold's version, which puts these items in actions-items, the page
+  header. They belong with the list's other tools (admin/change_list.html).
+{% endcomment %}
+{% block changelist-tools-items %}
+  {% include "admin/import_export/change_list_import_item.html" %}
+  {% include "admin/import_export/change_list_export_item.html" %}
+  {{ block.super }}
+{% endblock %}
