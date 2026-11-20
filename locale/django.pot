@@ -2768,3 +2768,19 @@ msgstr ""
 #: theme/templates/two_factor/core/setup_complete.html:30
 msgid "Add Phone Number"
 msgstr ""
+
+#: theme/templates/modals/update_so_declaration.html:7
+msgid "Update or review security objectives statement"
+msgstr ""
+
+#: theme/templates/security_objectives/base.html:48
+msgid "New submission"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:333
+msgid "Review required"
+msgstr ""
+
+#: theme/templates/security_objectives/so_dashboard_base.html:281
+msgid "No security objectives statements have been submitted yet."
+msgstr ""

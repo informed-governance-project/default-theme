@@ -1,5 +1,4 @@
 {% load i18n %}
-{% load SO_custom_filters %}
 {% block content %}
   <div class="modal-content">
     <div class="modal-header bg-primary text-white px-4 small">
@@ -12,20 +11,16 @@
               aria-label="{% translate 'Close' %}">
       </button>
     </div>
-    <div class="modal-body row row-cols-2 mx-4 my-3">
-      {% with "Modified,Created,Autor,Name,Regulation,Standard,Base year,Sectors" as dashboard_columns %}
-        {% for d_col in dashboard_columns|split:"," %}
-          <div class="form-check">
-            <input class="form-check-input column-toggle"
-                   type="checkbox"
-                   data-column="{{ forloop.counter0 }}"
-                   id="column-{{ forloop.counter0 }}">
-            <label class="form-check-label" for="column-{{ forloop.counter0 }}">
-              {% translate d_col %}
-            </label>
-          </div>
-        {% endfor %}
-      {% endwith %}
+    <div class="modal-body row row-cols-2 mx-4 my-3"
+         data-preference-url="{% url 'save_list_preference' 'reporting' 'columns' %}">
+      {% include "parts/column_toggle.html" with column="updated_at" label=_("Modified") visible=visible_columns.updated_at %}
+      {% include "parts/column_toggle.html" with column="created_at" label=_("Created") visible=visible_columns.created_at %}
+      {% include "parts/column_toggle.html" with column="created_by" label=_("Author") visible=visible_columns.created_by %}
+      {% include "parts/column_toggle.html" with column="name" label=_("Name") visible=visible_columns.name %}
+      {% include "parts/column_toggle.html" with column="regulation" label=_("Regulation") visible=visible_columns.regulation %}
+      {% include "parts/column_toggle.html" with column="standard" label=_("Standard") visible=visible_columns.standard %}
+      {% include "parts/column_toggle.html" with column="year" label=_("Base year") visible=visible_columns.year %}
+      {% include "parts/column_toggle.html" with column="sectors" label=_("Sectors") visible=visible_columns.sectors %}
     </div>
   </div>
 {% endblock %}

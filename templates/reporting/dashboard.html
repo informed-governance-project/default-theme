@@ -56,33 +56,74 @@
     </div>
   </div>
   {% if filter.qs %}
-    <table id="reporting-table" class="table align-middle table-sm small">
+    <table id="reporting-table"
+           class="table align-middle table-sm small"
+           data-default-sort-field="{{ default_sort_field }}">
       <caption class="visually-hidden">{% translate "Report generation table" %}</caption>
       <thead>
         <tr>
-          <th class="col-1 sortable align-middle default-sort-field"
+          <th class="col-1 sortable align-middle
+                     {% if not visible_columns.updated_at %}
+                       d-none
+                     {% endif %}"
+              data-column="updated_at"
               data-sort-field="updated_at">
             {% translate "Modified" %}
           </th>
-          <th class="col-1 sortable align-middle" data-sort-field="created_at">
+          <th class="col-1 sortable align-middle
+                     {% if not visible_columns.created_at %}
+                       d-none
+                     {% endif %}"
+              data-column="created_at"
+              data-sort-field="created_at">
             {% translate "Created" %}
           </th>
-          <th class="col-1 sortable align-middle" data-sort-field="created_by">
+          <th class="col-1 sortable align-middle
+                     {% if not visible_columns.created_by %}
+                       d-none
+                     {% endif %}"
+              data-column="created_by"
+              data-sort-field="created_by">
             {% translate "Author" %}
           </th>
-          <th class="col-1 sortable align-middle" data-sort-field="name">
+          <th class="col-1 sortable align-middle
+                     {% if not visible_columns.name %}
+                       d-none
+                     {% endif %}"
+              data-column="name"
+              data-sort-field="name">
             {% translate "Name" %}
           </th>
-          <th class="col-1 sortable align-middle" data-sort-field="regulation">
+          <th class="col-1 sortable align-middle
+                     {% if not visible_columns.regulation %}
+                       d-none
+                     {% endif %}"
+              data-column="regulation"
+              data-sort-field="regulation">
             {% translate "Regulation" %}
           </th>
-          <th class="col-1 sortable align-middle" data-sort-field="standard">
+          <th class="col-1 sortable align-middle
+                     {% if not visible_columns.standard %}
+                       d-none
+                     {% endif %}"
+              data-column="standard"
+              data-sort-field="standard">
             {% translate "Standard" %}
           </th>
-          <th class="col-1 sortable align-middle" data-sort-field="year">
+          <th class="col-1 sortable align-middle
+                     {% if not visible_columns.year %}
+                       d-none
+                     {% endif %}"
+              data-column="year"
+              data-sort-field="year">
             {% translate "Base year" %}
           </th>
-          <th class="col-2 sortable align-middle" data-sort-field="sectors">
+          <th class="col-2 sortable align-middle
+                     {% if not visible_columns.sectors %}
+                       d-none
+                     {% endif %}"
+              data-column="sectors"
+              data-sort-field="sectors">
             {% translate "Sectors" %}
           </th>
           <th class="col-auto align-middle">
@@ -101,34 +142,66 @@
       <tbody>
         {% for project in projects %}
           <tr>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.updated_at %}
+                         d-none
+                       {% endif %}"
+                data-column="updated_at">
               {{ project.updated_at|date:"d/m/y" }}
               <br />
               <i class="bi bi-clock"></i>
               {{ project.updated_at|date:"H:i" }}
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.created_at %}
+                         d-none
+                       {% endif %}"
+                data-column="created_at">
               {{ project.created_at|date:"d/m/y" }}
               <br />
               <i class="bi bi-clock"></i>
               {{ project.created_at|date:"H:i" }}
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.created_by %}
+                         d-none
+                       {% endif %}"
+                data-column="created_by">
               {{ project.author.get_full_name }}
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.name %}
+                         d-none
+                       {% endif %}"
+                data-column="name">
               {{ project.name }}
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.regulation %}
+                         d-none
+                       {% endif %}"
+                data-column="regulation">
               {{ project.standard.regulation }}
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.standard %}
+                         d-none
+                       {% endif %}"
+                data-column="standard">
               {{ project.standard }}
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3
+                       {% if not visible_columns.year %}
+                         d-none
+                       {% endif %}"
+                data-column="year">
               {{ project.reference_year }}
             </td>
-            <td class="col-2 table-group-divider py-3 list-sectors">
+            <td class="col-2 table-group-divider py-3 list-sectors
+                       {% if not visible_columns.sectors %}
+                         d-none
+                       {% endif %}"
+                data-column="sectors">
               {% for root_sector in project.get_no_childrens_sectors %}
                 <ul class="m-0 p-0 list-sectors">
                   <span class="fw-bolder">

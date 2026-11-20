@@ -1,36 +1,30 @@
 {% load i18n %}
-{% if pagination_data.paginator.count >= 10 %}
+{% if pagination_data.paginator.count >= per_page_choices.0 %}
   <div class="d-flex justify-content-between align-items-center mt-3 lh-1 small">
-    <form method="get" class="d-flex align-items-center">
+    <div class="d-flex align-items-center">
       <div class="dropdown">
         <button class="btn btn-sm btn-outline-secondary dropdown-toggle me-2"
                 type="button"
                 id="perPageDropdown"
                 data-bs-toggle="dropdown"
                 aria-expanded="false">
-          {{ pagination_data.paginator.per_page|default:'10' }}
+          {{ pagination_data.paginator.per_page }}
         </button>
         <ul class="dropdown-menu fit-content" aria-labelledby="perPageDropdown">
-          {% with "10 25 50 100" as items_per_page_choices %}
-            {% for size in items_per_page_choices.split %}
-              <li>
-                <a class="dropdown-item spinner-trigger
-                          {% if pagination_data.paginator.per_page|stringformat:'s' == size %}
-                            active
-                          {% endif %}"
-                   href="?{% for key, value in request.GET.items %}{% if key != 'per_page' %}{{ key }}={{ value|urlencode }}&{% endif %}{% endfor %}per_page={{ size }}">{{ size }}</a>
-              </li>
-            {% endfor %}
-          {% endwith %}
+          {# Filters and sort are stored server-side, so the links carry only what they change. #}
+          {% for size in per_page_choices %}
+            <li>
+              <a class="dropdown-item spinner-trigger
+                        {% if pagination_data.paginator.per_page == size %}
+                          active
+                        {% endif %}"
+                 href="?per_page={{ size }}&page=1">{{ size }}</a>
+            </li>
+          {% endfor %}
         </ul>
       </div>
       <span>{% translate "entries per page" %}</span>
-      {% for key, value in request.GET.items %}
-        {% if key != 'per_page' %}
-          <input type="hidden" name="{{ key }}" value="{{ value }}">
-        {% endif %}
-      {% endfor %}
-    </form>
+    </div>
     <div>
       {% translate "Showing" %}
       {{ pagination_data.start_index }}
@@ -43,12 +37,11 @@
       <ul class="pagination justify-content-end m-0">
         {% if pagination_data.has_previous %}
           <li class="page-item">
-            <a class="page-link spinner-trigger"
-               href="?page=1{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">«</a>
+            <a class="page-link spinner-trigger" href="?page=1">«</a>
           </li>
           <li class="page-item">
             <a class="page-link spinner-trigger"
-               href="?page={{ pagination_data.previous_page_number }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">‹</a>
+               href="?page={{ pagination_data.previous_page_number }}">‹</a>
           </li>
         {% else %}
           <li class="page-item disabled">
@@ -65,16 +58,14 @@
                        {% if pagination_data.number == num %}
                          active
                        {% endif %}">
-              <a class="page-link spinner-trigger"
-                 href="?page={{ num }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">{{ num }}</a>
+              <a class="page-link spinner-trigger" href="?page={{ num }}">{{ num }}</a>
             </li>
           {% elif num >= pagination_data.number|add:"-1" and num <= pagination_data.number|add:"1" %}
             <li class="page-item
                        {% if pagination_data.number == num %}
                          active
                        {% endif %}">
-              <a class="page-link spinner-trigger"
-                 href="?page={{ num }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">{{ num }}</a>
+              <a class="page-link spinner-trigger" href="?page={{ num }}">{{ num }}</a>
             </li>
           {% elif num == pagination_data.number|add:"-2" or num == pagination_data.number|add:"2" %}
             <li class="page-item disabled">
@@ -86,11 +77,11 @@
         {% if pagination_data.has_next %}
           <li class="page-item">
             <a class="page-link spinner-trigger"
-               href="?page={{ pagination_data.next_page_number }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">›</a>
+               href="?page={{ pagination_data.next_page_number }}">›</a>
           </li>
           <li class="page-item">
             <a class="page-link spinner-trigger"
-               href="?page={{ pagination_data.paginator.num_pages }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">»</a>
+               href="?page={{ pagination_data.paginator.num_pages }}">»</a>
           </li>
         {% else %}
           <li class="page-item disabled">
