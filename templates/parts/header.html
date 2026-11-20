@@ -97,6 +97,11 @@
               <li>
                 <a class="dropdown-item" href="{% url 'password_change' %}">{% translate "Password" %}</a>
               </li>
+              {% if api_enabled %}
+                <li>
+                  <a class="dropdown-item" href="{% url 'api_keys' %}">{% translate "API keys" %}</a>
+                </li>
+              {% endif %}
               <li aria-hidden="true">
                 <hr class="dropdown-divider">
               </li>

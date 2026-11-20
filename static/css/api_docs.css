@@ -1,0 +1,51 @@
+/* Swagger UI inside the platform layout (templates/api/swagger_ui.html). */
+
+/* The page subheader already names the API: drop Swagger's own title block. */
+.api-docs .swagger-ui .information-container {
+  display: none;
+}
+
+.api-docs .swagger-ui .wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+.api-docs .swagger-ui,
+.api-docs .swagger-ui .opblock-tag,
+.api-docs .swagger-ui .opblock .opblock-summary-description,
+.api-docs .swagger-ui .opblock .opblock-section-header h4,
+.api-docs .swagger-ui .btn,
+.api-docs .swagger-ui table thead tr th,
+.api-docs .swagger-ui .parameter__name,
+.api-docs .swagger-ui .response-col_status,
+.api-docs .swagger-ui .tab li,
+.api-docs .swagger-ui .model-title,
+.api-docs .swagger-ui label,
+.api-docs .swagger-ui p,
+.api-docs .swagger-ui .renderedMarkdown p {
+  font-family: var(--bs-body-font-family);
+}
+
+.api-docs .swagger-ui .scheme-container {
+  background: transparent;
+  box-shadow: none;
+  padding: 0 0 1rem;
+}
+
+.api-docs .swagger-ui .btn.authorize {
+  border-color: var(--bs-primary);
+  color: var(--bs-primary);
+}
+
+.api-docs .swagger-ui .btn.authorize svg {
+  fill: var(--bs-primary);
+}
+
+.api-docs .swagger-ui .btn.execute {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.api-docs .swagger-ui .opblock-tag {
+  border-bottom-color: var(--bs-border-color);
+}
