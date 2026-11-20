@@ -1,0 +1,47 @@
+{% load static %}
+{% load i18n %}
+{% comment %}
+  The admin counterpart of parts/footer.html. Unfold ships without Bootstrap, so the
+  layout comes from the admin-footer rules in css/admin.css instead.
+{% endcomment %}
+<footer class="admin-footer">
+  <div class="admin-footer-top">
+    <div class="admin-footer-developer">
+      <span>{% translate "A platform developed by" %}</span>
+      <img src="{% static 'images/nc3_logo.svg' %}"
+           alt="NC3 logo"
+           class="admin-footer-nc3-logo">
+    </div>
+    <div>
+      {% translate "Version" %} : {{ app_version }}
+    </div>
+  </div>
+  <div class="admin-footer-bottom">
+    <img src="{% static 'images/regulator_logo.svg' %}"
+         alt="{{ regulator_name }}"
+         class="admin-footer-regulator-logo">
+    <div class="admin-footer-links">
+      <div class="admin-footer-group">
+        {% if regulator.tos_url %}
+          <a href="{{ regulator.tos_url }}"
+             target="_blank"
+             rel="noopener noreferrer">{% translate "Terms of service" %}</a>
+        {% else %}
+          <a href="{% url 'terms' %}">{% translate "Terms of service" %}</a>
+        {% endif %}
+        <a href="{% url 'privacy' %}">{% translate "Privacy policy" %}</a>
+      </div>
+      <div class="admin-footer-offered">
+        <span>{% translate "A platform offered by" %}&nbsp;</span>
+        <a href="{{ regulator.website }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="admin-footer-regulator-link">{{ regulator.short_url }}</a>
+      </div>
+      <div class="admin-footer-group">
+        <a href="{% url 'cookies' %}">{% translate "Cookies policy" %}</a>
+        <a href="{% url 'accessibility' %}">{% translate "Accessibility statement" %}</a>
+      </div>
+    </div>
+  </div>
+</footer>

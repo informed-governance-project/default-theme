@@ -28,19 +28,6 @@ $(document).ready(function () {
     });
   });
 
-  // Dashboard columns visibility management
-  const $tableDashboard = $('#reporting-table');
-  $(document).on('show.bs.modal', '#ReportinghideColumns', function () {
-    initColumnsChoice($tableDashboard);
-  });
-  $(document).on('change', '.column-toggle', function () {
-    changeColumnVisibility($tableDashboard, this);
-  });
-  loadColumnDashboardState($tableDashboard);
-
-
-
-
   const pollTimers = {};
 
   function startPolling(projectId) {

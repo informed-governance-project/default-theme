@@ -1,8 +1,9 @@
 {% load i18n %}
-{% load static %}
-{% block bootstrap5_extra_script %}
-  <script src='{% static "js/language-selector-admin.js" %}'></script>
-{% endblock %}
+{% comment %}
+  Same dropdown as the header user menu (.admin-dropdown in css/admin.css). Each
+  language is a submit button of the set_language form, so no script is needed to
+  post the choice. The labels are those of the public selector, home/language_selector.html.
+{% endcomment %}
 {% get_current_language as current_language %}
 {% get_available_languages as available_languages %}
 {% get_language_info_list for available_languages as languages %}
@@ -12,15 +13,26 @@
         method="post">
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ request.get_full_path }}">
-    <select id="language_selector" name="language">
-      {% for language in languages %}
-        <option value="{{ language.code }}"
-                {% if language.code == current_language %}
-                  selected
-                {% endif %}>
-          {{ language.code|upper }}
-        </option>
-      {% endfor %}
-    </select>
+    <details class="admin-dropdown">
+      <summary aria-label='{{ current_language|upper }} ({% translate "Change the site language - currently in " %}{{ current_language|language_name_translated }} )'>
+        {{ current_language|upper }}
+      </summary>
+      <div class="admin-dropdown-panel">
+        {% for language in languages %}
+          <button type="submit"
+                  name="language"
+                  value="{{ language.code }}"
+                  lang="{{ language.code }}"
+                  aria-label="{{ language.code|upper }} (
+                              {% language language.code %}
+                                {% translate "English version" %}{% endlanguage %})"
+                  {% if language.code == current_language %}
+                    aria-current="true"
+                  {% endif %}>
+            {{ language.code|upper }}
+          </button>
+        {% endfor %}
+      </div>
+    </details>
   </form>
 {% endif %}

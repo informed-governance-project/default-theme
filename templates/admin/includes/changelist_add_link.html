@@ -1,0 +1,15 @@
+{% load i18n admin_urls %}
+{% comment %}
+  Labelled replacement for Unfold's "+" button, shown beside Filters in the list
+  toolbar (admin/change_list.html). Same conditions as unfold/helpers/add_link.html.
+{% endcomment %}
+{% if has_add_permission and cl.model_admin.show_add_link %}
+  {% url cl.opts|admin_urlname:"add" as add_url %}
+  {% if add_url %}
+    <a href="{% add_preserved_filters add_url is_popup to_field %}"
+       class="changelist-add-link bg-primary-600 border border-primary-700 flex font-medium gap-2 items-center px-3 py-2 rounded-default shadow-xs text-sm text-white hover:bg-primary-600/80 dark:border-primary-500">
+      <span class="material-symbols-outlined md-18" aria-hidden="true">add</span>
+      {% blocktranslate with name=cl.opts.verbose_name %}Add {{ name }}{% endblocktranslate %}
+    </a>
+  {% endif %}
+{% endif %}

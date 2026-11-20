@@ -123,15 +123,6 @@ $(document).ready(function () {
     }
   }
 
-  function checkSODeclarationStatusLegend() {
-    const status = localStorage.getItem('so_declaration_status_legend');
-    if (status === "true") {
-      $('#collapseLegend').addClass("show");
-    } else {
-      $('#collapseLegend').removeClass("show");
-    }
-  }
-
   $('.form-check-input').on('change', function () {
     checkImplementation();
     checkRequiredFields()
@@ -218,7 +209,6 @@ $(document).ready(function () {
   checkRequiredFields();
   showActiveSOStatusForm();
   checkActions();
-  checkSODeclarationStatusLegend();
 
   $(document).on("click", '.so_contacts', function () {
     let $this = $(this);
@@ -227,12 +217,6 @@ $(document).ready(function () {
     $('#contact-first-name').text(contacts.contact_first_name);
     $('#contact-email').text(contacts.contact_email);
     $('#contact-telephone').text(contacts.contact_telephone);
-  });
-
-  $(document).on("click", "#so_declaration_status_legend_btn", function () {
-    const current = localStorage.getItem('so_declaration_status_legend') === "true";
-    const newValue = !current;
-    localStorage.setItem('so_declaration_status_legend', newValue);
   });
 
   $(document).on("change", ".so-input-field", function () {

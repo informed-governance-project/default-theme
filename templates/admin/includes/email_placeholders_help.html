@@ -1,11 +1,12 @@
 {% load i18n %}
 <!-- Rendered by EmailPlaceholdersMixin as the description of the fieldset holding the content.
      The rows come from the placeholder list of the admin, so the list cannot drift from what is substituted. -->
-<button type="button" class="button" data-placeholders-help-open>
+<button type="button" class="admin-button" data-placeholders-help-open>
+  <span class="material-symbols-outlined" aria-hidden="true">help</span>
   {% translate "Available placeholders" %}
 </button>
 <dialog id="email-placeholders-help"
-        class="admin-dialog"
+        class="admin-dialog email-placeholders-dialog"
         aria-labelledby="email-placeholders-help-title">
   <h2 id="email-placeholders-help-title">
     {% translate "Available placeholders" %}
@@ -38,7 +39,7 @@
     </tbody>
   </table>
   <div class="admin-dialog-buttons">
-    <button type="button" class="button default" data-placeholders-help-close>
+    <button type="button" class="admin-button" data-placeholders-help-close>
       {% translate "Close" %}
     </button>
   </div>

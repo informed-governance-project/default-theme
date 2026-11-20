@@ -1,5 +1,4 @@
 {% load i18n %}
-{% load custom_filters %}
 {% block content %}
   <div class="modal-content">
     <div class="modal-header bg-primary text-white px-4 small">
@@ -12,50 +11,25 @@
               aria-label="{% translate 'Close' %}">
       </button>
     </div>
-    <div class="modal-body row row-cols-2 mx-4 my-3">
-      {% if is_regulator and not is_regulator_incidents %}
-        {% with "Status,Last update,Creation date,Detection date,Start date,Resolution date,Operator Acronym,Operator Name,Regulation,Reference,Sectors,Report" as dashboard_columns %}
-          {% for d_col in dashboard_columns|split:"," %}
-            <div class="form-check">
-              <input class="form-check-input column-toggle"
-                     type="checkbox"
-                     data-column="{{ forloop.counter0 }}"
-                     id="column-{{ forloop.counter0 }}">
-              <label class="form-check-label" for="column-{{ forloop.counter0 }}">
-                {% translate d_col %}
-              </label>
-            </div>
-          {% endfor %}
-        {% endwith %}
-      {% elif is_observer %}
-        {% with "Status,Last update,Creation date,Detection date,Start date,Resolution date,Operator Acronym,Operator Name,Regulator,Regulation,Reference,Sectors,Report" as dashboard_columns %}
-          {% for d_col in dashboard_columns|split:"," %}
-            <div class="form-check">
-              <input class="form-check-input column-toggle"
-                     type="checkbox"
-                     data-column="{{ forloop.counter0 }}"
-                     id="column-{{ forloop.counter0 }}">
-              <label class="form-check-label" for="column-{{ forloop.counter0 }}">
-                {% translate d_col %}
-              </label>
-            </div>
-          {% endfor %}
-        {% endwith %}
-      {% else %}
-        {% with "Status,Last update,Creation date,Detection date,Start date,Resolution date,Regulator,Regulation,Reference,Sectors,Report" as dashboard_columns %}
-          {% for d_col in dashboard_columns|split:"," %}
-            <div class="form-check">
-              <input class="form-check-input column-toggle"
-                     type="checkbox"
-                     data-column="{{ forloop.counter0 }}"
-                     id="column-{{ forloop.counter0 }}">
-              <label class="form-check-label" for="column-{{ forloop.counter0 }}">
-                {% translate d_col %}
-              </label>
-            </div>
-          {% endfor %}
-        {% endwith %}
+    <div class="modal-body row row-cols-2 mx-4 my-3"
+         data-preference-url="{% url 'save_list_preference' preference_page 'columns' %}">
+      {% include "parts/column_toggle.html" with column="status" label=_("Status") visible=visible_columns.status %}
+      {% include "parts/column_toggle.html" with column="last_update" label=_("Last update") visible=visible_columns.last_update %}
+      {% include "parts/column_toggle.html" with column="notification_date" label=_("Creation date") visible=visible_columns.notification_date %}
+      {% include "parts/column_toggle.html" with column="detection_date" label=_("Detection date") visible=visible_columns.detection_date %}
+      {% include "parts/column_toggle.html" with column="starting_date" label=_("Start date") visible=visible_columns.starting_date %}
+      {% include "parts/column_toggle.html" with column="resolution_date" label=_("Resolution date") visible=visible_columns.resolution_date %}
+      {% if is_regulator and not is_regulator_incidents or is_observer %}
+        {% include "parts/column_toggle.html" with column="company_identifier" label=_("Operator Acronym") visible=visible_columns.company_identifier %}
+        {% include "parts/column_toggle.html" with column="company_name" label=_("Operator Name") visible=visible_columns.company_name %}
       {% endif %}
+      {% if not is_regulator or is_regulator_incidents %}
+        {% include "parts/column_toggle.html" with column="regulator" label=_("Regulator") visible=visible_columns.regulator %}
+      {% endif %}
+      {% include "parts/column_toggle.html" with column="regulation" label=_("Regulation") visible=visible_columns.regulation %}
+      {% include "parts/column_toggle.html" with column="reference" label=_("Reference") visible=visible_columns.reference %}
+      {% include "parts/column_toggle.html" with column="sectors" label=_("Sectors") visible=visible_columns.sectors %}
+      {% include "parts/column_toggle.html" with column="report" label=_("Report") visible=visible_columns.report %}
     </div>
   </div>
 {% endblock %}

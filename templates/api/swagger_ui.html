@@ -1,0 +1,56 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+  {% translate "API documentation" %}
+{% endblock %}
+{% block bootstrap5_extra_head %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{{ swagger_ui_css }}" />
+  <link rel="stylesheet" href="{% static 'css/api_docs.css' %}" />
+{% endblock %}
+{% block bootstrap5_extra_script %}
+  {{ block.super }}
+  <script src="{{ swagger_ui_bundle }}"></script>
+  <script src="{{ swagger_ui_standalone }}"></script>
+  <script src="{{ script_url }}"></script>
+{% endblock %}
+{% block subheader %}
+  <div class="container-fluid d-flex flex-wrap gap-3 bg-light py-4 align-items-center mb-4">
+    <div class="hstack me-auto gap-2">
+      <i class="bi bi-braces h2 mb-0" aria-hidden="true"></i>
+      <h2 class="fw-bolder mb-0 text-uppercase">
+        {% translate "API documentation" %}
+      </h2>
+    </div>
+    <div class="hstack gap-4 pe-2">
+      <a class="fw-bold" href="{% url 'api:schema' %}">
+        {% translate "OpenAPI YAML" %}
+      </a>
+      {% if api_enabled %}
+        <a class="btn btn-primary" href="{% url 'api_keys' %}">
+          {% translate "API keys" %}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
+{% block content %}
+  <div>
+    <h3 class="fw-bolder">
+      {% translate "Read-only API" %}
+    </h3>
+    <div class="hr-separator">
+    </div>
+    <p class="small text-muted mb-1">
+      {% translate "The API gives read-only access to the platform's modules listed below, within the permissions of the key owner. It cannot change any record." %}
+    </p>
+    <p class="small text-muted">
+      {% blocktranslate trimmed %}
+        Send your key in the <code>Authorization: Bearer &lt;key&gt;</code> header. To try a request below, click <strong>Authorize</strong> and paste your key: it is kept only until you leave this page.
+      {% endblocktranslate %}
+    </p>
+  </div>
+  <div id="swagger-ui" class="api-docs">
+  </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "admin/import_export/base.html" %}
+{% load admin_urls i18n static unfold %}
+{% comment %}
+  django-import-export-extensions' import results page in Unfold's markup. The result is
+  django-import-export's own, so Unfold's error, validation and preview tables render it; the
+  forms are copied from Unfold's import_confirm.html and import_form.html, because the
+  extensions confirm by posting back to this page and upload through their celery-import view.
+{% endcomment %}
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static "import_export/import.css" %}">
+{% endblock %}
+{% block extrahead %}
+  {{ block.super }}
+  <script src="{% url 'admin:jsi18n' %}"></script>
+  {% if confirm_form %}
+    {{ confirm_form.media }}
+  {% else %}
+    {{ import_form.media }}
+  {% endif %}
+{% endblock %}
+{% block content %}
+  {% if confirm_form %}
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ confirm_form.as_p }}
+      {% capture as message silent %}
+      <div class="flex flex-row gap-1">
+        <p class="grow">
+          {% translate "Below is a preview of data to be imported. If you are satisfied with the results, click 'Confirm import'" %}
+        </p>
+        {% component "unfold/components/button.html" with submit=1 variant="primary" class="ml-auto -mr-1.5 -my-1" size="xs" %}
+        {% translate "Confirm import" %}
+      {% endcomponent %}
+    </div>
+  {% endcapture %}
+  {% include "unfold/helpers/messages/primary.html" with message=message %}
+</form>
+{% elif import_form %}
+<form action="{% url opts|admin_urlname:"import" %}?{{ request.GET.urlencode }}"
+      method="post"
+      enctype="multipart/form-data">
+  {% csrf_token %}
+  {% include "admin/import_export/resource_fields_list.html" with import_or_export="import" %}
+  <fieldset class="border border-base-200 mb-8 rounded-default p-3 shadow-xs dark:border-base-800">
+    <div class="flex flex-col gap-3 mb-3 *:mb-0">
+      {% for field in import_form %}
+        {% include "unfold/helpers/field.html" with field=field %}
+      {% endfor %}
+    </div>
+    <div class="border-t border-base-200 flex justify-end -mx-3 pt-3 px-3 dark:border-base-800">
+      {% component "unfold/components/button.html" with submit=1 %}
+      {% translate "Submit" %}
+    {% endcomponent %}
+  </div>
+</fieldset>
+</form>
+{% endif %}
+{% if result %}
+  {% if result.has_errors %}
+    {% include "admin/import_export/import_errors.html" with import_error_display="message" %}
+  {% elif result.has_validation_errors %}
+    {% include "admin/import_export/import_validation.html" %}
+  {% else %}
+    {% if import_job.import_status == "IMPORTED" %}
+      {% capture as imported silent %}{% translate "These elements were imported successfully" %}{% endcapture %}
+      {% include "unfold/helpers/messages/success.html" with message=imported %}
+    {% endif %}
+    {% include "admin/import_export/import_preview.html" %}
+  {% endif %}
+{% endif %}
+{% endblock %}
