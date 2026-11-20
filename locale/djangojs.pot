@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-11 09:22+0100\n"
+"POT-Creation-Date: 2026-11-20 16:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,21 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: theme/static/js/async_pdf_download.js:13
+#: theme/static/js/export_security_objectives.js:53
+#: theme/static/js/risk_analysis_import.js:14
+msgid "Close"
+msgstr ""
+
+#: theme/static/js/async_pdf_download.js:39
+msgid "The report is taking longer than expected. Please try again later."
+msgstr ""
+
+#: theme/static/js/async_pdf_download.js:57
+#: theme/static/js/async_pdf_download.js:82
+msgid "An error occurred while generating the report."
+msgstr ""
 
 #: theme/static/js/base.js:19
 msgid "Showing _START_ to _END_ of _TOTAL_ entries"
@@ -48,10 +63,6 @@ msgstr ""
 
 #: theme/static/js/declaration.js:111
 msgid "Please select at least one option."
-msgstr ""
-
-#: theme/static/js/export_security_objectives.js:53
-msgid "Close"
 msgstr ""
 
 #: theme/static/js/export_security_objectives.js:88
@@ -106,17 +117,23 @@ msgstr ""
 msgid "Deselect all"
 msgstr ""
 
-#: theme/static/js/reporting_dashboard.js:55
+#: theme/static/js/reporting_dashboard.js:42
 msgid "Stop generating"
 msgstr ""
 
-#: theme/static/js/reporting_dashboard.js:62
-#: theme/static/js/reporting_dashboard.js:126
+#: theme/static/js/reporting_dashboard.js:49
+#: theme/static/js/reporting_dashboard.js:113
 msgid "Generating report"
 msgstr ""
 
-#: theme/static/js/reporting_dashboard.js:118
+#: theme/static/js/reporting_dashboard.js:105
 msgid "Download"
+msgstr ""
+
+#: theme/static/js/risk_analysis_import.js:91
+msgid ""
+"The risk analysis import is taking longer than expected. Check the imported "
+"data later before importing it again."
 msgstr ""
 
 #: theme/static/js/so_dashboard.js:13
