@@ -991,9 +991,9 @@ body > #page {
     transform: rotate(180deg);
 }
 
-/* The observer form's Test RT Connection button (ObserverAdmin.rt_test_button): the connection
-   result (#rt-test-result) follows it on the same line. */
-.rt-test-btn {
+/* The observer connector form's Test connection button (ObserverConnectorAdmin.test_button): the
+   connection result (#connector-test-result) follows it on the same line. */
+.connector-test-btn {
     margin-inline-end: 12px;
 }
 
