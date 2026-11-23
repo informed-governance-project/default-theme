@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-20 16:00+0100\n"
-"PO-Revision-Date: 2026-11-11 09:14+0000\n"
+"PO-Revision-Date: 2026-11-23 13:29+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -17,35 +17,40 @@ msgstr ""
 #: theme/templates/account/api_keys.html:16
 #: theme/templates/api/swagger_ui.html:32 theme/templates/parts/header.html:102
 msgid "API keys"
-msgstr ""
+msgstr "API Schlüssel"
 
 #: theme/templates/account/api_keys.html:21
 #: theme/templates/api/swagger_ui.html:5 theme/templates/api/swagger_ui.html:23
 msgid "API documentation"
-msgstr ""
+msgstr "API Dokumentation"
 
 #: theme/templates/account/api_keys.html:26
 #: theme/templates/modals/create_api_key.html:9
 msgid "New API key"
-msgstr ""
+msgstr "Neuer API-Schlüssel"
 
 #: theme/templates/account/api_keys.html:34
 msgid "Your API keys"
-msgstr ""
+msgstr "Ihre API-Schlüssel"
 
 #: theme/templates/account/api_keys.html:39
 msgid ""
 "Keys grant read-only access using your current permissions. Keep them "
 "private and revoke them when no longer needed."
 msgstr ""
+"Schlüssel gewähren Lesezugriff auf der Grundlage Ihrer aktuellen "
+"Berechtigungen. Bewahren Sie sie vertraulich auf und widerrufen Sie sie, "
+"sobald sie nicht mehr benötigt werden."
 
 #: theme/templates/account/api_keys.html:45
 msgid "The request failed. Check your connection and try again."
 msgstr ""
+"Die Anfrage ist fehlgeschlagen. Überprüfen Sie Ihre Verbindung und versuchen "
+"Sie es erneut."
 
 #: theme/templates/account/api_keys.html:50
 msgid "API key revoked."
-msgstr ""
+msgstr "API-Schlüssel widerrufen."
 
 #: theme/templates/account/edit.html:8
 msgid "Account management"
@@ -64,7 +69,7 @@ msgstr "Änderungen speichern"
 
 #: theme/templates/admin/app_list.html:76
 msgid "You don’t have permission to view or edit anything."
-msgstr ""
+msgstr "Sie haben keine Berechtigung, Inhalte anzuzeigen oder zu bearbeiten."
 
 #: theme/templates/admin/custom_change_user_form.html:12
 #, python-format
@@ -101,11 +106,12 @@ msgid ""
 "Below is a preview of data to be imported. If you are satisfied with the "
 "results, click 'Confirm import'"
 msgstr ""
+"Nachfolgend finden Sie eine Vorschau der zu importierenden Daten. Wenn Sie "
+"mit den Ergebnissen einverstanden sind, klicken Sie auf „Import bestätigen“"
 
 #: theme/templates/admin/import_export_extensions/celery_import_results.html:33
-#| msgid "Confirm"
 msgid "Confirm import"
-msgstr ""
+msgstr "Import bestätigen"
 
 #: theme/templates/admin/import_export_extensions/celery_import_results.html:53
 #: theme/templates/incidents/declaration.html:314
@@ -116,7 +122,7 @@ msgstr "Einreichen"
 
 #: theme/templates/admin/import_export_extensions/celery_import_results.html:66
 msgid "These elements were imported successfully"
-msgstr ""
+msgstr "Diese Elemente wurden erfolgreich importiert"
 
 #: theme/templates/admin/import_export_extensions/includes/job_status.html:7
 #: theme/templates/incidents/incidents_base.html:136
@@ -164,7 +170,7 @@ msgstr "Bestätigen"
 #: theme/templates/admin/includes/changelist_add_link.html:12
 #, python-format
 msgid "Add %(name)s"
-msgstr ""
+msgstr "%(name)s hinzufügen"
 
 #: theme/templates/admin/includes/email_placeholders_help.html:6
 #: theme/templates/admin/includes/email_placeholders_help.html:12
@@ -280,17 +286,20 @@ msgstr "Wert"
 
 #: theme/templates/api/swagger_ui.html:28
 msgid "OpenAPI YAML"
-msgstr ""
+msgstr "OpenAPI YAML"
 
 #: theme/templates/api/swagger_ui.html:41
 msgid "Read-only API"
-msgstr ""
+msgstr "Schreibgeschützte API"
 
 #: theme/templates/api/swagger_ui.html:46
 msgid ""
 "The API gives read-only access to the platform's modules listed below, "
 "within the permissions of the key owner. It cannot change any record."
 msgstr ""
+"Die API gewährt im Rahmen der Berechtigungen des Schlüsselinhabers "
+"Lesezugriff auf die unten aufgeführten Module der Plattform. Sie kann keine "
+"Datensätze ändern."
 
 #: theme/templates/api/swagger_ui.html:49
 msgid ""
@@ -298,6 +307,11 @@ msgid ""
 "To try a request below, click <strong>Authorize</strong> and paste your key: "
 "it is kept only until you leave this page."
 msgstr ""
+"Senden Sie Ihren Schlüssel im Header <code>Autorisierung: "
+"Inhaber&lt;Schlüssel&gt;</code>. Um eine der unten aufgeführten Anfragen "
+"auszuprobieren, klicken Sie auf <strong>Autorisieren</strong> und fügen Sie "
+"Ihren Schlüssel ein: Er wird nur so lange gespeichert, bis Sie diese Seite "
+"verlassen."
 
 #: theme/templates/cookiebanner/bootstrap5.html:44
 msgid "Details"
@@ -2479,33 +2493,37 @@ msgstr "Duplizieren"
 
 #: theme/templates/modals/create_api_key.html:7
 msgid "API key created"
-msgstr ""
+msgstr "API-Schlüssel erstellt"
 
 #: theme/templates/modals/create_api_key.html:21
 msgid "Copy this key now. It will not be shown again."
 msgstr ""
+"Notieren Sie sich diesen Schlüssel jetzt. Er wird nicht noch einmal "
+"angezeigt."
 
 #: theme/templates/modals/create_api_key.html:24
 msgid "API key"
-msgstr ""
+msgstr "API Schlüssel"
 
 #: theme/templates/modals/create_api_key.html:38
 msgid "Key copied to the clipboard."
-msgstr ""
+msgstr "Der Schlüssel wurde in die Zwischenablage kopiert."
 
 #: theme/templates/modals/create_api_key.html:39
 msgid ""
 "The key could not be copied. It is selected: copy it with Ctrl+C (Cmd+C on a "
 "Mac)."
 msgstr ""
+"Der Schlüssel konnte nicht kopiert werden. Er ist bereits ausgewählt: "
+"Kopieren Sie ihn mit Strg+C (Cmd+C auf einem Mac)."
 
 #: theme/templates/modals/create_api_key.html:41
 msgid "Copy"
-msgstr ""
+msgstr "Kopieren"
 
 #: theme/templates/modals/create_api_key.html:49
 msgid "Done"
-msgstr ""
+msgstr "Fertig"
 
 #: theme/templates/modals/create_api_key.html:65
 #, python-format
@@ -2513,6 +2531,9 @@ msgid ""
 "This key will read only the data of %(company)s. To read another company's "
 "data, switch company and create a key there."
 msgstr ""
+"Dieser Schlüssel liest ausschließlich die Daten von %(company)s aus. Um die "
+"Daten eines anderen Unternehmens auszulesen, wechseln Sie das Unternehmen "
+"und erstellen Sie dort einen Schlüssel."
 
 #: theme/templates/modals/create_api_key.html:77
 #: theme/templates/modals/create_report_project.html:102
@@ -2670,23 +2691,23 @@ msgid "Review"
 msgstr "Prüfung"
 
 #: theme/templates/modals/revoke_api_key.html:5
-#| msgid "Confirm Deletion of Project"
 msgid "Confirm revocation of API key"
-msgstr ""
+msgstr "Widerruf des API-Schlüssels bestätigen"
 
 #: theme/templates/modals/revoke_api_key.html:19
-#| msgid "Are you sure you want to delete the project?"
 msgid "Are you sure you want to revoke this API key?"
-msgstr ""
+msgstr "Möchten Sie diesen API-Schlüssel wirklich widerrufen?"
 
 #: theme/templates/modals/revoke_api_key.html:23
 msgid "Applications using it lose access immediately. This cannot be undone."
 msgstr ""
+"Anwendungen, die diese Funktion nutzen, verlieren sofort den Zugriff. Dieser "
+"Vorgang kann nicht rückgängig gemacht werden."
 
 #: theme/templates/modals/revoke_api_key.html:31
 #: theme/templates/parts/api_keys_table.html:82
 msgid "Revoke"
-msgstr ""
+msgstr "Widerrufen"
 
 #: theme/templates/modals/risk_analysis_import.html:11
 #: theme/templates/reporting/base.html:22
@@ -2803,34 +2824,33 @@ msgid "Please try again later."
 msgstr "Bitte versuchen Sie es später erneut."
 
 #: theme/templates/parts/api_keys_table.html:5
-#| msgid "Incidents table"
 msgid "API keys table"
-msgstr ""
+msgstr "Tabelle der API-Schlüssel"
 
 #: theme/templates/parts/api_keys_table.html:21
 msgid "Prefix"
-msgstr ""
+msgstr "Präfix"
 
 #: theme/templates/parts/api_keys_table.html:24
 msgid "Expires"
-msgstr ""
+msgstr "Läuft ab"
 
 #: theme/templates/parts/api_keys_table.html:62
 msgid "Revoked"
-msgstr ""
+msgstr "Widerrufen"
 
 #: theme/templates/parts/api_keys_table.html:66
 msgid "Expired"
-msgstr ""
+msgstr "Abgelaufen"
 
 #: theme/templates/parts/api_keys_table.html:75
 #, python-format
 msgid "Revoke %(name)s"
-msgstr ""
+msgstr "%(name)s widerrufen"
 
 #: theme/templates/parts/api_keys_table.html:93
 msgid "You have no API keys."
-msgstr ""
+msgstr "Sie haben keine API-Schlüssel."
 
 #: theme/templates/parts/footer.html:12
 #: theme/templates/parts/footer_admin.html:10
@@ -3218,7 +3238,7 @@ msgstr "Überprüfungsstatus"
 #: theme/templates/security_objectives/declaration.html:426
 #, python-format
 msgid "Objective %(position)s of %(total)s in this domain"
-msgstr ""
+msgstr "Sicherheitsziel %(position)s von %(total)s in dieser Domäne"
 
 #: theme/templates/report/security_objectives/declaration.html:44
 #: theme/templates/security_objectives/declaration.html:365
@@ -3342,6 +3362,8 @@ msgid ""
 "The operator submitted a newer version of this declaration on "
 "%(submit_date)s. This version can no longer be reviewed."
 msgstr ""
+"Der Betreiber hat am %(submit_date)s eine neuere Version dieser Erklärung "
+"eingereicht. Diese Version kann nicht mehr geprüft werden."
 
 #: theme/templates/security_objectives/declaration.html:23
 msgid "Open the newer version"
