@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-20 16:00+0100\n"
-"PO-Revision-Date: 2026-09-16 10:37+0000\n"
+"PO-Revision-Date: 2026-11-23 13:29+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -74,6 +74,8 @@ msgid ""
 "Resetting the accepted terms will require every user to accept the terms of "
 "service again at their next login."
 msgstr ""
+"Als u de aanvaarde voorwaarden opnieuw instelt, moet elke gebruiker de "
+"dienstvoorwaarden opnieuw aanvaarden bij de volgende aanmelding."
 
 #: theme/templates/admin/custom_change_user_list.html:17
 msgid "Reset accepted terms"
@@ -84,6 +86,8 @@ msgid ""
 "Resetting the accepted cookies will show the cookie banner again to every "
 "user."
 msgstr ""
+"Als u de aanvaarde cookies opnieuw instelt, wordt de cookiebanner opnieuw "
+"aan elke gebruiker getoond."
 
 #: theme/templates/admin/custom_change_user_list.html:28
 msgid "Reset accepted cookies"
@@ -357,12 +361,17 @@ msgid ""
 "We would like to inform you that a new security objective mass export "
 "related to the regulation %(regulation)s has been completed."
 msgstr ""
+"Hierbij informeren we u graag dat er een nieuwe pakketexport van "
+"beveiligingsdoelstellingen in verband met de %(verordeningen) werd "
+"uitgevoerd."
 
 #: theme/templates/emails/security_objective_mass_export.html:13
 msgid ""
 "This message carries no exported data. The parameters used and the number of "
 "rows returned are recorded in the logs."
 msgstr ""
+"Dit bericht bevat geen geëxporteerde gegevens. De gebruikte parameters en "
+"het aantal geretourneerde rijen worden vastgelegd in de logboeken."
 
 #: theme/templates/emails/security_objective_mass_export.html:29
 #: theme/templates/reporting/project_dashboard.html:108
@@ -2616,7 +2625,7 @@ msgstr "Incidenten exporteren"
 
 #: theme/templates/modals/export_security_objectives.html:12
 msgid "Export security objectives"
-msgstr ""
+msgstr "Beveiligingsdoelstellingen exporteren"
 
 #: theme/templates/modals/import_so_declaration.html:11
 msgid "Import Security Objectives Statement"
@@ -2729,7 +2738,7 @@ msgstr "Verzenddatum"
 #: theme/templates/report/security_objectives/cover.html:17
 #: theme/templates/security_objectives/so_dashboard_base.html:118
 msgid "Identifier"
-msgstr "Identificatie"
+msgstr "Identificatiecode"
 
 #: theme/templates/modals/so_dashboard_hide_columns.html:20
 #: theme/templates/report/security_objectives/cover.html:35
@@ -2752,7 +2761,7 @@ msgstr "Jaar"
 
 #: theme/templates/modals/update_so_declaration.html:7
 msgid "View or update security objectives statement"
-msgstr ""
+msgstr "Beveiligingsdoelstellingenverklaring bekijken of bijwerken"
 
 #: theme/templates/modals/update_so_declaration.html:17
 msgid "What do you want to do ?"
@@ -2760,7 +2769,7 @@ msgstr "Wat wilt u doen?"
 
 #: theme/templates/modals/update_so_declaration.html:25
 msgid "View"
-msgstr ""
+msgstr "Weergeven"
 
 #: theme/templates/modals/update_so_declaration.html:31
 msgid "Update"
@@ -3230,7 +3239,7 @@ msgstr "Status controle"
 #: theme/templates/security_objectives/declaration.html:426
 #, python-format
 msgid "Objective %(position)s of %(total)s in this domain"
-msgstr ""
+msgstr "Doelstelling %(posities) van %(totalen) in dit domein"
 
 #: theme/templates/report/security_objectives/declaration.html:44
 #: theme/templates/security_objectives/declaration.html:365
@@ -3346,7 +3355,7 @@ msgstr "Kopiëren van vorig jaar"
 
 #: theme/templates/security_objectives/base.html:48
 msgid "New assessment"
-msgstr ""
+msgstr "Nieuwe beoordeling"
 
 #: theme/templates/security_objectives/declaration.html:21
 #, python-format
@@ -3354,14 +3363,16 @@ msgid ""
 "The operator submitted a newer version of this declaration on "
 "%(submit_date)s. This version can no longer be reviewed."
 msgstr ""
+"De operator heeft op %(submit_date)s een nieuwere versie van deze verklaring "
+"ingediend. Deze versie kan niet meer worden beoordeeld."
 
 #: theme/templates/security_objectives/declaration.html:23
 msgid "Open the newer version"
-msgstr ""
+msgstr "Open de nieuwere versie"
 
 #: theme/templates/security_objectives/declaration.html:242
 msgid "Security objectives"
-msgstr ""
+msgstr "Beveiligingsdoelstellingen"
 
 #: theme/templates/security_objectives/declaration.html:251
 #, python-format
@@ -3372,50 +3383,50 @@ msgstr[1] ""
 
 #: theme/templates/security_objectives/declaration.html:268
 msgid "Previous objectives"
-msgstr ""
+msgstr "Vorige doelstellingen"
 
 #: theme/templates/security_objectives/declaration.html:276
 msgid "Next objectives"
-msgstr ""
+msgstr "Volgende doelstellingen"
 
 #: theme/templates/security_objectives/declaration.html:351
 msgid "Not filled"
-msgstr ""
+msgstr "Niet ingevuld"
 
 #: theme/templates/security_objectives/declaration.html:358
 msgid "Partially filled"
-msgstr ""
+msgstr "Gedeeltelijk ingevuld"
 
 #: theme/templates/security_objectives/declaration.html:372
 msgid "Fully filled"
-msgstr ""
+msgstr "Volledig ingevuld"
 
 #: theme/templates/security_objectives/declaration.html:374
 msgid "Review passed"
-msgstr ""
+msgstr "Na onderzoek aanvaard"
 
 #: theme/templates/security_objectives/declaration.html:623
 #, python-format
 msgid "%(counter)s objective"
 msgid_plural "%(counter)s objectives"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(counter)s doelstelling"
+msgstr[1] "%(counter)s doelstellingen"
 
 #: theme/templates/security_objectives/declaration.html:624
 #, python-format
 msgid "%(counter)s domain"
 msgid_plural "%(counter)s domains"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(counter)s domein"
+msgstr[1] "%(counter)s domeinen"
 
 #: theme/templates/security_objectives/declaration.html:641
 #: theme/templates/security_objectives/declaration.html:643
 msgid "Expand all"
-msgstr ""
+msgstr "Alles uitvouwen"
 
 #: theme/templates/security_objectives/declaration.html:642
 msgid "Collapse all"
-msgstr ""
+msgstr "Alles samenvouwen"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:36
 msgid "Filter by status, sector, etc."
@@ -3427,7 +3438,7 @@ msgstr "Tabel beveiligingsdoelstellingen"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:379
 msgid "No security objectives statements have been created yet."
-msgstr ""
+msgstr "Nog geen beveiligingsdoelstellingenverklaringen gecreëerd."
 
 #: theme/templates/two_factor/core/setup_complete.html:6
 msgid "Enable Two-Factor Authentication"
