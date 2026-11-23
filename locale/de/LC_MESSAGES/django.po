@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-20 16:00+0100\n"
+"POT-Creation-Date: 2026-11-23 14:32+0100\n"
 "PO-Revision-Date: 2026-11-23 13:29+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -3474,32 +3474,26 @@ msgid "Add Phone Number"
 msgstr "Telefonnummer hinzufügen"
 
 #: theme/templates/unfold/helpers/edit_inline/stacked_title.html:42
-#| msgid "Incident details"
 msgid "Show or hide the details"
 msgstr ""
 
 #: theme/templates/unfold/helpers/pagination_default.html:14
-#| msgid "Regulation"
 msgid "Pagination"
 msgstr ""
 
 #: theme/templates/unfold/helpers/pagination_default.html:19
-#| msgid "First name"
 msgid "First page"
 msgstr ""
 
 #: theme/templates/unfold/helpers/pagination_default.html:27
-#| msgid "Previous"
 msgid "Previous page"
 msgstr ""
 
 #: theme/templates/unfold/helpers/pagination_default.html:46
-#| msgid "Next"
 msgid "Next page"
 msgstr ""
 
 #: theme/templates/unfold/helpers/pagination_default.html:54
-#| msgid "Last update"
 msgid "Last page"
 msgstr ""
 

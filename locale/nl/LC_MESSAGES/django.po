@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-20 16:00+0100\n"
+"POT-Creation-Date: 2026-11-23 14:32+0100\n"
 "PO-Revision-Date: 2026-11-23 13:29+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -100,7 +100,6 @@ msgid ""
 msgstr ""
 
 #: theme/templates/admin/import_export_extensions/celery_import_results.html:33
-#| msgid "Confirm"
 msgid "Confirm import"
 msgstr ""
 
@@ -2698,12 +2697,10 @@ msgid "Review"
 msgstr "Beoordeling"
 
 #: theme/templates/modals/revoke_api_key.html:5
-#| msgid "Confirm Deletion of Project"
 msgid "Confirm revocation of API key"
 msgstr ""
 
 #: theme/templates/modals/revoke_api_key.html:19
-#| msgid "Are you sure you want to delete the project?"
 msgid "Are you sure you want to revoke this API key?"
 msgstr ""
 
@@ -2829,7 +2826,6 @@ msgid "Please try again later."
 msgstr "Probeer het later opnieuw."
 
 #: theme/templates/parts/api_keys_table.html:5
-#| msgid "Incidents table"
 msgid "API keys table"
 msgstr ""
 
@@ -3470,32 +3466,26 @@ msgid "Add Phone Number"
 msgstr "Een telefoonnummer toevoegen"
 
 #: theme/templates/unfold/helpers/edit_inline/stacked_title.html:42
-#| msgid "Incident details"
 msgid "Show or hide the details"
 msgstr ""
 
 #: theme/templates/unfold/helpers/pagination_default.html:14
-#| msgid "Regulation"
 msgid "Pagination"
 msgstr ""
 
 #: theme/templates/unfold/helpers/pagination_default.html:19
-#| msgid "First name"
 msgid "First page"
 msgstr ""
 
 #: theme/templates/unfold/helpers/pagination_default.html:27
-#| msgid "Previous"
 msgid "Previous page"
 msgstr ""
 
 #: theme/templates/unfold/helpers/pagination_default.html:46
-#| msgid "Next"
 msgid "Next page"
 msgstr ""
 
 #: theme/templates/unfold/helpers/pagination_default.html:54
-#| msgid "Last update"
 msgid "Last page"
 msgstr ""
 
