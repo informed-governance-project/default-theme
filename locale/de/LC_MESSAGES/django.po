@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-23 14:32+0100\n"
-"PO-Revision-Date: 2026-11-23 13:29+0000\n"
+"PO-Revision-Date: 2026-11-25 07:28+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -3367,26 +3367,26 @@ msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:23
 msgid "Open the newer version"
-msgstr ""
+msgstr "Öffnen Sie die neuere Version"
 
 #: theme/templates/security_objectives/declaration.html:242
 msgid "Security objectives"
-msgstr ""
+msgstr "Sicherheitsziele"
 
 #: theme/templates/security_objectives/declaration.html:251
 #, python-format
 msgid "%(total)s Objective · %(first)s to %(last)s"
 msgid_plural "%(total)s Objectives · %(first)s to %(last)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s Sicherheitsziel· %(first)s bis %(last)s"
+msgstr[1] "%(total)s Sicherheitsziele· %(first)s bis %(last)s"
 
 #: theme/templates/security_objectives/declaration.html:268
 msgid "Previous objectives"
-msgstr ""
+msgstr "Bisherige Ziele"
 
 #: theme/templates/security_objectives/declaration.html:276
 msgid "Next objectives"
-msgstr ""
+msgstr "Nächste Ziele"
 
 #: theme/templates/security_objectives/declaration.html:351
 msgid "Not filled"
@@ -3408,24 +3408,24 @@ msgstr "Überprüfung bestanden"
 #, python-format
 msgid "%(counter)s objective"
 msgid_plural "%(counter)s objectives"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(counter)s Ziel"
+msgstr[1] "%(counter)s Ziele"
 
 #: theme/templates/security_objectives/declaration.html:624
 #, python-format
 msgid "%(counter)s domain"
 msgid_plural "%(counter)s domains"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(counter)s Domäne"
+msgstr[1] "%(counter)s Domänen"
 
 #: theme/templates/security_objectives/declaration.html:641
 #: theme/templates/security_objectives/declaration.html:643
 msgid "Expand all"
-msgstr ""
+msgstr "Alle anzeigen"
 
 #: theme/templates/security_objectives/declaration.html:642
 msgid "Collapse all"
-msgstr ""
+msgstr "Alle ausblenden"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:36
 msgid "Filter by status, sector, etc."
@@ -3475,40 +3475,40 @@ msgstr "Telefonnummer hinzufügen"
 
 #: theme/templates/unfold/helpers/edit_inline/stacked_title.html:42
 msgid "Show or hide the details"
-msgstr ""
+msgstr "Details anzeigen oder ausblenden"
 
 #: theme/templates/unfold/helpers/pagination_default.html:14
 msgid "Pagination"
-msgstr ""
+msgstr "Paginierung"
 
 #: theme/templates/unfold/helpers/pagination_default.html:19
 msgid "First page"
-msgstr ""
+msgstr "Erste Seite"
 
 #: theme/templates/unfold/helpers/pagination_default.html:27
 msgid "Previous page"
-msgstr ""
+msgstr "Vorherige Seite"
 
 #: theme/templates/unfold/helpers/pagination_default.html:46
 msgid "Next page"
-msgstr ""
+msgstr "Nächste Seite"
 
 #: theme/templates/unfold/helpers/pagination_default.html:54
 msgid "Last page"
-msgstr ""
+msgstr "Letzte Seite"
 
 #: theme/templates/unfold/helpers/welcomemsg.html:29
 #, python-format
 msgid "%(counter)s result"
 msgid_plural "%(counter)s results"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(counter)s Ergebnis"
+msgstr[1] "%(counter)s Ergebnisse"
 
 #: theme/templates/unfold/helpers/welcomemsg.html:31
 #, python-format
 msgid "%(full_result_count)s total"
-msgstr ""
+msgstr "%(full_result_count)s insgesamt"
 
 #: theme/templates/unfold/helpers/welcomemsg.html:33
 msgid "Show all"
-msgstr ""
+msgstr "Alle anzeigen"
