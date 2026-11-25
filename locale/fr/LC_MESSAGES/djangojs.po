@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-20 16:00+0100\n"
-"PO-Revision-Date: 2026-11-11 09:14+0000\n"
+"PO-Revision-Date: 2026-11-25 07:37+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -25,15 +25,13 @@ msgid "Close"
 msgstr "Fermer"
 
 #: theme/static/js/async_pdf_download.js:39
-#, fuzzy
-#| msgid "The export is taking longer than expected. Please try again later."
 msgid "The report is taking longer than expected. Please try again later."
-msgstr "L'export prend plus de temps que prévu. Veuillez réessayer plus tard."
+msgstr "Le rapport prend plus de temps que prévu. Veuillez réessayer plus tard."
 
 #: theme/static/js/async_pdf_download.js:57
 #: theme/static/js/async_pdf_download.js:82
 msgid "An error occurred while generating the report."
-msgstr ""
+msgstr "Une erreur s'est produite lors de la génération du rapport."
 
 #: theme/static/js/base.js:19
 msgid "Showing _START_ to _END_ of _TOTAL_ entries"
@@ -134,12 +132,12 @@ msgid "Download"
 msgstr "Télécharger"
 
 #: theme/static/js/risk_analysis_import.js:91
-#, fuzzy
-#| msgid "The export is taking longer than expected. Please try again later."
 msgid ""
 "The risk analysis import is taking longer than expected. Check the imported "
 "data later before importing it again."
-msgstr "L'export prend plus de temps que prévu. Veuillez réessayer plus tard."
+msgstr ""
+"L'import de l'analyse des risques prend plus de temps que prévu. Vérifiez "
+"les données importées avant de relancer l'import."
 
 #: theme/static/js/so_dashboard.js:13
 msgid "View"
