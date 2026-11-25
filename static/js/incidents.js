@@ -1,3 +1,6 @@
+// Templates reverse per-row URLs with this UUID, which the script swaps for the row's own.
+const URL_ID_PLACEHOLDER = '00000000-0000-0000-0000-000000000000';
+
 $(document).ready(function () {
   $(document).on("click", '.access_log', function () {
     var $popup = $("#access_log");
@@ -35,8 +38,8 @@ $(document).ready(function () {
     let tooltip_comment = gettext("Comment");
 
     workflows.forEach(function (workflow) {
-      let reviewUrl = reviewUrlBase + workflow.id;
-      let downloadUrl = downloadUrlBase.replace('0', workflow.id);
+      let reviewUrl = reviewUrlBase + workflow.public_id;
+      let downloadUrl = downloadUrlBase.replace(URL_ID_PLACEHOLDER, workflow.public_id);
       let date = new Date(workflow.timestamp);
       let reviewStatus = workflow.review_status;
       let reviewStatusCssClass = workflow.css_class;
@@ -126,10 +129,7 @@ $(document).ready(function () {
   $(document).on("click", '.delete_incident', function () {
     let $this = $(this);
     let modalDeleteForm = $("#modal-delete-form");
-    let deleteUrlBase = $this.data('delete-url');
-    let incidentId = $this.data('incident-id');
-    let deleteUrl = deleteUrlBase.replace('0', incidentId);
-    modalDeleteForm.attr('action', deleteUrl);
+    modalDeleteForm.attr('action', $this.data('delete-url'));
   });
 
   $(document).on("click", '.contacts_incident', function () {

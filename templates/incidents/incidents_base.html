@@ -275,7 +275,7 @@
                 data-column="status">
               <div class="col d-inline-flex align-items-center justify-content-center gap-1">
                 {% if incident.is_significative_impact %}
-                  <i id="impact_status_{{ incident.id }}"
+                  <i id="impact_status_{{ incident.public_id }}"
                      class="custom-icon-impact logo-status"
                      data-bs-placement="top"
                      data-bs-toggle="tooltip"
@@ -284,7 +284,7 @@
                   </i>
                   <span class="visually-hidden">{% translate "Incident with significant impact" %}</span>
                 {% else %}
-                  <i id="impact_status_{{ incident.id }}"
+                  <i id="impact_status_{{ incident.public_id }}"
                      class="custom-icon-impact-disabled logo-status"
                      data-bs-placement="top"
                      data-bs-toggle="tooltip"
@@ -294,7 +294,7 @@
                   <span class="visually-hidden">{% translate "No significant impact" %}</span>
                 {% endif %}
                 {% if incident.incident_status == 'GOING' %}
-                  <i id="incident_status_{{ incident.id }}"
+                  <i id="incident_status_{{ incident.public_id }}"
                      class="custom-icon-ongoing logo-status"
                      data-bs-placement="top"
                      data-bs-toggle="tooltip"
@@ -303,7 +303,7 @@
                   </i>
                   <span class="visually-hidden">{% translate "The incident is still ongoing" %}</span>
                 {% elif incident.incident_status == 'CLOSE' %}
-                  <i id="incident_status_{{ incident.id }}"
+                  <i id="incident_status_{{ incident.public_id }}"
                      class="custom-icon-closed logo-status"
                      data-bs-placement="top"
                      data-bs-toggle="tooltip"
@@ -510,7 +510,7 @@
                                data-bs-toggle="tooltip"
                                data-bs-placement="top"
                                {% if latest_incident_workflow %}
-                                 href="{% url incident_view_action %}?incident_workflow_id={{ latest_incident_workflow.id }}"
+                                 href="{% url incident_view_action %}?incident_workflow_id={{ latest_incident_workflow.public_id }}"
                                {% endif %}>{{ report.name }}</a>
                           </div>
                           {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
@@ -523,7 +523,7 @@
                                             data-report="{{ report.name }}"
                                             data-incident-ref="{{ incident.incident_id }}"
                                             data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                                            data-download-url="{% url 'download_incident_report_pdf' 0 %}"
+                                            data-download-url="{% url 'download_incident_report_pdf' '00000000-0000-0000-0000-000000000000' %}"
                                             data-bs-toggle="modal"
                                             data-bs-target="#report_versions">
                                       <i class="custom-icon-versioning h6 align-self-center"
@@ -537,7 +537,7 @@
                                   {% endif %}
                                   {% if latest_incident_workflow %}
                                     <a class="btn p-0 ps-1 border-0 js-async-pdf"
-                                       href="{% url 'download_incident_report_pdf' latest_incident_workflow.id %}"
+                                       href="{% url 'download_incident_report_pdf' latest_incident_workflow.public_id %}"
                                        data-bs-placement="top"
                                        data-bs-toggle="tooltip"
                                        title="{% translate 'Download PDF report' %}">
@@ -560,7 +560,7 @@
               <div class="col d-flex align-items-center ps-2 gap-2">
                 <!-- PDF Download -->
                 <a class="btn p-0 border-0 js-async-pdf"
-                   href="{% url 'download_incident_pdf' incident.id %}"
+                   href="{% url 'download_incident_pdf' incident.public_id %}"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
                    title="{% translate 'Download PDF report' %}">
@@ -584,7 +584,7 @@
                     <li>
                       <div class="dropdown-item">
                         <button class="btn btn-sm access_log p-0 d-flex justify-content-start w-100 text-start"
-                                data-incident-id="{{ incident.id }}">
+                                data-incident-id="{{ incident.public_id }}">
                           <i class="custom-icon-log  h4" aria-hidden="true"></i>
                           <span class="visually-hidden">{% translate "Access Log" %}</span>
                           {% translate "Access Log" %}

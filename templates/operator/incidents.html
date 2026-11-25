@@ -18,7 +18,7 @@
                  title="{{ report.tooltip }}">
               {% if not report.is_disabled and not latest_incident_workflow %}
                 <a class="btn btn-{{ report.css_class }} btn-sm btn-not-submitted"
-                   href="{% url 'create_workflow' %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
+                   href="{% url 'create_workflow' %}?incident_id={{ incident.public_id }}&workflow_id={{ report.id }}">
                   <i class="custom-icon-{{ report.css_class }}-white align-middle"
                      aria-hidden="true"></i>
                   {{ report.name }}
@@ -27,7 +27,7 @@
                 </a>
               {% elif not report.is_disabled and report.css_class == "failed" %}
                 <a class="btn btn-{{ report.css_class }} btn-sm btn-not-submitted"
-                   href="{% url 'edit_workflow' %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
+                   href="{% url 'edit_workflow' %}?incident_id={{ incident.public_id }}&workflow_id={{ report.id }}">
                   <i class="custom-icon-{{ report.css_class }}-white align-middle"
                      aria-hidden="true"></i>
                   {{ report.name }}
@@ -41,7 +41,7 @@
                               text-decoration-none
                             {% endif %}"
                      {% if not report.is_disabled %}
-                       href="{% url base_url %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}"
+                       href="{% url base_url %}?incident_id={{ incident.public_id }}&workflow_id={{ report.id }}"
                      {% endif %}>{{ report.name }}</a>
                 {% endwith %}
               {% endif %}
@@ -77,7 +77,7 @@
                             data-report="{{ report.name }}"
                             data-incident-ref="{{ incident.incident_id }}"
                             data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                            data-download-url="{% url 'download_incident_report_pdf' 0 %}"
+                            data-download-url="{% url 'download_incident_report_pdf' '00000000-0000-0000-0000-000000000000' %}"
                             data-bs-toggle="modal"
                             data-bs-target="#report_versions">
                       <i class="custom-icon-versioning h6 align-self-center"
@@ -108,8 +108,7 @@
 {% block content_table_actions %}
   {% if incident.workflows.count == 0 %}
     <button class="btn text-dark p-0 border-0 delete_incident"
-            data-incident-id="{{ incident.id }}"
-            data-delete-url="{% url 'delete_incident' 0 %}"
+            data-delete-url="{% url 'delete_incident' incident.public_id %}"
             data-bs-toggle="modal"
             data-bs-target="#delete_incident">
       <i class="custom-icon-trash h4"
