@@ -26,7 +26,8 @@ msgstr "Fermer"
 
 #: theme/static/js/async_pdf_download.js:39
 msgid "The report is taking longer than expected. Please try again later."
-msgstr "Le rapport prend plus de temps que prévu. Veuillez réessayer plus tard."
+msgstr ""
+"Le rapport prend plus de temps que prévu. Veuillez réessayer plus tard."
 
 #: theme/static/js/async_pdf_download.js:57
 #: theme/static/js/async_pdf_download.js:82

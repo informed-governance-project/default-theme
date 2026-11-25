@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-23 14:32+0100\n"
+"POT-Creation-Date: 2026-11-25 08:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,7 @@ msgstr ""
 
 #: theme/templates/account/api_keys.html:5
 #: theme/templates/account/api_keys.html:16
+#: theme/templates/admin/includes/header_links.html:41
 #: theme/templates/api/swagger_ui.html:32 theme/templates/parts/header.html:102
 msgid "API keys"
 msgstr ""
@@ -247,7 +248,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: theme/templates/admin/includes/header_links.html:41
+#: theme/templates/admin/includes/header_links.html:44
 #: theme/templates/parts/header.html:109
 #: theme/templates/registration/base.html:44
 msgid "Log out"

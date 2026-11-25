@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-23 14:32+0100\n"
+"POT-Creation-Date: 2026-11-25 08:42+0100\n"
 "PO-Revision-Date: 2026-11-25 07:28+0000\n"
 "Last-Translator: Edgar Dugourd <Edd@ilr.lu>\n"
 "Language-Team: \n"
@@ -15,6 +15,7 @@ msgstr ""
 
 #: theme/templates/account/api_keys.html:5
 #: theme/templates/account/api_keys.html:16
+#: theme/templates/admin/includes/header_links.html:41
 #: theme/templates/api/swagger_ui.html:32 theme/templates/parts/header.html:102
 msgid "API keys"
 msgstr "Clés API"
@@ -253,7 +254,7 @@ msgstr "Sécurité"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: theme/templates/admin/includes/header_links.html:41
+#: theme/templates/admin/includes/header_links.html:44
 #: theme/templates/parts/header.html:109
 #: theme/templates/registration/base.html:44
 msgid "Log out"
@@ -303,8 +304,8 @@ msgid ""
 "To try a request below, click <strong>Authorize</strong> and paste your key: "
 "it is kept only until you leave this page."
 msgstr ""
-"Envoyez votre clé dans <code> autorisation: en-tête du détenteur "
-"&lt;key&gt;</code>. Pour tester l'une des requêtes ci-dessous, cliquez sur "
+"Envoyez votre clé dans <code> autorisation: en-tête du détenteur &lt;key&gt;"
+"</code>. Pour tester l'une des requêtes ci-dessous, cliquez sur "
 "<strong>Autoriser</strong> et insérez votre clé : celle-ci n'est conservée "
 "que jusqu'à ce que vous quittiez cette page."
 
@@ -2540,7 +2541,8 @@ msgstr "Clé API créée"
 
 #: theme/templates/modals/create_api_key.html:21
 msgid "Copy this key now. It will not be shown again."
-msgstr "Copiez cette clé dès maintenant. Elle ne s'affichera plus par la suite."
+msgstr ""
+"Copiez cette clé dès maintenant. Elle ne s'affichera plus par la suite."
 
 #: theme/templates/modals/create_api_key.html:24
 msgid "API key"
@@ -3405,8 +3407,8 @@ msgid ""
 "The operator submitted a newer version of this declaration on "
 "%(submit_date)s. This version can no longer be reviewed."
 msgstr ""
-"L'opérateur a soumis une version plus récente de cette déclaration le %"
-"(submit_date)s. Cette version ne peut plus faire l'objet d'une revue."
+"L'opérateur a soumis une version plus récente de cette déclaration le "
+"%(submit_date)s. Cette version ne peut plus faire l'objet d'une revue."
 
 #: theme/templates/security_objectives/declaration.html:23
 msgid "Open the newer version"
