@@ -95,7 +95,7 @@ $(document).ready(function () {
                   data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
                   <i class="custom-icon-view h4 align-self-center" aria-hidden="true"></i>
               </a>
-              <a class="btn p-0 ps-1 border-0 d-inline-flex align-items-center" href="${downloadUrl}" 
+              <a class="btn p-0 ps-1 border-0 d-inline-flex align-items-center js-async-pdf" href="${downloadUrl}" 
                   data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_download}">
                   <i class="custom-icon-pdf-small h4 align-self-center" aria-hidden="true"></i>
               </a>
@@ -176,29 +176,5 @@ $(document).ready(function () {
     }
   );
 
-  // Dashboard columns visibility management
-  const $tableDashboard = $('#incidents-table');
-  $(document).on('show.bs.modal', '#IncidentshideColumns', function () {
-    initColumnsChoice($tableDashboard);
-  });
-  $(document).on('change', '.column-toggle', function () {
-    changeColumnVisibility($tableDashboard, this);
-  });
-
-// Hide some columns by default
-  const hidden_colummns_by_default = ['reference', 'detection_date', 'starting_date', 'resolution_date'];
-
-  for (const col of hidden_colummns_by_default) {
-    const $th = $tableDashboard.find(`tr th[data-sort-field="${col}"]`);
-    if ($th.length === 0) continue; // skip if column not found
-    setColumnVisible($tableDashboard, $th.index(), false);
-  }
-
-
-  loadColumnDashboardState($tableDashboard);
-
-  //Legend status management
-  $(document).on('click', '#ni_legend_btn', saveStatusLegend)
-  loadStatusLegend();
 });
 

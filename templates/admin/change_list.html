@@ -1,0 +1,20 @@
+{% extends "admin/change_list.html" %}
+{% comment %}
+  The list's own tools live in its toolbar, after the search field, rather than in the
+  page header next to the account links: import/export (changelist-tools-items, filled
+  by admin/import_export/change_list_*.html), Filters, then the add button. The wrapper
+  is only rendered when it can hold something, so a list with none of them keeps
+  Unfold's empty:hidden toolbar.
+{% endcomment %}
+{% block filters %}
+  {% if cl.has_filters or has_add_permission or has_import_permission or has_export_permission %}
+    <div class="changelist-tools">
+      <ul class="changelist-tools-actions">
+        {% block changelist-tools-items %}
+        {% endblock %}
+      </ul>
+      {{ block.super }}
+      {% include "admin/includes/changelist_add_link.html" %}
+    </div>
+  {% endif %}
+{% endblock %}

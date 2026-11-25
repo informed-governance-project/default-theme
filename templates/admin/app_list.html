@@ -1,0 +1,79 @@
+{% load i18n %}
+{% comment %}
+  Unfold's sidebar app list (unfold/helpers/navigation.html), with each category folding. Its
+  heading is a button rather than a link to the app page, which the breadcrumbs still reach.
+  The category of the current page is always open; the others keep the reader's last choice in
+  the browser (Alpine $persist, loaded by Unfold), and start open.
+{% endcomment %}
+{% if app_list %}
+  <div id="nav-sidebar-apps"
+       class="h-0 grow overflow-auto scrollbar-default-hover">
+    {% for app in app_list %}
+      <div class="app-{{ app.app_label }} module
+                  {% if app.app_url in request.path %}
+                    current-app
+                  {% endif %}"
+           {% if app.app_url in request.path %}
+             x-data="{ open: true }"
+           {% else %}
+             x-data="{ open: $persist(true).as('admin-nav-{{ app.app_label }}') }"
+           {% endif %}>
+        <ol class="px-6">
+          {% if app.models and not app.hidden %}
+            <li>
+              {% if app.name %}
+                <h2>
+                  <button type="button"
+                          class="admin-nav-group-toggle"
+                          aria-controls="admin-nav-{{ app.app_label }}"
+                          x-on:click="open = !open"
+                          x-bind:aria-expanded="open.toString()">
+                    <span class="truncate">{{ app.name }}</span>
+                    <span class="material-symbols-outlined admin-nav-group-chevron"
+                          aria-hidden="true"
+                          x-bind:class="{ 'is-open': open }">chevron_right</span>
+                  </button>
+                </h2>
+              {% endif %}
+              <ol class="flex flex-col"
+                  id="admin-nav-{{ app.app_label }}"
+                  x-show="open">
+                {% for model in app.models %}
+                  {% if not model.hidden %}
+                    <li class="model-{{ model.object_name|lower }}
+                               {% if model.admin_url in request.path|urlencode %}
+                                 current-model
+                               {% endif %}">
+                      {% if model.header %}
+                        <h3 class="font-medium my-2 text-base-900 text-sm dark:text-base-200">
+                          {{ model.header }}
+                        </h3>
+                      {% endif %}
+                      {% if model.admin_url %}
+                        <a href="{{ model.admin_url }}"
+                           id="link-{{ app.app_label }}-{{ model.object_name|lower }}"
+                           class="flex items-center h-[38px] -mx-3 px-3 rounded-default truncate hover:text-primary-600 dark:hover:text-primary-500
+                                  {% if model.admin_url in request.path|urlencode %}
+                                    bg-base-100 font-semibold text-primary-600 dark:bg-white/[.06] dark:text-primary-500 active
+                                  {% endif %}">
+                          {{ model.name }}
+                        </a>
+                      {% else %}
+                        {{ model.name }}
+                      {% endif %}
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ol>
+            </li>
+          {% endif %}
+        </ol>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>
+    {% trans "You don’t have permission to view or edit anything." as error_message %}
+    {% include "unfold/helpers/messages/error.html" with error=error_message %}
+  </p>
+{% endif %}

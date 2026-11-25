@@ -3,112 +3,176 @@
     https://github.com/django/django/tree/main/django/contrib/admin/static/admin/css
 */
 
-/* Exemple: */
+/* Admin colours come from $primary in scss/custom.scss, through
+   governanceplatform/unfold_colors.py in the serima repo. */
 
-/* :root {
-    --primary: #e78484 !important;
-    --secondary: #f51616 !important;
-} */
-
-/* Restore the pre-6.1 admin layout: label beside its field, not above it.
-   6.1 reordered fieldset.html to label → help → errors → widget, so the widget
-   has to be pulled back onto the label's row rather than just un-stacked. */
-
-/* A readonly ManyToMany with no rows renders as <div class="readonly"></div>:
-   AdminReadonlyField.contents joins the related objects without ever falling back
-   to empty_value_display, so the cell — and the whole row, where the label is
-   hidden too — collapses to nothing. Show the dash Django uses elsewhere. */
-
-@media (min-width: 768px) {
-    /* Multi-field lines: each fieldBox otherwise sizes to its own content, so a line
-    holding a readonly value starts its second field further left than a line
-    holding a text input. Equal-width boxes keep the columns aligned across lines. */
-    .aligned .form-row.form-multiline > .fieldBox {
-        flex: 1 1 0;
-        min-width: 0;
-    }
-
-    /* .vTextField is a fixed 20em and would overflow a box narrower than that. */
-    .aligned .form-row.form-multiline > .fieldBox input,
-    .aligned .form-row.form-multiline > .fieldBox select,
-    .aligned .form-row.form-multiline > .fieldBox textarea {
-        max-width: 100%;
-    }
-
-    .aligned .form-row > .flex-container,
-    .aligned .form-row > fieldset {
-        display: grid;
-        grid-template-columns: 160px minmax(0, 1fr);
-        column-gap: 10px;
-        row-gap: 6px;
-        align-items: start;
-    }
-
-    .aligned .form-row > .flex-container > label,
-    .aligned .form-row > fieldset > legend {
-        grid-column: 1;
-        grid-row: 1;
-        float: none;
-        width: auto;
-        min-width: 0;
-        padding: 4px 10px 0 0;
-        overflow-wrap: break-word;
-    }
-
-    .aligned .form-row > .flex-container > :not(label),
-    .aligned .form-row > fieldset > :not(legend) {
-        grid-column: 2;
-    }
-
-    .aligned .form-row > .flex-container > .errorlist,
-    .aligned .form-row > fieldset > .errorlist {
-        order: 1;
-    }
-
-    .aligned .form-row > .flex-container > .help,
-    .aligned .form-row > fieldset > .help {
-        order: 2;
-        margin: 0;
-        padding: 0;
-    }
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
 }
 
-
-/* A <select> is always as wide as its widest option, so a single long label  */
-.inline-group .tabular td select {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 35em;
+/* Unfold declares --font-sans inside a cascade layer, so this unlayered rule wins. */
+:root {
+    --font-sans: "Montserrat", sans-serif;
 }
 
+/* Admin header (templates/admin/includes/header_links.html), styled after the public
+   site's Bootstrap navbar: gray labels (--bs-navbar-color is rgba(0,0,0,.65)) at the
+   admin's own text size (Unfold's text-sm),
+   32px outline icons, a solid caret on each dropdown. */
 .header-links {
     display: flex;
-    column-gap: 10px;
-    justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+    color: rgb(0 0 0 / 65%);
+    font-size: 0.95rem;
+    /* Unfold renders the header inside a font-medium list (unfold/helpers/tab_actions.html). */
+    font-weight: 400;
 }
 
-.bg-white {
-    background-color: #ffffff !important;
+.header-links > a,
+.admin-dropdown > summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    color: inherit;
 }
 
-.field-sectors label , .field-questions label {
-    display: none !important;
+.header-links > a:hover,
+.admin-dropdown > summary:hover,
+.admin-dropdown[open] > summary {
+    color: rgb(0 0 0 / 80%);
 }
 
-.required::after {
-    content: "*" !important;
-    color: red !important;
-    font-weight: bold;
-    padding-left: 3px;
+.header-links > a:focus-visible,
+.admin-dropdown > summary:focus-visible,
+.admin-dropdown-panel > :focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
+.admin-header-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+    font-variation-settings: "wght" 200;
+}
+
+/* Bootstrap's .dropdown-toggle caret. */
+.admin-dropdown > summary::after {
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-left: 0.3em solid transparent;
 }
 
 .double-padding {
     padding: 16px 0px;
 }
 
-.margin-right-10 {
-    margin-right: 10px !important;
+/* Same size as the public navbar's logo (parts/header.html); Unfold's h-8 would shrink it. */
+/* The logo in the page header while the sidebar is hidden (unfold/helpers/welcomemsg.html),
+   the size of the sidebar's and the public navbar's. */
+.admin-header-logo {
+    flex: none;
+    margin-inline-end: 16px;
+}
+
+/* The size of the sidebar's logo at all widths, so hiding the sidebar never resizes it. */
+.admin-header-logo > img {
+    width: 200px;
+    max-width: none;
+    height: auto;
+}
+
+/* While the logo is shown (x-show leaves an inline display: none otherwise), the header runs
+   full width like the public navbar, the logo 12px from the edge as in the sidebar, instead of
+   inside Unfold's 16px padding and centred container. */
+div:has(> div > #header-inner .admin-header-logo:not([x-cloak], [style*="display: none"])) {
+    padding-inline-start: 12px;
+}
+
+div:has(> #header-inner .admin-header-logo:not([x-cloak], [style*="display: none"])) {
+    max-width: none;
+    margin-inline-start: 0;
+}
+
+#nav-sidebar-inner > div:first-child img {
+    width: 200px;
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* Height of the public navbar (parts/header.html) as rendered around the 200px logo.
+   The sidebar's logo bar and the page header share it, so their bottom borders stay
+   level; the sidebar bar's 1px border is inside its height. */
+:root {
+    --admin-header-height: 82px;
+}
+
+#nav-sidebar-inner > div:first-child {
+    height: calc(var(--admin-header-height) + 1px);
+    background-color: #ffffff;
+}
+
+/* The logo bar and the page header form one white header block, as on the public site: the
+   sidebar's right border is redrawn as a 1px stripe that starts below the header height. */
+#nav-sidebar {
+    border-right-width: 0;
+}
+
+#nav-sidebar-inner {
+    background-image: linear-gradient(var(--color-base-200), var(--color-base-200));
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 1px calc(100% - var(--admin-header-height) - 1px);
+}
+
+/* Folding sidebar categories (templates/admin/app_list.html): the heading as a button, the
+   look of Unfold's category title, with a chevron turning down while the category is open. */
+.admin-nav-group-toggle {
+    display: flex;
+    align-items: center;
+    width: calc(100% + 24px);
+    margin: 16px -12px 8px;
+    padding: 6px 12px;
+    border-radius: var(--border-radius, 6px);
+    color: var(--color-base-900);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: start;
+    cursor: pointer;
+}
+
+.admin-nav-group-toggle:hover {
+    color: var(--color-primary-600);
+}
+
+.admin-nav-group-toggle:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: -2px;
+}
+
+.admin-nav-group-chevron {
+    margin-inline-start: auto;
+    font-size: 20px;
+    transition: transform 150ms ease;
+}
+
+.admin-nav-group-chevron.is-open {
+    transform: rotate(90deg);
+}
+
+/* Unfold pads the logo twice (px-3 on both bars); the public logo sits at the
+   container-fluid gutter, 12px from the edge. */
+#nav-sidebar-inner > div:first-child > div:first-child {
+    height: var(--admin-header-height);
+    padding-inline: 0;
+}
+
+div:has(> #header-inner) {
+    height: var(--admin-header-height);
 }
 
 /* Buttons sharing a changelist cell become equal grid tracks, so they keep the same width
@@ -122,48 +186,357 @@
     gap: 8px;
 }
 
+/* The cells that open a record (list_display_links) are links Unfold draws like text
+   (class text-important, unfold_list.LINK_CLASSES): give them the look of a link. */
+#result_list > tbody > tr > :is(th, td) > a.text-important {
+    color: var(--color-primary-600);
+    font-weight: 500;
+    text-decoration: underline transparent;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 150ms ease;
+}
+
+#result_list > tbody > tr > :is(th, td) > a.text-important:hover {
+    color: var(--color-primary-700);
+    text-decoration-color: currentColor;
+}
+
+#result_list > tbody > tr > :is(th, td) > a.text-important:focus-visible {
+    border-radius: 2px;
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
+/* The row under the pointer, to show which record its link opens. One shade darker than
+   Unfold's stripes (every other row's tbody is base-50). Cards are boxes already. */
+#result_list:not(.responsive-cards-active) > tbody > tr.data-row:hover {
+    background-color: var(--color-base-100);
+}
+
+/* Unfold keeps headings on one line, so a column of 24px yes/no icons was as wide as
+   "Email verified". Wrapping them lets the content set the width; the table then fits a
+   narrower screen before the card layout takes over. */
+#result_list:not(.responsive-cards-active) > thead th {
+    white-space: normal;
+}
+
+/* Unfold's cells are overflow-hidden min-w-0, so a squeezed table clipped one-line labels
+   instead of overflowing, and the card layout (admin_responsive_cards.js), which waits for
+   an overflow, never took over. Labels wrap instead, and no button is narrower than its
+   longest word: beyond that the table overflows and turns into cards. */
 #result_list .link-pending > button,
 #result_list .account-actions > button {
     width: 100% !important;
+    min-width: min-content !important;
+    white-space: normal;
 }
 
-.link-pending > button, .account-actions > button {
-    padding: 8px 16px !important;
-    display: inline-block !important;
-    margin: 0 !important;
-    min-width: 45% !important;
+.link-pending > button,
+.account-actions > button {
+    min-width: 45%;
 }
 
-.approve-button {
-    background: #649c35 !important;
-
+/* Admin buttons outside Unfold's own markup, in five roles. Every new button is one of them:
+   - .admin-button: a tool, the default, outlined as Unfold's History and Filters buttons;
+   - --primary: the action that completes the task, at most one per area;
+   - --secondary: an action on one record (Set Administrator, Reset 2FA token), dark as the
+     public site's .btn-secondary, in $secondary from the theme (unfold_colors.theme_secondary);
+   - --danger: destroys something, behind a confirmation; outlined, so it is not mistaken for
+     the solid red primary;
+   - --status-ok / --status-ko: a decision on one row, in the colours of Unfold's yes/no icons
+     (unfold/helpers/boolean.html: green-100/green-700, red-100/red-700).
+   Unlayered, so they win over Unfold's Tailwind utilities and its preflight button reset. */
+.admin-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 38px;
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid var(--color-base-200);
+    border-radius: var(--border-radius, 6px);
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+    color: var(--color-base-700);
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
 }
 
-.approve-button:hover {
-    background: #4e7a2a !important;
+.admin-button:hover {
+    color: var(--color-primary-600);
 }
 
-.reject-button {
-    background: #c63d3d !important;
+.admin-button:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
 }
 
-.reject-button:hover {
-    background: #a32f2f !important;
+.admin-button .material-symbols-outlined {
+    font-size: 18px;
+}
+
+.admin-button--primary {
+    border-color: var(--color-primary-600);
+    background-color: var(--color-primary-600);
+    color: #ffffff;
+}
+
+.admin-button--primary:hover {
+    border-color: var(--color-primary-700);
+    background-color: var(--color-primary-700);
+    color: #ffffff;
+}
+
+.admin-button--secondary {
+    border-color: var(--color-secondary-600);
+    background-color: var(--color-secondary-600);
+    color: #ffffff;
+}
+
+.admin-button--secondary:hover {
+    border-color: var(--color-secondary-700);
+    background-color: var(--color-secondary-700);
+    color: #ffffff;
+}
+
+.admin-button--danger,
+#submit-row a.mr-auto[href*="/delete/"] {
+    border: 1px solid var(--color-red-600);
+    background-color: #ffffff;
+    color: var(--color-red-600);
+}
+
+.admin-button--danger:hover,
+#submit-row a.mr-auto[href*="/delete/"]:hover {
+    background-color: var(--color-red-50);
+    color: var(--color-red-700);
+}
+
+.admin-button--status-ok {
+    border-color: var(--color-green-200);
+    background-color: var(--color-green-100);
+    color: var(--color-green-700);
+}
+
+.admin-button--status-ok:hover {
+    border-color: var(--color-green-300);
+    background-color: var(--color-green-200);
+    color: var(--color-green-700);
+}
+
+.admin-button--status-ko {
+    border-color: var(--color-red-200);
+    background-color: var(--color-red-100);
+    color: var(--color-red-700);
+}
+
+.admin-button--status-ko:hover {
+    border-color: var(--color-red-300);
+    background-color: var(--color-red-200);
+    color: var(--color-red-700);
 }
 
 #changelist tbody tr:has(.link-pending) {
-    background-color: var(--message-info-bg);
+    background-color: var(--color-primary-50);
 }
 
-/* Confirmation asked before an account action goes through. Colours come from the admin
-   variables so the dialog follows the light and dark themes. */
+/* Unfold keeps the table while it fits its container. When it overflows, JavaScript
+   adds translated column headings and activates one card per result tbody. */
+@media screen {
+    .overflow-x-auto:has(> #result_list.responsive-cards-active) {
+        overflow: visible;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    #result_list.responsive-cards-active,
+    #result_list.responsive-cards-active > thead,
+    #result_list.responsive-cards-active > tbody {
+        display: block;
+        width: 100%;
+    }
+
+    #result_list.responsive-cards-active > thead {
+        margin-bottom: 12px;
+    }
+
+    #result_list.responsive-cards-active > thead:not(:has(.action-checkbox-column)) {
+        display: none;
+        margin-bottom: 0;
+    }
+
+    #result_list.responsive-cards-active > thead > tr {
+        display: flex;
+        align-items: center;
+    }
+
+    #result_list.responsive-cards-active > thead th:not(.action-checkbox-column) {
+        display: none;
+    }
+
+    #result_list.responsive-cards-active > thead .action-checkbox-column {
+        padding: 0 12px;
+        border: 0;
+    }
+
+    #result_list.responsive-cards-active > tbody {
+        position: relative;
+        margin-bottom: 16px;
+        overflow: hidden;
+        border: 1px solid var(--color-base-200);
+        border-radius: var(--border-radius, 6px);
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px rgb(0 0 0 / 6%);
+    }
+
+    #result_list.responsive-cards-active > tbody > tr.data-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 16px;
+        gap: 12px 24px;
+    }
+
+    #result_list.responsive-cards-active > tbody > tr.data-row > th,
+    #result_list.responsive-cards-active > tbody > tr.data-row > td {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: auto !important;
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        flex-direction: column;
+        gap: 0;
+        overflow: visible;
+        overflow-wrap: anywhere;
+        text-align: left;
+        white-space: normal;
+    }
+
+    #result_list.responsive-cards-active > tbody > tr.data-row > [data-mobile-label]::before {
+        margin-bottom: 4px;
+        color: var(--color-base-500);
+        content: attr(data-mobile-label);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.025em;
+        line-height: 1rem;
+        text-transform: uppercase;
+    }
+
+    #result_list.responsive-cards-active .action-checkbox {
+        position: absolute;
+        z-index: 1;
+        top: 16px;
+        right: 16px;
+    }
+
+    #result_list.responsive-cards-active .responsive-card-title {
+        grid-column: 1 / -1;
+        padding-right: 40px;
+        font-size: 1rem;
+        font-weight: 600;
+        order: -20;
+    }
+
+    .model-user #result_list.responsive-cards-active .field-is_active {
+        order: -10;
+    }
+
+    .model-user #result_list.responsive-cards-active .field-account_actions,
+    .model-user #result_list.responsive-cards-active .field-reset_2FA_column {
+        align-items: stretch;
+        grid-column: 1 / -1;
+        margin: 0 -16px -16px;
+        padding: 16px;
+        border-top: 1px solid var(--color-base-200);
+        background-color: var(--color-base-50);
+        order: 100;
+    }
+
+    .model-user #result_list.responsive-cards-active .field-account_actions > .account-actions,
+    .model-user #result_list.responsive-cards-active .field-account_actions > .link-pending,
+    .model-user #result_list.responsive-cards-active .field-reset_2FA_column > .account-actions {
+        width: 100%;
+    }
+
+    .model-user #result_list.responsive-cards-active .field-account_actions::before,
+    .model-user #result_list.responsive-cards-active .field-reset_2FA_column::before {
+        margin-bottom: 10px;
+    }
+
+    #result_list.responsive-cards-active .field-actions_holder {
+        align-items: stretch;
+        grid-column: 1 / -1;
+        margin: 0 -16px -16px;
+        padding: 16px;
+        border-top: 1px solid var(--color-base-200);
+        background-color: var(--color-base-50);
+        order: 110;
+    }
+
+    #result_list.responsive-cards-active .field-actions_holder > div {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    #result_list.responsive-cards-active > tbody > tr:not(.data-row) {
+        display: block;
+    }
+
+    #result_list.responsive-cards-active > tbody > tr:not(.data-row) > td {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (max-width: 639px) {
+    #result_list.responsive-cards-active > tbody > tr.data-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #result_list.responsive-cards-active .responsive-card-title,
+    .model-user #result_list.responsive-cards-active .field-account_actions,
+    .model-user #result_list.responsive-cards-active .field-reset_2FA_column {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 479px) {
+    .model-user #result_list.responsive-cards-active .link-pending,
+    .model-user #result_list.responsive-cards-active .account-actions {
+        grid-auto-flow: row;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .model-user #result_list.responsive-cards-active .link-pending > button,
+    .model-user #result_list.responsive-cards-active .account-actions > button {
+        min-width: 0 !important;
+        white-space: normal;
+    }
+}
+
+/* Confirmation asked before an account action goes through. */
+/* Confirmation dialog (templates/admin/includes/account_actions_confirm.html). Its title used
+   Django's admin CSS, which Unfold does not load; its buttons are .admin-button. */
 .admin-dialog {
     max-width: 32rem;
     padding: 1.5rem;
-    border: 1px solid var(--hairline-color);
-    border-radius: 4px;
-    background: var(--body-bg);
-    color: var(--body-fg);
+    border: 1px solid var(--color-base-200);
+    border-radius: var(--border-radius, 6px);
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 15%);
+    color: var(--color-base-700);
+    font-size: 0.875rem;
+    line-height: 1.5;
 }
 
 .admin-dialog::backdrop {
@@ -171,7 +544,10 @@
 }
 
 .admin-dialog h2 {
-    margin-top: 0;
+    margin: 0 0 0.5rem;
+    color: var(--color-base-900);
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .admin-dialog-buttons {
@@ -181,28 +557,11 @@
     margin-top: 1.5rem;
 }
 
-/* Object tools that post through the confirmation dialog are buttons, which Django's admin CSS
-   leaves unstyled, so they copy the look of its object-tools links. */
-.object-tools .object-tools-button {
-    display: block;
-    float: left;
-    padding: 3px 12px;
-    border: none;
-    border-radius: 15px;
-    background: var(--object-tools-bg);
-    color: var(--object-tools-fg);
-    font-family: inherit;
-    font-weight: 400;
-    font-size: 0.6875rem;
-    line-height: inherit;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-}
 
-.object-tools .object-tools-button:focus,
-.object-tools .object-tools-button:hover {
-    background-color: var(--object-tools-hover-bg);
+/* Buttons that post through the confirmation dialog (custom_change_user_list.html), in the list
+   toolbar beside its Filters button. */
+.changelist-tools-actions:has(.admin-button) {
+    gap: 8px;
 }
 
 /* Prompt shown above the user detail form while a suggestion to link the account is pending. */
@@ -211,7 +570,7 @@
     margin-bottom: 20px;
     padding: 12px 0px;
     border-radius: 4px;
-    color: var(--body-fg);
+    color: var(--color-base-700);
 }
 
 .pending-link-question {
@@ -219,23 +578,49 @@
     font-weight: bold;
 }
 
-/* These two readonly fields hold nothing but a button that already says what it does, so drop
-   the placeholder label Django renders for their empty description. */
-.fieldBox.field-reset_2FA_action > label,
-.fieldBox.field-administrator_action > label {
+/* Readonly fields that hold nothing but a button saying what it does (UserAdmin's
+   reset_2FA_action and administrator_action) have an empty description, which leaves an empty
+   label box beside the field they act on. Unfold puts no field-<name> class on readonly fields. */
+.field-line:has(.account-actions) > div:first-child:has(> label:empty) {
     display: none;
+}
+
+/* get_fieldsets pairs each of those buttons with the field it acts on in one row, which Unfold
+   stacks: keep the button on the field's line, after it. */
+@media (min-width: 1024px) {
+    .field-row:has(> .field-line .account-actions) {
+        display: flex;
+    }
+
+    .field-row > .field-line:has(.account-actions) {
+        flex: 0 0 auto;
+    }
+}
+
+/* Wider than the confirmation dialogs, so each description fits beside its placeholder. A width,
+   not a max-width: a dialog shrinks to its content, and a 100%-wide table gives it none. */
+.email-placeholders-dialog {
+    width: min(48rem, calc(100vw - 2rem));
+    max-width: none;
 }
 
 .email-placeholders {
     width: 100%;
+    margin-top: 1rem;
     border-collapse: collapse;
 }
 
 .email-placeholders th,
 .email-placeholders td {
-    padding: 0.35rem 1rem 0.35rem 0;
+    padding: 0.5rem 1rem 0.5rem 0;
+    border-bottom: 1px solid var(--color-base-200);
     text-align: left;
     vertical-align: top;
+}
+
+.email-placeholders thead th {
+    color: var(--color-base-900);
+    font-weight: 600;
 }
 
 .email-placeholders tbody th {
@@ -244,49 +629,520 @@
 }
 
 
-/* Security objectives column settings: a row without an obligation holds two
-   boxes and one with an obligation holds three, so the equal-width rule above
-   lands Show in a different place on each row. Three fixed tracks put every
-   control in one column down the fieldset; a two-box row leaves the last track
-   empty. Grid sizes its tracks after the gaps, so nothing wraps. */
-@media (min-width: 768px) {
-    .so-columns .form-row.form-multiline {
+/* Security objectives column settings (fieldset class so-columns): each row holds a column's
+   label and the toggles that govern it. Unfold stacks the fields of a row, which strands Show
+   and Mandatory far from their label; three tracks keep each toggle beside it and in one
+   column down the fieldset. A one-field row keeps the full width. */
+@media (min-width: 1024px) {
+    .so-columns .field-row {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 10px;
-        align-items: start;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
     }
 
-
-    /* The tracks size the boxes now, so drop the equal-width flex basis. */
-    .so-columns .form-row.form-multiline > .fieldBox {
-        flex: none;
-        min-width: 0;
+    .so-columns .field-row > .field-line:only-child {
+        grid-column: 1 / -1;
     }
 
-    /* Each box inherits the shared 160px label column, which starts its content
-       part way into its own track. Worse, the two kinds of box disagree: an
-       editable toggle is a checkbox followed by its label, while a frozen one —
-       every toggle on a standard in use — is a label followed by a read-only
-       value. Lay both out as a row from the track's left edge so they line up
-       whichever form they take. */
-    .so-columns .form-row.form-multiline > .fieldBox.checkbox-row,
-    .so-columns .form-row.form-multiline > .fieldBox:has(> .readonly) {
-        display: flex;
-        align-items: center;
-        column-gap: 6px;
+    /* A row with one toggle lets it take both remaining tracks, so the line under the row
+       runs the full width. */
+    .so-columns .field-row > .field-line:nth-child(2):last-child {
+        grid-column: 2 / -1;
     }
 
-    .so-columns .form-row.form-multiline > .fieldBox:nth-child(3) {
-        align-items: start !important;
-    }
-
-    /* The shared rules give labels a 160px box and top padding meant for a
-       stacked layout. */
-    .so-columns .form-row.form-multiline > .fieldBox.checkbox-row > label,
-    .so-columns .form-row.form-multiline > .fieldBox:has(> .readonly) > label {
+    /* Unfold gives every label a 14rem box, meant for a field alone on its row. */
+    .so-columns .field-row > .field-line:not(:first-child) [class*="lg:w-56"] {
         width: auto;
         min-width: 0;
-        padding: 0;
+        margin-inline-end: 12px;
     }
+
+    /* A frozen toggle (a standard in use) shows a read-only yes/no circle, centred on the line,
+       while its label box is a 38px block at the top: centre the label too, so they sit side by side. */
+    .so-columns .field-row > .field-line:not(:first-child):has(.readonly) > div:first-child {
+        align-self: center;
+        height: auto;
+        /* 20px to the value, as Unfold spaces an editable checkbox from its label. */
+        margin-inline-end: 20px;
+    }
+}
+
+/* The footer follows #page (templates/admin/base.html). Unfold makes #page at least a
+   screen tall, which pushes the footer below the fold on every page; instead #page fills
+   whatever the footer leaves, so a short page shows the footer at the bottom of the screen. */
+body:has(> #page) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body > #page {
+    flex: 1 0 auto;
+    min-height: 0;
+}
+
+/* On desktop Unfold pins the sidebar with position: fixed over the whole viewport, so it
+   would cover the footer. Here it sticks to the top while scrolling, capped at both the
+   screen and #page, so it scrolls away above the footer; its app list scrolls on its own.
+   The sidebar must not add to #page's height either, or a long app list pushes the footer
+   below the fold again: the width-holding wrapper takes no height of its own and only
+   stretches to #page, and the panel inside is taken out of flow.
+   Below xl the sidebar is an overlay drawer and keeps Unfold's behaviour. */
+@media (min-width: 80rem) {
+    #page > :has(#nav-sidebar) > div {
+        height: 0;
+        min-height: 100%;
+    }
+
+    #page > :has(#nav-sidebar) > div > div {
+        position: absolute;
+        inset: 0;
+    }
+
+    #nav-sidebar {
+        position: sticky;
+        height: 100vh;
+        max-height: 100%;
+    }
+
+    #nav-sidebar-inner {
+        height: 100%;
+        min-height: 0;
+    }
+}
+
+/* Admin footer (templates/parts/footer_admin.html), mirroring the public footer and its
+   Bootstrap spacing (parts/footer.html): .small text, pt-3 above, pb-2 under each row,
+   px-4 gutters widening to px-xl-5 from 1200px, links padded px-2 around a .vr divider.
+   The bottom bar is the theme's $secondary, i.e. base-900. */
+.admin-footer {
+    --admin-footer-gutter: 24px;
+    --admin-footer-bar-gutter: 8px;
+    padding-top: 16px;
+    font-size: 0.875rem;
+}
+
+@media (min-width: 1200px) {
+    .admin-footer {
+        --admin-footer-gutter: 48px;
+        --admin-footer-bar-gutter: 48px;
+    }
+}
+
+.admin-footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding: 0 var(--admin-footer-gutter) 8px;
+    color: var(--color-base-600);
+}
+
+.admin-footer-developer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-footer-nc3-logo {
+    width: 5rem;
+    height: auto;
+}
+
+/* The public bar is px-2 below 1200px, px-xl-5 from there. flow-root keeps the logo's
+   negative margin inside the bar instead of collapsing through it and lifting the bar. */
+.admin-footer-bottom {
+    display: flow-root;
+    padding: 0 var(--admin-footer-bar-gutter) 8px;
+    background-color: var(--color-base-900);
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Sits astride the bar's top edge, as on the public site: half of it above the bar, the
+   other half in a 30px band (.logo-container). Unfold's preflight makes images block-level,
+   so text-align cannot centre it. */
+.admin-footer-regulator-logo {
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: -30px auto 0;
+}
+
+.admin-footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-footer-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 8px;
+}
+
+.admin-footer-group:first-child {
+    justify-content: flex-start;
+}
+
+.admin-footer-group:last-child {
+    justify-content: flex-end;
+}
+
+.admin-footer-group > a {
+    padding: 0 8px;
+}
+
+/* Bootstrap's .vr: 25% of the text colour, 8px gap and 8px link padding on either side. */
+.admin-footer-group > a + a {
+    padding-left: 16px;
+    border-left: 1px solid rgb(255 255 255 / 25%);
+}
+
+.admin-footer-bottom a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.admin-footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.admin-footer-bottom a:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
+.admin-footer-regulator-link {
+    font-weight: 700;
+}
+
+@media (max-width: 1023px) {
+    .admin-footer-links {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .admin-footer-group:first-child,
+    .admin-footer-group:last-child {
+        justify-content: center;
+    }
+}
+
+/* List toolbar: Filters and the add button (templates/admin/change_list.html) sit
+   together at the end of the row, after the search field. */
+.changelist-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (min-width: 64rem) {
+    .changelist-tools {
+        margin-inline-start: auto;
+    }
+}
+
+/* Import/export items keep Unfold's joined button-group look (tab_action.html): its
+   classes stack them below lg and join them side by side above, so the list follows. */
+.changelist-tools-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.changelist-tools-actions:empty {
+    display: none;
+}
+
+@media (min-width: 64rem) {
+    .changelist-tools-actions {
+        flex-direction: row;
+    }
+}
+
+.changelist-add-link {
+    white-space: nowrap;
+}
+
+/* Unfold fixes the selected-rows action bar to the bottom of the window, where it covers
+   the footer (unfold/helpers/change_list_actions.html). Moved after the list and made
+   sticky, it still follows a long list down but stops above the pagination and footer.
+   The inline inset-inline-start Unfold binds for the sidebar would offset a sticky box. */
+#changelist-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#changelist-form > div:has(> #changelist-actions-wrapper) {
+    position: sticky;
+    order: 1;
+    inset-inline-start: auto !important;
+    padding-inline: 0;
+}
+
+/* List pagination (templates/unfold/helpers/pagination_default.html), with the values of
+   the public Bootstrap .pagination inside a .small.lh-1 row (parts/pagination.html).
+   Unfold colours stand in for Bootstrap's: primary-* is $primary, base-200 its border
+   colour, base-50 its tertiary and base-100 its secondary background. */
+.admin-pagination {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 16px;
+    padding-block: 8px;
+    font-size: 0.875rem;
+    line-height: 1;
+}
+
+.admin-pagination-pages {
+    display: flex;
+}
+
+.admin-pagination-pages > li > :is(a, span) {
+    position: relative;
+    display: block;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--color-base-200);
+    background-color: #ffffff;
+    color: var(--color-primary-600);
+    font-size: 1rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.admin-pagination-pages > li:not(:first-child) > :is(a, span) {
+    margin-left: -1px;
+}
+
+.admin-pagination-pages > li:first-child > :is(a, span) {
+    border-radius: 6px 0 0 6px;
+}
+
+.admin-pagination-pages > li:last-child > :is(a, span) {
+    border-radius: 0 6px 6px 0;
+}
+
+.admin-pagination-pages > li > a:hover {
+    z-index: 2;
+    background-color: var(--color-base-50);
+    color: var(--color-primary-700);
+}
+
+.admin-pagination-pages > li > a:focus-visible {
+    z-index: 3;
+    outline: 0;
+    background-color: var(--color-base-100);
+    color: var(--color-primary-700);
+    box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-primary-600) 25%, transparent);
+}
+
+.admin-pagination-pages > li > [aria-current="page"] {
+    z-index: 3;
+    border-color: var(--color-primary-600);
+    background-color: var(--color-primary-600);
+    color: #ffffff;
+}
+
+.admin-pagination-pages > li > [aria-disabled="true"] {
+    background-color: var(--color-base-100);
+    color: rgb(33 37 41 / 75%);
+}
+
+/* Collapsible stacked inline cards (templates/unfold/helpers/edit_inline/stacked_title.html):
+   the summary after the title while closed, and the chevron that opens the card. */
+.inline-summary {
+    margin-inline-start: 8px;
+    color: var(--color-base-500);
+    font-weight: 400;
+}
+
+.inline-summary::before {
+    content: "· ";
+}
+
+.inline-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--border-radius, 6px);
+    color: var(--color-base-500);
+    cursor: pointer;
+}
+
+.inline-toggle:hover {
+    background-color: var(--color-base-50);
+    color: var(--color-base-700);
+}
+
+.inline-toggle:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
+.inline-toggle > span {
+    transition: transform 150ms ease;
+}
+
+.inline-toggle[aria-expanded="true"] > span {
+    transform: rotate(180deg);
+}
+
+/* The observer connector form's Test connection button (ObserverConnectorAdmin.test_button): the
+   connection result (#connector-test-result) follows it on the same line. */
+.connector-test-btn {
+    margin-inline-end: 12px;
+}
+
+/* Progress of an import or export job (django-import-export-extensions' progress_bar.html). Its
+   own CSS colours the bar with Django admin variables (--primary, --breadcrumbs-fg, --body-fg)
+   that Unfold does not define, which left the bar transparent behind its label. */
+#progress-bar {
+    max-width: 32rem;
+    height: 1.75rem;
+    overflow: hidden;
+    border-radius: var(--border-radius, 6px);
+    background-color: var(--color-base-100);
+}
+
+#progress-bar::before {
+    top: 0.25rem;
+    color: var(--color-base-900);
+    font-size: 0.8125rem;
+}
+
+#progress-bar::-webkit-progress-bar {
+    background-color: var(--color-base-100);
+}
+
+#progress-bar::-webkit-progress-value {
+    background-color: var(--color-primary-200);
+}
+
+#progress-bar::-moz-progress-bar {
+    background-color: var(--color-primary-200);
+}
+
+/* Import preview and validation tables (Unfold's import_preview.html and import_validation.html).
+   A full-width table squeezed the text columns to a word a line, and on a long import the
+   horizontal scrollbar was at the very bottom of the table. Sized to their content, capped to
+   the screen height with the header pinned, the box keeps both scrollbars in view. */
+div:has(> table:is(.import-preview-table, .import-preview)) {
+    max-height: 70vh;
+}
+
+table:is(.import-preview-table, .import-preview) {
+    width: max-content;
+    min-width: 100%;
+}
+
+table:is(.import-preview-table, .import-preview) :is(th, td) {
+    max-width: 28rem;
+    vertical-align: top;
+}
+
+table:is(.import-preview-table, .import-preview) > thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #ffffff;
+}
+
+.changeform-tools {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.changelist-add-link:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 2px;
+}
+
+/* Header dropdowns: the user menu (admin/includes/header_links.html) and the language
+   (home/language_selector_admin.html). admin_base.js closes them on an outside click or
+   Escape. */
+.admin-dropdown {
+    position: relative;
+}
+
+.admin-dropdown > summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.admin-dropdown > summary::-webkit-details-marker {
+    display: none;
+}
+
+.admin-dropdown-panel {
+    position: absolute;
+    z-index: 50;
+    top: calc(100% + 6px);
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    border: 1px solid var(--color-base-200);
+    border-radius: var(--border-radius, 6px);
+    background-color: #ffffff;
+    box-shadow: 0 10px 24px rgb(0 0 0 / 12%);
+}
+
+.admin-dropdown-panel > a,
+.admin-dropdown-panel > button {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: var(--border-radius, 6px);
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: start;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.admin-dropdown-panel > a:hover,
+.admin-dropdown-panel > button:hover {
+    background-color: var(--color-base-100);
+}
+
+.admin-dropdown-panel > [aria-current] {
+    color: var(--color-primary-600);
+    font-weight: 600;
+}
+
+.admin-dropdown-panel > hr {
+    margin: 4px 0;
+    border-color: var(--color-base-200);
+}
+
+.admin-user-menu .admin-dropdown-panel {
+    min-width: 16rem;
+}
+
+.admin-user-menu-name {
+    max-width: 16rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.admin-user-menu-identity {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 4px;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--color-base-200);
+}
+
+.admin-user-menu-identity span {
+    color: var(--color-base-500);
+    font-size: 0.75rem;
 }

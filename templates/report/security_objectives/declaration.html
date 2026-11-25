@@ -12,6 +12,13 @@
   <div class="page-landscape">
     <div class="d-flex m-0 mb-1">
       <div class="me-auto">
+        {% if is_grouped %}
+          <p class="d-inline-block small mb-1 border border-dark rounded px-2 py-1 so-domain-line">
+            <span class="fw-bold">{{ security_objective.nav_domain.code }}</span>
+            · <span class="fw-bold">{{ security_objective.nav_domain.label }}</span>
+            · {% blocktranslate with position=security_objective.nav_position_in_domain total=security_objective.nav_domain.objectives|length %}Objective {{ position }} of {{ total }} in this domain{% endblocktranslate %}
+          </p>
+        {% endif %}
         <h5 id="{{ security_objective.unique_code }}" class="fw-bold m-0">
           {{ security_objective.unique_code }}: {{ security_objective.objective }}
         </h5>
