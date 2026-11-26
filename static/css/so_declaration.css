@@ -15,8 +15,15 @@
     background-color: #555;
 }
 
+/* With an automatic layout the columns grow to fit their longest word, and the field-sizing
+   below lets a field grow to its content, so one long word pushed the table off the page. */
+#declaration_table {
+    table-layout: fixed;
+}
+
 #declaration_table> :not(caption)>*>* {
-    padding: 1rem
+    padding: 1rem;
+    overflow-wrap: break-word;
 }
 
 /* The justification column is narrow, so a fixed two-row field hides most of the text.
