@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-11 09:22+0100\n"
-"PO-Revision-Date: 2026-09-16 10:37+0000\n"
+"POT-Creation-Date: 2026-11-25 08:42+0100\n"
+"PO-Revision-Date: 2026-11-25 07:28+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,12 +12,47 @@ msgstr ""
 "X-Generator: Weblate 2026.6.1\n"
 "Generated-By: xls-to-po 1.0\n"
 
+#: theme/templates/account/api_keys.html:5
+#: theme/templates/account/api_keys.html:16
+#: theme/templates/admin/includes/header_links.html:41
+#: theme/templates/api/swagger_ui.html:32 theme/templates/parts/header.html:102
+msgid "API keys"
+msgstr ""
+
+#: theme/templates/account/api_keys.html:21
+#: theme/templates/api/swagger_ui.html:5 theme/templates/api/swagger_ui.html:23
+msgid "API documentation"
+msgstr ""
+
+#: theme/templates/account/api_keys.html:26
+#: theme/templates/modals/create_api_key.html:9
+msgid "New API key"
+msgstr ""
+
+#: theme/templates/account/api_keys.html:34
+msgid "Your API keys"
+msgstr ""
+
+#: theme/templates/account/api_keys.html:39
+msgid ""
+"Keys grant read-only access using your current permissions. Keep them "
+"private and revoke them when no longer needed."
+msgstr ""
+
+#: theme/templates/account/api_keys.html:45
+msgid "The request failed. Check your connection and try again."
+msgstr ""
+
+#: theme/templates/account/api_keys.html:50
+msgid "API key revoked."
+msgstr ""
+
 #: theme/templates/account/edit.html:8
 msgid "Account management"
 msgstr "Accountbeheer"
 
 #: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
-#: theme/templates/incidents/declaration.html:126
+#: theme/templates/incidents/declaration.html:136
 #: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr "Velden met een sterretje (*) zijn verplicht."
@@ -26,59 +61,86 @@ msgstr "Velden met een sterretje (*) zijn verplicht."
 msgid "Save changes"
 msgstr "Wijzigingen opslaan"
 
-#: theme/templates/admin/base_site.html:19
-msgid "Django admin area"
-msgstr "Beheerzone Django"
-
-#: theme/templates/admin/base_site.html:24
-msgid "Account security"
-msgstr "Accountbeveiliging"
-
-#: theme/templates/admin/base_site.html:25
-msgid "Password change"
-msgstr "Wachtwoord wijzigen"
-
-#: theme/templates/admin/base_site.html:27
-msgid "Return to user interface"
-msgstr "Terug naar de gebruikersinterface"
-
-#: theme/templates/admin/base_site.html:29
-#: theme/templates/parts/header.html:104
-#: theme/templates/registration/base.html:44
-msgid "Log out"
-msgstr "Uitloggen"
+#: theme/templates/admin/app_list.html:76
+msgid "You don’t have permission to view or edit anything."
+msgstr ""
 
 #: theme/templates/admin/custom_change_user_form.html:12
 #, python-format
 msgid "Add this user to Company %(company)s?"
 msgstr "Deze gebruiker toevoegen aan Onderneming%(company)s?"
 
-#: theme/templates/admin/custom_change_user_list.html:12
+#: theme/templates/admin/custom_change_user_list.html:16
 msgid ""
 "Resetting the accepted terms will require every user to accept the terms of "
 "service again at their next login."
 msgstr ""
+"Als u de aanvaarde voorwaarden opnieuw instelt, moet elke gebruiker de "
+"dienstvoorwaarden opnieuw aanvaarden bij de volgende aanmelding."
 
-#: theme/templates/admin/custom_change_user_list.html:13
+#: theme/templates/admin/custom_change_user_list.html:17
 msgid "Reset accepted terms"
 msgstr "Voorwaarden opnieuw instellen"
 
-#: theme/templates/admin/custom_change_user_list.html:23
+#: theme/templates/admin/custom_change_user_list.html:27
 msgid ""
 "Resetting the accepted cookies will show the cookie banner again to every "
 "user."
 msgstr ""
+"Als u de aanvaarde cookies opnieuw instelt, wordt de cookiebanner opnieuw "
+"aan elke gebruiker getoond."
 
-#: theme/templates/admin/custom_change_user_list.html:24
+#: theme/templates/admin/custom_change_user_list.html:28
 msgid "Reset accepted cookies"
 msgstr "Aanvaarde cookies resetten"
+
+#: theme/templates/admin/import_export_extensions/celery_import_results.html:30
+msgid ""
+"Below is a preview of data to be imported. If you are satisfied with the "
+"results, click 'Confirm import'"
+msgstr ""
+
+#: theme/templates/admin/import_export_extensions/celery_import_results.html:33
+msgid "Confirm import"
+msgstr ""
+
+#: theme/templates/admin/import_export_extensions/celery_import_results.html:53
+#: theme/templates/incidents/declaration.html:314
+#: theme/templates/operator/so_dashboard.html:21
+#: theme/templates/security_objectives/declaration.html:196
+msgid "Submit"
+msgstr "Indienen"
+
+#: theme/templates/admin/import_export_extensions/celery_import_results.html:66
+msgid "These elements were imported successfully"
+msgstr ""
+
+#: theme/templates/admin/import_export_extensions/includes/job_status.html:7
+#: theme/templates/incidents/incidents_base.html:136
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:16
+#: theme/templates/modals/report_versions.html:30
+#: theme/templates/modals/so_dashboard_hide_columns.html:16
+#: theme/templates/modals/so_versions.html:24
+#: theme/templates/modals/workflow_comment.html:27
+#: theme/templates/parts/api_keys_table.html:27
+#: theme/templates/security_objectives/so_dashboard_base.html:94
+msgid "Status"
+msgstr "Status"
+
+#: theme/templates/admin/import_export_extensions/includes/job_status.html:12
+#: theme/templates/modals/so_dashboard_hide_columns.html:30
+#: theme/templates/report/security_objectives/cover.html:65
+#: theme/templates/security_objectives/so_dashboard_base.html:175
+msgid "Progress"
+msgstr "Vordering"
 
 #: theme/templates/admin/includes/account_actions_confirm.html:14
 msgid "Attention"
 msgstr "Opgelet"
 
 #: theme/templates/admin/includes/account_actions_confirm.html:20
-#: theme/templates/incidents/declaration.html:270
+#: theme/templates/incidents/declaration.html:280
+#: theme/templates/modals/create_api_key.html:74
 #: theme/templates/modals/create_report_project.html:94
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/delete_report_project.html:24
@@ -86,21 +148,27 @@ msgstr "Opgelet"
 #: theme/templates/modals/delete_so_declaration.html:24
 #: theme/templates/modals/export_incidents.html:78
 #: theme/templates/modals/export_security_objectives.html:37
+#: theme/templates/modals/revoke_api_key.html:28
 #: theme/templates/reporting/add_recommendations.html:34
 #: theme/templates/reporting/project_dashboard.html:334
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: theme/templates/admin/includes/account_actions_confirm.html:23
+#: theme/templates/admin/includes/account_actions_confirm.html:25
 msgid "Confirm"
 msgstr "Bevestigen"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:5
-#: theme/templates/admin/includes/email_placeholders_help.html:11
+#: theme/templates/admin/includes/changelist_add_link.html:12
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: theme/templates/admin/includes/email_placeholders_help.html:6
+#: theme/templates/admin/includes/email_placeholders_help.html:12
 msgid "Available placeholders"
 msgstr "Beschikbare placeholders"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:14
+#: theme/templates/admin/includes/email_placeholders_help.html:15
 msgid ""
 "Type one of these in the subject or in the content. It is replaced when the "
 "email is sent."
@@ -108,21 +176,22 @@ msgstr ""
 "Typ een van deze opties in het onderwerp of in de inhoud. Dit wordt "
 "vervangen wanneer de e-mail wordt verzonden."
 
-#: theme/templates/admin/includes/email_placeholders_help.html:20
+#: theme/templates/admin/includes/email_placeholders_help.html:21
 msgid "Placeholder"
 msgstr "Placeholder"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:23
+#: theme/templates/admin/includes/email_placeholders_help.html:24
 msgid "Replaced by"
 msgstr "Vervangen door"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:42
-#: theme/templates/incidents/declaration.html:272
-#: theme/templates/incidents/incidents_base.html:552
+#: theme/templates/admin/includes/email_placeholders_help.html:43
+#: theme/templates/incidents/declaration.html:282
+#: theme/templates/incidents/incidents_base.html:668
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log_base.html:22
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/copy_so_declaration.html:16
+#: theme/templates/modals/create_api_key.html:15
 #: theme/templates/modals/create_report_project.html:22
 #: theme/templates/modals/create_so_declaration.html:16
 #: theme/templates/modals/delete_incident.html:12
@@ -132,16 +201,17 @@ msgstr "Vervangen door"
 #: theme/templates/modals/export_incidents.html:20
 #: theme/templates/modals/export_security_objectives.html:17
 #: theme/templates/modals/import_so_declaration.html:16
-#: theme/templates/modals/incidents_dashboard_hide_columns.html:12
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:11
 #: theme/templates/modals/previous_answer.html:11
 #: theme/templates/modals/report_versions.html:12
 #: theme/templates/modals/report_versions_workflow_comment.html:8
-#: theme/templates/modals/reporting_dashboard_hide_columns.html:12
+#: theme/templates/modals/reporting_dashboard_hide_columns.html:11
 #: theme/templates/modals/review_comment_report.html:15
 #: theme/templates/modals/review_comment_so_declaration.html:14
+#: theme/templates/modals/revoke_api_key.html:10
 #: theme/templates/modals/risk_analysis_import.html:16
 #: theme/templates/modals/so_contacts.html:13
-#: theme/templates/modals/so_dashboard_hide_columns.html:12
+#: theme/templates/modals/so_dashboard_hide_columns.html:11
 #: theme/templates/modals/so_previous_version_measure.html:11
 #: theme/templates/modals/so_previous_version_planned_actions.html:11
 #: theme/templates/modals/so_versions.html:12
@@ -151,13 +221,38 @@ msgstr "Vervangen door"
 #: theme/templates/parts/messages.html:16
 #: theme/templates/parts/messages.html:17
 #: theme/templates/reporting/add_recommendations.html:65
-#: theme/templates/reporting/dashboard.html:254
+#: theme/templates/reporting/dashboard.html:327
 #: theme/templates/reporting/project_dashboard.html:359
-#: theme/templates/security_objectives/declaration.html:196
-#: theme/templates/security_objectives/declaration.html:584
-#: theme/templates/security_objectives/so_dashboard_base.html:342
+#: theme/templates/security_objectives/declaration.html:204
+#: theme/templates/security_objectives/declaration.html:630
+#: theme/templates/security_objectives/so_dashboard_base.html:436
 msgid "Close"
 msgstr "Sluiten"
+
+#: theme/templates/admin/includes/header_links.html:11
+#: theme/templates/parts/header.html:92
+msgid "Account"
+msgstr "Account"
+
+#: theme/templates/admin/includes/header_links.html:16
+msgid "Return to user interface"
+msgstr "Terug naar de gebruikersinterface"
+
+#: theme/templates/admin/includes/header_links.html:38
+#: theme/templates/parts/header.html:95
+msgid "Security"
+msgstr "Veiligheid"
+
+#: theme/templates/admin/includes/header_links.html:39
+#: theme/templates/parts/header.html:98
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: theme/templates/admin/includes/header_links.html:44
+#: theme/templates/parts/header.html:109
+#: theme/templates/registration/base.html:44
+msgid "Log out"
+msgstr "Uitloggen"
 
 #: theme/templates/admin/settings_list.html:5
 msgid "Variables Django Settings"
@@ -167,9 +262,11 @@ msgstr "Django-instellingen"
 #: theme/templates/cookiebanner/bootstrap5.html:53
 #: theme/templates/home/contact.html:32
 #: theme/templates/incidents/contact_form.html:8
+#: theme/templates/modals/reporting_dashboard_hide_columns.html:19
 #: theme/templates/modals/so_contacts.html:18
+#: theme/templates/parts/api_keys_table.html:13
 #: theme/templates/reporting/add_recommendations.html:104
-#: theme/templates/reporting/dashboard.html:74
+#: theme/templates/reporting/dashboard.html:95
 #: theme/templates/reporting/recommendations.html:50
 msgid "Name"
 msgstr "Naam"
@@ -177,6 +274,27 @@ msgstr "Naam"
 #: theme/templates/admin/settings_list.html:22
 msgid "Value"
 msgstr "Waarde"
+
+#: theme/templates/api/swagger_ui.html:28
+msgid "OpenAPI YAML"
+msgstr ""
+
+#: theme/templates/api/swagger_ui.html:41
+msgid "Read-only API"
+msgstr ""
+
+#: theme/templates/api/swagger_ui.html:46
+msgid ""
+"The API gives read-only access to the platform's modules listed below, "
+"within the permissions of the key owner. It cannot change any record."
+msgstr ""
+
+#: theme/templates/api/swagger_ui.html:49
+msgid ""
+"Send your key in the <code>Authorization: Bearer &lt;key&gt;</code> header. "
+"To try a request below, click <strong>Authorize</strong> and paste your key: "
+"it is kept only until you leave this page."
+msgstr ""
 
 #: theme/templates/cookiebanner/bootstrap5.html:44
 msgid "Details"
@@ -243,12 +361,16 @@ msgid ""
 "We would like to inform you that a new security objective mass export "
 "related to the regulation %(regulation)s has been completed."
 msgstr ""
+"Hierbij informeren we u graag dat er een nieuwe pakketexport van "
+"beveiligingsdoelstellingen in verband met de%(regulation)s werd uitgevoerd."
 
 #: theme/templates/emails/security_objective_mass_export.html:13
 msgid ""
 "This message carries no exported data. The parameters used and the number of "
 "rows returned are recorded in the logs."
 msgstr ""
+"Dit bericht bevat geen geëxporteerde gegevens. De gebruikte parameters en "
+"het aantal geretourneerde rijen worden vastgelegd in de logboeken."
 
 #: theme/templates/emails/security_objective_mass_export.html:29
 #: theme/templates/reporting/project_dashboard.html:108
@@ -362,7 +484,7 @@ msgstr ""
 #: theme/templates/modals/review_comment_report.html:31
 #: theme/templates/modals/review_comment_so_declaration.html:42
 #: theme/templates/regulator/so_dashboard.html:19
-#: theme/templates/security_objectives/declaration.html:174
+#: theme/templates/security_objectives/declaration.html:182
 msgid "Send"
 msgstr "Verzenden"
 
@@ -393,6 +515,7 @@ msgstr "Cookiebeleid op het SERIMA-platform"
 #: theme/templates/home/cookies_policy.html:10
 #: theme/templates/home/privacy_policy.html:15
 #: theme/templates/home/terms.html:21 theme/templates/parts/footer.html:19
+#: theme/templates/parts/footer_admin.html:16
 msgid "Version"
 msgstr "Versie"
 
@@ -482,6 +605,7 @@ msgstr ""
 "Begrip gedefinieerd in artikel 1 van de Gebruiksvoorwaarden van SERIMA."
 
 #: theme/templates/home/index.html:10
+#: theme/templates/unfold/helpers/welcomemsg.html:12
 msgid "Home"
 msgstr "Home"
 
@@ -512,15 +636,18 @@ msgid "Go to dashboard"
 msgstr "Naar dashboard"
 
 #: theme/templates/home/language_selector.html:23
+#: theme/templates/home/language_selector_admin.html:17
 msgid "Change the site language - currently in "
 msgstr "De taal van de site wijzigen - momenteel in "
 
 #: theme/templates/home/language_selector.html:38
+#: theme/templates/home/language_selector_admin.html:28
 msgid "English version"
 msgstr "Nederlandse versie"
 
 #: theme/templates/home/privacy_policy.html:6
 #: theme/templates/parts/footer.html:40
+#: theme/templates/parts/footer_admin.html:32
 msgid "Privacy policy"
 msgstr "Privacybeleid"
 
@@ -1889,7 +2016,7 @@ msgid "Overview"
 msgstr "Overzicht"
 
 #: theme/templates/incidents/base.html:18
-#: theme/templates/incidents/incidents_base.html:23
+#: theme/templates/incidents/incidents_base.html:24
 msgid "My reported incidents"
 msgstr "Mijn gemelde incidenten"
 
@@ -1956,20 +2083,23 @@ msgid "Report an incident"
 msgstr "Een incident melden"
 
 #: theme/templates/incidents/declaration.html:41
-#: theme/templates/incidents/incidents_base.html:131
+#: theme/templates/incidents/incidents_base.html:154
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:18
 msgid "Creation date"
 msgstr "Aanmaakdatum"
 
 #: theme/templates/incidents/declaration.html:49
-#: theme/templates/incidents/incidents_base.html:126
+#: theme/templates/incidents/incidents_base.html:145
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:17
+#: theme/templates/modals/so_dashboard_hide_columns.html:17
 #: theme/templates/report/security_objectives/cover.html:53
 #: theme/templates/security_objectives/declaration.html:40
-#: theme/templates/security_objectives/so_dashboard_base.html:83
+#: theme/templates/security_objectives/so_dashboard_base.html:102
 msgid "Last update"
 msgstr "Laatste update"
 
-#: theme/templates/incidents/declaration.html:71
-#: theme/templates/incidents/declaration.html:73
+#: theme/templates/incidents/declaration.html:72
+#: theme/templates/incidents/declaration.html:74
 #: theme/templates/modals/contacts_incident.html:7
 #: theme/templates/observer/incidents.html:18
 #: theme/templates/observer/incidents.html:21
@@ -1978,44 +2108,51 @@ msgstr "Laatste update"
 msgid "Contacts"
 msgstr "Aanspreekpunten"
 
-#: theme/templates/incidents/declaration.html:77
+#: theme/templates/incidents/declaration.html:79
+#: theme/templates/incidents/incidents_base.html:230
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:30
+#: theme/templates/report/incidents/cover.html:19
+#: theme/templates/report/incidents/details.html:11
+#: theme/templates/security_objectives/declaration.html:62
+msgid "Reference"
+msgstr "Referentie"
+
+#: theme/templates/incidents/declaration.html:86
+#: theme/templates/modals/so_dashboard_hide_columns.html:22
+#: theme/templates/parts/api_keys_table.html:17
 #: theme/templates/reporting/project_dashboard.html:98
-#: theme/templates/security_objectives/declaration.html:60
-#: theme/templates/security_objectives/so_dashboard_base.html:100
+#: theme/templates/security_objectives/declaration.html:67
+#: theme/templates/security_objectives/so_dashboard_base.html:144
 msgid "Company"
 msgstr "Onderneming"
 
-#: theme/templates/incidents/declaration.html:83
-#: theme/templates/incidents/incidents_base.html:170
-#: theme/templates/reporting/dashboard.html:77
+#: theme/templates/incidents/declaration.html:93
+#: theme/templates/incidents/incidents_base.html:221
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:29
+#: theme/templates/modals/reporting_dashboard_hide_columns.html:20
+#: theme/templates/reporting/dashboard.html:103
 msgid "Regulation"
 msgstr "Regelgeving"
 
-#: theme/templates/incidents/declaration.html:135
+#: theme/templates/incidents/declaration.html:145
 msgid "Incident notification steps"
 msgstr "Stappen incidentmelding"
 
-#: theme/templates/incidents/declaration.html:285
+#: theme/templates/incidents/declaration.html:295
 msgid "Previous"
 msgstr "Vorig"
 
-#: theme/templates/incidents/declaration.html:304
-#: theme/templates/operator/so_dashboard.html:21
-#: theme/templates/security_objectives/declaration.html:188
-msgid "Submit"
-msgstr "Indienen"
-
-#: theme/templates/incidents/declaration.html:306
+#: theme/templates/incidents/declaration.html:316
 msgid "Next"
 msgstr "Volgend"
 
-#: theme/templates/incidents/declaration.html:327
-#: theme/templates/security_objectives/declaration.html:480
-#: theme/templates/security_objectives/declaration.html:546
+#: theme/templates/incidents/declaration.html:337
+#: theme/templates/security_objectives/declaration.html:522
+#: theme/templates/security_objectives/declaration.html:592
 msgid "View previous version"
 msgstr "Zie vorige versie"
 
-#: theme/templates/incidents/declaration.html:328
+#: theme/templates/incidents/declaration.html:338
 msgid "Conditional question"
 msgstr "Voorwaardelijke vraag"
 
@@ -2023,213 +2160,211 @@ msgstr "Voorwaardelijke vraag"
 msgid "Incident notification"
 msgstr "Incidentmelding"
 
-#: theme/templates/incidents/incidents_base.html:25
+#: theme/templates/incidents/incidents_base.html:26
 msgid "Overview of reported incidents"
 msgstr "Overzicht van de gemelde incidenten"
 
-#: theme/templates/incidents/incidents_base.html:40
+#: theme/templates/incidents/incidents_base.html:41
 msgid "Filter incidents by status, sector, etc"
 msgstr "Filteren op status, sector enz"
 
-#: theme/templates/incidents/incidents_base.html:41
-#: theme/templates/incidents/incidents_base.html:547
+#: theme/templates/incidents/incidents_base.html:42
+#: theme/templates/incidents/incidents_base.html:663
 #: theme/templates/reporting/add_recommendations.html:42
 #: theme/templates/reporting/add_recommendations.html:43
 #: theme/templates/reporting/add_recommendations.html:60
 #: theme/templates/reporting/dashboard.html:35
-#: theme/templates/reporting/dashboard.html:249
+#: theme/templates/reporting/dashboard.html:322
 #: theme/templates/reporting/project_dashboard.html:65
 #: theme/templates/reporting/project_dashboard.html:354
-#: theme/templates/security_objectives/so_dashboard_base.html:36
-#: theme/templates/security_objectives/so_dashboard_base.html:337
+#: theme/templates/security_objectives/so_dashboard_base.html:37
+#: theme/templates/security_objectives/so_dashboard_base.html:431
 msgid "Filter"
 msgstr "Filter"
 
-#: theme/templates/incidents/incidents_base.html:43
+#: theme/templates/incidents/incidents_base.html:44
+#: theme/templates/parts/api_keys_table.html:64
 #: theme/templates/reporting/add_recommendations.html:46
 #: theme/templates/reporting/dashboard.html:38
 #: theme/templates/reporting/project_dashboard.html:68
-#: theme/templates/security_objectives/so_dashboard_base.html:39
+#: theme/templates/security_objectives/so_dashboard_base.html:40
 msgid "Active"
 msgstr "Actief"
 
-#: theme/templates/incidents/incidents_base.html:58
+#: theme/templates/incidents/incidents_base.html:63
 #: theme/templates/reporting/dashboard.html:54
 #: theme/templates/reporting/project_dashboard.html:84
-#: theme/templates/security_objectives/declaration.html:292
-#: theme/templates/security_objectives/so_dashboard_base.html:55
+#: theme/templates/security_objectives/declaration.html:330
+#: theme/templates/security_objectives/so_dashboard_base.html:60
 msgid "Icon Guide"
 msgstr "Pictogramgids"
 
-#: theme/templates/incidents/incidents_base.html:66
-#: theme/templates/security_objectives/declaration.html:303
-#: theme/templates/security_objectives/so_dashboard_base.html:64
+#: theme/templates/incidents/incidents_base.html:76
+#: theme/templates/security_objectives/declaration.html:343
+#: theme/templates/security_objectives/so_dashboard_base.html:74
 msgid "Legend"
 msgstr "Legenda"
 
-#: theme/templates/incidents/incidents_base.html:70
+#: theme/templates/incidents/incidents_base.html:80
 msgid "No Significant Impact"
 msgstr "Geen aanzienlijke impact"
 
-#: theme/templates/incidents/incidents_base.html:74
+#: theme/templates/incidents/incidents_base.html:84
 msgid "Significant Impact"
 msgstr "Aanzienlijke impact"
 
-#: theme/templates/incidents/incidents_base.html:78
+#: theme/templates/incidents/incidents_base.html:88
 msgid "Ongoing"
 msgstr "Lopend"
 
-#: theme/templates/incidents/incidents_base.html:82
+#: theme/templates/incidents/incidents_base.html:92
 msgid "Closed"
 msgstr "Afgesloten"
 
-#: theme/templates/incidents/incidents_base.html:86
+#: theme/templates/incidents/incidents_base.html:96
 #: theme/templates/operator/so_dashboard.html:151
 msgid "Unsubmitted"
 msgstr "Niet ingediend"
 
-#: theme/templates/incidents/incidents_base.html:90
+#: theme/templates/incidents/incidents_base.html:100
 #: theme/templates/operator/so_dashboard.html:139
 #: theme/templates/regulator/so_dashboard.html:129
 msgid "Under review"
 msgstr "Wordt onderzocht"
 
-#: theme/templates/incidents/incidents_base.html:94
+#: theme/templates/incidents/incidents_base.html:104
 msgid "Submission overdue"
 msgstr "Deadline voor indienen overschreden"
 
-#: theme/templates/incidents/incidents_base.html:98
+#: theme/templates/incidents/incidents_base.html:108
 msgid "Late submission"
 msgstr "Te late indiening"
 
-#: theme/templates/incidents/incidents_base.html:102
+#: theme/templates/incidents/incidents_base.html:112
 #: theme/templates/operator/so_dashboard.html:145
 #: theme/templates/regulator/so_dashboard.html:135
-#: theme/templates/security_objectives/declaration.html:341
+#: theme/templates/security_objectives/declaration.html:381
 msgid "Revision required"
 msgstr "Revisie vereist"
 
-#: theme/templates/incidents/incidents_base.html:106
+#: theme/templates/incidents/incidents_base.html:116
 #: theme/templates/operator/so_dashboard.html:133
 #: theme/templates/regulator/so_dashboard.html:117
 msgid "Passed"
 msgstr "Geslaagd"
 
-#: theme/templates/incidents/incidents_base.html:115
+#: theme/templates/incidents/incidents_base.html:126
 msgid "Incidents table"
 msgstr "Tabel Incidenten"
 
-#: theme/templates/incidents/incidents_base.html:121
-#: theme/templates/modals/report_versions.html:30
-#: theme/templates/modals/so_versions.html:24
-#: theme/templates/modals/workflow_comment.html:27
-#: theme/templates/security_objectives/so_dashboard_base.html:79
-msgid "Status"
-msgstr "Status"
-
-#: theme/templates/incidents/incidents_base.html:136
+#: theme/templates/incidents/incidents_base.html:163
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:19
 msgid "Detection date"
 msgstr "Datum van ontdekking"
 
-#: theme/templates/incidents/incidents_base.html:141
+#: theme/templates/incidents/incidents_base.html:172
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:20
 msgid "Start date"
 msgstr "Datum van aanvang"
 
-#: theme/templates/incidents/incidents_base.html:146
+#: theme/templates/incidents/incidents_base.html:181
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:21
 msgid "Resolution date"
 msgstr "Datum van oplossing"
 
-#: theme/templates/incidents/incidents_base.html:152
+#: theme/templates/incidents/incidents_base.html:191
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:23
 msgid "Operator Acronym"
 msgstr "Acroniem Operator"
 
-#: theme/templates/incidents/incidents_base.html:157
+#: theme/templates/incidents/incidents_base.html:200
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:24
 msgid "Operator Name"
 msgstr "Naam Operator"
 
-#: theme/templates/incidents/incidents_base.html:164
+#: theme/templates/incidents/incidents_base.html:211
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:27
 #: theme/templates/report/incidents/details.html:35
 msgid "Regulator"
 msgstr "Regulator"
 
-#: theme/templates/incidents/incidents_base.html:175
-#: theme/templates/report/incidents/cover.html:19
-#: theme/templates/report/incidents/details.html:11
-msgid "Reference"
-msgstr "Referentie"
-
-#: theme/templates/incidents/incidents_base.html:180
+#: theme/templates/incidents/incidents_base.html:239
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:31
+#: theme/templates/modals/reporting_dashboard_hide_columns.html:23
+#: theme/templates/modals/so_dashboard_hide_columns.html:27
 #: theme/templates/report/security_objectives/cover.html:23
 #: theme/templates/reporting/add_recommendations.html:110
-#: theme/templates/reporting/dashboard.html:86
-#: theme/templates/security_objectives/so_dashboard_base.html:105
+#: theme/templates/reporting/dashboard.html:127
+#: theme/templates/security_objectives/so_dashboard_base.html:154
 msgid "Sectors"
 msgstr "Sectoren"
 
-#: theme/templates/incidents/incidents_base.html:183
+#: theme/templates/incidents/incidents_base.html:247
 #: theme/templates/modals/create_report_project.html:42
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:32
 #: theme/templates/report/base/template.html:8
 #: theme/templates/report/incidents/cover.html:5
 #: theme/templates/report/incidents/header.html:5
 msgid "Report"
 msgstr "Rapport"
 
-#: theme/templates/incidents/incidents_base.html:187
-#: theme/templates/reporting/dashboard.html:90
+#: theme/templates/incidents/incidents_base.html:251
+#: theme/templates/parts/api_keys_table.html:30
+#: theme/templates/reporting/dashboard.html:131
 #: theme/templates/reporting/recommendations.html:56
-#: theme/templates/security_objectives/so_dashboard_base.html:121
+#: theme/templates/security_objectives/so_dashboard_base.html:179
 msgid "Actions"
 msgstr "Acties"
 
-#: theme/templates/incidents/incidents_base.html:195
+#: theme/templates/incidents/incidents_base.html:259
 msgid "Column settings"
 msgstr "Kolominstellingen"
 
-#: theme/templates/incidents/incidents_base.html:214
-#: theme/templates/incidents/incidents_base.html:217
+#: theme/templates/incidents/incidents_base.html:282
+#: theme/templates/incidents/incidents_base.html:285
 msgid "Incident with significant impact"
 msgstr "Incident met aanzienlijke gevolgen"
 
-#: theme/templates/incidents/incidents_base.html:223
-#: theme/templates/incidents/incidents_base.html:226
+#: theme/templates/incidents/incidents_base.html:291
+#: theme/templates/incidents/incidents_base.html:294
 msgid "No significant impact"
 msgstr "Geen aanzienlijke gevolgen"
 
-#: theme/templates/incidents/incidents_base.html:233
-#: theme/templates/incidents/incidents_base.html:236
+#: theme/templates/incidents/incidents_base.html:301
+#: theme/templates/incidents/incidents_base.html:304
 msgid "The incident is still ongoing"
 msgstr "Het incident is nog aan de gang"
 
-#: theme/templates/incidents/incidents_base.html:242
-#: theme/templates/incidents/incidents_base.html:245
+#: theme/templates/incidents/incidents_base.html:310
+#: theme/templates/incidents/incidents_base.html:313
 msgid "The incident has been closed"
 msgstr "Het incident is afgesloten"
 
-#: theme/templates/incidents/incidents_base.html:254
+#: theme/templates/incidents/incidents_base.html:326
 msgid "Last update date"
 msgstr "Laatste update"
 
-#: theme/templates/incidents/incidents_base.html:266
+#: theme/templates/incidents/incidents_base.html:342
 msgid "Incident notification submission date"
 msgstr "Datum van indiening van de incidentmelding"
 
-#: theme/templates/incidents/incidents_base.html:279
+#: theme/templates/incidents/incidents_base.html:359
 #: theme/templates/report/incidents/timeline.html:27
 msgid "Incident detection date"
 msgstr "Datum waarop het incident is ontdekt"
 
-#: theme/templates/incidents/incidents_base.html:296
+#: theme/templates/incidents/incidents_base.html:380
 #: theme/templates/report/incidents/timeline.html:35
 msgid "Incident start date"
 msgstr "Datum van aanvang van het incident"
 
-#: theme/templates/incidents/incidents_base.html:314
+#: theme/templates/incidents/incidents_base.html:402
 #: theme/templates/report/incidents/timeline.html:43
 msgid "Incident resolution date"
 msgstr "Datum van oplossing van het incident"
 
-#: theme/templates/incidents/incidents_base.html:417
-#: theme/templates/incidents/incidents_base.html:419
+#: theme/templates/incidents/incidents_base.html:533
+#: theme/templates/incidents/incidents_base.html:535
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
 #: theme/templates/modals/so_versions.html:7
@@ -2237,52 +2372,52 @@ msgstr "Datum van oplossing van het incident"
 #: theme/templates/operator/incidents.html:87
 #: theme/templates/operator/incidents.html:89
 #: theme/templates/operator/incidents.html:96
-#: theme/templates/security_objectives/so_dashboard_base.html:252
-#: theme/templates/security_objectives/so_dashboard_base.html:254
-#: theme/templates/security_objectives/so_dashboard_base.html:255
-#: theme/templates/security_objectives/so_dashboard_base.html:263
-#: theme/templates/security_objectives/so_dashboard_base.html:265
-#: theme/templates/security_objectives/so_dashboard_base.html:266
+#: theme/templates/security_objectives/so_dashboard_base.html:346
+#: theme/templates/security_objectives/so_dashboard_base.html:348
+#: theme/templates/security_objectives/so_dashboard_base.html:349
+#: theme/templates/security_objectives/so_dashboard_base.html:357
+#: theme/templates/security_objectives/so_dashboard_base.html:359
+#: theme/templates/security_objectives/so_dashboard_base.html:360
 msgid "Version control"
 msgstr "Versiebeheer"
 
-#: theme/templates/incidents/incidents_base.html:427
-#: theme/templates/incidents/incidents_base.html:450
-#: theme/templates/incidents/incidents_base.html:452
+#: theme/templates/incidents/incidents_base.html:543
+#: theme/templates/incidents/incidents_base.html:566
+#: theme/templates/incidents/incidents_base.html:568
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
 
-#: theme/templates/incidents/incidents_base.html:460
+#: theme/templates/incidents/incidents_base.html:576
 msgid "More options"
 msgstr "Meer opties"
 
-#: theme/templates/incidents/incidents_base.html:473
-#: theme/templates/incidents/incidents_base.html:474
+#: theme/templates/incidents/incidents_base.html:589
+#: theme/templates/incidents/incidents_base.html:590
 #: theme/templates/modals/access_log_base.html:17
-#: theme/templates/reporting/dashboard.html:205
-#: theme/templates/security_objectives/so_dashboard_base.html:229
-#: theme/templates/security_objectives/so_dashboard_base.html:231
-#: theme/templates/security_objectives/so_dashboard_base.html:232
+#: theme/templates/reporting/dashboard.html:278
+#: theme/templates/security_objectives/so_dashboard_base.html:323
+#: theme/templates/security_objectives/so_dashboard_base.html:325
+#: theme/templates/security_objectives/so_dashboard_base.html:326
 msgid "Access Log"
 msgstr "Toegangsregister"
 
-#: theme/templates/incidents/incidents_base.html:494
+#: theme/templates/incidents/incidents_base.html:610
 msgid "No incident reports have been submitted yet."
 msgstr "Nog geen incidentrapporten ingediend."
 
-#: theme/templates/incidents/incidents_base.html:568
+#: theme/templates/incidents/incidents_base.html:684
 #: theme/templates/reporting/add_recommendations.html:80
-#: theme/templates/reporting/dashboard.html:271
+#: theme/templates/reporting/dashboard.html:344
 #: theme/templates/reporting/project_dashboard.html:373
-#: theme/templates/security_objectives/so_dashboard_base.html:362
+#: theme/templates/security_objectives/so_dashboard_base.html:456
 msgid "Reset"
 msgstr "Resetten"
 
-#: theme/templates/incidents/incidents_base.html:571
+#: theme/templates/incidents/incidents_base.html:687
 #: theme/templates/reporting/add_recommendations.html:83
-#: theme/templates/reporting/dashboard.html:274
+#: theme/templates/reporting/dashboard.html:347
 #: theme/templates/reporting/project_dashboard.html:376
-#: theme/templates/security_objectives/so_dashboard_base.html:365
+#: theme/templates/security_objectives/so_dashboard_base.html:459
 msgid "Search"
 msgstr "Zoeken"
 
@@ -2365,9 +2500,52 @@ msgstr "Geselecteerde beveiligingsdoelstellingenverklaring kopiëren naar"
 #: theme/templates/modals/create_report_project.html:98
 #: theme/templates/operator/so_dashboard.html:98
 #: theme/templates/operator/so_dashboard.html:171
-#: theme/templates/reporting/dashboard.html:196
+#: theme/templates/reporting/dashboard.html:269
 msgid "Duplicate"
 msgstr "Kopiëren"
+
+#: theme/templates/modals/create_api_key.html:7
+msgid "API key created"
+msgstr ""
+
+#: theme/templates/modals/create_api_key.html:21
+msgid "Copy this key now. It will not be shown again."
+msgstr ""
+
+#: theme/templates/modals/create_api_key.html:24
+msgid "API key"
+msgstr ""
+
+#: theme/templates/modals/create_api_key.html:38
+msgid "Key copied to the clipboard."
+msgstr ""
+
+#: theme/templates/modals/create_api_key.html:39
+msgid ""
+"The key could not be copied. It is selected: copy it with Ctrl+C (Cmd+C on a "
+"Mac)."
+msgstr ""
+
+#: theme/templates/modals/create_api_key.html:41
+msgid "Copy"
+msgstr ""
+
+#: theme/templates/modals/create_api_key.html:49
+msgid "Done"
+msgstr ""
+
+#: theme/templates/modals/create_api_key.html:65
+#, python-format
+msgid ""
+"This key will read only the data of %(company)s. To read another company's "
+"data, switch company and create a key there."
+msgstr ""
+
+#: theme/templates/modals/create_api_key.html:77
+#: theme/templates/modals/create_report_project.html:102
+#: theme/templates/modals/create_so_declaration.html:35
+msgid "Create"
+msgstr "Aanmaken"
 
 #: theme/templates/modals/create_report_project.html:12
 msgid "Duplicate project"
@@ -2387,11 +2565,6 @@ msgstr "Nieuw project"
 #: theme/templates/modals/review_comment_so_declaration.html:40
 msgid "Save"
 msgstr "Opslaan"
-
-#: theme/templates/modals/create_report_project.html:102
-#: theme/templates/modals/create_so_declaration.html:35
-msgid "Create"
-msgstr "Aanmaken"
 
 #: theme/templates/modals/create_so_declaration.html:11
 msgid "Create a new security objectives statement"
@@ -2415,7 +2588,7 @@ msgstr "Weet u zeker dat u het incident wilt verwijderen?"
 #: theme/templates/operator/so_dashboard.html:177
 #: theme/templates/regulator/so_dashboard.html:106
 #: theme/templates/regulator/so_dashboard.html:161
-#: theme/templates/reporting/dashboard.html:217
+#: theme/templates/reporting/dashboard.html:290
 #: theme/templates/reporting/recommendations.html:78
 msgid "Delete"
 msgstr "Verwijderen"
@@ -2451,7 +2624,7 @@ msgstr "Incidenten exporteren"
 
 #: theme/templates/modals/export_security_objectives.html:12
 msgid "Export security objectives"
-msgstr ""
+msgstr "Beveiligingsdoelstellingen exporteren"
 
 #: theme/templates/modals/import_so_declaration.html:11
 msgid "Import Security Objectives Statement"
@@ -2463,9 +2636,9 @@ msgstr "Beveiligingsdoelstellingenverklaring importeren"
 msgid "Import"
 msgstr "Importeren"
 
-#: theme/templates/modals/incidents_dashboard_hide_columns.html:7
-#: theme/templates/modals/reporting_dashboard_hide_columns.html:7
-#: theme/templates/modals/so_dashboard_hide_columns.html:7
+#: theme/templates/modals/incidents_dashboard_hide_columns.html:6
+#: theme/templates/modals/reporting_dashboard_hide_columns.html:6
+#: theme/templates/modals/so_dashboard_hide_columns.html:6
 msgid "Choice of columns"
 msgstr "Kolommenkeuze"
 
@@ -2475,6 +2648,35 @@ msgstr "Kolommenkeuze"
 msgid "Previous version"
 msgstr "Vorige versie"
 
+#: theme/templates/modals/reporting_dashboard_hide_columns.html:16
+#: theme/templates/reporting/dashboard.html:71
+#: theme/templates/reporting/project_dashboard.html:26
+msgid "Modified"
+msgstr "Gewijzigd"
+
+#: theme/templates/modals/reporting_dashboard_hide_columns.html:17
+#: theme/templates/parts/api_keys_table.html:10
+#: theme/templates/reporting/dashboard.html:79
+#: theme/templates/reporting/project_dashboard.html:36
+msgid "Created"
+msgstr "Gemaakt"
+
+#: theme/templates/modals/reporting_dashboard_hide_columns.html:18
+#: theme/templates/reporting/dashboard.html:87
+#: theme/templates/reporting/project_dashboard.html:47
+msgid "Author"
+msgstr "Auteur"
+
+#: theme/templates/modals/reporting_dashboard_hide_columns.html:21
+#: theme/templates/reporting/dashboard.html:111
+msgid "Standard"
+msgstr "Norm"
+
+#: theme/templates/modals/reporting_dashboard_hide_columns.html:22
+#: theme/templates/reporting/dashboard.html:119
+msgid "Base year"
+msgstr "Basisjaar"
+
 #: theme/templates/modals/review_comment_report.html:10
 #: theme/templates/modals/workflow_comment.html:34
 #: theme/templates/operator/incidents.html:61
@@ -2483,7 +2685,7 @@ msgstr "Vorige versie"
 #: theme/templates/operator/so_dashboard.html:78
 #: theme/templates/regulator/so_dashboard.html:68
 #: theme/templates/regulator/so_dashboard.html:79
-#: theme/templates/security_objectives/declaration.html:122
+#: theme/templates/security_objectives/declaration.html:130
 msgid "Review comment"
 msgstr "Opmerking bekijken"
 
@@ -2494,26 +2696,69 @@ msgstr "Opmerking bekijken"
 msgid "Review"
 msgstr "Beoordeling"
 
+#: theme/templates/modals/revoke_api_key.html:5
+msgid "Confirm revocation of API key"
+msgstr ""
+
+#: theme/templates/modals/revoke_api_key.html:19
+msgid "Are you sure you want to revoke this API key?"
+msgstr ""
+
+#: theme/templates/modals/revoke_api_key.html:23
+msgid "Applications using it lose access immediately. This cannot be undone."
+msgstr ""
+
+#: theme/templates/modals/revoke_api_key.html:31
+#: theme/templates/parts/api_keys_table.html:82
+msgid "Revoke"
+msgstr ""
+
 #: theme/templates/modals/risk_analysis_import.html:11
 #: theme/templates/reporting/base.html:22
 msgid "Import risk analysis"
 msgstr "Risicoanalyse importeren"
 
 #: theme/templates/modals/so_contacts.html:8
-#: theme/templates/security_objectives/declaration.html:57
+#: theme/templates/security_objectives/declaration.html:58
 msgid "Profile"
 msgstr "Profiel"
 
+#: theme/templates/modals/so_dashboard_hide_columns.html:18
 #: theme/templates/modals/so_versions.html:21
 #: theme/templates/report/security_objectives/cover.html:59
 #: theme/templates/security_objectives/declaration.html:32
-#: theme/templates/security_objectives/so_dashboard_base.html:86
+#: theme/templates/security_objectives/so_dashboard_base.html:110
 msgid "Submission date"
 msgstr "Verzenddatum"
 
+#: theme/templates/modals/so_dashboard_hide_columns.html:19
+#: theme/templates/report/security_objectives/cover.html:17
+#: theme/templates/security_objectives/so_dashboard_base.html:118
+msgid "Identifier"
+msgstr "Identificatiecode"
+
+#: theme/templates/modals/so_dashboard_hide_columns.html:20
+#: theme/templates/report/security_objectives/cover.html:35
+#: theme/templates/security_objectives/declaration.html:72
+#: theme/templates/security_objectives/so_dashboard_base.html:126
+msgid "Evaluation Framework"
+msgstr "Evaluatiekader"
+
+#: theme/templates/modals/so_dashboard_hide_columns.html:24
+#: theme/templates/security_objectives/so_dashboard_base.html:135
+msgid "Creator"
+msgstr "Maker"
+
+#: theme/templates/modals/so_dashboard_hide_columns.html:29
+#: theme/templates/report/security_objectives/cover.html:47
+#: theme/templates/reporting/project_dashboard.html:104
+#: theme/templates/security_objectives/so_dashboard_base.html:163
+msgid "Year"
+msgstr "Jaar"
+
 #: theme/templates/modals/update_so_declaration.html:7
 msgid "View or update security objectives statement"
-msgstr ""
+msgstr "Beveiligingsdoelstellingenverklaring bekijken of bijwerken"
 
 #: theme/templates/modals/update_so_declaration.html:17
 msgid "What do you want to do ?"
@@ -2521,7 +2766,7 @@ msgstr "Wat wilt u doen?"
 
 #: theme/templates/modals/update_so_declaration.html:25
 msgid "View"
-msgstr ""
+msgstr "Weergeven"
 
 #: theme/templates/modals/update_so_declaration.html:31
 msgid "Update"
@@ -2532,13 +2777,13 @@ msgid "not submitted yet"
 msgstr "nog niet ingediend"
 
 #: theme/templates/operator/so_dashboard.html:54
-#: theme/templates/reporting/dashboard.html:186
+#: theme/templates/reporting/dashboard.html:259
 msgid "Edit"
 msgstr "Bewerken"
 
 #: theme/templates/operator/so_dashboard.html:107
 #: theme/templates/regulator/so_dashboard.html:94
-#: theme/templates/reporting/dashboard.html:175
+#: theme/templates/reporting/dashboard.html:248
 msgid "Download"
 msgstr "Downloaden"
 
@@ -2580,23 +2825,58 @@ msgstr "Er is een fout opgetreden. Onze excuses voor het ongemak."
 msgid "Please try again later."
 msgstr "Probeer het later opnieuw."
 
+#: theme/templates/parts/api_keys_table.html:5
+msgid "API keys table"
+msgstr ""
+
+#: theme/templates/parts/api_keys_table.html:21
+msgid "Prefix"
+msgstr ""
+
+#: theme/templates/parts/api_keys_table.html:24
+msgid "Expires"
+msgstr ""
+
+#: theme/templates/parts/api_keys_table.html:62
+msgid "Revoked"
+msgstr ""
+
+#: theme/templates/parts/api_keys_table.html:66
+msgid "Expired"
+msgstr ""
+
+#: theme/templates/parts/api_keys_table.html:75
+#, python-format
+msgid "Revoke %(name)s"
+msgstr ""
+
+#: theme/templates/parts/api_keys_table.html:93
+msgid "You have no API keys."
+msgstr ""
+
 #: theme/templates/parts/footer.html:12
+#: theme/templates/parts/footer_admin.html:10
 msgid "A platform developed by"
 msgstr "Een platform ontwikkeld door"
 
 #: theme/templates/parts/footer.html:36
+#: theme/templates/parts/footer_admin.html:28
+#: theme/templates/parts/footer_admin.html:30
 msgid "Terms of service"
 msgstr "Algemene gebruiksvoorwaarden"
 
 #: theme/templates/parts/footer.html:44
+#: theme/templates/parts/footer_admin.html:35
 msgid "A platform offered by"
 msgstr "Een platform aangeboden door"
 
 #: theme/templates/parts/footer.html:53
+#: theme/templates/parts/footer_admin.html:42
 msgid "Cookies policy"
 msgstr "Cookiebeleid"
 
 #: theme/templates/parts/footer.html:57
+#: theme/templates/parts/footer_admin.html:43
 msgid "Accessibility statement"
 msgstr "Toegankelijkheidsverklaring"
 
@@ -2609,39 +2889,31 @@ msgstr "Hoofdmenu"
 msgid "Settings"
 msgstr "Instellingen"
 
-#: theme/templates/parts/header.html:92
-msgid "Account"
-msgstr "Account"
-
-#: theme/templates/parts/header.html:95
-msgid "Security"
-msgstr "Veiligheid"
-
-#: theme/templates/parts/header.html:98
-msgid "Password"
-msgstr "Wachtwoord"
-
-#: theme/templates/parts/header.html:111
+#: theme/templates/parts/header.html:116
 msgid "Contact"
 msgstr "Aanspreekpunt"
 
-#: theme/templates/parts/pagination.html:27
+#: theme/templates/parts/pagination.html:26
 msgid "entries per page"
 msgstr "resultaten weergeven"
 
-#: theme/templates/parts/pagination.html:35
+#: theme/templates/parts/pagination.html:29
+#: theme/templates/unfold/helpers/pagination_default.html:11
 msgid "Showing"
 msgstr "Tonen van"
 
-#: theme/templates/parts/pagination.html:37
+#: theme/templates/parts/pagination.html:31
+#: theme/templates/unfold/helpers/pagination_default.html:11
 msgid "to"
 msgstr "tot"
 
-#: theme/templates/parts/pagination.html:38
+#: theme/templates/parts/pagination.html:32
+#: theme/templates/unfold/helpers/pagination_default.html:12
 msgid "of"
 msgstr "van"
 
-#: theme/templates/parts/pagination.html:40
+#: theme/templates/parts/pagination.html:34
+#: theme/templates/unfold/helpers/pagination_default.html:12
 msgid "entries"
 msgstr "resultaten"
 
@@ -2866,9 +3138,9 @@ msgstr "Revisie vereist en verzonden"
 
 #: theme/templates/report/base/toc.html:3
 #: theme/templates/report/security_objectives/toc.html:3
-#: theme/templates/security_objectives/declaration.html:273
-#: theme/templates/security_objectives/declaration.html:278
-#: theme/templates/security_objectives/declaration.html:573
+#: theme/templates/security_objectives/declaration.html:312
+#: theme/templates/security_objectives/declaration.html:316
+#: theme/templates/security_objectives/declaration.html:619
 msgid "Table of contents"
 msgstr "Beknopt overzicht"
 
@@ -2955,49 +3227,33 @@ msgstr "Tijdlijn van de verslagen"
 msgid "Security objectives statement"
 msgstr "Rapport van beveiligingsdoelstellingen"
 
-#: theme/templates/report/security_objectives/cover.html:17
-#: theme/templates/security_objectives/so_dashboard_base.html:89
-msgid "Identifier"
-msgstr "Identificatie"
-
-#: theme/templates/report/security_objectives/cover.html:35
-#: theme/templates/security_objectives/declaration.html:64
-#: theme/templates/security_objectives/so_dashboard_base.html:92
-msgid "Evaluation Framework"
-msgstr "Evaluatiekader"
-
 #: theme/templates/report/security_objectives/cover.html:41
 msgid "Review status"
 msgstr "Status controle"
 
-#: theme/templates/report/security_objectives/cover.html:47
-#: theme/templates/reporting/project_dashboard.html:104
-#: theme/templates/security_objectives/so_dashboard_base.html:109
-msgid "Year"
-msgstr "Jaar"
+#: theme/templates/report/security_objectives/declaration.html:19
+#: theme/templates/security_objectives/declaration.html:426
+#, python-format
+msgid "Objective %(position)s of %(total)s in this domain"
+msgstr "Doelstelling %(position)s van %(total)s in dit domein"
 
-#: theme/templates/report/security_objectives/cover.html:65
-#: theme/templates/security_objectives/so_dashboard_base.html:117
-msgid "Progress"
-msgstr "Vordering"
-
-#: theme/templates/report/security_objectives/declaration.html:37
-#: theme/templates/security_objectives/declaration.html:325
+#: theme/templates/report/security_objectives/declaration.html:44
+#: theme/templates/security_objectives/declaration.html:365
 msgid "Not reviewed"
 msgstr "Niet gecontroleerd"
 
-#: theme/templates/report/security_objectives/declaration.html:61
-#: theme/templates/security_objectives/declaration.html:422
+#: theme/templates/report/security_objectives/declaration.html:68
+#: theme/templates/security_objectives/declaration.html:462
 msgid "Table of"
 msgstr "Tabel van"
 
-#: theme/templates/report/security_objectives/declaration.html:152
-#: theme/templates/security_objectives/declaration.html:527
+#: theme/templates/report/security_objectives/declaration.html:159
+#: theme/templates/security_objectives/declaration.html:573
 msgid "No security measures data available."
 msgstr "Geen gegevens over beveiligingsmaatregelen beschikbaar."
 
-#: theme/templates/report/security_objectives/declaration.html:177
-#: theme/templates/security_objectives/declaration.html:558
+#: theme/templates/report/security_objectives/declaration.html:184
+#: theme/templates/security_objectives/declaration.html:604
 msgid "No security objectives data available."
 msgstr "Geen gegevens over beveiligingsdoelstellingen beschikbaar."
 
@@ -3023,7 +3279,7 @@ msgstr "Tabel aanbevelingen"
 #: theme/templates/reporting/base.html:16
 #: theme/templates/reporting/dashboard.html:19
 #: theme/templates/security_objectives/base.html:26
-#: theme/templates/security_objectives/so_dashboard_base.html:20
+#: theme/templates/security_objectives/so_dashboard_base.html:21
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -3036,35 +3292,12 @@ msgstr "Beveiligingsdoelstellingen importeren"
 msgid "Filter by year, operator and sector"
 msgstr "Filteren op jaar, operator en sector"
 
-#: theme/templates/reporting/dashboard.html:60
-#: theme/templates/reporting/project_dashboard.html:91
+#: theme/templates/reporting/dashboard.html:62
+#: theme/templates/reporting/project_dashboard.html:92
 msgid "Report generation table"
 msgstr "Tabel aanmaak rapporten"
 
-#: theme/templates/reporting/dashboard.html:65
-#: theme/templates/reporting/project_dashboard.html:26
-msgid "Modified"
-msgstr "Gewijzigd"
-
-#: theme/templates/reporting/dashboard.html:68
-#: theme/templates/reporting/project_dashboard.html:36
-msgid "Created"
-msgstr "Gemaakt"
-
-#: theme/templates/reporting/dashboard.html:71
-#: theme/templates/reporting/project_dashboard.html:47
-msgid "Author"
-msgstr "Auteur"
-
-#: theme/templates/reporting/dashboard.html:80
-msgid "Standard"
-msgstr "Norm"
-
-#: theme/templates/reporting/dashboard.html:83
-msgid "Base year"
-msgstr "Basisjaar"
-
-#: theme/templates/reporting/dashboard.html:162
+#: theme/templates/reporting/dashboard.html:235
 msgid "Open"
 msgstr "Open"
 
@@ -3118,7 +3351,7 @@ msgstr "Kopiëren van vorig jaar"
 
 #: theme/templates/security_objectives/base.html:48
 msgid "New assessment"
-msgstr ""
+msgstr "Nieuwe beoordeling"
 
 #: theme/templates/security_objectives/declaration.html:21
 #, python-format
@@ -3126,87 +3359,82 @@ msgid ""
 "The operator submitted a newer version of this declaration on "
 "%(submit_date)s. This version can no longer be reviewed."
 msgstr ""
+"De operator heeft op %(submit_date)s een nieuwere versie van deze verklaring "
+"ingediend. Deze versie kan niet meer worden beoordeeld."
 
 #: theme/templates/security_objectives/declaration.html:23
 msgid "Open the newer version"
-msgstr ""
+msgstr "Open de nieuwere versie"
 
-#: theme/templates/security_objectives/declaration.html:204
+#: theme/templates/security_objectives/declaration.html:242
 msgid "Security objectives"
-msgstr ""
+msgstr "Beveiligingsdoelstellingen"
 
-#: theme/templates/security_objectives/declaration.html:213
+#: theme/templates/security_objectives/declaration.html:251
 #, python-format
-msgid "Objectives %(first)s to %(last)s"
-msgstr ""
+msgid "%(total)s Objective · %(first)s to %(last)s"
+msgid_plural "%(total)s Objectives · %(first)s to %(last)s"
+msgstr[0] ""
+msgstr[1] ""
 
-#: theme/templates/security_objectives/declaration.html:230
+#: theme/templates/security_objectives/declaration.html:268
 msgid "Previous objectives"
-msgstr ""
+msgstr "Vorige doelstellingen"
 
-#: theme/templates/security_objectives/declaration.html:238
+#: theme/templates/security_objectives/declaration.html:276
 msgid "Next objectives"
-msgstr ""
+msgstr "Volgende doelstellingen"
 
-#: theme/templates/security_objectives/declaration.html:311
+#: theme/templates/security_objectives/declaration.html:351
 msgid "Not filled"
-msgstr ""
+msgstr "Niet ingevuld"
 
-#: theme/templates/security_objectives/declaration.html:318
+#: theme/templates/security_objectives/declaration.html:358
 msgid "Partially filled"
-msgstr ""
+msgstr "Gedeeltelijk ingevuld"
 
-#: theme/templates/security_objectives/declaration.html:332
+#: theme/templates/security_objectives/declaration.html:372
 msgid "Fully filled"
-msgstr ""
+msgstr "Volledig ingevuld"
 
-#: theme/templates/security_objectives/declaration.html:334
+#: theme/templates/security_objectives/declaration.html:374
 msgid "Review passed"
-msgstr ""
+msgstr "Na onderzoek aanvaard"
 
-#: theme/templates/security_objectives/declaration.html:386
-#, python-format
-msgid "Objective %(position)s of %(total)s in this domain"
-msgstr ""
-
-#: theme/templates/security_objectives/declaration.html:577
+#: theme/templates/security_objectives/declaration.html:623
 #, python-format
 msgid "%(counter)s objective"
 msgid_plural "%(counter)s objectives"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(counter)s doelstelling"
+msgstr[1] "%(counter)s doelstellingen"
 
-#: theme/templates/security_objectives/declaration.html:578
+#: theme/templates/security_objectives/declaration.html:624
 #, python-format
 msgid "%(counter)s domain"
 msgid_plural "%(counter)s domains"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(counter)s domein"
+msgstr[1] "%(counter)s domeinen"
 
-#: theme/templates/security_objectives/declaration.html:595
-#: theme/templates/security_objectives/declaration.html:597
+#: theme/templates/security_objectives/declaration.html:641
+#: theme/templates/security_objectives/declaration.html:643
 msgid "Expand all"
-msgstr ""
+msgstr "Alles uitvouwen"
 
-#: theme/templates/security_objectives/declaration.html:596
+#: theme/templates/security_objectives/declaration.html:642
 msgid "Collapse all"
-msgstr ""
+msgstr "Alles samenvouwen"
 
-#: theme/templates/security_objectives/so_dashboard_base.html:35
+#: theme/templates/security_objectives/so_dashboard_base.html:36
 msgid "Filter by status, sector, etc."
 msgstr "Filteren op status, sector enz."
 
-#: theme/templates/security_objectives/so_dashboard_base.html:74
+#: theme/templates/security_objectives/so_dashboard_base.html:85
 msgid "Security objectives table"
 msgstr "Tabel beveiligingsdoelstellingen"
 
-#: theme/templates/security_objectives/so_dashboard_base.html:96
-msgid "Creator"
-msgstr "Maker"
-
-#: theme/templates/security_objectives/so_dashboard_base.html:285
+#: theme/templates/security_objectives/so_dashboard_base.html:379
 msgid "No security objectives statements have been created yet."
-msgstr ""
+msgstr "Nog geen beveiligingsdoelstellingenverklaringen gecreëerd."
 
 #: theme/templates/two_factor/core/setup_complete.html:6
 msgid "Enable Two-Factor Authentication"
@@ -3236,3 +3464,43 @@ msgstr "Terug naar Accountbeveiliging"
 #: theme/templates/two_factor/core/setup_complete.html:30
 msgid "Add Phone Number"
 msgstr "Een telefoonnummer toevoegen"
+
+#: theme/templates/unfold/helpers/edit_inline/stacked_title.html:42
+msgid "Show or hide the details"
+msgstr ""
+
+#: theme/templates/unfold/helpers/pagination_default.html:14
+msgid "Pagination"
+msgstr ""
+
+#: theme/templates/unfold/helpers/pagination_default.html:19
+msgid "First page"
+msgstr ""
+
+#: theme/templates/unfold/helpers/pagination_default.html:27
+msgid "Previous page"
+msgstr ""
+
+#: theme/templates/unfold/helpers/pagination_default.html:46
+msgid "Next page"
+msgstr ""
+
+#: theme/templates/unfold/helpers/pagination_default.html:54
+msgid "Last page"
+msgstr ""
+
+#: theme/templates/unfold/helpers/welcomemsg.html:29
+#, python-format
+msgid "%(counter)s result"
+msgid_plural "%(counter)s results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: theme/templates/unfold/helpers/welcomemsg.html:31
+#, python-format
+msgid "%(full_result_count)s total"
+msgstr ""
+
+#: theme/templates/unfold/helpers/welcomemsg.html:33
+msgid "Show all"
+msgstr ""
