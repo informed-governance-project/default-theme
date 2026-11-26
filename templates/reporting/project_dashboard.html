@@ -249,7 +249,7 @@
             <input type="checkbox"
                    name="is_selected"
                    class="form-check-input m-0 select-all-input"
-                   data-project-id="{{ project.id }}"
+                   data-project-id="{{ project.public_id }}"
                    data-field-target="is_selected"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
@@ -277,7 +277,7 @@
                 <input type="checkbox"
                        name="statistic_selected"
                        class="form-check-input select-all-input switch-input"
-                       data-project-id="{{ project.id }}"
+                       data-project-id="{{ project.public_id }}"
                        data-field-target="statistic_selected"
                        data-bs-placement="top"
                        data-bs-toggle="tooltip"
@@ -297,7 +297,7 @@
                 <input type="checkbox"
                        name="governance_report_selected"
                        class="form-check-input select-all-input switch-input"
-                       data-project-id="{{ project.id }}"
+                       data-project-id="{{ project.public_id }}"
                        data-field-target="governance_report_selected"
                        data-bs-placement="top"
                        data-bs-toggle="tooltip"
@@ -321,7 +321,7 @@
   <div class="d-flex pt-3 justify-content-between align-items-center">
     <a role="button"
        class="btn btn-secondary d-inline-flex create_report_project"
-       href="{% url 'edit_report_project' project.id %}"
+       href="{% url 'edit_report_project' project.public_id %}"
        data-bs-toggle="modal"
        data-bs-target="#create_report_project">
       {% translate "Edit project" %}
@@ -333,7 +333,8 @@
          href="{% url 'reporting' %}">
         {% translate "Cancel" %}
       </a>
-      <form method="post" action="{% url 'generate_report_project' project.id %}">
+      <form method="post"
+            action="{% url 'generate_report_project' project.public_id %}">
         {% csrf_token %}
         <button type="submit" class="btn btn-primary">
           {% translate "Generate report(s)" %}

@@ -23,9 +23,9 @@
       </button>
     </div>
     {% if is_copy %}
-      {% url 'copy_report_project' form.instance.id as form_action %}
+      {% url 'copy_report_project' form.instance.public_id as form_action %}
     {% elif is_edit %}
-      {% url 'edit_report_project' form.instance.id as form_action %}
+      {% url 'edit_report_project' form.instance.public_id as form_action %}
     {% else %}
       {% url 'create_report_project' as form_action %}
     {% endif %}

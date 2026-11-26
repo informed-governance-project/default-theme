@@ -1,11 +1,7 @@
 $(document).ready(function () {
   $(document).on("click", ".delete_report_project", function () {
-    let $this = $(this);
     let modalDeleteForm = $("#modal-delete-report-form");
-    let deleteUrlBase = $this.data('delete-url');
-    let projectId = $this.data('project-id');
-    let deleteUrl = deleteUrlBase.replace('0', projectId);
-    modalDeleteForm.attr('action', deleteUrl);
+    modalDeleteForm.attr('action', $(this).data('delete-url'));
   });
 
   // Dashboard columns sort management
@@ -139,10 +135,7 @@ $(document).ready(function () {
   projectsRunning = $('#projects-running-data').text() ? JSON.parse($('#projects-running-data').text()) : [],
 
   projectsRunning.forEach(function(project) {
-    const projectId = Number.parseInt(project.id, 10)
-    if (Number.isNaN(projectId)) {
-      return
-    }
+    const projectId = project.public_id
     updateUI(projectId, { status: "RUNNING" })
     startPolling(projectId)
   })
