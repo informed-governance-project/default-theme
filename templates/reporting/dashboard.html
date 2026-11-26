@@ -231,26 +231,26 @@
                 <a id="open_project"
                    role="button"
                    class="btn btn-sm btn-secondary"
-                   href="{% url 'dashboard_report_project' project.id %}">
+                   href="{% url 'dashboard_report_project' project.public_id %}">
                   {% translate "Open" %}
                 </a>
                 {% with report_file_uuid=project.generated_report.last.file_uuid %}
                   <a id="download_reports"
                      role="button"
-                     data-project-id="{{ project.id }}"
+                     data-project-id="{{ project.public_id }}"
                      class="btn btn-sm btn-primary
                             {% if not report_file_uuid %}
                               disabled
                             {% endif %}"
                      {% if report_file_uuid %}
-                       href="{% url 'download_report' project.id report_file_uuid %}"
+                       href="{% url 'download_report' project.public_id report_file_uuid %}"
                      {% endif %}>
                     {% translate "Download" %} <i class="ms-2 bi bi-download"></i>
                   </a>
                 {% endwith %}
                 <a class="btn border-0 p-0 text-dark create_report_project"
                    type="button"
-                   href="{% url 'edit_report_project' project.id %}"
+                   href="{% url 'edit_report_project' project.public_id %}"
                    data-bs-toggle="modal"
                    data-bs-target="#create_report_project">
                   <i class="custom-icon-edit h4"
@@ -260,7 +260,7 @@
                   </i>
                 </a>
                 <a class="btn border-0 p-0 text-dark create_report_project"
-                   href="{% url 'copy_report_project' project.id %}"
+                   href="{% url 'copy_report_project' project.public_id %}"
                    data-bs-toggle="modal"
                    data-bs-target="#create_report_project">
                   <i class="custom-icon-duplicate h4"
@@ -270,7 +270,7 @@
                   </i>
                 </a>
                 <button class="btn border-0 p-0 text-dark reporting_access_log"
-                        data-project-id="{{ project.id }}"
+                        data-project-id="{{ project.public_id }}"
                         type="button">
                   <i class="custom-icon-log h4"
                      data-bs-placement="top"
@@ -280,8 +280,8 @@
                 </button>
                 <button class="btn border-0 p-0 delete_report_project"
                         type="button"
-                        data-project-id="{{ project.id }}"
-                        data-delete-url="{% url 'delete_report_project' 0 %}"
+                        data-project-id="{{ project.public_id }}"
+                        data-delete-url="{% url 'delete_report_project' project.public_id %}"
                         data-bs-toggle="modal"
                         data-bs-target="#delete_report_project">
                   <i class="custom-icon-trash h4"
