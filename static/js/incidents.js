@@ -1,6 +1,3 @@
-// Templates reverse per-row URLs with this UUID, which the script swaps for the row's own.
-const URL_ID_PLACEHOLDER = '00000000-0000-0000-0000-000000000000';
-
 $(document).ready(function () {
   $(document).on("click", '.access_log', function () {
     var $popup = $("#access_log");

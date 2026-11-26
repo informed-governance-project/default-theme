@@ -75,8 +75,8 @@ $(document).ready(function () {
     modal.hide();
   }
 
-  function pollExportStatus(exportId, attempt = 1) {
-    fetch(`/securityobjectives/export/${exportId}/status`, {
+  function pollExportStatus(exportUuid, attempt = 1) {
+    fetch(`/securityobjectives/export/${exportUuid}/status`, {
       headers: { 'X-Requested-With': 'XMLHttpRequest' },
     })
       .then(response => response.json())
@@ -88,7 +88,7 @@ $(document).ready(function () {
             showMessages(buildAlert(gettext('The export is taking longer than expected. Please try again later.')));
             return;
           }
-          setTimeout(() => pollExportStatus(exportId, attempt + 1), POLL_INTERVAL_MS);
+          setTimeout(() => pollExportStatus(exportUuid, attempt + 1), POLL_INTERVAL_MS);
           return;
         }
 
@@ -128,7 +128,7 @@ $(document).ready(function () {
           return;
         }
 
-        pollExportStatus(data.export_id);
+        pollExportStatus(data.export_uuid);
       })
       .catch(error => {
         console.error('Error:', error);

@@ -20,7 +20,7 @@
       <div>
         {% blocktranslate with submit_date=newer_version.submit_date|date:"d/m/y H:i" %}The operator submitted a newer version of this declaration on {{ submit_date }}. This version can no longer be reviewed.{% endblocktranslate %}
         <a class="alert-link"
-           href="{% url 'so_declaration' %}?id={{ newer_version.id }}">{% translate "Open the newer version" %}</a>
+           href="{% url 'so_declaration' %}?id={{ newer_version.public_id }}">{% translate "Open the newer version" %}</a>
       </div>
     </div>
   {% endif %}
@@ -110,7 +110,7 @@
             {% if is_regulator %}
               <button type="button"
                       class="btn border-0 p-0 review_comment_so_declaration"
-                      data-standard-answer-id="{{ standard_answer.id }}"
+                      data-standard-answer-id="{{ standard_answer.public_id }}"
                       data-only-review-comment="true"
                       data-bs-toggle="modal"
                       data-bs-target="#review_comment_so_declaration">
@@ -121,7 +121,7 @@
             {% else %}
               {% if standard_answer.review_comment and standard_answer.is_review_sent %}
                 <button class="btn border-0 p-0 review_comment_so_declaration"
-                        data-standard-answer-id="{{ standard_answer.id }}"
+                        data-standard-answer-id="{{ standard_answer.public_id }}"
                         data-bs-toggle="modal"
                         data-bs-target="#review_comment_so_declaration">
                   <i class="custom-icon-comments h3"
@@ -176,14 +176,14 @@
                       {% if not standard_answer.ready_to_send %}
                         disabled
                       {% endif %}
-                      data-standard-answer-id="{{ standard_answer.id }}"
+                      data-standard-answer-id="{{ standard_answer.public_id }}"
                       data-bs-toggle="modal"
                       data-bs-target="#review_comment_so_declaration">
                 {% translate "Send" %}
                 <i class="custom-icon-submit h4"></i>
               </button>
             {% elif standard_answer.status == "UNDE" %}
-              <form id="so_declaration_submit_form" method="post" action="{% url 'submit_so_declaration' standard_answer.id %}">
+              <form id="so_declaration_submit_form" method="post" action="{% url 'submit_so_declaration' standard_answer.public_id %}">
                 {% csrf_token %}
                 <button id="so_submit_button" type="submit" 
                     class="btn btn-passed
