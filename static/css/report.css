@@ -147,7 +147,13 @@ body {
 }
 
        .word-break-all {
-    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+/* An auto-layout table measures each cell's min-content width, which WeasyPrint does in quadratic time
+   on long free-text answers and times out the gunicorn worker. */
+       .table-fixed {
+    table-layout: fixed;
 }
 
        .header-logo {
@@ -162,9 +168,14 @@ body {
 }
 
 
+       #declaration_table {
+    table-layout: fixed;
+}
+
        #declaration_table> :not(caption)>*>* {
     padding: 1rem;
     font-size: 11px;
+    overflow-wrap: break-word;
 }
 
        .switch {

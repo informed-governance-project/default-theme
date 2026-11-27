@@ -14,10 +14,10 @@ $(document).ready(function () {
     let tooltip_comment = gettext("Comment");
 
     versions.forEach(function (version) {
-      let reviewUrl = `${reviewUrlBase}?id=${version.id}`;
-      let downloadUrl = downloadUrlBase.replace('0', version.id);
+      let reviewUrl = `${reviewUrlBase}?id=${version.public_id}`;
+      let downloadUrl = downloadUrlBase.replace(URL_ID_PLACEHOLDER, version.public_id);
       let date = new Date(version.submit_date);
-      let id = version.id;
+      let id = version.public_id;
       let status_class = version.status_class;
       let status_icon = version.status_icon;
       let status_tooltip = version.status_tooltip;
@@ -95,10 +95,7 @@ $(document).ready(function () {
   $(document).on("click", ".delete_so_declaration", function () {
     let $this = $(this);
     let modalDeleteForm = $("#modal-delete-declaration-form");
-    let deleteUrlBase = $this.data('delete-url');
-    let standardAnswerId = $this.data('standard-answer-id');
-    let deleteUrl = deleteUrlBase.replace('0', standardAnswerId);
-    modalDeleteForm.attr('action', deleteUrl);
+    modalDeleteForm.attr('action', $this.data('delete-url'));
   });
 
   $(document).on("click", ".update_so_declaration", function () {

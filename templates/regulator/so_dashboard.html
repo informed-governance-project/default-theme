@@ -13,7 +13,7 @@
         <button id="so_submit_button"
                 type="button"
                 class="rounded-pill btn btn-sm btn-passed w-75 review_comment_so_declaration"
-                data-standard-answer-id="{{ standard.id }}"
+                data-standard-answer-id="{{ standard.public_id }}"
                 data-bs-toggle="modal"
                 data-bs-target="#review_comment_so_declaration">
           {% translate "Send" %}
@@ -46,7 +46,7 @@
             {% if standard.status == 'UNDE' %}
               disabled
             {% endif %}"
-     href="{% url 'so_declaration' %}?id={{ standard.id }}"
+     href="{% url 'so_declaration' %}?id={{ standard.public_id }}"
      {% if standard.status == 'UNDE' %}
        aria-disabled="true" disabled
      {% endif %}>
@@ -59,7 +59,7 @@
   <!-- Review comment -->
   {% if standard.reviewed_percentage == 100 and standard.status in ",PASS,FAIL,DELIV," %}
     <button class="btn border-0 p-0 review_comment_so_declaration"
-            data-standard-answer-id="{{ standard.id }}"
+            data-standard-answer-id="{{ standard.public_id }}"
             data-bs-toggle="modal"
             data-bs-target="#review_comment_so_declaration">
       <i class="custom-icon-comments-add h4"
@@ -70,7 +70,7 @@
     </button>
   {% elif standard.is_review_sent %}
     <button class="btn border-0 p-0 review_comment_so_declaration"
-            data-standard-answer-id="{{ standard.id }}"
+            data-standard-answer-id="{{ standard.public_id }}"
             data-bs-toggle="modal"
             data-bs-target="#review_comment_so_declaration">
       <i class="custom-icon-comments h4"
@@ -87,7 +87,7 @@
   {% endif %}
   <!-- PDF Download -->
   <a class="btn border-0 p-0 js-async-pdf"
-     href="{% url 'download_so_declaration_pdf' standard.id %}">
+     href="{% url 'download_so_declaration_pdf' standard.public_id %}">
     <i class="custom-icon-pdf h4"
        data-bs-placement="top"
        data-bs-toggle="tooltip"
@@ -96,8 +96,7 @@
   </a>
   <!-- Delete -->
   <button class="btn border-0 p-0 delete_so_declaration"
-          data-standard-answer-id="{{ standard.id }}"
-          data-delete-url="{% url 'delete_so_declaration' 0 %}"
+          data-delete-url="{% url 'delete_so_declaration' standard.public_id %}"
           data-bs-toggle="modal"
           data-bs-target="#delete_so_declaration">
     <i class="custom-icon-trash h4"

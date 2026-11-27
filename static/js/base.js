@@ -15,6 +15,9 @@ $(document).ajaxError(function (event, xhr) {
   }
 });
 
+// Templates reverse per-row URLs with this UUID, which the script swaps for the row's own.
+const URL_ID_PLACEHOLDER = '00000000-0000-0000-0000-000000000000';
+
 var datatableTranslations = {
   info: gettext("Showing _START_ to _END_ of _TOTAL_ entries"),
   lengthMenu: gettext("_MENU_ entries per page"),

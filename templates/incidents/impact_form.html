@@ -1,5 +1,5 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
-<div>
+<div data-question-id="{{ wizard.form.impacts.name }}">
   {% bootstrap_field wizard.form.impacts show_label=False %}
 </div>
