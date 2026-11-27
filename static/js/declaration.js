@@ -415,8 +415,9 @@ function createConditionalSeparator() {
 
 // Renders one previous-answer node into the container. Choice nodes render
 // disabled radios/checkboxes; any conditional child questions the answer
-// triggered are rendered as blocks after the trigger question. Text nodes
-// (free-text / date / country lists) render as plain text.
+// triggered are rendered as blocks after the trigger question. Group nodes
+// render each child node in turn. Text nodes (free-text / date / country
+// lists) render as plain text.
 function renderPreviousNode(container, node) {
   if (!node) {
     return;
@@ -476,6 +477,13 @@ function renderPreviousNode(container, node) {
         return;
       }
       container.appendChild(createConditionalSeparator());
+      const block = document.createElement("div");
+      container.appendChild(block);
+      renderPreviousNode(block, child);
+    });
+  } else if (node.kind === "group") {
+    // Impacts: one block of choices per affected sector.
+    (node.children || []).forEach(function (child) {
       const block = document.createElement("div");
       container.appendChild(block);
       renderPreviousNode(block, child);
